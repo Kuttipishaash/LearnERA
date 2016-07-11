@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LearnERA</string>
+    <string name="backHome1">Take Me Back Home!</string>
+    <string name="backHome2">Nah! Not Anymore</string>
+    <string name="login">Enter My ERA</string>
+    <string name="next">Yo! Proceed</string>
+    <string name="previous">Oops! Let Me Go Back</string>
+    <string name="signUp">Begin My ERA of Learning</string>
+    <string name="signUpTitle">Sign Up</string>
+    <string name="passwordField">Password</string>
+    <string name="loginField">ERA ID</string>
+    <string name="logOut">Lock Up My ERA&#8230; Got to go&#8230;</string>
+</resources>
