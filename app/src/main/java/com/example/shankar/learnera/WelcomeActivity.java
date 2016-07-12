@@ -6,41 +6,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        Button signUp=(Button)findViewById(R.id.signUpButton);
-        signUp.setOnClickListener(this);
-        Button logIn=(Button)findViewById(R.id.loginButton);
-        logIn.setOnClickListener(this);
-        Button announcements=(Button)findViewById(R.id.announcementsButton);
-        announcements.setOnClickListener(this);
 
+        Button signUp = (Button) findViewById(R.id.signUpButton);
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
+            }
+        });
 
-    }
-    @Override
-    public void onClick(View v){
-        switch (v.getId()) {
+        Button logIn = (Button) findViewById(R.id.loginButton);
+        logIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+            }
+        });
 
-            case R.id.signUpButton:
-                startActivity(new Intent(WelcomeActivity.this,SignUpActivity.class));
-                break;
-
-            case R.id.loginButton:
-
-                startActivity(new Intent(WelcomeActivity.this,LoginActivity.class));
-                break;
-
-            case R.id.announcementsButton:
-                startActivity(new Intent(WelcomeActivity.this,AnnouncementsActivity.class));
-                break;
-
-            default:
-                break;
-        }
+        Button announcements = (Button) findViewById(R.id.announcementsButton);
+        announcements.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
+            }
+        });
 
     }
+
 }
