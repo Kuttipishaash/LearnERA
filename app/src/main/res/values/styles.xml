@@ -7,22 +7,5 @@
         <item name="colorPrimaryDark">@color/md_deep_orange_700</item>
         <item name="colorAccent">@color/md_light_blue_900</item>
     </style>
-    <style name="WelcomeButtons" parent="@style/AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="WelcomeText" parent="@style/AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_horizontal</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-    </style>
-    <style name="LoginButtons" parent="@style/AppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
 
 </resources>

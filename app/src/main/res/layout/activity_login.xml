@@ -23,27 +23,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Knock! Knock! \n Who is this???"
-            android:id="@+id/textView4" />
+            android:text="@string/login_ask_username" />
 
         <EditText
+            android:id="@+id/edit_login_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/loginField"
-            android:id="@+id/editText" />
+            android:hint="@string/login_field"
+             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="and do you have your key???"
-            android:id="@+id/textView5" />
+            android:text="@string/login_ask_password" />
 
         <EditText
+            android:id="@+id/edit_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/passwordField"
-            android:inputType="textPassword"
-            android:id="@+id/editText2" />
+            android:hint="@string/password_field"
+            android:inputType="textPassword" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,14 +54,16 @@
         android:layout_below="@id/linearLayout3">
 
         <Button
-            style="@style/LoginButtons"
-            android:text="@string/backHome1"
-            android:id="@+id/button" />
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/navigate_back_home"
+            android:id="@+id/button_nav_home" />
 
         <Button
-                style="@style/LoginButtons"
-                android:text="@string/login"
-                android:id="@+id/button2" />
+            android:id="@+id/button_enter_login"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/login" />
     </LinearLayout>
 
 

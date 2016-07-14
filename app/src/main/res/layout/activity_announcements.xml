@@ -15,19 +15,17 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hey you! Have a peek over here..."
-        android:id="@+id/textView6" />
+        android:text="@string/announcement_title" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:id="@+id/scrollView" />
+        android:layout_weight="8" />
 
     <Button
+        android:id="@+id/button_nav_home"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:text="@string/backHome1"
-        android:layout_weight="1"
-        android:id="@+id/button3" />
+        android:text="@string/navigate_back_home"
+        android:layout_weight="1" />
 </LinearLayout>

@@ -19,20 +19,25 @@
         android:layout_marginBottom="82dp">
 
         <TextView
-            style="@style/WelcomeText"
-            android:text="Welcome"
-            android:id="@+id/textView"
-             />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/welcome" />
 
         <TextView
-            style="@style/WelcomeText"
-            android:text="to"
-            android:id="@+id/textView2" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/to" />
 
         <TextView
-            style="@style/WelcomeText"
-            android:text="LearnERA"
-            android:id="@+id/textView3"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/app_name" />
     </LinearLayout>
 
     <LinearLayout
@@ -46,19 +51,22 @@
         android:layout_marginBottom="82dp">
 
         <Button
-            style="@style/WelcomeButtons"
-            android:text="@string/signUp"
-            android:id="@+id/signUpButton" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup"
+            android:id="@+id/button_signup" />
 
         <Button
-            style="@style/WelcomeButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/login"
-            android:id="@+id/loginButton" />
+            android:id="@+id/button_login" />
 
         <Button
-            style="@style/WelcomeButtons"
-            android:text="What&apos;s Up??"
-            android:id="@+id/announcementsButton" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/announcement_main"
+            android:id="@+id/button_announcement" />
 
         <Button
             android:layout_height="match_parent"

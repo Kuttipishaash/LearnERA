@@ -50,7 +50,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
         /** addSlide(new FragmentSlide.Builder()
                 .background(R.color.colorPrimary)
                 .backgroundDark(R.color.colorPrimaryDark)
-                .fragment(R.layout.fragment_intro_contact, R.style.Theme_Intro)
+                .fragment(R.layout.fragment_intro_login, R.style.Theme_Intro)
                 .build());
          **/
     }

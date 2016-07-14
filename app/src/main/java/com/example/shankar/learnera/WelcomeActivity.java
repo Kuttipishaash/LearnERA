@@ -15,24 +15,24 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        Button signUp = (Button) findViewById(R.id.signUpButton);
-        signUp.setOnClickListener(new View.OnClickListener() {
+        Button mSignUp = (Button) findViewById(R.id.button_signup);
+        mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
             }
         });
 
-        Button logIn = (Button) findViewById(R.id.loginButton);
-        logIn.setOnClickListener(new View.OnClickListener() {
+        Button mLogIn = (Button) findViewById(R.id.button_login);
+        mLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
             }
         });
 
-        Button announcements = (Button) findViewById(R.id.announcementsButton);
-        announcements.setOnClickListener(new View.OnClickListener() {
+        Button mAnnouncement = (Button) findViewById(R.id.button_announcement);
+        mAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
@@ -40,15 +40,15 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         //TODO FOR DEBUGGING INTRO SCREENS. REMOVE!!!
-        Button intro = (Button) findViewById(R.id.tester);
-        intro.setOnClickListener(new View.OnClickListener() {
+        Button mBullshit = (Button) findViewById(R.id.tester);
+        mBullshit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
             }
         });
 
-        Thread thread = new Thread(new Runnable() {
+        Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
@@ -61,6 +61,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 }
             }
         });
-        thread.start();
+        mThread.start();
     }
 }

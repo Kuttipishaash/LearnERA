@@ -4,31 +4,40 @@
     <!-- Strings for intro screens -->
     <string name="intro_welcome_title">Welcome to LearnERA</string>
     <string name="intro_welcome_desc">The new ERA of education</string>
-
     <string name="intro_attendance_title">Attendance</string>
     <string name="intro_attendance_desc">What you gained and what you missed, in a glance</string>
-
     <string name="intro_marks_title">Marks</string>
     <string name="intro_marks_desc">Knowledge aint about the marks you scored but have a look anyway</string>
-
     <string name="intro_points_title">Activity Points</string>
     <string name="intro_points_desc">See what you did beyond the textbooks</string>
-
     <string name="intro_contacts_title">Contacts</string>
     <string name="intro_contacts_desc">Contact your teachers and other college staff with just a click</string>
-
     <string name="intro_login_desc">Please login to use the application</string>
-    <!-- Strings for intro screen ends -->
 
-    <string name="pref_previously_started">first_start</string>
-    <string name="backHome1">Take Me Back Home!</string>
-    <string name="backHome2">Nah! Not Anymore</string>
-    <string name="login">Enter My ERA</string>
+
+    <!-- Navigation strings -->
+    <string name="navigate_back_home">Take Me Back Home!</string>
+    <string name="navigate_back_home_not">Nah! Not Anymore</string>
     <string name="next">Yo! Proceed</string>
     <string name="previous">Oops! Let Me Go Back</string>
-    <string name="signUp">Begin My ERA of Learning</string>
-    <string name="signUpTitle">Sign Up</string>
-    <string name="passwordField">Password</string>
-    <string name="loginField">ERA ID</string>
-    <string name="logOut">Lock Up My ERA&#8230; Got to go&#8230;</string>
+
+
+    <!-- Login and related strings -->
+    <string name="login_ask_username">Knock! Knock! \n Who is this???</string>
+    <string name="login_ask_password">and do you have your key???</string>
+    <string name="signup">Begin My ERA of Learning</string>
+    <string name="login">Enter My ERA</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="password_field">Password</string>
+    <string name="login_field">ERA ID</string>
+    <string name="logout">Lock Up My ERA&#8230; Got to go&#8230;</string>
+
+
+    <!-- Others -->
+    <string name="announcement_title">Hey you! Have a peek over here...</string>
+    <string name="announcement_main">Whats up</string>
+    <string name="pref_previously_started">first_start</string>
+    <string name="welcome">Welcome</string>
+    <string name="to">to</string>
+
 </resources>
