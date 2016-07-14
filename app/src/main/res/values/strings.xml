@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">LearnERA</string>
+
+    <!-- Strings for intro screens -->
+    <string name="intro_welcome_title">Welcome to LearnERA</string>
+    <string name="intro_welcome_desc">The new ERA of education</string>
+
+    <string name="intro_attendance_title">Attendance</string>
+    <string name="intro_attendance_desc">What you gained and what you missed, in a glance</string>
+
+    <string name="intro_marks_title">Marks</string>
+    <string name="intro_marks_desc">Knowledge aint about the marks you scored but have a look anyway</string>
+
+    <string name="intro_points_title">Activity Points</string>
+    <string name="intro_points_desc">See what you did beyond the textbooks</string>
+
+    <string name="intro_contacts_title">Contacts</string>
+    <string name="intro_contacts_desc">Contact your teachers and other college staff with just a click</string>
+
+    <string name="intro_login_desc">Please login to use the application</string>
+    <!-- Strings for intro screen ends -->
+
+    <string name="pref_previously_started">first_start</string>
     <string name="backHome1">Take Me Back Home!</string>
     <string name="backHome2">Nah! Not Anymore</string>
     <string name="login">Enter My ERA</string>
