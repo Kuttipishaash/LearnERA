@@ -46,12 +46,11 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .fragment(R.layout.fragment_intro_contact, R.style.Theme_Intro)
                 .build());
 
-        //TODO: Make custom fragment for login button
-        /** addSlide(new FragmentSlide.Builder()
-                .background(R.color.colorPrimary)
-                .backgroundDark(R.color.colorPrimaryDark)
+        addSlide(new FragmentSlide.Builder()
+                .background(R.color.md_deep_purple_400)
+                .backgroundDark(R.color.md_deep_purple_700)
                 .fragment(R.layout.fragment_intro_login, R.style.Theme_Intro)
                 .build());
-         **/
+
     }
 }
