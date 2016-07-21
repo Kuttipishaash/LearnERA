@@ -32,6 +32,8 @@
     <string name="login_field">ERA ID</string>
     <string name="logout">Lock Up My ERA&#8230; Got to go&#8230;</string>
 
+    <!-- Action Bar strings -->
+    <string name="action_announcement_help">Help</string>
 
     <!-- Others -->
     <string name="announcement_title">Hey you! Have a peek over here...</string>
@@ -39,5 +41,6 @@
     <string name="pref_previously_started">first_start</string>
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
-
+    <string name="attendance">Attendance</string>
+    1
 </resources>

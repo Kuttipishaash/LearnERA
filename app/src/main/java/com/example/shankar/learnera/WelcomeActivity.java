@@ -39,6 +39,14 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+        Button mAttendance = (Button) findViewById(R.id.button_attendance);
+        mAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+            }
+        });
+
         //TODO FOR DEBUGGING INTRO SCREENS. REMOVE!!!
         Button mBullshit = (Button) findViewById(R.id.tester);
         mBullshit.setOnClickListener(new View.OnClickListener() {

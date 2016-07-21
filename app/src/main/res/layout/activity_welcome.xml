@@ -71,6 +71,12 @@
         <Button
             android:layout_height="match_parent"
             android:layout_width="match_parent"
+            android:text="@string/attendance"
+            android:id="@+id/button_attendance" />
+
+        <Button
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
             android:text="INTRO"
             android:id="@+id/tester" />
     </LinearLayout>
