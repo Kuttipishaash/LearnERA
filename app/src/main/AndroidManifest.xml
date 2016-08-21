@@ -25,9 +25,6 @@
             android:name=".AttendanceActivity"
             android:label="Attendance" />
 
-        <activity android:name=".HelpActivity"
-            android:label="Help button menu" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/login" />
@@ -38,6 +35,15 @@
         <activity android:name=".IntroActivity"
             android:label="Introduction"
             android:theme="@style/Theme.Intro"/>
+
+        <activity android:name=".ActivityPointsActivity"
+            android:label="Activity Points"/>
+
+        <activity android:name=".MarksActivity"
+            android:label="Marks" />
+
+        <activity android:name=".ContactsActivity"
+            android:label="Contacts" />
 
     </application>
 

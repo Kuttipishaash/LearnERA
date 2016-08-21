@@ -11,38 +11,45 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 /**
- * Created by Prejith on 7/20/2016.
+ * Created by Prejith on 8/8/2016.
  */
-
-public class AttendanceActivity extends AppCompatActivity {
+public class MarksActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attendance);
+        setContentView(R.layout.activity_marks);
 
-        //TODO: Make a dynamic implementation of the spinner and set default semester to current semester of student
+        //TODO: Same as spinner in AttendanceActivity
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_attendance);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+        Spinner spinner1 = (Spinner) findViewById(R.id.spinner_marks_semesters);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
                 this,
                 R.array.array_semesters,
                 android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
+
+        Spinner spinner2 = (Spinner) findViewById(R.id.spinner_marks_category);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+                this,
+                R.array.array_categories,
+                android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_attendance, menu);
+        menuInflater.inflate(R.menu.menu_marks, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case(R.id.action_attendance_help):
+            case(R.id.action_marks_help):
                 showHelp();
                 return true;
             default:
@@ -51,9 +58,9 @@ public class AttendanceActivity extends AppCompatActivity {
     }
 
     private void showHelp() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(AttendanceActivity.this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(MarksActivity.this);
         alert.setTitle(R.string.action_announcement_help)
-                .setMessage(R.string.help_attendance_message)
+                .setMessage(R.string.help_marks_message)
                 .setPositiveButton(R.string.ok, null)
                 .show();
     }

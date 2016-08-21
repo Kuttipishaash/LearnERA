@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout2"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="82dp">
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,16 +69,29 @@
             android:id="@+id/button_announcement" />
 
         <Button
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="@string/attendance"
             android:id="@+id/button_attendance" />
 
         <Button
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="INTRO"
-            android:id="@+id/tester" />
+            android:text="@string/activity_points"
+            android:id="@+id/button_activity_points" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/marks"
+            android:id="@+id/button_marks" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contacts"
+            android:id="@+id/button_contacts"/>
+
     </LinearLayout>
 
 </RelativeLayout>

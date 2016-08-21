@@ -47,12 +47,27 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        //TODO FOR DEBUGGING INTRO SCREENS. REMOVE!!!
-        Button mBullshit = (Button) findViewById(R.id.tester);
-        mBullshit.setOnClickListener(new View.OnClickListener() {
+        Button mActivityPoints = (Button)findViewById(R.id.button_activity_points);
+        mActivityPoints.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, ActivityPointsActivity.class));
+            }
+        });
+
+        Button mMarks = (Button) findViewById(R.id.button_marks);
+        mMarks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
+            }
+        });
+
+        Button mContacts = (Button) findViewById(R.id.button_contacts);
+        mContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
             }
         });
 
