@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "648160879189",
+    "firebase_url": "https://learnera-a6ea2.firebaseio.com",
+    "project_id": "learnera-a6ea2",
+    "storage_bucket": "learnera-a6ea2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648160879189:android:00e9c866e3c16b85",
+        "android_client_info": {
+          "package_name": "com.example.shankar.learnera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "648160879189-lqlo7277klfuevqguun4cf26rearqrls.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shankar.learnera",
+            "certificate_hash": "35B2C61C052F95A2DE456685AA2182D2E40FEF7D"
+          }
+        },
+        {
+          "client_id": "648160879189-t5sftcct4ss7ll3sebjcjmfrltudl5q3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAypqpOCKRF3hb8gdMNs-esr2HGHJsIwv8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "648160879189-t5sftcct4ss7ll3sebjcjmfrltudl5q3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

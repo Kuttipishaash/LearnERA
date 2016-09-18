@@ -10,20 +10,25 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by Prejith on 7/20/2016.
  */
 
 public class AttendanceActivity extends AppCompatActivity {
 
+    @BindView(R.id.spinner_attendance) Spinner spinner;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
+        ButterKnife.bind(this);
 
         //TODO: Make a dynamic implementation of the spinner and set default semester to current semester of student
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner_attendance);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.array_semesters,
