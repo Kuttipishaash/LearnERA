@@ -7,61 +7,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class WelcomeActivity extends AppCompatActivity {
+
+    @BindView(R.id.button_signup) Button mSignUp;
+    @BindView(R.id.button_login) Button mLogIn;
+    @BindView(R.id.button_announcement) Button mAnnouncement;
+    @BindView(R.id.button_attendance) Button mAttendance;
+    @BindView(R.id.button_activity_points) Button mActivityPoints;
+    @BindView(R.id.button_marks) Button mMarks;
+    @BindView(R.id.button_contacts) Button mContacts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
-        Button mSignUp = (Button) findViewById(R.id.button_signup);
-        mSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
-            }
-        });
-
-        Button mLogIn = (Button) findViewById(R.id.button_login);
-        mLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
-            }
-        });
-
-        Button mAnnouncement = (Button) findViewById(R.id.button_announcement);
-        mAnnouncement.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
-            }
-        });
-
-        Button mAttendance = (Button) findViewById(R.id.button_attendance);
-        mAttendance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
-            }
-        });
-
-        //TODO FOR DEBUGGING INTRO SCREENS. REMOVE!!!
-        Button mBullshit = (Button) findViewById(R.id.tester);
-        mBullshit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
-            }
-        });
+        ButterKnife.bind(this);
 
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                 boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
-                if(!previouslyStarted) {
+                if (!previouslyStarted) {
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putBoolean(getString(R.string.pref_previously_started), true);
                     editor.apply();
@@ -70,5 +41,34 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
         mThread.start();
+    }
+
+    @OnClick(R.id.button_signup) void signUp() {
+        startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
+    }
+
+    @OnClick(R.id.button_login) void login() {
+        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+    }
+
+    @OnClick(R.id.button_announcement) void announcement() {
+        startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
+    }
+
+    @OnClick(R.id.button_attendance) void attendance() {
+        startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+    }
+
+    @OnClick(R.id.button_activity_points) void activityPoints() {
+        startActivity(new Intent(WelcomeActivity.this, ActivityPointsActivity.class));
+    }
+
+    @OnClick(R.id.button_marks) void marks() {
+        startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
+    }
+
+    @OnClick(R.id.button_contacts) void contacts() {
+        startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
+
     }
 }

@@ -19,7 +19,7 @@
         android:fontFamily="sans-serif-thin"
         android:textColor="#ffffff"
         android:paddingRight="32dp"
-        android:textSize="30sp"
+        android:textSize="35sp"
         android:text="@string/intro_contacts_title"/>
 
     <LinearLayout

@@ -35,6 +35,13 @@
     <!-- Action Bar strings -->
     <string name="action_announcement_help">Help</string>
 
+    <!-- Dialog Boxes -->
+    <string name="help_attendance_message">If you have below 75% attendance, contact your class teacher immediately</string>
+    <string name="help_activity_points_message">You need at least 100 points to pass this degree</string>
+    <string name="help_marks_message">You need a minimum of 45% in internals as well as end semester examination to get the required
+    credits to pass that subject</string>
+    <string name="help_contacts_message">Feel free to contact faculties with the below given contact details</string>
+
     <!-- Others -->
     <string name="announcement_title">Hey you! Have a peek over here...</string>
     <string name="announcement_main">Whats up</string>
@@ -42,5 +49,27 @@
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
     <string name="attendance">Attendance</string>
-    1
+    <string name="ok">Ok</string>
+    <string name="activity_points">Activity Points</string>
+    <string name="marks">Marks</string>
+    <string name="total_activity_points">Points earned: </string>
+    <string name="Contacts">Contacts</string>
+
+    <!-- String arrays -->
+    <string-array name="array_semesters">
+        <item name="sem1">Semester 1</item>
+        <item name="sem2">Semester 2</item>
+        <item name="sem3">Semester 3</item>
+        <item name="sem4">Semester 4</item>
+        <item name="sem5">Semester 5</item>
+        <item name="sem6">Semester 6</item>
+        <item name="sem7">Semester 7</item>
+        <item name="sem8">Semester 8</item>
+    </string-array>
+
+    <string-array name="array_categories">
+        <item name="internal">Internals</item>
+        <item name="semester_exam">Semester Exam</item>
+    </string-array>
+
 </resources>
