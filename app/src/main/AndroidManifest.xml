@@ -2,13 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shankar.learnera">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,34 +17,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".AnnouncementsActivity"
             android:label="Announcements (GENERAL)" />
-
         <activity
             android:name=".AttendanceActivity"
             android:label="Attendance" />
-
         <activity
             android:name=".LoginActivity"
             android:label="@string/login" />
-
-        <activity android:name=".SignUpActivity"
-            android:label="@string/signup_title" />
-
-        <activity android:name=".IntroActivity"
+        <activity
+            android:name=".IntroActivity"
             android:label="Introduction"
-            android:theme="@style/Theme.Intro"/>
-
-        <activity android:name=".ActivityPointsActivity"
-            android:label="Activity Points"/>
-
-        <activity android:name=".MarksActivity"
+            android:theme="@style/Theme.Intro" />
+        <activity
+            android:name=".ActivityPointsActivity"
+            android:label="Activity Points" />
+        <activity
+            android:name=".MarksActivity"
             android:label="Marks" />
-
-        <activity android:name=".ContactsActivity"
+        <activity
+            android:name=".ContactsActivity"
             android:label="Contacts" />
+        <activity android:name=".TestActivity"
+            android:label="TEST ZONE" />
+
+        <provider
+            android:authorities="com.example.shankar.learnera"
+            android:name=".data.AnnouncementProvider"
+            android:exported="false"/>
+            <!--Set exported to true to accress the provider with external apps-->
+
 
     </application>
 

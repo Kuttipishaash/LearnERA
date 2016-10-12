@@ -53,14 +53,14 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signup"
-            android:id="@+id/button_signup" />
+            android:text="@string/login"
+            android:id="@+id/button_login" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/login"
-            android:id="@+id/button_login" />
+            android:text="TESTING ACTIVITY"
+            android:id="@+id/button_test" />
 
         <Button
             android:layout_width="match_parent"

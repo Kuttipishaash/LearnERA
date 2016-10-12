@@ -7,13 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WelcomeActivity extends AppCompatActivity {
-
-    @BindView(R.id.button_signup) Button mSignUp;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
     @BindView(R.id.button_login) Button mLogIn;
     @BindView(R.id.button_announcement) Button mAnnouncement;
     @BindView(R.id.button_attendance) Button mAttendance;
@@ -24,6 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
@@ -43,12 +49,13 @@ public class WelcomeActivity extends AppCompatActivity {
         mThread.start();
     }
 
-    @OnClick(R.id.button_signup) void signUp() {
-        startActivity(new Intent(WelcomeActivity.this, SignUpActivity.class));
-    }
 
     @OnClick(R.id.button_login) void login() {
         startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+    }
+
+    @OnClick(R.id.button_test) void test() {
+        startActivity(new Intent(WelcomeActivity.this, TestActivity.class));
     }
 
     @OnClick(R.id.button_announcement) void announcement() {

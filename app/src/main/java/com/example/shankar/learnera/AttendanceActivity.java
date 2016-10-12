@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.firebase.client.Firebase;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -35,6 +37,7 @@ public class AttendanceActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
     }
 
     @Override

@@ -46,6 +46,7 @@
     <string name="announcement_title">Hey you! Have a peek over here...</string>
     <string name="announcement_main">Whats up</string>
     <string name="pref_previously_started">first_start</string>
+    <string name="signed_in">signed_out</string>
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
     <string name="attendance">Attendance</string>
@@ -68,7 +69,9 @@
     </string-array>
 
     <string-array name="array_categories">
-        <item name="internal">Internals</item>
+        <item name="internal1">First Internals</item>
+        <item name="internal2">Second Internals</item>
+        <item name="assignment">Assignment</item>
         <item name="semester_exam">Semester Exam</item>
     </string-array>
 
