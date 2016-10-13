@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.shankar.learnera.TestActivity">
+    tools:context="com.learnera.app.TestActivity">
 
 
     <EditText
@@ -24,7 +24,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/buttonSubmitDetails" />
+        android:id="@+id/buttonAdd" />
+    <Button
+        android:text="UPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/buttonUpdate" />
 
 
 

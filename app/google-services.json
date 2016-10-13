@@ -1,53 +1,46 @@
 {
   "project_info": {
-    "project_number": "1084100183979",
-    "firebase_url": "https://fir-leranera.firebaseio.com",
-    "project_id": "firebase-leranera",
-    "storage_bucket": "firebase-leranera.appspot.com"
+    "project_number": "149198351980",
+    "firebase_url": "https://learnera-3df8b.firebaseio.com",
+    "project_id": "learnera-3df8b",
+    "storage_bucket": "learnera-3df8b.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1084100183979:android:00e9c866e3c16b85",
+        "mobilesdk_app_id": "1:149198351980:android:6fafc60b1dc1eb09",
         "android_client_info": {
-          "package_name": "com.example.shankar.learnera"
+          "package_name": "com.learnera.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1084100183979-5m5erk73ube8i42ki6kbtnbc1caf8j30.apps.googleusercontent.com",
+          "client_id": "149198351980-6deo1eua88m1hn8ub5o9medivm9ut557.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.shankar.learnera",
+            "package_name": "com.learnera.app",
             "certificate_hash": "D65F68F22970BFC38B9020C2BBD0EBD950FECC13"
           }
         },
         {
-          "client_id": "1084100183979-9pg6p2kc6e5rbrss567vpe4vl4b8j1p5.apps.googleusercontent.com",
-          "client_type": 3
-        },
-        {
-          "client_id": "1084100183979-a33msmra280fvpmmrk4ea24rdi7sc9os.apps.googleusercontent.com",
+          "client_id": "149198351980-bdrpsb4bqiq7imnacjkkt8los2akm9hb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC1ODS8U9FJ-qcTI27dmkN7_Q_WsjfjyyQ"
+          "current_key": "AIzaSyCTiArnIiRLGCpis7Xo_LSVs-vqjp6Frfc"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 2,
-          "analytics_property": {
-            "tracking_id": "UA-80629514-1"
-          }
+          "status": 1
         },
         "appinvite_service": {
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1084100183979-9pg6p2kc6e5rbrss567vpe4vl4b8j1p5.apps.googleusercontent.com",
+              "client_id": "149198351980-bdrpsb4bqiq7imnacjkkt8los2akm9hb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

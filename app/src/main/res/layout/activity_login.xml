@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.shankar.learnera.LoginActivity">
+    tools:context="com.learnera.app.LoginActivity">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/sign_in_button"
@@ -16,35 +16,4 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:text="Condition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textViewCondition"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="189dp" />
-
-    <Button
-        android:text="Foggy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonSunny"
-        android:layout_toRightOf="@+id/buttonSunny"
-        android:layout_toEndOf="@+id/buttonSunny"
-        android:layout_marginLeft="37dp"
-        android:layout_marginStart="37dp"
-        android:id="@+id/buttonFoggy" />
-
-    <Button
-        android:text="Sunny"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginTop="86dp"
-        android:id="@+id/buttonSunny"
-        android:layout_below="@+id/textViewCondition"
-        android:layout_toLeftOf="@+id/textViewCondition"
-        android:layout_toStartOf="@+id/textViewCondition" />
 </RelativeLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.shankar.learnera">
+    package="com.learnera.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -39,16 +39,17 @@
         <activity
             android:name=".ContactsActivity"
             android:label="Contacts" />
-        <activity android:name=".TestActivity"
+        <activity
+            android:name=".TestActivity"
             android:label="TEST ZONE" />
 
         <provider
-            android:authorities="com.example.shankar.learnera"
             android:name=".data.AnnouncementProvider"
-            android:exported="false"/>
-            <!--Set exported to true to accress the provider with external apps-->
+            android:authorities="com.learnera.app"
+            android:exported="false" />
+        <!-- Set exported to true to accress the provider with external apps -->
 
-
+        <activity android:name=".Test2Activity"></activity>
     </application>
 
 </manifest>
