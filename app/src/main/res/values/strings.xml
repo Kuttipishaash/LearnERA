@@ -31,6 +31,7 @@
     <string name="password_field">Password</string>
     <string name="login_field">ERA ID</string>
     <string name="logout">Lock Up My ERA&#8230; Got to go&#8230;</string>
+    <string name="status">text</string>
 
     <!-- Action Bar strings -->
     <string name="action_announcement_help">Help</string>
@@ -74,5 +75,8 @@
         <item name="assignment">Assignment</item>
         <item name="semester_exam">Semester Exam</item>
     </string-array>
+
+    <!--Sensitive -->
+    <string name="web_client_id">149198351980-bdrpsb4bqiq7imnacjkkt8los2akm9hb.apps.googleusercontent.com</string>
 
 </resources>
