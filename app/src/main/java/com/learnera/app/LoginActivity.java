@@ -31,7 +31,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, View.OnClickListener{
 
     private static final String TAG = "LoginActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     public ProgressDialog mProgressDialog;
 
-    @BindView(R.id.button_sign_in) Button mSignIn;
-
     TextView mStatus;
 
     @Override
@@ -51,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
 
         mStatus = (TextView) findViewById(R.id.login_status);
+
+        findViewById(R.id.button_sign_in).setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.web_client_id))
@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 updateUI(user);
             }
         };
+
 
 /*      String x="Prabha";
         String y="shankar75031@gmail.com";
@@ -135,7 +136,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 });
     }
 
-    @OnClick(R.id.button_sign_in) void signIn() {
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if(i == R.id.button_sign_in)
+            signIn();
+    }
+
+    private void signIn() {
         Intent signIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signIntent, RC_SIGN_IN);
     }
@@ -149,6 +157,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
+
                         updateUI(null);
                     }
                 }
