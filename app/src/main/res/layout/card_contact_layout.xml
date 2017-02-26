@@ -5,47 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:padding="16dp"
     card_view:cardElevation="@dimen/cardview_default_elevation"
     card_view:cardBackgroundColor="@android:color/white"
     card_view:cardCornerRadius="@dimen/cardview_default_radius"
-    card_view:cardUseCompatPadding="true" >
+    card_view:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="16dp"
             android:orientation="vertical"
-            android:layout_weight="3">
+            android:layout_weight="3" >
 
             <TextView
                 android:id="@+id/card_contact_name"
                 android:layout_height = "wrap_content"
                 android:layout_width = "wrap_content"
-                android:text="poda"/>
+                android:textSize="24sp"
+                android:textIsSelectable="true"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/card_contact_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="pattikaalan"/>
+                android:textIsSelectable="true"
+                android:autoLink="phone"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/card_contact_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="naayintemon"/>
+                android:textIsSelectable="true"
+                android:autoLink="email"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/card_contact_image"
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:text="hut"
             android:src="@drawable/placeholder" />
     </LinearLayout>
 

@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.learnera.app.R;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 /**
@@ -44,7 +42,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.card_layout, parent, false);
+        View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.card_contact_layout, parent, false);
 
         return new ViewHolder(v);
     }
