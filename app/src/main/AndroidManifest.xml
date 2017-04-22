@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".AnnouncementsActivity"
-            android:label="Announcements (GENERAL)" />
+            android:label="Announcements" />
         <activity
             android:name=".AttendanceActivity"
             android:label="Attendance" />
@@ -40,10 +40,6 @@
             android:name=".ContactsActivity"
             android:label="Contacts" />
 
-        <provider
-            android:name=".data.AnnouncementProvider"
-            android:authorities="com.learnera.app"
-            android:exported="false" />
         <!-- Set exported to true to accress the provider with external apps -->
 
     </application>
