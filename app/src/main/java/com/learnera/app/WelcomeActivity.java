@@ -2,9 +2,9 @@ package com.learnera.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
 
 import com.firebase.client.Firebase;
@@ -16,14 +16,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
     @BindView(R.id.button_login) Button mLogIn;
     @BindView(R.id.button_announcement) Button mAnnouncement;
     @BindView(R.id.button_attendance) Button mAttendance;
     @BindView(R.id.button_activity_points) Button mActivityPoints;
     @BindView(R.id.button_marks) Button mMarks;
     @BindView(R.id.button_contacts) Button mContacts;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +51,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_login) void login() {
         startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
-    }
-
-    @OnClick(R.id.button_test) void test() {
-        startActivity(new Intent(WelcomeActivity.this, Test2Activity.class));
     }
 
     @OnClick(R.id.button_announcement) void announcement() {
