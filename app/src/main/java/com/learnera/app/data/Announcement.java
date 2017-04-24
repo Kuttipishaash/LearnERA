@@ -1,9 +1,5 @@
 package com.learnera.app.data;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created by Shankar on 23-04-2017.
  */
@@ -11,12 +7,15 @@ import java.util.Date;
 public class Announcement {
     private String mAnnouncement;
     private String mAuthor;
-    private Date mDate;
+    //private String mDate;
 
-    public Announcement(String mAnnouncement, String mAuthor, Date mDate) {
+    public Announcement() {
+    }
+
+    public Announcement(String mAnnouncement, String mAuthor) {
         this.mAnnouncement = mAnnouncement;
         this.mAuthor = mAuthor;
-        this.mDate = mDate;
+        // this.mDate = mDate;
     }
 
     public String getmAnnouncement() {
@@ -35,14 +34,13 @@ public class Announcement {
         this.mAuthor = mAuthor;
     }
 
-    public String getmDate() {
-        String date;
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        date = df.format(mDate);
-        return date;
-    }
+    //  public String getmDate() {
+    //     String date;
+//        date = df.format(mDate);
+    //       return date;
+    //   }
 
-    public void setmDate(Date mDate) {
-        this.mDate = mDate;
-    }
+    //   public void setmDate(Date mDate) {
+    //  this.mDate = mDate;
+    //}
 }

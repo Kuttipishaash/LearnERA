@@ -15,11 +15,23 @@
       },
       "oauth_client": [
         {
+          "client_id": "149198351980-522ji44l3g7jt1m6n3n9tnf1enulquj7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "149198351980-9k3b7cdgq249hqcgosddg5ao1crr60m1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.learnera.app",
+            "certificate_hash": "a38534a56fa156d23a9374d9a67f7d97433d73a5"
+          }
+        },
+        {
           "client_id": "149198351980-6deo1eua88m1hn8ub5o9medivm9ut557.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.learnera.app",
-            "certificate_hash": "D65F68F22970BFC38B9020C2BBD0EBD950FECC13"
+            "certificate_hash": "d65f68f22970bfc38b9020c2bbd0ebd950fecc13"
           }
         },
         {
@@ -40,7 +52,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "149198351980-bdrpsb4bqiq7imnacjkkt8los2akm9hb.apps.googleusercontent.com",
+              "client_id": "149198351980-522ji44l3g7jt1m6n3n9tnf1enulquj7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

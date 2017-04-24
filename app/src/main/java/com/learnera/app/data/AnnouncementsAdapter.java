@@ -33,7 +33,7 @@ public class AnnouncementsAdapter extends RecyclerView.Adapter<AnnouncementsAdap
         Announcement announcement = announcementList.get(position);
         holder.announcementTextView.setText(announcement.getmAnnouncement());
         holder.announcementAuthorTextView.setText(announcement.getmAuthor());
-        holder.announcementDateTextView.setText(announcement.getmDate());
+        //  holder.announcementDateTextView.setText(announcement.getmDate());
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AnnouncementsAdapter extends RecyclerView.Adapter<AnnouncementsAdap
             super(v);
             announcementTextView = (TextView) v.findViewById(R.id.card_announcement_text);
             announcementAuthorTextView = (TextView) v.findViewById(R.id.card_announcement_author);
-            announcementDateTextView = (TextView) v.findViewById(R.id.card_announcement_date);
+            //   announcementDateTextView = (TextView) v.findViewById(R.id.card_announcement_date);
         }
     }
 }
