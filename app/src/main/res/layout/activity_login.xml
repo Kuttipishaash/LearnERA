@@ -9,23 +9,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.learnera.app.LoginActivity">
 
+
+    <TextView
+        android:id="@+id/login_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:text="@string/googlesignin"
+        android:textAlignment="center"
+        android:textSize="50sp" />
+
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/button_sign_in"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentBottom="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/status"
-        android:ems="10"
-        android:id="@+id/login_status"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

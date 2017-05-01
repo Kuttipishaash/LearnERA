@@ -23,9 +23,7 @@
         <activity
             android:name=".AttendanceActivity"
             android:label="Attendance" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/login" />
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".IntroActivity"
             android:label="Introduction"

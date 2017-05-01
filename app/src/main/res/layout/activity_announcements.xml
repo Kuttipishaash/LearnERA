@@ -11,9 +11,43 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.learnera.app.AnnouncementsActivity">
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view_announcements"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/generalAnnouncementsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="GENERAL ANNOUNCEMENTS" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_announcements"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/personalAnnouncementsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="PERSONAL ANNOUNCEMENTS" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_announcements_personal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 </LinearLayout>
