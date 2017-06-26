@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/card_announcement_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+
+        android:textColor="@color/authui_inputTextColorDark"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/card_announcement_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textStyle="italic"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/card_announcement_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:textAlignment="viewEnd"
+        android:textSize="14sp" />
+</LinearLayout>
