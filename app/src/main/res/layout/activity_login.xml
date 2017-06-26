@@ -10,22 +10,40 @@
     tools:context="com.learnera.app.LoginActivity">
 
 
-    <TextView
-        android:id="@+id/login_detail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:text="@string/googlesignin"
-        android:textAlignment="center"
-        android:textSize="50sp" />
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/uIDEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:ems="10"
+            android:hint="RSET UID"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="15sp" />
 
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/button_sign_in"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="PASSWORD (Admission No.)"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="15sp" />
 
-
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="9"
+            android:text="LOGIN" />
+    </LinearLayout>
 </RelativeLayout>

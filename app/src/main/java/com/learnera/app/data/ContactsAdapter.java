@@ -21,20 +21,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
     private List<Contacts> contactsList;
     private Context mContext;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView mName, mMail, mPhone;
-        public ImageView mImg;
-
-        public ViewHolder(View v) {
-            super(v);
-            mName = (TextView) v.findViewById(R.id.card_contact_name);
-            mMail = (TextView) v.findViewById(R.id.card_contact_mail);
-            mPhone = (TextView) v.findViewById(R.id.card_contact_phone);
-            mImg = (ImageView) v.findViewById(R.id.card_contact_image);
-        }
-    }
-
     public ContactsAdapter(Context mContext, List<Contacts> contactsList) {
         this.mContext = mContext;
         this.contactsList = contactsList;
@@ -60,5 +46,19 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
         holder.mMail.setText(contact.getMailId());
 
         Glide.with(mContext).load(contact.getPhoto()).into(holder.mImg);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        // each data item is just a string in this case
+        public TextView mName, mMail, mPhone;
+        public ImageView mImg;
+
+        public ViewHolder(View v) {
+            super(v);
+            mName = (TextView) v.findViewById(R.id.card_contact_name);
+            mMail = (TextView) v.findViewById(R.id.card_contact_mail);
+            mPhone = (TextView) v.findViewById(R.id.card_contact_phone);
+            mImg = (ImageView) v.findViewById(R.id.card_contact_image);
+        }
     }
 }

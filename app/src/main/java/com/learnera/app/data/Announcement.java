@@ -5,42 +5,34 @@ package com.learnera.app.data;
  */
 
 public class Announcement {
-    private String mAnnouncement;
-    private String mAuthor;
-    //private String mDate;
+    private String announcementHead;
+    // private String announcementDetails;
+    private String mDate;
 
     public Announcement() {
     }
 
-    public Announcement(String mAnnouncement, String mAuthor) {
-        this.mAnnouncement = mAnnouncement;
-        this.mAuthor = mAuthor;
-        // this.mDate = mDate;
+    public Announcement(String announcementHead, String announcementDetails, String mDate) {
+        this.announcementHead = announcementHead;
+        //this.announcementDetails = announcementDetails;
+        this.mDate = mDate;
     }
 
-    public String getmAnnouncement() {
-        return mAnnouncement;
+
+    public String getAnnouncementHead() {
+        return announcementHead;
     }
 
-    public void setmAnnouncement(String mAnnouncement) {
-        this.mAnnouncement = mAnnouncement;
+    public void setAnnouncementHead(String announcementHead) {
+        this.announcementHead = announcementHead;
     }
 
-    public String getmAuthor() {
-        return mAuthor;
+
+    public String getmDate() {
+        return mDate;
     }
 
-    public void setmAuthor(String mAuthor) {
-        this.mAuthor = mAuthor;
+    public void setmDate(String mDate) {
+        this.mDate = mDate;
     }
-
-    //  public String getmDate() {
-    //     String date;
-//        date = df.format(mDate);
-    //       return date;
-    //   }
-
-    //   public void setmDate(Date mDate) {
-    //  this.mDate = mDate;
-    //}
 }

@@ -3,6 +3,7 @@
     package="com.learnera.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -18,12 +19,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AnnouncementsActivity"
-            android:label="Announcements" />
-        <activity
             android:name=".AttendanceActivity"
             android:label="Attendance" />
-        <activity android:name=".LoginActivity" />
         <activity
             android:name=".IntroActivity"
             android:label="Introduction"
@@ -40,6 +37,16 @@
 
         <!-- Set exported to true to accress the provider with external apps -->
 
+        <activity
+            android:name=".LoginActivity"
+            android:label="RSMS Login" />
+        <activity
+            android:name=".NetworkNotAvailableActivity"
+            android:label="No Connection" />
+        <activity
+            android:name=".AnnouncementsActivity"
+            android:label="@string/title_activity_announcements"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

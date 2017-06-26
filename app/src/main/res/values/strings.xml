@@ -79,4 +79,10 @@
     <!--Sensitive -->
     <string name="web_client_id">149198351980-522ji44l3g7jt1m6n3n9tnf1enulquj7.apps.googleusercontent.com</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_announcements">Notices</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
 </resources>

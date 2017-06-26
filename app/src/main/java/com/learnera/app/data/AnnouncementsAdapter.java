@@ -24,16 +24,16 @@ public class AnnouncementsAdapter extends RecyclerView.Adapter<AnnouncementsAdap
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.announcements_list_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_announcements, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Announcement announcement = announcementList.get(position);
-        holder.announcementTextView.setText(announcement.getmAnnouncement());
-        holder.announcementAuthorTextView.setText(announcement.getmAuthor());
-        //  holder.announcementDateTextView.setText(announcement.getmDate());
+        holder.announcementTextView.setText(announcement.getAnnouncementHead());
+        // holder.announcementAuthorTextView.setText(announcement.getmAuthor());
+        holder.announcementDateTextView.setText(announcement.getmDate());
     }
 
     @Override
@@ -43,14 +43,16 @@ public class AnnouncementsAdapter extends RecyclerView.Adapter<AnnouncementsAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView announcementTextView;
-        public TextView announcementAuthorTextView;
+        // public TextView announcementAuthorTextView;
         public TextView announcementDateTextView;
 
         public ViewHolder(View v) {
             super(v);
             announcementTextView = (TextView) v.findViewById(R.id.card_announcement_text);
-            announcementAuthorTextView = (TextView) v.findViewById(R.id.card_announcement_author);
-            //   announcementDateTextView = (TextView) v.findViewById(R.id.card_announcement_date);
+            //announcementAuthorTextView = (TextView) v.findViewById(R.id.card_announcement_details);
+            announcementDateTextView = (TextView) v.findViewById(R.id.card_announcement_date);
         }
     }
+
+
 }

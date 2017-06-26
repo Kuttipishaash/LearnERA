@@ -1,157 +1,149 @@
 package com.learnera.app;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.learnera.app.data.Announcement;
-import com.learnera.app.data.AnnouncementsAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 public class AnnouncementsActivity extends AppCompatActivity {
 
-    //test variables
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mAnnouncementsDatabaseReference, mPersonalAnnouncementsDatabaseReference;
-    private ChildEventListener mChildEventListener, mPersonalChildEventListner;
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    private List<Announcement> announcementList = new ArrayList<Announcement>();
-    private List<Announcement> announcementListPersonal = new ArrayList<Announcement>();
-    private RecyclerView mRecyclerView, mRecyclerViewPersonal;
-    private AnnouncementsAdapter mAdapter, mAdapterPersonal;
-    private SharedPreferences preferences;
-    private String mUID;
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements);
 
-        preferences = getApplicationContext().getSharedPreferences("Options", MODE_PRIVATE);
-        mUID = preferences.getString("UID", "");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        //GENERAL ANNOUNCEMENTS INITIALIZATIONS
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_announcements);
-        mAdapter = new AnnouncementsAdapter(announcementList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        //PERSONAL ANNOUNCEMENTS INITIALIZATIONS
-        mRecyclerViewPersonal = (RecyclerView) findViewById(R.id.recycler_view_announcements_personal);
-        mAdapterPersonal = new AnnouncementsAdapter(announcementListPersonal);
-        RecyclerView.LayoutManager mLayoutManagerPersonal = new LinearLayoutManager(getApplicationContext());
-        mRecyclerViewPersonal.setLayoutManager(mLayoutManagerPersonal);
-        mRecyclerViewPersonal.setItemAnimator(new DefaultItemAnimator());
-
-        mFirebaseDatabase = FirebaseDatabase.getInstance();
-
-        //GENERAL ANNOUNCENETS
-        mAnnouncementsDatabaseReference = mFirebaseDatabase.getReference().child("announcements_general");
-        mChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Announcement announcement = dataSnapshot.getValue(Announcement.class);
-                announcementList.add(announcement);
-                mAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mAnnouncementsDatabaseReference.addChildEventListener(mChildEventListener);
-        mRecyclerView.setAdapter(mAdapter);
-
-        //PERSONAL ANNOUNCEMENTS
-        mPersonalAnnouncementsDatabaseReference = mFirebaseDatabase.getReference().child(mUID).child("announcements");
-        mPersonalChildEventListner = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Announcement announcement = dataSnapshot.getValue(Announcement.class);
-                announcementListPersonal.add(announcement);
-                mAdapterPersonal.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        mPersonalAnnouncementsDatabaseReference.addChildEventListener(mPersonalChildEventListner);
-        mRecyclerViewPersonal.setAdapter(mAdapterPersonal);
-        //prepareAnnouncements();
-
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
 
     }
 
 
-    //testing function
-  /*  private void prepareAnnouncements() {
-        date = Calendar.getInstance().getTime();
-        Announcement announcement = new Announcement("NO CLASS TOMORROW", "COLLEGE", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("NO CLASS YESTERDAY", "COLLEGE", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("NO CLASS DAY AFTER TOMORROW", "COLLEGE", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("SUBMIT DB ASSIGNMENT", "PDD TEACHER", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("RETURN LIBRARY BOOK", "LIBRARY", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("SUBMIT MATHS ASSIGNMENT", "MATHS TEACHER", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("BRING REGISTRATION MONEY", "CLASS TEACHER", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("GIVE NAMES FOR WORKSHOP TODAY ITSELF", "CLASS REPRESENTATIVE", date);
-        announcementList.add(announcement);
-        announcement = new Announcement("BRING MONEY FOR BDAY CELEBRATIONS :P", "PREJITH", date);
-        announcementList.add(announcement);
-        mAdapter.notifyDataSetChanged();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_announcements, menu);
+        return true;
+    }
 
-    }*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        /**
+         * Returns a new instance of this fragment for the given section
+         * number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_announcements, container, false);
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            return rootView;
+        }
+    }
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            return PlaceholderFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "KTU";
+                case 1:
+                    return "RSET";
+                case 2:
+                    return "OTHERS";
+            }
+            return null;
+        }
+    }
 }

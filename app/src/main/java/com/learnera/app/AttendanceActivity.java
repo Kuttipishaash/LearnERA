@@ -35,6 +35,51 @@ public class AttendanceActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+/*
+        try{
+            Connection.Response res = Jsoup.connect("https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login")
+                    .data("user", "U1504046")
+                    .data("pass", "15180")
+                    .followRedirects(true)
+                    .method(Connection.Method.POST)
+                    .execute();
+
+            Document doc = Jsoup.connect("https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp?code=2017S4IT")
+                    .cookies(res.cookies())
+                    .get();
+
+            Elements tables = doc.select("table [width=96%]");
+            for(Element table: tables) {
+                //		System.out.println("Test");
+                Elements rows = table.select("tr");
+                for(Element row: rows) {
+                    Elements tds = rows.select("td");
+                    for(Element td: tds) {
+                        System.out.println(td.getElementsByTag("b").text());
+
+                    }
+                    for(Element td: tds) {
+                        StringBuilder build = new StringBuilder(td.select(":containsOwn(%)").text());
+                        String printer = build.delete(0, 2).toString();
+                        printer = printer.replaceAll("\\s+", "");
+                        System.out.println(printer);
+                    }
+                    //System.out.println(row.getElementsByTag("b").text());
+                    //System.out.println(rows.get(1).select(":containsOwn(%)").text());
+                    break;
+                }
+                break;
+            }
+
+            System.out.println("\nDone");
+        }
+        catch (IOException e)
+        {
+
+        }
+
+*/
+
 
     }
 
