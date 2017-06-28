@@ -41,12 +41,9 @@
             android:name=".LoginActivity"
             android:label="RSMS Login" />
         <activity
-            android:name=".NetworkNotAvailableActivity"
-            android:label="No Connection" />
-        <activity
             android:name=".AnnouncementsActivity"
             android:label="@string/title_activity_announcements"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

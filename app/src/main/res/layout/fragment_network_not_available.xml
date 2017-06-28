@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.learnera.app.fragments.NetworkNotAvailableFragment">
+
+
+    <TextView
+        android:id="@+id/no_network_error_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:text="NO INTERNET CONNECTION!\nPlease reconnect and try again..."
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/button_retry_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/no_network_error_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:text="RETRY" />
+
+
+</RelativeLayout>
