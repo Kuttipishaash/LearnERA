@@ -62,10 +62,9 @@ public class AttendanceActivity extends AppCompatActivity implements AdapterView
         setContentView(R.layout.activity_attendance);
 
         spinner =(Spinner) findViewById(R.id.spinner_attendance);
+        spinner.setOnItemSelectedListener(this);
 
         initProgressDialog();
-
-        spinner.setOnItemSelectedListener(this);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
@@ -107,7 +106,6 @@ public class AttendanceActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     //For populating spinner
@@ -117,15 +115,18 @@ public class AttendanceActivity extends AppCompatActivity implements AdapterView
         protected void onPreExecute() {
             super.onPreExecute();
 
+            setDefaultCountValue();
             mProgressDialog.show();
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+
             mSpinnerAdapter = new ArrayAdapter<>(AttendanceActivity.this, android.R.layout.simple_spinner_item, mSemesterList);
             mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(mSpinnerAdapter);
+            spinner.setSelection(count);
 
             mProgressDialog.dismiss();
         }
@@ -213,7 +214,7 @@ public class AttendanceActivity extends AppCompatActivity implements AdapterView
                 Elements tds = rows.select("td");
                 for (Element td : tds) {
                     String data = td.getElementsByTag("b").text();
-                    if(data != "" && count > 2) {
+                    if(data != "" && count > 1) {
                         mSubjectList.add(data);
                         mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
                     }
@@ -238,11 +239,14 @@ public class AttendanceActivity extends AppCompatActivity implements AdapterView
         Elements elements = doc.select("form");
         for(Element element: elements.select("option")) {
             mSemesterList.add(element.text());
+            count++;
         }
+        //Decrement count by 1 as extra empty input is being taken on scraping. This fixes the index 'count'
+        count--;
     }
 
     private void setDefaultCountValue() {
-        count = 1;
+        count = 0;
     }
 
     private void initProgressDialog() {
