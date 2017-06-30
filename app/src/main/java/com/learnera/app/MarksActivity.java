@@ -27,10 +27,7 @@ public class MarksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marks);
         if (isNetworkAvailable()) {
-            fragment = new MarksFragment();
-            fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.marks_fragment, fragment);
-            fragmentTransaction.commit();
+            doWhenNetworkPresent();
         } else {
             doWhenNoNetwork();
         }
@@ -72,6 +69,7 @@ public class MarksActivity extends AppCompatActivity {
     }
 
     public void doWhenNetworkPresent() {
+        fragment = new MarksFragment();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.marks_fragment, fragment);
         fragmentTransaction.commit();
@@ -84,7 +82,4 @@ public class MarksActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-
-
-
 }
