@@ -40,9 +40,9 @@ public class ActivityPointsActivity extends AppCompatActivity {
     private void showHelp() {
         AlertDialog.Builder alert = new AlertDialog.Builder(ActivityPointsActivity.this);
         alert.setTitle(R.string.action_announcement_help)
-        .setMessage(R.string.help_activity_points_message)
-        .setPositiveButton(R.string.ok, null)
-        .show();
+                .setMessage(R.string.help_activity_points_message)
+                .setPositiveButton(R.string.ok, null)
+                .show();
     }
 
 }

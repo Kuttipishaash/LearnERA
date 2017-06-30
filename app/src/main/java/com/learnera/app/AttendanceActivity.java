@@ -12,9 +12,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -31,41 +32,50 @@ import java.util.List;
  * Created by Prejith on 7/20/2016.
  */
 
-public class AttendanceActivity extends AppCompatActivity {
+public class AttendanceActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    //For Recycler
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.Adapter mRecyclerAdapter;
     private List<String> mSubjectList;
     private List<String> mPercentageList;
 
+    //For Spinner
+    private ArrayList<String> mSemesterList;
+    protected ArrayAdapter<String> mSpinnerAdapter;
+    protected Spinner spinner;
+
     private ProgressDialog mProgressDialog;
 
-    private int count = 1;
+    private int count;
+    protected String code;
 
     protected Document doc;
+    protected Connection.Response res;
+
+    protected final static String loginURL = "https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login";
+    protected final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
 
+        spinner =(Spinner) findViewById(R.id.spinner_attendance);
+
+        initProgressDialog();
+
+        spinner.setOnItemSelectedListener(this);
+
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        mSemesterList = new ArrayList<>();
         mSubjectList = new ArrayList<>();
         mPercentageList = new ArrayList<>();
 
-        mAdapter = new AttendanceAdapter(this, mSubjectList, mPercentageList);
-        mRecyclerView.setAdapter(mAdapter);
-
-        mProgressDialog = new ProgressDialog(this);
-        mProgressDialog.setMessage("Loading data from RSMS...");
-        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        mProgressDialog.setIndeterminate(true);
-
-        new JSoupAttendanceTask().execute();
-        //extractDataForList();
+        new JSoupSpinnerTask().execute();
     }
 
     @Override
@@ -86,11 +96,26 @@ public class AttendanceActivity extends AppCompatActivity {
         }
     }
 
-    private class JSoupAttendanceTask extends AsyncTask<Void, Void, Void> {
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        //Extract semester code from spinner selection
+        code = spinner.getSelectedItem().toString();
+
+        //Start populating recycler view
+        new JSoupAttendanceTask().execute();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    //For populating spinner
+    private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            Log.d("NETWORK", "Pre-execution");
 
             mProgressDialog.show();
         }
@@ -98,7 +123,58 @@ public class AttendanceActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            Log.d("NETWORK", "Post-execution");
+            mSpinnerAdapter = new ArrayAdapter<>(AttendanceActivity.this, android.R.layout.simple_spinner_item, mSemesterList);
+            mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(mSpinnerAdapter);
+
+            mProgressDialog.dismiss();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                res = Jsoup.connect(loginURL)
+                        .data("user", "U1504046")
+                        .data("pass", "15180")
+                        .followRedirects(true)
+                        .method(Connection.Method.POST)
+                        .execute();
+
+                doc = Jsoup.connect(attendanceURL)
+                        .cookies(res.cookies())
+                        .get();
+
+                extractSemesterList();
+
+            } catch (IOException e) {
+                Log.e("ACTIVITY_ATTENDANCE", "Error initialising spinner");
+            }
+
+            return null;
+        }
+    }
+
+    //For populating RecyclerView
+    private class JSoupAttendanceTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            //Clear both lists before populating recycler view by continuous spinner selections
+            mPercentageList.clear();
+            mSubjectList.clear();
+
+            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList);
+            mRecyclerView.setAdapter(mRecyclerAdapter);
+            mProgressDialog.show();
+
+            setDefaultCountValue();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
 
             mProgressDialog.dismiss();
         }
@@ -106,43 +182,12 @@ public class AttendanceActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                Connection.Response res = Jsoup.connect("https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login")
-                        .data("user", "U1504046")
-                        .data("pass", "15180")
-                        .followRedirects(true)
-                        .method(Connection.Method.POST)
-                        .execute();
 
-                doc = Jsoup.connect("https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp?code=2017S4IT")
+                doc = Jsoup.connect(attendanceURL + "?code=" + code)
                         .cookies(res.cookies())
                         .get();
 
-                Elements tables = doc.select("table [width=96%]");
-                for (Element table : tables) {
-                    Elements rows = table.select("tr");
-                    for (Element row : rows) {
-                        Elements tds = rows.select("td");
-                        for (Element td : tds) {
-                            String data = td.getElementsByTag("b").text();
-                            if(data != "" && count > 2) {
-                                mSubjectList.add(data);
-                                mAdapter.notifyItemInserted(mSubjectList.size());
-                            }
-                            count++;
-                        }
-                        for (Element td : tds) {
-                            String data = td.select(":containsOwn(%)").text();
-                            if(data != "") {
-                                StringBuilder build = new StringBuilder(data);
-                                String printer = build.delete(0, 2).toString();
-                                printer = printer.replaceAll("\\s+", "");
-                                mPercentageList.add(printer);
-                            }
-                        }
-                        break;
-                    }
-                    break;
-                }
+                extractAttendanceData();
 
             } catch (IOException e) {
                 Log.e("ATTENDANCE_ACTIVITY", "Error retrieving data");
@@ -158,5 +203,52 @@ public class AttendanceActivity extends AppCompatActivity {
                 .setMessage(R.string.help_attendance_message)
                 .setPositiveButton(R.string.ok, null)
                 .show();
+    }
+
+    private void extractAttendanceData() {
+        Elements tables = doc.select("table [width=96%]");
+        for (Element table : tables) {
+            Elements rows = table.select("tr");
+            for (Element row : rows) {
+                Elements tds = rows.select("td");
+                for (Element td : tds) {
+                    String data = td.getElementsByTag("b").text();
+                    if(data != "" && count > 2) {
+                        mSubjectList.add(data);
+                        mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
+                    }
+                    count++;
+                }
+                for (Element td : tds) {
+                    String data = td.select(":containsOwn(%)").text();
+                    if(data != "") {
+                        StringBuilder build = new StringBuilder(data);
+                        String printer = build.delete(0, 2).toString();
+                        printer = printer.replaceAll("\\s+", "");
+                        mPercentageList.add(printer);
+                    }
+                }
+                break;
+            }
+            break;
+        }
+    }
+
+    private void extractSemesterList() {
+        Elements elements = doc.select("form");
+        for(Element element: elements.select("option")) {
+            mSemesterList.add(element.text());
+        }
+    }
+
+    private void setDefaultCountValue() {
+        count = 1;
+    }
+
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Loading data from RSMS...");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setIndeterminate(true);
     }
 }

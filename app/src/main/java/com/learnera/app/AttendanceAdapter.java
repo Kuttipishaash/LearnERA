@@ -17,7 +17,6 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 
     private List<String> mSubjectList;
     private List<String> mPercentageList;
-    private Context mContext;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView mSubjectField;
@@ -30,8 +29,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         }
     }
 
-    public AttendanceAdapter(Context mContext, List<String> mSubjectList, List<String> mPercentageList) {
-        this.mContext = mContext;
+    public AttendanceAdapter(List<String> mSubjectList, List<String> mPercentageList) {
         this.mSubjectList = mSubjectList;
         this.mPercentageList = mPercentageList;
     }
