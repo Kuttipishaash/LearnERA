@@ -37,28 +37,25 @@ import java.util.List;
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    protected final static String loginURL = "https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login";
+    protected final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
+    protected ArrayAdapter<String> mSpinnerAdapter;
+    protected Spinner spinner;
+    protected int pos;
+    protected String code;
+    protected Document doc;
+    protected Connection.Response res;
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
     private List<String> mSubjectList;
     private List<String> mPercentageList;
-
     //For Spinner
+    private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
-    protected ArrayAdapter<String> mSpinnerAdapter;
-    protected Spinner spinner;
-
     private ProgressDialog mProgressDialog;
-
     private int count;
-    protected String code;
     private View view;
-
-    protected Document doc;
-    protected Connection.Response res;
-
-    protected final static String loginURL = "https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login";
-    protected final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
 
     public AttendanceFragment(){
     }
@@ -90,14 +87,83 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //Extract semester code from spinner selection
-        code = spinner.getSelectedItem().toString();
-
+        pos = spinner.getSelectedItemPosition();
+        code = mSemesterList.get(pos);
         //Start populating recycler view
         new AttendanceFragment.JSoupAttendanceTask().execute();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(view.getContext());
+        mProgressDialog.setMessage("Loading data from RSMS...");
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setIndeterminate(true);
+    }
+
+    private void extractAttendanceData() {
+        Elements tables = doc.select("table [width=96%]");
+        for (Element table : tables) {
+            Elements rows = table.select("tr");
+            for (Element row : rows) {
+                Elements tds = rows.select("td");
+                for (Element td : tds) {
+                    String data = td.getElementsByTag("b").text();
+                    if (data != "" && count > 1) {
+                        mSubjectList.add(data);
+                        mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
+                    }
+                    count++;
+                }
+                for (Element td : tds) {
+                    String data = td.select(":containsOwn(%)").text();
+                    if (data != "") {
+                        StringBuilder build = new StringBuilder(data);
+                        String printer = build.delete(0, 2).toString();
+                        printer = printer.replaceAll("\\s+", "");
+                        mPercentageList.add(printer);
+                    }
+                }
+                break;
+            }
+            break;
+        }
+    }
+
+    private void extractSemesterList() {
+        mSemesters = new ArrayList<>();
+        Elements elements = doc.select("form");
+        for (Element element : elements.select("option")) {
+            mSemesterList.add(element.text());
+            count++;
+        }
+        //Decrement count by 1 as extra empty input is being taken on scraping. This fixes the index 'count'
+        count--;
+        for (int i = 0; i <= count; i++) {
+            mSemesters.add(getResources().getStringArray(R.array.array_semesters)[i]);
+        }
+    }
+
+    private void setDefaultCountValue() {
+        count = 0;
+    }
+
+    //To check internet connection
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public void doWhenNoNetwork() {
+        Fragment fragment = new NetworkNotAvailableFragment();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+        fragmentTransaction.commit();
     }
 
     //For populating spinner
@@ -124,7 +190,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             mSpinnerAdapter = new ArrayAdapter<>(view.getContext(),
                     android.R.layout.simple_spinner_item,
-                    mSemesterList);
+                    mSemesters);
             mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(mSpinnerAdapter);
             spinner.setSelection(count);
@@ -199,71 +265,5 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             return null;
         }
-    }
-
-
-    private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(view.getContext());
-        mProgressDialog.setMessage("Loading data from RSMS...");
-        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        mProgressDialog.setIndeterminate(true);
-    }
-
-    private void extractAttendanceData() {
-        Elements tables = doc.select("table [width=96%]");
-        for (Element table : tables) {
-            Elements rows = table.select("tr");
-            for (Element row : rows) {
-                Elements tds = rows.select("td");
-                for (Element td : tds) {
-                    String data = td.getElementsByTag("b").text();
-                    if(data != "" && count > 1) {
-                        mSubjectList.add(data);
-                        mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
-                    }
-                    count++;
-                }
-                for (Element td : tds) {
-                    String data = td.select(":containsOwn(%)").text();
-                    if(data != "") {
-                        StringBuilder build = new StringBuilder(data);
-                        String printer = build.delete(0, 2).toString();
-                        printer = printer.replaceAll("\\s+", "");
-                        mPercentageList.add(printer);
-                    }
-                }
-                break;
-            }
-            break;
-        }
-    }
-
-    private void extractSemesterList() {
-        Elements elements = doc.select("form");
-        for(Element element: elements.select("option")) {
-            mSemesterList.add(element.text());
-            count++;
-        }
-        //Decrement count by 1 as extra empty input is being taken on scraping. This fixes the index 'count'
-        count--;
-    }
-
-    private void setDefaultCountValue() {
-        count = 0;
-    }
-
-    //To check internet connection
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    public void doWhenNoNetwork() {
-        Fragment fragment = new NetworkNotAvailableFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_attendance, fragment);
-        fragmentTransaction.commit();
     }
 }
