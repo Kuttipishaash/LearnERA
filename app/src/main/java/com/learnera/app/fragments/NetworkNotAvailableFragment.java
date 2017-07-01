@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.learnera.app.AnnouncementsActivity;
+import com.learnera.app.AttendanceActivity;
 import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
 
@@ -54,6 +55,9 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                     fragmentTransaction.replace(R.id.marks_fragment, fragment);
                 } else if (getActivity() instanceof AnnouncementsActivity) {
                     //TODO: HANDLING IF FRAGMENT IS INFLATED ANNOUNCEMENT ACTIVITY
+                } else if (getActivity() instanceof AttendanceActivity) {
+                    fragment = new AttendanceFragment();
+                    fragmentTransaction.replace(R.id.fragment_attendance, fragment);
                 }
                 fragmentTransaction.commit();
             } else {

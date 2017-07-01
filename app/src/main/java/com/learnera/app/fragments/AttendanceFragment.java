@@ -227,7 +227,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-
+            if (isNetworkAvailable()) {
+                mProgressDialog.show();
+            } else {
+                doWhenNoNetwork();
+            }
             mSubjectList = new ArrayList<>();
             mPercentageList = new ArrayList<>();
 
@@ -237,7 +241,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList);
             mRecyclerView.setAdapter(mRecyclerAdapter);
-            mProgressDialog.show();
 
             setDefaultCountValue();
         }
@@ -266,4 +269,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             return null;
         }
     }
+
+
 }
