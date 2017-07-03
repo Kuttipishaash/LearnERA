@@ -11,8 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.learnera.app.data.User;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,21 +27,20 @@ public class WelcomeActivity extends AppCompatActivity {
     Button mAnnouncement;
     @BindView(R.id.button_attendance)
     Button mAttendance;
-    @BindView(R.id.button_activity_points)
-    Button mActivityPoints;
     @BindView(R.id.button_marks)
     Button mMarks;
     @BindView(R.id.button_contacts)
     Button mContacts;
-    @BindView(R.id.button_sign_out)
-    Button mSignOutButton;
+    @BindView(R.id.login_status)
+    TextView mLoginStatus;
 
-    private TextView mLoginStatus;
     private String mUser;
     private String mEmail;
     private int mStatus;
     private SharedPreferences preferences;
+    private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,10 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
+        user = new User();
+
+        sharedPreferences = getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        Toast.makeText(this, sharedPreferences.getString("username", "def"), Toast.LENGTH_SHORT).show();
 
         Thread mThread = new Thread(new Runnable() {
             @Override
@@ -81,18 +86,15 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void refresh() {
-
-
+        
         mLoginStatus.setText("LOGGED IN AS : " + mUser + "\nEmail : " + mEmail);
-            mSignOutButton.setVisibility(View.VISIBLE);
-            mAttendance.setVisibility(View.VISIBLE);
-            mActivityPoints.setVisibility(View.VISIBLE);
-            mAnnouncement.setVisibility(View.VISIBLE);
-            mMarks.setVisibility(View.VISIBLE);
-            mContacts.setVisibility(View.VISIBLE);
+        mAttendance.setVisibility(View.VISIBLE);
+        mAnnouncement.setVisibility(View.VISIBLE);
+        mMarks.setVisibility(View.VISIBLE);
+        mContacts.setVisibility(View.VISIBLE);
 
-            mLogIn.setVisibility(View.VISIBLE);
-        }
+        mLogIn.setVisibility(View.VISIBLE);
+    }
 
 
     @OnClick(R.id.button_login)
@@ -112,11 +114,6 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
     }
 
-    @OnClick(R.id.button_activity_points)
-    void activityPoints() {
-        startActivity(new Intent(WelcomeActivity.this, ActivityPointsActivity.class));
-    }
-
     @OnClick(R.id.button_marks)
     void marks() {
         startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
@@ -127,19 +124,4 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
 
     }
-
-    /*
-    @OnClick(R.id.button_sign_out)
-    void setmSignOutButton() {
-        FirebaseAuth.getInstance().signOut();
-        SharedPreferences preferences = getApplicationContext().getSharedPreferences("User", MODE_PRIVATE);
-        editor = preferences.edit();
-        editor.putString("UID", null);
-        editor.putString("NAME", null);
-        editor.putString("EMAIL", null);
-        editor.putInt("STATUS", 0);
-        editor.commit();
-        refresh();
-    }
-*/
 }

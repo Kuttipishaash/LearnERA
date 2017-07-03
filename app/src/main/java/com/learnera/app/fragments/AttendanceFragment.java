@@ -2,6 +2,7 @@ package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -19,7 +20,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.learnera.app.AttendanceAdapter;
+import com.learnera.app.LoginActivity;
 import com.learnera.app.R;
+import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -39,23 +42,29 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     protected final static String loginURL = "https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login";
     protected final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
-    protected ArrayAdapter<String> mSpinnerAdapter;
-    protected Spinner spinner;
+
     protected int pos;
     protected String code;
     protected Document doc;
     protected Connection.Response res;
+    private ProgressDialog mProgressDialog;
+    private int count;
+    private View view;
+    private User user;
+
+    SharedPreferences sharedPreferences;
+
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
     private List<String> mSubjectList;
     private List<String> mPercentageList;
+
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
-    private ProgressDialog mProgressDialog;
-    private int count;
-    private View view;
+    protected ArrayAdapter<String> mSpinnerAdapter;
+    protected Spinner spinner;
 
     public AttendanceFragment(){
     }
@@ -64,6 +73,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        user = new User();
+
+        sharedPreferences = getActivity().getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        user.setUserName(sharedPreferences.getString("username", null));
+        user.setPassword(sharedPreferences.getInt("password", 0));
     }
 
     @Nullable
@@ -78,6 +92,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        initProgressDialog();
+
+        mSemesterList = new ArrayList<>();
+        mSubjectList = new ArrayList<>();
+        mPercentageList = new ArrayList<>();
 
         new JSoupSpinnerTask().execute();
 
@@ -173,8 +193,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onPreExecute() {
             super.onPreExecute();
 
-            initProgressDialog();
-            mSemesterList = new ArrayList<>();
             setDefaultCountValue();
             if(isNetworkAvailable()) {
                 mProgressDialog.show();
@@ -194,7 +212,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mSpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(mSpinnerAdapter);
             spinner.setSelection(count);
-
             mProgressDialog.dismiss();
         }
 
@@ -203,8 +220,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             try {
                 res = Jsoup.connect(loginURL)
-                        .data("user", "U1504046")
-                        .data("pass", "15180")
+                        .data("user", user.getUserName())
+                        .data("pass", String.valueOf(user.getPassword()))
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
@@ -227,6 +244,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+
             if (isNetworkAvailable()) {
                 mProgressDialog.show();
             } else {

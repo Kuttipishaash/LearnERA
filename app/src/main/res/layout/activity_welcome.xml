@@ -69,13 +69,6 @@
             android:textSize="12sp" />
 
         <Button
-            android:id="@+id/button_activity_points"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/activity_points"
-            android:textSize="12sp" />
-
-        <Button
             android:id="@+id/button_marks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,14 +80,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Contacts"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/button_sign_out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="Sign Out"
             android:textSize="12sp" />
 
     </LinearLayout>

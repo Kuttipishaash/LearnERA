@@ -4,6 +4,7 @@ package com.learnera.app.fragments;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -20,9 +21,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.learnera.app.LoginActivity;
 import com.learnera.app.R;
 import com.learnera.app.data.Marks;
 import com.learnera.app.data.MarksAdapter;
+import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -68,6 +71,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private MarksAdapter marksAdapter;
     private String markurl;
     private View v;
+    private User user;
+    private SharedPreferences sharedPreferences;
 
     public MarksFragment() {
         // Required empty public constructor
@@ -77,6 +82,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
+
+        user = new User();
+
+        sharedPreferences = getActivity().getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        user.setUserName(sharedPreferences.getString("username", null));
+        user.setPassword(sharedPreferences.getInt("password", 0));
+
         MarksFragment.JsoupAsyncTask jsoupAsyncTask = new MarksFragment.JsoupAsyncTask();
         jsoupAsyncTask.execute();
 
@@ -195,8 +207,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
 
                 res = Jsoup.connect("https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login")
-                        .data("user", "U1504045")
-                        .data("pass", "15253")
+                        .data("user", user.getUserName())
+                        .data("pass", String.valueOf(user.getPassword()))
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
