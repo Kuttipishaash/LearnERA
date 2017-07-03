@@ -19,7 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.learnera.app.AttendanceAdapter;
+import com.learnera.app.data.AttendanceAdapter;
 import com.learnera.app.LoginActivity;
 import com.learnera.app.R;
 import com.learnera.app.data.User;

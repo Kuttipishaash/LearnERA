@@ -26,9 +26,6 @@
             android:label="Introduction"
             android:theme="@style/Theme.Intro" />
         <activity
-            android:name=".ActivityPointsActivity"
-            android:label="Activity Points" />
-        <activity
             android:name=".MarksActivity"
             android:label="Marks" />
         <activity
