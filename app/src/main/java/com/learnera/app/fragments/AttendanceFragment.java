@@ -52,8 +52,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private View view;
     private User user;
 
-    SharedPreferences sharedPreferences;
-
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
