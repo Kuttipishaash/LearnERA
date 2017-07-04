@@ -34,12 +34,8 @@ public class WelcomeActivity extends AppCompatActivity {
     @BindView(R.id.login_status)
     TextView mLoginStatus;
 
-    private String mUser;
-    private String mEmail;
-    private int mStatus;
-    private SharedPreferences preferences;
     private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
+
     private User user;
 
     @Override
@@ -51,9 +47,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         user = new User();
 
-        sharedPreferences = getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        Toast.makeText(this, sharedPreferences.getString("username", "def"), Toast.LENGTH_SHORT).show();
-
+        //Check if application is on first start
         Thread mThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -68,16 +62,18 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
         mThread.start();
-        preferences = getApplicationContext().getSharedPreferences("User", MODE_PRIVATE);
-        mStatus = preferences.getInt("STATUS", 0);
-        //LOGIN IF NOT LOGGED IN
-        //if (mStatus == 0)
-        //    startActivity(new Intent(this, LoginActivity.class));
-        //refresh();
-
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
+        user = user.getLoginInfo(this);
+        String text = "LOGGED IN AS : " + user.getUserName();
+        mLoginStatus.setText(text);
+    }
+
+    //// TODO: 7/3/2017 Why here? We aren't checking anything here
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -85,24 +81,10 @@ public class WelcomeActivity extends AppCompatActivity {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    private void refresh() {
-        
-        mLoginStatus.setText("LOGGED IN AS : " + mUser + "\nEmail : " + mEmail);
-        mAttendance.setVisibility(View.VISIBLE);
-        mAnnouncement.setVisibility(View.VISIBLE);
-        mMarks.setVisibility(View.VISIBLE);
-        mContacts.setVisibility(View.VISIBLE);
-
-        mLogIn.setVisibility(View.VISIBLE);
-    }
-
-
     @OnClick(R.id.button_login)
     void login() {
         startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
-        refresh();
     }
-
 
     @OnClick(R.id.button_announcement)
     void announcement() {

@@ -72,12 +72,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         user = new User();
 
-        sharedPreferences = getActivity().getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        user.setUserName(sharedPreferences.getString("username", null));
-        user.setPassword(sharedPreferences.getInt("password", 0));
+        user = user.getLoginInfo(getActivity());
     }
 
     @Nullable

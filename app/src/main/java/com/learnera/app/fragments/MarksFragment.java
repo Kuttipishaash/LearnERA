@@ -84,10 +84,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
 
         user = new User();
-
-        sharedPreferences = getActivity().getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        user.setUserName(sharedPreferences.getString("username", null));
-        user.setPassword(sharedPreferences.getInt("password", 0));
+        user = user.getLoginInfo(getActivity());
 
         MarksFragment.JsoupAsyncTask jsoupAsyncTask = new MarksFragment.JsoupAsyncTask();
         jsoupAsyncTask.execute();
