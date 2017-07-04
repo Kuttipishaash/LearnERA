@@ -7,12 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.learnera.app.fragments.LoginFragment;
 
-/**  Use show password toggle on password field. Insert fragment to login in intro screen. Logout option in
- all screens. Go back to last activity on pressing login and login successful
- */
 public class LoginActivity extends AppCompatActivity {
-
-    public static final String PREFERENCE_FILE="user_preferences";
 
     private Fragment fragment;
     private FragmentTransaction fragmentTransaction;

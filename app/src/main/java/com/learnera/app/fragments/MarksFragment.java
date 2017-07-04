@@ -22,7 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.learnera.app.LoginActivity;
+import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
+import com.learnera.app.data.Constants;
 import com.learnera.app.data.Marks;
 import com.learnera.app.data.MarksAdapter;
 import com.learnera.app.data.User;
@@ -69,7 +71,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     ProgressDialog mLoading;
     private RecyclerView mRecyclerView;
     private MarksAdapter marksAdapter;
-    private String markurl;
+
     private View v;
     private User user;
     private SharedPreferences sharedPreferences;
@@ -81,7 +83,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
 
         user = new User();
         user = user.getLoginInfo(getActivity());
@@ -94,7 +95,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onResume() {
         super.onResume();
-        markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
     }
 
     @Override
@@ -119,7 +119,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 jsoupAsyncTask2.execute();
                 break;
             case R.id.spinner_marks_category:
-                finalFetchURL = markurl + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
+                finalFetchURL = Constants.markURL + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
                 break;
@@ -171,21 +171,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView.setAdapter(marksAdapter);
     }
 
-    //TO CHECK INTERNET CONNECTION
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    public void ifNoNetwork() {
-        Fragment fragment = new NetworkNotAvailableFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.marks_fragment, fragment);
-        fragmentTransaction.commit();
-    }
-
     //FOR SPINNER 1 DYNAMIC
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
@@ -201,15 +186,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected Void doInBackground(Void... params) {
             try {
 
-                markurl = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
-
-                res = Jsoup.connect("https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login")
+                res = Jsoup.connect(Constants.loginURL)
                         .data("user", user.getUserName())
                         .data("pass", String.valueOf(user.getPassword()))
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
-                doc = Jsoup.connect(markurl)
+                doc = Jsoup.connect(Constants.markURL)
                         .cookies(res.cookies())
                         .get();
                 list = doc.select("select[name=code]");
@@ -256,7 +239,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected Void doInBackground(Void... params) {
             try {
 
-                doc = Jsoup.connect(markurl)
+                doc = Jsoup.connect(Constants.markURL)
                         .cookies(res.cookies())
                         .data("code", codes)
                         .get();
@@ -287,15 +270,14 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         Elements tables;
 
-
         @Override
         protected void onPreExecute() {
-            if (isNetworkAvailable()) {
+            if (NetworkUtils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
                 mLoading.show();
             } else {
-                ifNoNetwork();
+                NetworkUtils.doWhenNoNetwork(getActivity());
             }
 
             super.onPreExecute();

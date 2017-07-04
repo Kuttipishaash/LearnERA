@@ -42,10 +42,9 @@ public class User {
 
         User result = new User();
 
-        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(LoginActivity.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         result.setUserName(sharedPreferences.getString("username", null));
         result.setPassword(sharedPreferences.getInt("password", 0));
-
         return result;
     }
 

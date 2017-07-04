@@ -16,15 +16,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
+import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
-
-import static com.learnera.app.LoginActivity.PREFERENCE_FILE;
 
 /**
  * Created by praji on 7/4/2017.
@@ -82,9 +82,14 @@ public class LoginFragment extends Fragment {
                     mPassword.setError("Password cannot be empty");
                 }
                 else {
-                    new JSoupLoginTask().execute();
-                    user.setUserName(userName);
-                    user.setPassword(Integer.parseInt(password));
+                    if(NetworkUtils.isNetworkAvailable(getActivity())) {
+                        new JSoupLoginTask().execute();
+                        user.setUserName(userName);
+                        user.setPassword(Integer.parseInt(password));
+                    }
+                    else {
+                        NetworkUtils.doWhenNoNetwork(getActivity());
+                    }
                 }
             }
         });
@@ -98,7 +103,8 @@ public class LoginFragment extends Fragment {
     }
 
     boolean isLoginInfoCorrect() {
-        if(res.url().toString().equals("https://www.rajagiritech.ac.in/stud/KTU/Parent/Home.asp"))
+        //Check if URL redirects to home page. Login redirects to home page only when entered username & password are correct
+        if(res.url().toString().equals(Constants.homeURL))
             return true;
         else {
             Toast.makeText(view.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
@@ -136,7 +142,7 @@ public class LoginFragment extends Fragment {
         protected Void doInBackground(Void... params) {
 
             try {
-                res = Jsoup.connect("https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login")
+                res = Jsoup.connect(Constants.loginURL)
                         .data("user", user.getUserName())
                         .data("pass", String.valueOf(user.getPassword()))
                         .followRedirects(true)
@@ -150,7 +156,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void login() {
-        sharedPreferences = getActivity().getSharedPreferences(PREFERENCE_FILE, Context.MODE_PRIVATE);
+        //write username and password to sharedpreference file
+        sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         editor.putString("username",
                 user.getUserName());

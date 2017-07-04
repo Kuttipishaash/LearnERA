@@ -34,8 +34,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @BindView(R.id.login_status)
     TextView mLoginStatus;
 
-    private SharedPreferences sharedPreferences;
-
     private User user;
 
     @Override

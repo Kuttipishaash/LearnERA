@@ -1,8 +1,10 @@
 package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
+import android.app.usage.ConfigurationStats;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -19,9 +21,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.learnera.app.NetworkUtils;
 import com.learnera.app.data.AttendanceAdapter;
 import com.learnera.app.LoginActivity;
 import com.learnera.app.R;
+import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
@@ -39,9 +43,6 @@ import java.util.List;
  */
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
-
-    protected final static String loginURL = "https://www.rajagiritech.ac.in/stud/parent/varify.asp?action=login";
-    protected final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
 
     protected int pos;
     protected String code;
@@ -136,9 +137,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 for (Element td : tds) {
                     String data = td.select(":containsOwn(%)").text();
                     if (data != "") {
+                        //Remove first 2 characters as they are invalid
                         StringBuilder build = new StringBuilder(data);
                         String printer = build.delete(0, 2).toString();
                         printer = printer.replaceAll("\\s+", "");
+
+                        //Add to list
                         mPercentageList.add(printer);
                     }
                 }
@@ -166,21 +170,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         count = 0;
     }
 
-    //To check internet connection
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    public void doWhenNoNetwork() {
-        Fragment fragment = new NetworkNotAvailableFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_attendance, fragment);
-        fragmentTransaction.commit();
-    }
-
     //For populating spinner
     private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
 
@@ -189,11 +178,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPreExecute();
 
             setDefaultCountValue();
-            if(isNetworkAvailable()) {
+            if(NetworkUtils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             }
             else {
-                doWhenNoNetwork();
+                NetworkUtils.doWhenNoNetwork(getActivity());
             }
         }
 
@@ -214,14 +203,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected Void doInBackground(Void... params) {
 
             try {
-                res = Jsoup.connect(loginURL)
+                res = Jsoup.connect(Constants.loginURL)
                         .data("user", user.getUserName())
                         .data("pass", String.valueOf(user.getPassword()))
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
 
-                doc = Jsoup.connect(attendanceURL)
+                doc = Jsoup.connect(Constants.attendanceURL)
                         .cookies(res.cookies())
                         .get();
 
@@ -240,10 +229,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onPreExecute() {
             super.onPreExecute();
 
-            if (isNetworkAvailable()) {
+            if (NetworkUtils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             } else {
-                doWhenNoNetwork();
+                NetworkUtils.doWhenNoNetwork(getActivity());
             }
             mSubjectList = new ArrayList<>();
             mPercentageList = new ArrayList<>();
@@ -269,7 +258,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected Void doInBackground(Void... params) {
             try {
 
-                doc = Jsoup.connect(attendanceURL + "?code=" + code)
+                doc = Jsoup.connect(Constants.attendanceURL + "?code=" + code)
                         .cookies(res.cookies())
                         .get();
 
