@@ -51,6 +51,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .fragment(R.layout.fragment_intro_contact, R.style.Theme_Intro)
                 .build());
 
+        //// TODO: 7/5/2017 Implement later: 'Login later' button which has same action as next button in intros 
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_deep_purple_400)
                 .backgroundDark(R.color.md_deep_purple_700)
