@@ -1,12 +1,6 @@
 package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
-import android.app.usage.ConfigurationStats;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -9,8 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.learnera.app.data.User;
 import com.learnera.app.fragments.MarksFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
@@ -34,10 +37,20 @@ public class MarksActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_attendance, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.action_marks_help):
                 showHelp();
+                return true;
+            case (R.id.action_logout):
+                User.logout(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -57,7 +70,6 @@ public class MarksActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
 
     }
 

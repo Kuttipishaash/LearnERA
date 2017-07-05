@@ -1,6 +1,7 @@
 package com.learnera.app;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -12,7 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.learnera.app.data.User;
 import com.learnera.app.fragments.AttendanceFragment;
 import com.learnera.app.fragments.MarksFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
@@ -51,6 +54,9 @@ public class AttendanceActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case (R.id.action_attendance_help):
                 showHelp();
+                return true;
+            case (R.id.action_logout):
+                User.logout(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

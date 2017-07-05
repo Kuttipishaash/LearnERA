@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.learnera.app.data.Contacts;
 import com.learnera.app.data.ContactsAdapter;
+import com.learnera.app.data.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,9 @@ public class ContactsActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case (R.id.action_conatcts_help):
                 showHelp();
+                return true;
+            case (R.id.action_logout):
+                User.logout(this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
