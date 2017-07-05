@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
+import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
 
 /**
  * Created by Prejith on 7/13/2016.
@@ -15,6 +16,15 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
 
         setFullscreen(true);
         super.onCreate(savedInstanceState);
+
+        addSlide(new SimpleSlide.Builder()
+                .title(R.string.intro_welcome_title)
+                .description(R.string.intro_welcome_desc)
+                .image(R.drawable.placeholder)
+                .background(R.color.md_teal_500)
+                .backgroundDark(R.color.md_teal_700)
+                .scrollable(false)
+                .build());
 
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_teal_400)
@@ -44,7 +54,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_deep_purple_400)
                 .backgroundDark(R.color.md_deep_purple_700)
-                .fragment(R.layout.fragment_intro_login, R.style.Theme_Intro)
+                .fragment(R.layout.fragment_login, R.style.Theme_Intro)
                 .build());
 
     }

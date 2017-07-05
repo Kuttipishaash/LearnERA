@@ -1,17 +1,12 @@
 package com.learnera.app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 import com.learnera.app.data.User;
@@ -69,14 +64,6 @@ public class WelcomeActivity extends AppCompatActivity {
         user = user.getLoginInfo(this);
         String text = "LOGGED IN AS : " + user.getUserName();
         mLoginStatus.setText(text);
-    }
-
-    //// TODO: 7/3/2017 Why here? We aren't checking anything here
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @OnClick(R.id.button_login)

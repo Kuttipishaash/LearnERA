@@ -45,6 +45,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:10.2.1'
     compile 'com.google.firebase:firebase-core:10.2.1'
     compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.github.scottyab:showhidepasswordedittext:0.8'
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
 apply plugin: 'com.google.gms.google-services'

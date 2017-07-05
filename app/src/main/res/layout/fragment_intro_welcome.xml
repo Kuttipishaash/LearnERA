@@ -5,10 +5,12 @@
     android:layout_weight="10"
     android:orientation="vertical">
 
+<!-- TODO: Add parallax effects -->
+
     <Space
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:layout_margin="2dp"/>
+        android:layout_margin="2dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,7 +38,7 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/placeholder"/>
+            android:src="@drawable/placeholder" />
     </LinearLayout>
 
     <TextView

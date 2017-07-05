@@ -20,6 +20,7 @@ import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+import com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -33,7 +34,7 @@ import java.io.IOException;
 public class LoginFragment extends Fragment {
 
     EditText mUserName;
-    EditText mPassword;
+    ShowHidePasswordEditText mPassword;
     Button mLogin;
     ProgressDialog mProgressDialog;
 
@@ -64,7 +65,7 @@ public class LoginFragment extends Fragment {
 
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
-        mPassword = (EditText) view.findViewById(R.id.et_password);
+        mPassword = (ShowHidePasswordEditText) view.findViewById(R.id.et_password);
 
         initProgressDialog();
 
