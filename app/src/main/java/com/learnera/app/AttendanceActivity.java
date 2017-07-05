@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.learnera.app.data.User;
 import com.learnera.app.fragments.AttendanceFragment;
+import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.MarksFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
@@ -35,7 +36,12 @@ public class AttendanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_attendance);
 
         if(isNetworkAvailable()) {
-            doWhenNetworkPresent();
+            if(User.isLoggedIn(this)) {
+                doWhenNetworkPresent();
+            }
+            else {
+                doWhenNotLoggedIn();
+            }
         }
         else {
             doWhenNoNetwork();
@@ -91,5 +97,13 @@ public class AttendanceActivity extends AppCompatActivity {
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private void doWhenNotLoggedIn() {
+        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+        Fragment fragment = new LoginFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+        fragmentTransaction.commit();
     }
 }

@@ -74,4 +74,14 @@ public class User {
                 .setNegativeButton("No", null)
                 .show();
     }
+
+    public static boolean isLoggedIn(Activity activity) {
+        User user = new User();
+
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        user.setUserName(sharedPreferences.getString("username", null));
+        user.setPassword(sharedPreferences.getInt("password", 0));
+
+        return user.getPassword() != 0 && user.getUserName() != null;
+    }
 }

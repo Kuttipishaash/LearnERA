@@ -12,8 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.learnera.app.data.User;
+import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.MarksFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
@@ -30,7 +32,12 @@ public class MarksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marks);
         if (isNetworkAvailable()) {
-            doWhenNetworkPresent();
+            if(User.isLoggedIn(this)) {
+                doWhenNetworkPresent();
+            }
+            else {
+                doWhenNotLoggedIn();
+            }
         } else {
             doWhenNoNetwork();
         }
@@ -93,5 +100,13 @@ public class MarksActivity extends AppCompatActivity {
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private void doWhenNotLoggedIn() {
+        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
+        Fragment fragment = new LoginFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.marks_fragment, fragment);
+        fragmentTransaction.commit();
     }
 }

@@ -21,7 +21,7 @@ public class NetworkUtils {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
-
+//// TODO: 7/5/2017 FIX BUG in CONTAINER!!!!
     //Used to open network not available fragment whenever network is not present
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {
         Fragment fragment = new NetworkNotAvailableFragment();
