@@ -2,6 +2,8 @@ package com.learnera.app;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +30,8 @@ public class WelcomeActivity extends AppCompatActivity {
     Button mContacts;
     @BindView(R.id.login_status)
     TextView mLoginStatus;
+    @BindView(R.id.button_syllabus)
+    Button mSyllabus;
 
     private User user;
 
@@ -89,6 +93,19 @@ public class WelcomeActivity extends AppCompatActivity {
     @OnClick(R.id.button_contacts)
     void contacts() {
         startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
+    }
 
+    @OnClick(R.id.button_syllabus)
+    void syllabus() {
+        PackageManager pm = this.getPackageManager();
+        Intent i = pm.getLaunchIntentForPackage("com.du.shankar.syllabus");
+        if (i != null) {
+            startActivity(i);
+        } else {
+            Intent viewIntent =
+                    new Intent("android.intent.action.VIEW",
+                            Uri.parse("https://play.google.com/store/apps/details?id=com.du.shankar.syllabus"));
+            startActivity(viewIntent);
+        }
     }
 }

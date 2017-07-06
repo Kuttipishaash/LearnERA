@@ -2,6 +2,7 @@ package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,8 +17,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.learnera.app.AttendanceActivity;
+import com.learnera.app.IntroActivity;
+import com.learnera.app.LoginActivity;
+import com.learnera.app.MarksActivity;
 import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
+import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 import com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText;
@@ -62,7 +68,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
-
+        getActivity().setTitle("RSMS Login");
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
         mPassword = (ShowHidePasswordEditText) view.findViewById(R.id.et_password);
@@ -120,6 +126,37 @@ public class LoginFragment extends Fragment {
         mProgressDialog.setIndeterminate(true);
     }
 
+    private void login() {
+        //write username and password to sharedpreference file
+        sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString("username",
+                user.getUserName());
+        editor.putInt("password",
+                user.getPassword());
+        editor.apply();
+
+        Toast.makeText(view.getContext(), "Logged in with: " + user.getUserName(), Toast.LENGTH_SHORT)
+                .show();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
+            Intent i = new Intent(getActivity(), WelcomeActivity.class);
+            startActivity(i);
+        } else if (getActivity() instanceof MarksActivity) {
+            Fragment fragment;
+            getActivity().setTitle("Marks");
+            fragment = new MarksFragment();
+            fragmentTransaction.replace(R.id.marks_fragment, fragment);
+            fragmentTransaction.commit();
+        } else if (getActivity() instanceof AttendanceActivity) {
+            Fragment fragment;
+            getActivity().setTitle("Attendence");
+            fragment = new AttendanceFragment();
+            fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+            fragmentTransaction.commit();
+        }
+    }
+
     private class JSoupLoginTask extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -154,19 +191,5 @@ public class LoginFragment extends Fragment {
             }
             return null;
         }
-    }
-
-    private void login() {
-        //write username and password to sharedpreference file
-        sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.putString("username",
-                user.getUserName());
-        editor.putInt("password",
-                user.getPassword());
-        editor.apply();
-
-        Toast.makeText(view.getContext(), "Logged in with: " + user.getUserName(), Toast.LENGTH_SHORT)
-                .show();
     }
 }

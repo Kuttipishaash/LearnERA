@@ -2,11 +2,8 @@ package com.learnera.app.fragments;
 
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.learnera.app.LoginActivity;
 import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
 import com.learnera.app.data.Constants;
@@ -147,6 +143,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 semList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
+        spinner1.setSelection(countSemesters - 1);
         spinner1.setOnItemSelectedListener(this);
     }
 
@@ -165,6 +162,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private void createList() {
 
         marksAdapter = new MarksAdapter(marksList);
+        mRecyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
