@@ -30,6 +30,8 @@ import com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
@@ -51,6 +53,8 @@ public class LoginFragment extends Fragment {
 
     Connection.Response res;
     View view;
+
+    String name;
 
     public LoginFragment() {
 
@@ -130,13 +134,15 @@ public class LoginFragment extends Fragment {
         //write username and password to sharedpreference file
         sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        editor.putString("user",
+                user.getUser());
         editor.putString("username",
                 user.getUserName());
         editor.putInt("password",
                 user.getPassword());
         editor.apply();
 
-        Toast.makeText(view.getContext(), "Logged in with: " + user.getUserName(), Toast.LENGTH_SHORT)
+        Toast.makeText(view.getContext(), "Logged in as: " + user.getUser(), Toast.LENGTH_SHORT)
                 .show();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
@@ -186,6 +192,12 @@ public class LoginFragment extends Fragment {
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
+                Document doc = Jsoup.connect("https://www.rajagiritech.ac.in/stud/KTU/Parent/Home.asp")
+                        .cookies(res.cookies())
+                        .get();
+                Elements u = doc.select("strong");
+                name = u.text();
+                user.setUser(name);
             } catch (IOException e) {
                 Log.e("LOGIN_ACTIVITY", "Error checking login info");
             }

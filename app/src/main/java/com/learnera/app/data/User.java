@@ -8,48 +8,21 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
-import com.learnera.app.AttendanceActivity;
-
 /**
  * Created by praji on 7/2/2017.
  */
-//// TODO: 7/5/2017 Change implementation to static
 public class User {
-    private String userName;
-    private int password;
+    static private String userName;
+    static private int password;
+    static private String user;
 
-    public User(String userName, int password) {
-        this.userName = userName;
-        this.password = password;
+    public User(String userName, int password, String user) {
+        User.userName = userName;
+        User.password = password;
+        User.user = user;
     }
 
     public User() {
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getPassword() {
-        return password;
-    }
-
-    public void setPassword(int password) {
-        this.password = password;
-    }
-
-    public User getLoginInfo(FragmentActivity fragmentActivity) {
-
-        User result = new User();
-
-        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        result.setUserName(sharedPreferences.getString("username", null));
-        result.setPassword(sharedPreferences.getInt("password", 0));
-        return result;
     }
 
     public static void eraseUserInfo(Activity activity) {
@@ -83,5 +56,39 @@ public class User {
         user.setPassword(sharedPreferences.getInt("password", 0));
 
         return user.getPassword() != 0 && user.getUserName() != null;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        User.user = user;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        User.userName = userName;
+    }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        User.password = password;
+    }
+
+    public User getLoginInfo(FragmentActivity fragmentActivity) {
+
+        User result = new User();
+
+        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        result.setUserName(sharedPreferences.getString("username", null));
+        result.setPassword(sharedPreferences.getInt("password", 0));
+        return result;
     }
 }
