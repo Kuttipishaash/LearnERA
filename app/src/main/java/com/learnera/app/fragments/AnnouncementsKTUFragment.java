@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.learnera.app.NetworkUtils;
 import com.learnera.app.R;
 import com.learnera.app.data.Announcement;
 import com.learnera.app.data.AnnouncementsAdapter;
@@ -35,11 +36,9 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class AnnouncementsKTUFragment extends Fragment {
 
     protected String ktuURL;
-    protected String rsetURL;
     private List<Announcement> announcementList = new ArrayList<>();
-    private List<Announcement> announcementListPersonal = new ArrayList<>();
-    private RecyclerView mRecyclerView, mRecyclerViewPersonal;
-    private AnnouncementsAdapter mAdapter, mAdapterPersonal;
+    private RecyclerView mRecyclerView;
+    private AnnouncementsAdapter mAdapter;
     private ProgressDialog mLoading;
 
     public AnnouncementsKTUFragment() {
@@ -67,16 +66,18 @@ public class AnnouncementsKTUFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        AnnouncementsKTUFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsKTUFragment.JsoupAsyncTask();
-        jsoupAsyncTask.execute();
+        NetworkUtils networkCheck = new NetworkUtils();
+        if(networkCheck.isNetworkAvailable(getActivity()))
+        {
+            AnnouncementsKTUFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsKTUFragment.JsoupAsyncTask();
+            jsoupAsyncTask.execute();
+        }
+        else
+        {
 
-        //PERSONAL ANNOUNCEMENTS INITIALIZATIONS
-        //mRecyclerViewPersonal = (RecyclerView) findViewById(R.id.recycler_view_announcements_rajagiri);
-        // mAdapterPersonal = new AnnouncementsAdapter(announcementListPersonal);
-        //RecyclerView.LayoutManager mLayoutManagerPersonal = new LinearLayoutManager(getApplicationContext());
-        //mRecyclerViewPersonal.setLayoutManager(mLayoutManagerPersonal);
-        // mRecyclerViewPersonal.setItemAnimator(new DefaultItemAnimator());
-        //mRecyclerViewPersonal.setNestedScrollingEnabled(false); //Disables scrolling of individual recycler views as scroll view is implemented
+        }
+
+
     }
 
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {

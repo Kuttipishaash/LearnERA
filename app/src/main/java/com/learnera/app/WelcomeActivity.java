@@ -66,8 +66,16 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onResume();
 
         user = user.getLoginInfo(this);
-        String text = "LOGGED IN AS : " + user.getUser();
-        mLoginStatus.setText(text);
+        String text;
+        if(user.getUser()==null)
+        {
+            text = "NOT LOGGED IN TO RSMS";
+            mLoginStatus.setText(text);
+        }
+        else {
+            text = "LOGGED IN AS : " + user.getUser();
+            mLoginStatus.setText(text);
+        }
     }
 
     @OnClick(R.id.button_login)

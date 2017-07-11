@@ -174,9 +174,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPreExecute() {
-            mLoading = new ProgressDialog(getActivity());
-            mLoading.setMessage("Loading Data...");
-            mLoading.show();
+            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+                mLoading = new ProgressDialog(getActivity());
+                mLoading.setMessage("Loading Data...");
+                mLoading.show();
+            } else {
+                NetworkUtils.doWhenNoNetwork(getActivity());
+            }
             super.onPreExecute();
         }
 
@@ -227,9 +231,14 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPreExecute() {
-            mLoading = new ProgressDialog(getActivity());
-            mLoading.setMessage("Loading Data...");
-            mLoading.show();
+            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+                mLoading = new ProgressDialog(getActivity());
+                mLoading.setMessage("Loading Data...");
+                mLoading.show();
+            }
+            else {
+                NetworkUtils.doWhenNoNetwork(getActivity());
+            }
             super.onPreExecute();
         }
 
@@ -277,7 +286,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             } else {
                 NetworkUtils.doWhenNoNetwork(getActivity());
             }
-
             super.onPreExecute();
         }
 

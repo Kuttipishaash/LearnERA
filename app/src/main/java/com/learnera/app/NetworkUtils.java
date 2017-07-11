@@ -26,7 +26,12 @@ public class NetworkUtils {
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {
         Fragment fragment = new NetworkNotAvailableFragment();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+        if(fragmentActivity instanceof MarksActivity)
+            fragmentTransaction.replace(R.id.marks_fragment, fragment);
+        else if (fragmentActivity instanceof AttendanceActivity)
+            fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+        else if (fragmentActivity instanceof LoginActivity)
+            fragmentTransaction.replace(R.id.fragment_login, fragment);
         fragmentTransaction.commit();
     }
 }

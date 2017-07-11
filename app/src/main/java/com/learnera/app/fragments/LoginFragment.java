@@ -142,7 +142,7 @@ public class LoginFragment extends Fragment {
                 user.getPassword());
         editor.apply();
 
-        Toast.makeText(view.getContext(), "Logged in as: " + user.getUser(), Toast.LENGTH_SHORT)
+        Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
                 .show();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
