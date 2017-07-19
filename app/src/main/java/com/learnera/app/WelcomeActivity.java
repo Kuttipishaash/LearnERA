@@ -1,5 +1,6 @@
 package com.learnera.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.client.Firebase;
+import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
 import butterknife.BindView;
@@ -33,7 +35,8 @@ public class WelcomeActivity extends AppCompatActivity {
     @BindView(R.id.button_syllabus)
     Button mSyllabus;
 
-    private User user;
+    private SharedPreferences sharedPreferences;
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +44,6 @@ public class WelcomeActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
-
-        user = new User();
 
         //Check if application is on first start
         Thread mThread = new Thread(new Runnable() {
@@ -65,17 +66,19 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        user = user.getLoginInfo(this);
-        String text;
-        if(user.getUser()==null)
-        {
-            text = "NOT LOGGED IN TO RSMS";
-            mLoginStatus.setText(text);
+        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        user = sharedPreferences.getString("user", null);
+
+        String longText;
+        if(user != null) {
+            longText = "LOGGED IN AS : " + user;
+            mLoginStatus.setText(longText);
         }
         else {
-            text = "LOGGED IN AS : " + user.getUser();
-            mLoginStatus.setText(text);
+            longText = "NOT LOGGED IN TO RSMS";
+            mLoginStatus.setText(longText);
         }
+
     }
 
     @OnClick(R.id.button_login)

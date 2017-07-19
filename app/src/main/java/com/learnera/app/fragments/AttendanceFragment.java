@@ -15,9 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.learnera.app.NetworkUtils;
+import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
-import com.learnera.app.LoginActivity;
 import com.learnera.app.R;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
@@ -172,11 +171,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPreExecute();
 
             setDefaultCountValue();
-            if(NetworkUtils.isNetworkAvailable(getActivity())) {
+            if(Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             }
             else {
-                NetworkUtils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(getActivity());
             }
         }
 
@@ -223,10 +222,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onPreExecute() {
             super.onPreExecute();
 
-            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             } else {
-                NetworkUtils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(getActivity());
             }
             mSubjectList = new ArrayList<>();
             mPercentageList = new ArrayList<>();

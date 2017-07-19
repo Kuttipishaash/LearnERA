@@ -18,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.learnera.app.NetworkUtils;
+import com.learnera.app.Utils;
 import com.learnera.app.R;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.Marks;
@@ -174,12 +174,12 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPreExecute() {
-            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
                 mLoading.show();
             } else {
-                NetworkUtils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(getActivity());
             }
             super.onPreExecute();
         }
@@ -231,13 +231,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPreExecute() {
-            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
                 mLoading.show();
             }
             else {
-                NetworkUtils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(getActivity());
             }
             super.onPreExecute();
         }
@@ -279,12 +279,12 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPreExecute() {
-            if (NetworkUtils.isNetworkAvailable(getActivity())) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
                 mLoading.show();
             } else {
-                NetworkUtils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(getActivity());
             }
             super.onPreExecute();
         }

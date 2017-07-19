@@ -21,7 +21,7 @@ import com.learnera.app.AttendanceActivity;
 import com.learnera.app.IntroActivity;
 import com.learnera.app.LoginActivity;
 import com.learnera.app.MarksActivity;
-import com.learnera.app.NetworkUtils;
+import com.learnera.app.Utils;
 import com.learnera.app.R;
 import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
@@ -72,12 +72,13 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
-        getActivity().setTitle("RSMS Login");
+
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
         mPassword = (ShowHidePasswordEditText) view.findViewById(R.id.et_password);
 
         initProgressDialog();
+        getActivity().setTitle("RSMS Login");
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,13 +94,13 @@ public class LoginFragment extends Fragment {
                     mPassword.setError("Password cannot be empty");
                 }
                 else {
-                    if(NetworkUtils.isNetworkAvailable(getActivity())) {
+                    if(Utils.isNetworkAvailable(getActivity())) {
                         new JSoupLoginTask().execute();
                         user.setUserName(userName);
                         user.setPassword(Integer.parseInt(password));
                     }
                     else {
-                        NetworkUtils.doWhenNoNetwork(getActivity());
+                        Utils.doWhenNoNetwork(getActivity());
                     }
                 }
             }
@@ -144,6 +145,8 @@ public class LoginFragment extends Fragment {
 
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
                 .show();
+
+        //Go back to previous fragment after login
         android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
             Intent i = new Intent(getActivity(), WelcomeActivity.class);

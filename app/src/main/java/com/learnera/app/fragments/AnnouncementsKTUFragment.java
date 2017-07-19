@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.learnera.app.NetworkUtils;
+import com.learnera.app.Utils;
 import com.learnera.app.R;
 import com.learnera.app.data.Announcement;
 import com.learnera.app.data.AnnouncementsAdapter;
@@ -66,8 +66,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        NetworkUtils networkCheck = new NetworkUtils();
-        if(networkCheck.isNetworkAvailable(getActivity()))
+        if(Utils.isNetworkAvailable(getActivity()))
         {
             AnnouncementsKTUFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsKTUFragment.JsoupAsyncTask();
             jsoupAsyncTask.execute();

@@ -17,15 +17,6 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
         setFullscreen(true);
         super.onCreate(savedInstanceState);
 
-        addSlide(new SimpleSlide.Builder()
-                .title(R.string.intro_welcome_title)
-                .description(R.string.intro_welcome_desc)
-                .image(R.drawable.placeholder)
-                .background(R.color.md_teal_500)
-                .backgroundDark(R.color.md_teal_700)
-                .scrollable(false)
-                .build());
-
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_teal_400)
                 .backgroundDark(R.color.md_teal_700)

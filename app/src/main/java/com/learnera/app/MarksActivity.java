@@ -1,8 +1,5 @@
 package com.learnera.app;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,12 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.learnera.app.data.User;
-import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.MarksFragment;
-import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
 /**
  * Created by Prejith on 8/8/2016.
@@ -31,15 +25,15 @@ public class MarksActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marks);
-        if (isNetworkAvailable()) {
+        if (Utils.isNetworkAvailable(this)) {
             if(User.isLoggedIn(this)) {
                 doWhenNetworkPresent();
             }
             else {
-                doWhenNotLoggedIn();
+                Utils.doWhenNotLoggedIn(this);
             }
         } else {
-            doWhenNoNetwork();
+            Utils.doWhenNoNetwork(this);
         }
     }
 
@@ -80,13 +74,6 @@ public class MarksActivity extends AppCompatActivity {
 
     }
 
-    public void doWhenNoNetwork() {
-        fragment = new NetworkNotAvailableFragment();
-        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.marks_fragment, fragment);
-        fragmentTransaction.commit();
-    }
-
     public void doWhenNetworkPresent() {
         fragment = new MarksFragment();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -94,19 +81,4 @@ public class MarksActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    //TO CHECK INTERNET CONNECTION
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    private void doWhenNotLoggedIn() {
-        Toast.makeText(this, "Please login first", Toast.LENGTH_SHORT).show();
-        Fragment fragment = new LoginFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.marks_fragment, fragment);
-        fragmentTransaction.commit();
-    }
 }
