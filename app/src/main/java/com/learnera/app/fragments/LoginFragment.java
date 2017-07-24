@@ -11,6 +11,8 @@ import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -36,7 +38,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 
 /**
- * Created by praji on 7/4/2017.
+ * Created by Prejith on 7/4/2017.
  */
 
 public class LoginFragment extends Fragment {
@@ -52,6 +54,7 @@ public class LoginFragment extends Fragment {
     SharedPreferences.Editor editor;
 
     Connection.Response res;
+    Elements u;
     View view;
 
     String name;
@@ -63,6 +66,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
         user = new User();
     }
@@ -107,6 +111,12 @@ public class LoginFragment extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        menu.clear();
     }
 
     @Override
@@ -159,7 +169,7 @@ public class LoginFragment extends Fragment {
             fragmentTransaction.commit();
         } else if (getActivity() instanceof AttendanceActivity) {
             Fragment fragment;
-            getActivity().setTitle("Attendence");
+            getActivity().setTitle("Attendance");
             fragment = new AttendanceFragment();
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
             fragmentTransaction.commit();
@@ -178,6 +188,8 @@ public class LoginFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
+            name = u.text();
+            user.setUser(name);
             mProgressDialog.dismiss();
 
             if (isLoginInfoCorrect()) {
@@ -195,12 +207,10 @@ public class LoginFragment extends Fragment {
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
-                Document doc = Jsoup.connect("https://www.rajagiritech.ac.in/stud/KTU/Parent/Home.asp")
+                Document doc = Jsoup.connect(Constants.homeURL)
                         .cookies(res.cookies())
                         .get();
-                Elements u = doc.select("strong");
-                name = u.text();
-                user.setUser(name);
+                u = doc.select("strong");
             } catch (IOException e) {
                 Log.e("LOGIN_ACTIVITY", "Error checking login info");
             }

@@ -13,9 +13,7 @@
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -83,6 +81,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Syllabus"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/button_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
             android:textSize="12sp" />
 
     </LinearLayout>

@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.firebase.client.Firebase;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
@@ -34,6 +33,8 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView mLoginStatus;
     @BindView(R.id.button_syllabus)
     Button mSyllabus;
+    @BindView(R.id.button_logout)
+    Button mLogout;
 
     private SharedPreferences sharedPreferences;
     String user;
@@ -41,7 +42,6 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
@@ -119,5 +119,10 @@ public class WelcomeActivity extends AppCompatActivity {
                             Uri.parse("https://play.google.com/store/apps/details?id=com.du.shankar.syllabus"));
             startActivity(viewIntent);
         }
+    }
+
+    @OnClick(R.id.button_logout)
+    void logout() {
+        User.logout(this);
     }
 }

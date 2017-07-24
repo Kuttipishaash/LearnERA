@@ -3,10 +3,14 @@ package com.learnera.app.data;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
+
+import com.learnera.app.LoginActivity;
+import com.learnera.app.WelcomeActivity;
 
 /**
  * Created by praji on 7/2/2017.
@@ -15,12 +19,6 @@ public class User {
     static private String userName;
     static private int password;
     static private String user;
-
-    public User(String userName, int password, String user) {
-        User.userName = userName;
-        User.password = password;
-        User.user = user;
-    }
 
     public User() {
     }
@@ -34,18 +32,24 @@ public class User {
     }
 
     public static void logout(final Activity activity) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(activity);
-        alert.setTitle("Logout")
-                .setTitle("Are you sure you want to logout")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        eraseUserInfo(activity);
-                        Toast.makeText(activity, "Logged out successfully", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .setNegativeButton("No", null)
-                .show();
+        if(isLoggedIn(activity)) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+            alert.setTitle("Logout")
+                    .setTitle("Are you sure you want to logout")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            eraseUserInfo(activity);
+                            Toast.makeText(activity, "Logged out successfully", Toast.LENGTH_SHORT).show();
+                            activity.startActivity(new Intent(activity, WelcomeActivity.class));
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        }
+        else {
+            Toast.makeText(activity, "You are not logged in", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public static boolean isLoggedIn(Activity activity) {
