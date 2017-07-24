@@ -36,7 +36,7 @@ public class WelcomeActivity extends AppCompatActivity {
     @BindView(R.id.button_logout)
     Button mLogout;
 
-    private SharedPreferences sharedPreferences;
+    SharedPreferences sharedPreferences;
     String user;
 
     @Override

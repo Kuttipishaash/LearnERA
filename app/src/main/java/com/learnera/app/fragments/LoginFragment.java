@@ -28,7 +28,6 @@ import com.learnera.app.R;
 import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
-import com.scottyab.showhidepasswordedittext.ShowHidePasswordEditText;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -44,7 +43,7 @@ import java.io.IOException;
 public class LoginFragment extends Fragment {
 
     EditText mUserName;
-    ShowHidePasswordEditText mPassword;
+    EditText mPassword;
     Button mLogin;
     ProgressDialog mProgressDialog;
 
@@ -79,7 +78,7 @@ public class LoginFragment extends Fragment {
 
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
-        mPassword = (ShowHidePasswordEditText) view.findViewById(R.id.et_password);
+        mPassword = (EditText) view.findViewById(R.id.et_password);
 
         initProgressDialog();
         getActivity().setTitle("RSMS Login");
