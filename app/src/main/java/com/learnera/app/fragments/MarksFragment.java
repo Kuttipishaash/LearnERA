@@ -36,7 +36,6 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -163,7 +162,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         marksAdapter = new MarksAdapter(marksList);
         mRecyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(marksAdapter);

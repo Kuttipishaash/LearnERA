@@ -28,8 +28,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -63,7 +61,7 @@ public class AnnouncementsKTUFragment extends Fragment {
 
     private void setupPage() {
         //GENERAL ANNOUNCEMENTS INITIALIZATIONS
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         if(Utils.isNetworkAvailable(getActivity()))

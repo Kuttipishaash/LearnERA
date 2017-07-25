@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="XX"
             android:textAlignment="center"
-            android:textColor="@color/authui_inputTextColorDark"
+            android:textColor="@color/md_black_1000"
             android:textSize="30sp" />
 
         <TextView
