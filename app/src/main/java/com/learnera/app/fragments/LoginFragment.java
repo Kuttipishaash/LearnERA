@@ -86,26 +86,25 @@ public class LoginFragment extends Fragment {
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            String userName = mUserName.getText().toString();
+            String password = mPassword.getText().toString();
 
-                String userName = mUserName.getText().toString();
-                String password = mPassword.getText().toString();
-
-                if(TextUtils.isEmpty(userName)) {
-                    mUserName.setError("Username cannot be empty");
-                }
-                else if(TextUtils.isEmpty(password)) {
-                    mPassword.setError("Password cannot be empty");
+            if(TextUtils.isEmpty(userName)) {
+                mUserName.setError("Username cannot be empty");
+            }
+            else if(TextUtils.isEmpty(password)) {
+                mPassword.setError("Password cannot be empty");
+            }
+            else {
+                if(Utils.isNetworkAvailable(getActivity())) {
+                   new JSoupLoginTask().execute();
+                   user.setUserName(userName);
+                   user.setPassword(Integer.parseInt(password));
                 }
                 else {
-                    if(Utils.isNetworkAvailable(getActivity())) {
-                        new JSoupLoginTask().execute();
-                        user.setUserName(userName);
-                        user.setPassword(Integer.parseInt(password));
-                    }
-                    else {
-                        Utils.doWhenNoNetwork(getActivity());
-                    }
+                    Utils.doWhenNoNetwork(getActivity());
                 }
+            }
             }
         });
 
