@@ -1,38 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-    android:layout_marginRight="@dimen/activity_horizontal_margin"
-    android:layout_marginBottom="@dimen/activity_vertical_margin"
-    android:layout_marginTop="@dimen/activity_horizontal_margin" >
+    android:orientation="horizontal"
+    android:padding="16dp" >
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_weight="3"
+        android:orientation="vertical" >
+
+
+        <TextView
+            android:id="@+id/list_attendance_subject_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="GS201"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/list_attendance_subject"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:text="Subject name"
-            android:textSize="16sp"
-            android:padding="8dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Computer Organisation and Architecture"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/list_attendance_percentage"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="100%"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:gravity="center|right" />
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Classes missed:"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/list_attendance_classes_missed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20"
+            android:textStyle="italic"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="/"/>
+
+        <TextView
+            android:id="@+id/list_attendance_classes_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:text="60"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/list_attendance_percentage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:gravity="center|right"
+        android:text="100%"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
 </LinearLayout>

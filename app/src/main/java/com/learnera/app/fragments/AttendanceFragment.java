@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
@@ -30,10 +31,14 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Prejith on 6/30/2017.
  */
+
+//// TODO: 7/31/2017 Code to be optimized and minor bugs to be fixed.
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -45,12 +50,20 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private int count;
     private View view;
     private User user;
+    protected Pattern codePattern, singlePattern, threePattern;
+    protected String textData;
+    protected String htmlData;
+    protected Pattern pattern;
+    final protected String sub = "Total Class";
 
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
     private List<String> mSubjectList;
     private List<String> mPercentageList;
+    private List<String> mSubjectCodeList;
+    private List<String> mMissedList;
+    private List<String> mTotalList;
 
     //For Spinner
     private ArrayList<String> mSemesters;
@@ -84,9 +97,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         initProgressDialog();
 
-        mSemesterList = new ArrayList<>();
-        mSubjectList = new ArrayList<>();
-        mPercentageList = new ArrayList<>();
+        mSemesterList = new ArrayList<>(); //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
+
+        initLists();
+
+        codePattern = Pattern.compile("\\w{2}\\d{3}");
+        threePattern = Pattern.compile("[A-Z]{3}");
+        singlePattern = Pattern.compile("[A-Z]");
 
         new JSoupSpinnerTask().execute();
 
@@ -113,22 +130,63 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mProgressDialog.setIndeterminate(true);
     }
 
+    private void initLists() {
+        mSubjectList = new ArrayList<>();
+        mPercentageList = new ArrayList<>();
+        mMissedList = new ArrayList<>();
+        mTotalList = new ArrayList<>();
+        mSubjectCodeList = new ArrayList<>();
+    }
+
+    private void clearLists() {
+        mPercentageList.clear();
+        mSubjectList.clear();
+        mSubjectCodeList.clear();
+        mMissedList.clear();
+        mTotalList.clear();
+    }
+
     private void extractAttendanceData() {
+
         Elements tables = doc.select("table [width=96%]");
         for (Element table : tables) {
             Elements rows = table.select("tr");
             for (Element row : rows) {
                 Elements tds = rows.select("td");
+                for(Element td: tds.select(":containsOwn(Total Class)")) {
+                    String data = td.text();
+
+                    mTotalList.add(data.substring(data.toLowerCase().indexOf(sub.toLowerCase())).replaceAll("[^\\d]", ""));
+
+                }
                 for (Element td : tds) {
                     String data = td.getElementsByTag("b").text();
-                    if (data != "" && count > 1) {
-                        mSubjectList.add(data);
-                        mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
+                    String htmlData = td.html();
+
+                    Matcher matcher = codePattern.matcher(htmlData);
+                    Matcher matcher2 = threePattern.matcher(htmlData);
+                    Matcher matcher3 = singlePattern.matcher(htmlData);
+
+                    if(count > 1) {
+                        if (matcher.find()) {
+                            mSubjectCodeList.add(matcher.group());
+                        } else if (matcher2.find()) {
+                            mSubjectCodeList.add(matcher2.group());
+                        } else if (matcher3.find()) {
+                            mSubjectCodeList.add(matcher3.group());
+                        }
+
+                        if (data != "") {
+                            mSubjectList.add(data);
+                            mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
+                        }
                     }
                     count++;
                 }
                 for (Element td : tds) {
                     String data = td.select(":containsOwn(%)").text();
+                    String data2 = td.getElementsByTag("strong").text();
+
                     if (data != "") {
                         //Remove first 2 characters as they are invalid
                         StringBuilder build = new StringBuilder(data);
@@ -137,6 +195,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
                         //Add to list
                         mPercentageList.add(printer);
+                    }
+
+                    if(data2 != "") {
+                        mMissedList.add(data2);
                     }
                 }
                 break;
@@ -227,14 +289,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             } else {
                 Utils.doWhenNoNetwork(getActivity());
             }
-            mSubjectList = new ArrayList<>();
-            mPercentageList = new ArrayList<>();
 
-            //Clear both lists before populating recycler view by continuous spinner selections
-            mPercentageList.clear();
-            mSubjectList.clear();
+            initLists();
 
-            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList);
+            //Clear lists before populating recycler view by continuous spinner selections
+            clearLists();
+
+            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList);
             mRecyclerView.setAdapter(mRecyclerAdapter);
 
             setDefaultCountValue();
@@ -243,6 +304,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+
+            extractAttendanceData();
 
             mProgressDialog.dismiss();
         }
@@ -254,8 +317,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 doc = Jsoup.connect(Constants.attendanceURL + "?code=" + code)
                         .cookies(res.cookies())
                         .get();
-
-                extractAttendanceData();
 
             } catch (IOException e) {
                 Log.e("ATTENDANCE_ACTIVITY", "Error retrieving data");

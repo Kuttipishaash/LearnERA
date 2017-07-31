@@ -35,7 +35,7 @@ public class User {
         if(isLoggedIn(activity)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(activity);
             alert.setTitle("Logout")
-                    .setTitle("Are you sure you want to logout")
+                    .setMessage("Are you sure you want to logout")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

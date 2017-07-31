@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -44,8 +46,11 @@ public class LoginFragment extends Fragment {
 
     EditText mUserName;
     EditText mPassword;
+    TextInputLayout mUserInput;
+    TextInputLayout mPassInput;
     Button mLogin;
     ProgressDialog mProgressDialog;
+    InputMethodManager inputMethodManager;
 
     User user;
 
@@ -79,6 +84,9 @@ public class LoginFragment extends Fragment {
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
         mPassword = (EditText) view.findViewById(R.id.et_password);
+        mUserInput = (TextInputLayout) view.findViewById(R.id.text_input_username_field);
+        mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
 
         initProgressDialog();
         getActivity().setTitle("RSMS Login");
@@ -90,10 +98,14 @@ public class LoginFragment extends Fragment {
             String password = mPassword.getText().toString();
 
             if(TextUtils.isEmpty(userName)) {
-                mUserName.setError("Username cannot be empty");
+                mUserInput.setError("Username cannot be empty");
+                mUserInput.requestFocus();
+                inputMethodManager.showSoftInput(mUserName, InputMethodManager.SHOW_IMPLICIT);
             }
             else if(TextUtils.isEmpty(password)) {
-                mPassword.setError("Password cannot be empty");
+                mPassInput.setError("Password cannot be empty");
+                mPassInput.requestFocus();
+                inputMethodManager.showSoftInput(mPassword, InputMethodManager.SHOW_IMPLICIT);
             }
             else {
                 if(Utils.isNetworkAvailable(getActivity())) {
