@@ -10,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
@@ -19,8 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class WelcomeActivity extends AppCompatActivity {
-    @BindView(R.id.button_login)
-    Button mLogIn;
+
     @BindView(R.id.button_announcement)
     Button mAnnouncement;
     @BindView(R.id.button_attendance)
@@ -39,27 +39,27 @@ public class WelcomeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     String user;
 
+    boolean previouslyStarted;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         ButterKnife.bind(this);
 
-        //Check if application is on first start
-        Thread mThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
-                if (!previouslyStarted) {
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean(getString(R.string.pref_previously_started), true);
-                    editor.apply();
-                    startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
-                }
-            }
-        });
-        mThread.start();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
+
+        if (!previouslyStarted) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(getString(R.string.pref_previously_started), true);
+            editor.apply();
+            startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
+        }
+        else if(!User.isLoggedIn(this)) {
+            Toast.makeText(this, "Please login to continue", Toast.LENGTH_SHORT).show();
+            startActivity(new  Intent(WelcomeActivity.this, LoginActivity.class));
+        }
     }
 
     @Override
@@ -78,12 +78,6 @@ public class WelcomeActivity extends AppCompatActivity {
             longText = "NOT LOGGED IN TO RSMS";
             mLoginStatus.setText(longText);
         }
-
-    }
-
-    @OnClick(R.id.button_login)
-    void login() {
-        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
     }
 
     @OnClick(R.id.button_announcement)

@@ -23,4 +23,12 @@ public class LoginActivity extends AppCompatActivity {
         fragmentTransaction.commit();
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finishAffinity();
+    }
+
 }

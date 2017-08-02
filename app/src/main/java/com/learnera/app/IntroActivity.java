@@ -2,9 +2,8 @@ package com.learnera.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
-import com.heinrichreimersoftware.materialintro.slide.SimpleSlide;
+import com.learnera.app.fragments.LoginFragment;
 
 /**
  * Created by Prejith on 7/13/2016.
@@ -21,6 +20,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .background(R.color.md_teal_400)
                 .backgroundDark(R.color.md_teal_700)
                 .fragment(R.layout.fragment_intro_welcome, R.style.Theme_Intro)
+                .canGoBackward(false)
                 .build());
 
         addSlide(new FragmentSlide.Builder()
@@ -30,7 +30,6 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .build());
 
         addSlide(new FragmentSlide.Builder()
-
                 .background(R.color.md_green_400)
                 .backgroundDark(R.color.md_green_700)
                 .fragment(R.layout.fragment_intro_marks, R.style.Theme_Intro)
@@ -42,12 +41,19 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .fragment(R.layout.fragment_intro_contact, R.style.Theme_Intro)
                 .build());
 
-        //// TODO: 7/5/2017 Implement later: 'Login later' button which has same action as next button in intros 
+
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_deep_purple_400)
                 .backgroundDark(R.color.md_deep_purple_700)
-                .fragment(R.layout.fragment_login, R.style.Theme_Intro)
+                .fragment(new LoginFragment())
+                .canGoForward(false)
                 .build());
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finishAffinity();
     }
 }
