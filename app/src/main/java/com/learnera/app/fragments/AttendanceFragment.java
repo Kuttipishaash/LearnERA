@@ -51,9 +51,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private View view;
     private User user;
     protected Pattern codePattern, singlePattern, threePattern;
-    protected String textData;
-    protected String htmlData;
-    protected Pattern pattern;
     final protected String sub = "Total Class";
 
     //For Recycler

@@ -1,6 +1,5 @@
 package com.learnera.app;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -8,46 +7,31 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    @BindView(R.id.button_announcement)
-    Button mAnnouncement;
-    @BindView(R.id.button_attendance)
-    Button mAttendance;
-    @BindView(R.id.button_marks)
-    Button mMarks;
-    @BindView(R.id.button_contacts)
-    Button mContacts;
-    @BindView(R.id.login_status)
-    TextView mLoginStatus;
-    @BindView(R.id.button_syllabus)
-    Button mSyllabus;
-    @BindView(R.id.button_logout)
-    Button mLogout;
+    ImageView mAnnouncement;
+    ImageView mAttendance;
+    ImageView mContacts;
+    ImageView mLogout;
+    ImageView mSyllabus;
+    ImageView mMarks;
 
-    SharedPreferences sharedPreferences;
-    String user;
-
+    SharedPreferences preferences;
     boolean previouslyStarted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        ButterKnife.bind(this);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
 
         if (!previouslyStarted) {
@@ -60,12 +44,15 @@ public class WelcomeActivity extends AppCompatActivity {
             Toast.makeText(this, "Please login to continue", Toast.LENGTH_SHORT).show();
             startActivity(new  Intent(WelcomeActivity.this, LoginActivity.class));
         }
+
+        initImageViews();
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+/*
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user = sharedPreferences.getString("user", null);
 
@@ -77,32 +64,61 @@ public class WelcomeActivity extends AppCompatActivity {
         else {
             longText = "NOT LOGGED IN TO RSMS";
             mLoginStatus.setText(longText);
-        }
+        } */
     }
 
-    @OnClick(R.id.button_announcement)
-    void announcement() {
-        startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
-    }
+    public void initImageViews() {
+        mAnnouncement = (ImageView) findViewById(R.id.drawable_announcement);
+        mAnnouncement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
+            }
+        });
 
-    @OnClick(R.id.button_attendance)
-    void attendance() {
-        startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
-    }
+        mAttendance = (ImageView) findViewById(R.id.drawable_attendance);
+        mAttendance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+            }
+        });
 
-    @OnClick(R.id.button_marks)
-    void marks() {
-        startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
-    }
+        mContacts = (ImageView) findViewById(R.id.drawable_contacts);
+        mContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
+            }
+        });
 
-    @OnClick(R.id.button_contacts)
-    void contacts() {
-        startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
+        mLogout = (ImageView) findViewById(R.id.drawable_logout);
+        mLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User.logout(WelcomeActivity.this);
+            }
+        });
+
+        mSyllabus = (ImageView) findViewById(R.id.drawable_syllabus);
+        mSyllabus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSyllabus();
+            }
+        });
+
+        mMarks = (ImageView) findViewById(R.id.drawable_marks);
+        mMarks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
+            }
+        });
     }
 
     //intent to syllabus app
-    @OnClick(R.id.button_syllabus)
-    void syllabus() {
+    void getSyllabus() {
         PackageManager pm = this.getPackageManager();
         Intent i = pm.getLaunchIntentForPackage("com.du.shankar.syllabus");
         if (i != null) {
@@ -113,10 +129,5 @@ public class WelcomeActivity extends AppCompatActivity {
                             Uri.parse("https://play.google.com/store/apps/details?id=com.du.shankar.syllabus"));
             startActivity(viewIntent);
         }
-    }
-
-    @OnClick(R.id.button_logout)
-    void logout() {
-        User.logout(this);
     }
 }
