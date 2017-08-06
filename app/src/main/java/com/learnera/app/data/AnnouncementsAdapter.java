@@ -62,9 +62,9 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
 
     public class MyParentViewHolder extends ParentViewHolder {
 
-        private TextView listHeader;
+        public TextView listHeader;
 
-        private MyParentViewHolder(View itemView) {
+        public MyParentViewHolder(View itemView) {
             super(itemView);
             listHeader = (TextView) itemView.findViewById(R.id.announcement_title);
     }
@@ -73,10 +73,10 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
 
     public class MyChildViewHolder extends ChildViewHolder {
 
-        private TextView listDescription;
-        private TextView listDate;
+        public TextView listDescription;
+        public TextView listDate;
 
-        private MyChildViewHolder(View itemView) {
+        public MyChildViewHolder(View itemView) {
             super(itemView);
 
             listDescription = (TextView) itemView.findViewById(R.id.announcement_description);
