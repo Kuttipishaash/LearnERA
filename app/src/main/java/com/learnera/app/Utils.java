@@ -1,12 +1,13 @@
 package com.learnera.app;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 import android.widget.Toast;
 
 import com.learnera.app.fragments.LoginFragment;
@@ -29,13 +30,22 @@ public class Utils {
     //Used to open network not available fragment whenever network is not present
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {
         Fragment fragment = new NetworkNotAvailableFragment();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
-        if(fragmentActivity instanceof MarksActivity)
+        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        if (fragmentActivity instanceof MarksActivity) {
+            //fragmentTransaction.addToBackStack("marksfrag");
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
-        else if (fragmentActivity instanceof AttendanceActivity)
+        } else if (fragmentActivity instanceof AttendanceActivity) {
+            //fragmentTransaction.addToBackStack("attendfrag");
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
-        else if (fragmentActivity instanceof LoginActivity)
+        } else if (fragmentActivity instanceof LoginActivity) {
+            //fragmentTransaction.addToBackStack("loginfrag");
             fragmentTransaction.replace(R.id.fragment_login, fragment);
+        } else if (fragmentActivity instanceof AnnouncementsActivity) {
+            AnnouncementsActivity.network.setVisibility(View.VISIBLE);
+            AnnouncementsActivity.mViewPager.setVisibility(View.GONE);
+            AnnouncementsActivity.tabLayout.setVisibility(View.GONE);
+        }
         fragmentTransaction.commit();
     }
 

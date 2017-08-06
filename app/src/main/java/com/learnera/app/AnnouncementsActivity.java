@@ -1,28 +1,23 @@
 package com.learnera.app;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
-import com.learnera.app.fragments.AnnouncementOthersFragment;
 import com.learnera.app.fragments.AnnouncementsKTUFragment;
 import com.learnera.app.fragments.AnnouncementsRSETFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
 public class AnnouncementsActivity extends AppCompatActivity {
-
-    private static Intent i;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -31,17 +26,27 @@ public class AnnouncementsActivity extends AppCompatActivity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
+    public static SectionsPagerAdapter mSectionsPagerAdapter;
     /**
      * The {@link ViewPager} that will host the section contents.
      */
-    private ViewPager mViewPager;
+    public static ViewPager mViewPager;
+    public static TabLayout tabLayout;
+    public static FrameLayout network;
+    public static Fragment ktuFragment;
+    public static Fragment rsetFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcements);
-
+        rsetFragment = new AnnouncementsRSETFragment();
+        ktuFragment = new AnnouncementsKTUFragment();
+        network = (FrameLayout) findViewById(R.id.announcement_network);
+        Fragment fragment = new NetworkNotAvailableFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.announcement_network, fragment);
+        fragmentTransaction.commit();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -51,11 +56,8 @@ public class AnnouncementsActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-
     }
 
 
@@ -81,21 +83,11 @@ public class AnnouncementsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //INTERNET CONNECTION CHECK
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -104,28 +96,22 @@ public class AnnouncementsActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    if (isNetworkAvailable())
-                        return new AnnouncementsKTUFragment();
-                    else
-                        return new NetworkNotAvailableFragment();
+                    return ktuFragment;
                 case 1:
-                    if (isNetworkAvailable())
-                        return new AnnouncementsRSETFragment();
-                    else
-                        return new NetworkNotAvailableFragment();
-                case 2:
-                    if (isNetworkAvailable())
-                        return new AnnouncementOthersFragment();
-                    else
-                        return new NetworkNotAvailableFragment();
+                    return rsetFragment;
+                //case 2:
+                //    if (isNetworkAvailable())
+                //       return new AnnouncementOthersFragment();
+                //   else
+                //       return new NetworkNotAvailableFragment();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
         @Override
@@ -135,8 +121,8 @@ public class AnnouncementsActivity extends AppCompatActivity {
                     return "KTU";
                 case 1:
                     return "RSET";
-                case 2:
-                    return "OTHERS";
+                //case 2:
+                //    return "OTHERS";
             }
             return null;
         }

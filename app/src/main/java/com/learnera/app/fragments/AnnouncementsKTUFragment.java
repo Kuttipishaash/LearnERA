@@ -13,9 +13,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.learnera.app.Utils;
+import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
+import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
-import com.learnera.app.data.Announcement;
+import com.learnera.app.Utils;
+import com.learnera.app.data.AnnouncementKTUChild;
+import com.learnera.app.data.AnnouncementKTUParent;
 import com.learnera.app.data.AnnouncementsAdapter;
 
 import org.jsoup.Connection;
@@ -34,10 +37,7 @@ import java.util.List;
 public class AnnouncementsKTUFragment extends Fragment {
 
     protected String ktuURL;
-    private List<Announcement> announcementList = new ArrayList<>();
     private RecyclerView mRecyclerView;
-    private AnnouncementsAdapter mAdapter;
-    private ProgressDialog mLoading;
 
     public AnnouncementsKTUFragment() {
         // Required empty public constructor
@@ -51,6 +51,12 @@ public class AnnouncementsKTUFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        setupPage();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
@@ -60,18 +66,17 @@ public class AnnouncementsKTUFragment extends Fragment {
     }
 
     private void setupPage() {
-        //GENERAL ANNOUNCEMENTS INITIALIZATIONS
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        if(Utils.isNetworkAvailable(getActivity()))
-        {
+        if (Utils.isNetworkAvailable(getActivity())) {
+            AnnouncementsActivity.network.setVisibility(View.GONE);
+            AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);
             AnnouncementsKTUFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsKTUFragment.JsoupAsyncTask();
             jsoupAsyncTask.execute();
-        }
-        else
-        {
-
+        } else {
+            Utils.doWhenNoNetwork(getActivity());
         }
 
 
@@ -80,7 +85,7 @@ public class AnnouncementsKTUFragment extends Fragment {
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
         Elements tables;
-
+        private ProgressDialog mLoading;
         @Override
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
@@ -111,42 +116,56 @@ public class AnnouncementsKTUFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Void result) {
-            announcementList = new ArrayList<>();
-            Announcement newAnnouncement;
+            mLoading.dismiss();
+            AnnouncementKTUParent newAnnouncements;
+            AnnouncementKTUChild newAnnouncementKTUChild;
             String date = "";
+            String title;
+            String desc;
+            //String ext = "";
             int count;
+            List<ParentListItem> parentListItems = new ArrayList<>();
+
 
             for (Element table : tables) {
                 Elements rows = table.getElementsByTag("tr");
                 for (Element row : rows) {
                     Elements cells = row.getElementsByTag("td");
+                    newAnnouncements = new AnnouncementKTUParent();
+                    newAnnouncementKTUChild = new AnnouncementKTUChild();
                     count = 0;
-                    newAnnouncement = new Announcement();
                     for (Element cell : cells) {
                         if (count == 0) {
                             Elements element = cell.getElementsByTag("b");
-                            date = element.text() + " ";
+                            date = element.text().substring(0, 10);
+
                         } else {
-                            Elements element = cell.getElementsByTag("b");
-                            newAnnouncement.setmDate(date);
-                            newAnnouncement.setAnnouncementHead(element.text());
-                            announcementList.add(newAnnouncement);
-                            //element=cell.getElementsByTag("label");
-                            //date = date + element.text()+" ";
-                            //element=cell.getElementsByTag("strong");
-                            //date = date + element.text();
+                            Elements elementdesc = cell.getElementsByTag("li");
+                            for (Element element : elementdesc) {
+                                Elements head = element.getElementsByTag("b");
+                                //Elements head2 = element.getElementsByTag("a");
+
+                                title = head.eq(0).text();
+                                //ext = head2.eq(0).text();
+                                desc = element.ownText();
+
+
+                                newAnnouncementKTUChild.setmAnnouncementDate(date);
+                                newAnnouncements.setmAnnouncementTitle(title);
+                                newAnnouncementKTUChild.setmAnnouncementDescription(desc);
+                                List<AnnouncementKTUChild> childList = new ArrayList<>();
+                                childList.add(newAnnouncementKTUChild);
+                                newAnnouncements.setChildList(childList);
+                                parentListItems.add(newAnnouncements);
+
+                            }
                         }
                         count++;
-
                     }
                 }
+                mRecyclerView.setAdapter(new AnnouncementsAdapter(getContext(), parentListItems));
             }
-            mAdapter = new AnnouncementsAdapter(announcementList);
-            mRecyclerView.setAdapter(mAdapter);
-            mLoading.dismiss();
         }
+
     }
-
-
-
 }

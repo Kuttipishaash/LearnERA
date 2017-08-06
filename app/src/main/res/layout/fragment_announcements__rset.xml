@@ -4,10 +4,13 @@
     android:layout_height="match_parent"
     tools:context="com.learnera.app.fragments.AnnouncementsRSETFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_announcements_rset"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="RSET" />
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp" />
 
 </FrameLayout>

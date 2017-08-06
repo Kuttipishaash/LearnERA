@@ -54,7 +54,10 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                     fragment = new MarksFragment();
                     fragmentTransaction.replace(R.id.marks_fragment, fragment);
                 } else if (getActivity() instanceof AnnouncementsActivity) {
-                    //TODO: HANDLING IF FRAGMENT IS INFLATED ANNOUNCEMENT ACTIVITY
+                    AnnouncementsActivity.network.setVisibility(View.GONE);
+                    AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);
+                    AnnouncementsActivity.tabLayout.setVisibility(View.VISIBLE);
+                    AnnouncementsActivity.ktuFragment.onResume();
                 } else if (getActivity() instanceof AttendanceActivity) {
                     fragment = new AttendanceFragment();
                     fragmentTransaction.replace(R.id.fragment_attendance, fragment);
