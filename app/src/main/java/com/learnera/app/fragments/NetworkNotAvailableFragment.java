@@ -17,6 +17,7 @@ import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.AttendanceActivity;
 import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
+import com.learnera.app.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,7 +48,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.button_retry_connection) {
-            if (isNetworkAvailable()) {
+            if (Utils.isOnline()) {
                 Fragment fragment;
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 if (getActivity() instanceof MarksActivity) {
@@ -67,12 +68,5 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 Toast.makeText(getActivity(), "NO INTERNET CONNECTION FOUND", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

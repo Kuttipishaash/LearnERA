@@ -82,9 +82,12 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         user = new User();
         user = user.getLoginInfo(getActivity());
 
-        MarksFragment.JsoupAsyncTask jsoupAsyncTask = new MarksFragment.JsoupAsyncTask();
-        jsoupAsyncTask.execute();
-
+        if(Utils.isOnline()) {
+            new JsoupAsyncTask().execute();
+        }
+        else {
+            Utils.doWhenNoNetwork(getActivity());
+        }
     }
 
     @Override

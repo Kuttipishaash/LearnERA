@@ -1,8 +1,10 @@
 package com.learnera.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,8 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -22,17 +26,20 @@ public class WelcomeActivity extends AppCompatActivity {
     ImageView mLogout;
     ImageView mSyllabus;
     ImageView mMarks;
+    TextView mLoginStatus;
+    TextView mAppName;
 
-    SharedPreferences preferences;
-    boolean previouslyStarted;
+    SharedPreferences sharedPreferences;
+
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
 
         if (!previouslyStarted) {
             SharedPreferences.Editor editor = preferences.edit();
@@ -45,34 +52,41 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new  Intent(WelcomeActivity.this, LoginActivity.class));
         }
 
-        initImageViews();
+        initViews();
 
+        Typeface face= Typeface.createFromAsset(getAssets(),"fonts/Letter Gothic Std Medium.ttf");
+        mLoginStatus.setTypeface(face);
+        mAppName.setTypeface(face);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-/*
+
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user = sharedPreferences.getString("user", null);
 
         String longText;
         if(user != null) {
-            longText = "LOGGED IN AS : " + user;
+            longText = "Logged in as : " + user;
             mLoginStatus.setText(longText);
         }
         else {
-            longText = "NOT LOGGED IN TO RSMS";
+            longText = "Not logged into RSMS";
             mLoginStatus.setText(longText);
-        } */
+        }
     }
 
-    public void initImageViews() {
+    public void initViews() {
+
+        mLoginStatus = (TextView) findViewById(R.id.login_status);
+        mAppName = (TextView) findViewById(R.id.app_name);
+
         mAnnouncement = (ImageView) findViewById(R.id.drawable_announcement);
         mAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
             }
         });
 
@@ -80,7 +94,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
             }
         });
 
@@ -88,7 +102,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
             }
         });
 

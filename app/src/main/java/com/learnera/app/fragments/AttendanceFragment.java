@@ -102,7 +102,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         threePattern = Pattern.compile("[A-Z]{3}");
         singlePattern = Pattern.compile("[A-Z]");
 
-        new JSoupSpinnerTask().execute();
+        if(Utils.isNetworkAvailable(getActivity())) {
+            new JSoupSpinnerTask().execute();
+        }
+        else {
+            Utils.doWhenNoNetwork(getActivity());
+        }
 
         return view;
     }
@@ -230,7 +235,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPreExecute();
 
             setDefaultCountValue();
-            if(Utils.isNetworkAvailable(getActivity())) {
+            if(Utils.isOnline()) {
                 mProgressDialog.show();
             }
             else {
@@ -281,7 +286,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onPreExecute() {
             super.onPreExecute();
 
-            if (Utils.isNetworkAvailable(getActivity())) {
+            if (Utils.isOnline()) {
                 mProgressDialog.show();
             } else {
                 Utils.doWhenNoNetwork(getActivity());
