@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     ImageView mAnnouncement;
     ImageView mAttendance;
-    ImageView mContacts;
+//    ImageView mContacts;
     ImageView mLogout;
     ImageView mSyllabus;
     ImageView mMarks;
@@ -54,6 +53,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         initViews();
 
+        //Set font
         Typeface face= Typeface.createFromAsset(getAssets(),"fonts/Letter Gothic Std Medium.ttf");
         mLoginStatus.setTypeface(face);
         mAppName.setTypeface(face);
@@ -63,6 +63,11 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        //Set logged in user status
+        setUserStatus();
+    }
+
+    public void setUserStatus() {
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user = sharedPreferences.getString("user", null);
 
@@ -76,7 +81,6 @@ public class WelcomeActivity extends AppCompatActivity {
             mLoginStatus.setText(longText);
         }
     }
-
     public void initViews() {
 
         mLoginStatus = (TextView) findViewById(R.id.login_status);
@@ -97,7 +101,7 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
             }
         });
-
+/*
         mContacts = (ImageView) findViewById(R.id.drawable_contacts);
         mContacts.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +109,7 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
             }
         });
-
+*/
         mLogout = (ImageView) findViewById(R.id.drawable_logout);
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override

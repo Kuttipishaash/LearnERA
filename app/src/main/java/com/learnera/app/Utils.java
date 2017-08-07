@@ -27,7 +27,7 @@ import java.util.concurrent.ExecutionException;
 public class Utils {
     static boolean b;
 
-    //To check internet connection
+    //To check network connection
     public static boolean isNetworkAvailable(FragmentActivity fragmentActivity) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) fragmentActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -35,6 +35,7 @@ public class Utils {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
+    //To check internet connection
     public static class checkConnection extends AsyncTask<Void, Void, Boolean> {
 
         @Override
@@ -87,6 +88,7 @@ public class Utils {
         fragmentTransaction.commit();
     }
 
+    //open up login fragment when not logged in
     public static void doWhenNotLoggedIn(FragmentActivity fragmentActivity) {
         Toast.makeText(fragmentActivity, "Please login first", Toast.LENGTH_SHORT).show();
         Fragment fragment = new LoginFragment();

@@ -3,7 +3,6 @@ package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -69,7 +68,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     private View v;
     private User user;
-    private SharedPreferences sharedPreferences;
 
     public MarksFragment() {
         // Required empty public constructor

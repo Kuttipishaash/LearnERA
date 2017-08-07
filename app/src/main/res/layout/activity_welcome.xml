@@ -45,7 +45,8 @@
                 android:textColor="@color/md_white_1000"
                 android:background="@color/md_grey_700"
                 android:text="NOT LOGGED IN"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:paddingBottom="10dp"/>
 
             <ImageView
                 android:id="@+id/drawable_announcement"
@@ -67,14 +68,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"/>
-
+<!--
             <ImageView
                 android:id="@+id/drawable_contacts"
                 android:src="@drawable/contacts_custom"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"/>
-
+-->
             <ImageView
                 android:id="@+id/drawable_syllabus"
                 android:src="@drawable/syllabus_custom"

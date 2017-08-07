@@ -98,6 +98,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         initLists();
 
+        //initiate patterns for matching string
         codePattern = Pattern.compile("\\w{2}\\d{3}");
         threePattern = Pattern.compile("[A-Z]{3}");
         singlePattern = Pattern.compile("[A-Z]");
