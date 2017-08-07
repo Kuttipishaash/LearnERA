@@ -36,7 +36,7 @@ public class AnnouncementsRSETAdapter extends RecyclerView.Adapter<Announcements
 
     @Override
     public int getItemCount() {
-        return 20;
+        return announcementRSET.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
