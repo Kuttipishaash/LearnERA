@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/placeholder" />
+            android:src="@drawable/intro_icon" />
     </LinearLayout>
 
     <TextView
