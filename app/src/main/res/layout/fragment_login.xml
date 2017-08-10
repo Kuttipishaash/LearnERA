@@ -48,7 +48,7 @@
                 android:id="@+id/et_password"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:hint="Password"
+                android:hint="Admission No"
                 android:drawablePadding="2dp"
                 android:drawableStart="@drawable/ic_lock_black_24dp_temp"
                 android:inputType="numberPassword"

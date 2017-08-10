@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Toast;
 
+import com.learnera.app.fragments.AboutFragment;
 import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
@@ -65,6 +66,30 @@ public class Utils {
         }
         return b;
     }
+
+    // TODO: 8/10/2017 About us for announcements
+    //Show About us
+    public static void showAbout(FragmentActivity fragmentActivity) {
+        Fragment fragment = new AboutFragment();
+        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
+
+        if(fragmentActivity instanceof AttendanceActivity) {
+            fragmentTransaction.addToBackStack("attendfrag");
+            fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+        }
+        else if(fragmentActivity instanceof MarksActivity) {
+            fragmentTransaction.addToBackStack("markfrag");
+            fragmentTransaction.replace(R.id.marks_fragment, fragment);
+        } /*
+        else if(fragmentActivity instanceof AnnouncementsActivity) {
+            fragmentTransaction.addToBackStack("annfrag");
+            fragmentTransaction.replace(R.id.fr, fragment);
+        } */
+        fragmentTransaction.commit();
+    }
+
 
     //Used to open network not available fragment whenever network is not present
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {

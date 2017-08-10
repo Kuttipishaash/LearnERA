@@ -177,6 +177,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             if (Utils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
+                mLoading.setCancelable(false);
                 mLoading.show();
             } else {
                 Utils.doWhenNoNetwork(getActivity());
@@ -234,6 +235,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             if (Utils.isNetworkAvailable(getActivity())) {
                 mLoading = new ProgressDialog(getActivity());
                 mLoading.setMessage("Loading Data...");
+                mLoading.setCancelable(false);
                 mLoading.show();
             }
             else {

@@ -149,6 +149,7 @@ public class LoginFragment extends Fragment {
         mProgressDialog.setMessage("Checking login information...");
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setCancelable(false);
     }
 
     private void login() {

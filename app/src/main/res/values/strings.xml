@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">LearnERA</string>
+    <string name="app_version">v1.0</string>
 
     <!-- Strings for intro screens -->
     <string name="intro_welcome_title">Welcome to LearnERA</string>
@@ -75,9 +76,6 @@
         <item name="assignment">Assignment</item>
         <item name="semester_exam">Semester Exam</item>
     </string-array>
-
-    <!--Sensitive -->
-    <string name="web_client_id">149198351980-522ji44l3g7jt1m6n3n9tnf1enulquj7.apps.googleusercontent.com</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

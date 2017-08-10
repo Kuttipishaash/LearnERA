@@ -1,5 +1,6 @@
 package com.learnera.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -47,8 +48,8 @@ public class MarksActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case (R.id.action_marks_help):
-                showHelp();
+            case (R.id.action_about):
+                Utils.showAbout(this);
                 return true;
             case (R.id.action_logout):
                 User.logout(this);
@@ -57,16 +58,6 @@ public class MarksActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
-
-    private void showHelp() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(MarksActivity.this);
-        alert.setTitle(R.string.action_announcement_help)
-                .setMessage(R.string.help_marks_message)
-                .setPositiveButton(R.string.ok, null)
-                .show();
-    }
-
 
     @Override
     protected void onResume() {

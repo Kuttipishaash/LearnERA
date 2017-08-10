@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.learnera.app.data.User;
+import com.learnera.app.fragments.AboutFragment;
 import com.learnera.app.fragments.AttendanceFragment;
 
 /**
@@ -27,15 +27,13 @@ public class AttendanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
 
-        if(Utils.isNetworkAvailable(this)) {
-            if(User.isLoggedIn(this)) {
+        if (Utils.isNetworkAvailable(this)) {
+            if (User.isLoggedIn(this)) {
                 doWhenNetworkPresent();
-            }
-            else {
+            } else {
                 Utils.doWhenNotLoggedIn(this);
             }
-        }
-        else {
+        } else {
             Utils.doWhenNoNetwork(this);
         }
     }
@@ -50,8 +48,8 @@ public class AttendanceActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case (R.id.action_attendance_help):
-                showHelp();
+            case (R.id.action_about):
+                Utils.showAbout(this);
                 return true;
             case (R.id.action_logout):
                 User.logout(this);
@@ -61,13 +59,6 @@ public class AttendanceActivity extends AppCompatActivity {
         }
     }
 
-    private void showHelp() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(AttendanceActivity.this);
-        alert.setTitle(R.string.action_announcement_help)
-                .setMessage(R.string.help_attendance_message)
-                .setPositiveButton(R.string.ok, null)
-                .show();
-    }
 
     public void doWhenNetworkPresent() {
         fragment = new AttendanceFragment();
