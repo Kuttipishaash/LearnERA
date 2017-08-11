@@ -191,18 +191,24 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     String data = td.select(":containsOwn(%)").text();
                     String data2 = td.getElementsByTag("strong").text();
 
-                    if (data != "") {
-                        //Remove first 2 characters as they are invalid
-                        StringBuilder build = new StringBuilder(data);
-                        String printer = build.delete(0, 2).toString();
-                        printer = printer.replaceAll("\\s+", "");
-
-                        //Add to list
-                        mPercentageList.add(printer);
+                    if(td.text().equals("-")) {
+                        mPercentageList.add("-");
+                        mMissedList.add("-");
                     }
+                    else {
+                        if (data.equals("")) {
+                            //Remove first 2 characters as they are invalid
+                            StringBuilder build = new StringBuilder(data);
+                            String printer = build.delete(0, 2).toString();
+                            printer = printer.replaceAll("\\s+", "");
 
-                    if(data2 != "") {
-                        mMissedList.add(data2);
+                            //Add to list
+                            mPercentageList.add(printer);
+                        }
+
+                        if (data2.equals("")) {
+                            mMissedList.add(data2);
+                        }
                     }
                 }
                 break;
