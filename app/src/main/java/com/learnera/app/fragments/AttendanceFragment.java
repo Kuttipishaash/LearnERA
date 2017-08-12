@@ -196,7 +196,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         mMissedList.add("-");
                     }
                     else {
-                        if (data.equals("")) {
+                        if (!data.equals("")) {
                             //Remove first 2 characters as they are invalid
                             StringBuilder build = new StringBuilder(data);
                             String printer = build.delete(0, 2).toString();
@@ -206,7 +206,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                             mPercentageList.add(printer);
                         }
 
-                        if (data2.equals("")) {
+                        if (!data2.equals("")) {
                             mMissedList.add(data2);
                         }
                     }
