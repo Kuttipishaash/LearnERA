@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -48,7 +50,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.button_retry_connection) {
-            if (Utils.isOnline()) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 Fragment fragment;
                 android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 if (getActivity() instanceof MarksActivity) {
@@ -68,5 +70,12 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 Toast.makeText(getActivity(), "NO INTERNET CONNECTION FOUND", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        menu.clear();
     }
 }

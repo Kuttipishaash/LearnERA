@@ -3,6 +3,7 @@ package com.learnera.app.fragments;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -33,6 +34,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
+//// TODO: 8/13/2017 Implement internet check and about us for announcements
 public class AnnouncementsRSETFragment extends Fragment {
 
     public static String announcementRSETURL;
@@ -79,8 +81,12 @@ public class AnnouncementsRSETFragment extends Fragment {
         if (Utils.isNetworkAvailable(getActivity())) {
             AnnouncementsActivity.network.setVisibility(View.GONE);
             AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);
+
             AnnouncementsRSETFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsRSETFragment.JsoupAsyncTask();
             jsoupAsyncTask.execute();
+
+//            Handler handler = new Handler();
+//            Utils.testInternetConnectivity(jsoupAsyncTask, handler);
         } else {
             Utils.doWhenNoNetwork(getActivity());
         }
@@ -91,6 +97,16 @@ public class AnnouncementsRSETFragment extends Fragment {
 
         Elements tables;
         private ProgressDialog mLoading;
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mLoading.isShowing()) {
+                mLoading.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
 
         @Override
         protected void onPreExecute() {

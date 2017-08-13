@@ -45,12 +45,15 @@ public class AnnouncementsActivity extends AppCompatActivity {
         rsetFragment = new AnnouncementsRSETFragment();
         ktuFragment = new AnnouncementsKTUFragment();
         network = (FrameLayout) findViewById(R.id.announcement_network);
+
         Fragment fragment = new NetworkNotAvailableFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.announcement_network, fragment);
         fragmentTransaction.commit();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());

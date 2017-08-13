@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.learnera.app.fragments.AboutFragment;
+import com.learnera.app.fragments.AttendanceFragment;
 import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
 
@@ -37,34 +39,14 @@ public class Utils {
     }
 
     //To check internet connection
-    public static class checkConnection extends AsyncTask<Void, Void, Boolean> {
-
-        @Override
-        protected Boolean doInBackground(Void ... p) {
-            try {
-                int timeoutMs = 1500;
-                Socket sock = new Socket();
-                SocketAddress sockaddr = new InetSocketAddress("8.8.8.8", 53);
-
-                sock.connect(sockaddr, timeoutMs);
-                sock.close();
-
-                return true;
-            } catch (IOException e) { return false; }
-        }
-    }
-
-    public static boolean isOnline() {
-        try {
-            b = new checkConnection().execute().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            b = false;
-        } catch (ExecutionException e) {
-            b = false;
-            e.printStackTrace();
-        }
-        return b;
+    public static void testInternetConnectivity(final AsyncTask asyncTask, Handler handler) {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(asyncTask.getStatus() == AsyncTask.Status.RUNNING)
+                    asyncTask.cancel(true);
+            }
+        }, 10000);
     }
 
     // TODO: 8/10/2017 About us for announcements
@@ -76,11 +58,9 @@ public class Utils {
         fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
 
         if(fragmentActivity instanceof AttendanceActivity) {
-            fragmentTransaction.addToBackStack("attendfrag");
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
         }
         else if(fragmentActivity instanceof MarksActivity) {
-            fragmentTransaction.addToBackStack("markfrag");
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
         } /*
         else if(fragmentActivity instanceof AnnouncementsActivity) {
@@ -97,13 +77,10 @@ public class Utils {
         FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         if (fragmentActivity instanceof MarksActivity) {
-            fragmentTransaction.addToBackStack("marksfrag");
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
         } else if (fragmentActivity instanceof AttendanceActivity) {
-            fragmentTransaction.addToBackStack("attendfrag");
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
         } else if (fragmentActivity instanceof LoginActivity) {
-            fragmentTransaction.addToBackStack("loginfrag");
             fragmentTransaction.replace(R.id.fragment_login, fragment);
         } else if (fragmentActivity instanceof AnnouncementsActivity) {
             AnnouncementsActivity.network.setVisibility(View.VISIBLE);

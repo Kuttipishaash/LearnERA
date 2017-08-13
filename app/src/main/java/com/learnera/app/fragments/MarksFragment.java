@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -80,12 +81,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         user = new User();
         user = user.getLoginInfo(getActivity());
 
-        if(Utils.isOnline()) {
-            new JsoupAsyncTask().execute();
-        }
-        else {
-            Utils.doWhenNoNetwork(getActivity());
-        }
+        JSoupSemesterTask jSoupSemesterTask = new JSoupSemesterTask();
+        jSoupSemesterTask.execute();
+
+        Handler handler = new Handler();
+        Utils.testInternetConnectivity(jSoupSemesterTask, handler);
     }
 
     @Override
@@ -111,24 +111,24 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                                long id) {
         switch (parent.getId()) {
             case R.id.spinner_marks_semesters:
-                JsoupAsyncTask2 jsoupAsyncTask2 = new JsoupAsyncTask2(semListCode.get(spinner1.getSelectedItemPosition()));
-                jsoupAsyncTask2.execute();
+                JSoupSpinnerCategoryTask JSoupSpinnerCategoryTask = new JSoupSpinnerCategoryTask(semListCode.get(spinner1.getSelectedItemPosition()));
+                JSoupSpinnerCategoryTask.execute();
+
+                Handler handler = new Handler();
+                Utils.testInternetConnectivity(JSoupSpinnerCategoryTask, handler);
                 break;
             case R.id.spinner_marks_category:
                 finalFetchURL = Constants.markURL + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
+
+                Handler handler1 = new Handler();
+                Utils.testInternetConnectivity(marksAsyncTask, handler1);
                 break;
         }
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
     }
 
     private void dynamicSemList() {
@@ -170,7 +170,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     }
 
     //FOR SPINNER 1 DYNAMIC
-    private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
+    private class JSoupSemesterTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -183,6 +183,16 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 Utils.doWhenNoNetwork(getActivity());
             }
             super.onPreExecute();
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mLoading.isShowing()) {
+                mLoading.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
         }
 
         @Override
@@ -222,11 +232,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     }
 
     //FOR SPINNER 2 DYNAMIC
-    private class JsoupAsyncTask2 extends AsyncTask<Void, Void, Void> {
+    private class JSoupSpinnerCategoryTask extends AsyncTask<Void, Void, Void> {
 
         String codes;
 
-        public JsoupAsyncTask2(String code) {
+        public JSoupSpinnerCategoryTask(String code) {
             this.codes = code;
         }
 
@@ -260,6 +270,16 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         }
 
         @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mLoading.isShowing()) {
+                mLoading.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
+
+        @Override
         protected void onPostExecute(Void result) {
             examValues = new ArrayList<>();
             examList = new ArrayList<>();
@@ -278,6 +298,16 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private class MarkAsyncTask extends AsyncTask<Void, Void, Void> {
 
         Elements tables;
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mLoading.isShowing()) {
+                mLoading.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
 
         @Override
         protected void onPreExecute() {

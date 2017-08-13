@@ -4,6 +4,7 @@ package com.learnera.app.fragments;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -73,19 +74,32 @@ public class AnnouncementsKTUFragment extends Fragment {
         if (Utils.isNetworkAvailable(getActivity())) {
             AnnouncementsActivity.network.setVisibility(View.GONE);
             AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);
+
             AnnouncementsKTUFragment.JsoupAsyncTask jsoupAsyncTask = new AnnouncementsKTUFragment.JsoupAsyncTask();
             jsoupAsyncTask.execute();
+
+//            Handler handler = new Handler();
+//            Utils.testInternetConnectivity(jsoupAsyncTask, handler);
         } else {
             Utils.doWhenNoNetwork(getActivity());
         }
-
-
     }
 
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
         Elements tables;
         private ProgressDialog mLoading;
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mLoading.isShowing()) {
+                mLoading.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
+
         @Override
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
@@ -97,8 +111,6 @@ public class AnnouncementsKTUFragment extends Fragment {
         @Override
         protected Void doInBackground(Void... params) {
             try {
-
-
                 Connection.Response res = Jsoup.connect(ktuURL)
                         .followRedirects(true)
                         .method(Connection.Method.POST)

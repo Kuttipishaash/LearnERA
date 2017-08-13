@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -80,6 +82,7 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
+        setHasOptionsMenu(true);
 
         mLogin = (Button) view.findViewById(R.id.button_login);
         mUserName = (EditText) view.findViewById(R.id.et_uid);
@@ -109,9 +112,15 @@ public class LoginFragment extends Fragment {
             }
             else {
                 if(Utils.isNetworkAvailable(getActivity())) {
-                   new JSoupLoginTask().execute();
-                   user.setUserName(userName);
-                   user.setPassword(Integer.parseInt(password));
+
+                    JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
+                    jSoupLoginTask.execute();
+
+                    Handler handler = new Handler();
+                    Utils.testInternetConnectivity(jSoupLoginTask, handler);
+
+                    user.setUserName(userName);
+                    user.setPassword(Integer.parseInt(password));
                 }
                 else {
                     Utils.doWhenNoNetwork(getActivity());
@@ -168,10 +177,9 @@ public class LoginFragment extends Fragment {
                 .show();
 
         //Go back to previous fragment after login
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
-            Intent i = new Intent(getActivity(), WelcomeActivity.class);
-            startActivity(i);
+            startActivity(new Intent(getActivity(), WelcomeActivity.class));
         } else if (getActivity() instanceof MarksActivity) {
             Fragment fragment;
             getActivity().setTitle("Marks");
@@ -193,6 +201,16 @@ public class LoginFragment extends Fragment {
             super.onPreExecute();
 
             mProgressDialog.show();
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mProgressDialog.isShowing()) {
+                mProgressDialog.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
         }
 
         @Override

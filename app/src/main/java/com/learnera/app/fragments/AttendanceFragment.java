@@ -31,6 +31,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import android.os.Handler;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -103,13 +104,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         threePattern = Pattern.compile("[A-Z]{3}");
         singlePattern = Pattern.compile("[A-Z]");
 
-        if(Utils.isNetworkAvailable(getActivity())) {
-            new JSoupSpinnerTask().execute();
-        }
-        else {
-            Utils.doWhenNoNetwork(getActivity());
-        }
+        final JSoupSpinnerTask jSoupSpinnerTask = new JSoupSpinnerTask();
+        jSoupSpinnerTask.execute();
 
+        Handler handler = new Handler();
+        Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
         return view;
     }
 
@@ -119,7 +118,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         pos = spinner.getSelectedItemPosition();
         code = mSemesterList.get(pos);
         //Start populating recycler view
-        new AttendanceFragment.JSoupAttendanceTask().execute();
+        final JSoupAttendanceTask jSoupAttendanceTask  = new JSoupAttendanceTask();
+        jSoupAttendanceTask.execute();
+
+        Handler handler = new Handler();
+        Utils.testInternetConnectivity(jSoupAttendanceTask, handler);
+
     }
 
     @Override
@@ -180,7 +184,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                             mSubjectCodeList.add(matcher3.group());
                         }
 
-                        if (data != "") {
+                        if (!data.equals("")) {
                             mSubjectList.add(data);
                             mRecyclerAdapter.notifyItemInserted(mSubjectList.size());
                         }
@@ -239,11 +243,21 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
 
         @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mProgressDialog != null) {
+                mProgressDialog.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
+
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
             setDefaultCountValue();
-            if(Utils.isOnline()) {
+            if(Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             }
             else {
@@ -262,6 +276,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             spinner.setAdapter(mSpinnerAdapter);
             spinner.setSelection(count);
             mProgressDialog.dismiss();
+
         }
 
         @Override
@@ -291,10 +306,20 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     //For populating RecyclerView
     private class JSoupAttendanceTask extends AsyncTask<Void, Void, Void> {
         @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+            if(mProgressDialog.isShowing() ) {
+                mProgressDialog.hide();
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
+
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
-            if (Utils.isOnline()) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
             } else {
                 Utils.doWhenNoNetwork(getActivity());
