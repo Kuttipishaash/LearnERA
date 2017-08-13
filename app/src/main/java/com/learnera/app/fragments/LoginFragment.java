@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,10 +22,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.learnera.app.AttendanceActivity;
-import com.learnera.app.IntroActivity;
-import com.learnera.app.LoginActivity;
-import com.learnera.app.MarksActivity;
 import com.learnera.app.Utils;
 import com.learnera.app.R;
 import com.learnera.app.WelcomeActivity;
@@ -84,14 +79,10 @@ public class LoginFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_login, container, false);
         setHasOptionsMenu(true);
 
-        mLogin = (Button) view.findViewById(R.id.button_login);
-        mUserName = (EditText) view.findViewById(R.id.et_uid);
-        mPassword = (EditText) view.findViewById(R.id.et_password);
-        mUserInput = (TextInputLayout) view.findViewById(R.id.text_input_username_field);
-        mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
-        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        initView();
 
         initProgressDialog();
+
         getActivity().setTitle("RSMS Login");
 
         mLogin.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +92,13 @@ public class LoginFragment extends Fragment {
             String password = mPassword.getText().toString();
 
             if(TextUtils.isEmpty(userName)) {
+                //set error on username field
                 mUserInput.setError("Username cannot be empty");
+
+                //request focus for username field
                 mUserInput.requestFocus();
+
+                //show keyboard on emtpy username entered
                 inputMethodManager.showSoftInput(mUserName, InputMethodManager.SHOW_IMPLICIT);
             }
             else if(TextUtils.isEmpty(password)) {
@@ -143,7 +139,7 @@ public class LoginFragment extends Fragment {
         super.onResume();
     }
 
-    boolean isLoginInfoCorrect() {
+    private boolean isLoginInfoCorrect() {
         //Check if URL redirects to home page. Login redirects to home page only when entered username & password are correct
         if(res.url().toString().equals(Constants.homeURL))
             return true;
@@ -151,6 +147,15 @@ public class LoginFragment extends Fragment {
             Toast.makeText(view.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
             return false;
         }
+    }
+
+    private void initView() {
+        mLogin = (Button) view.findViewById(R.id.button_login);
+        mUserName = (EditText) view.findViewById(R.id.et_uid);
+        mPassword = (EditText) view.findViewById(R.id.et_password);
+        mUserInput = (TextInputLayout) view.findViewById(R.id.text_input_username_field);
+        mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
+        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
     }
 
     private void initProgressDialog() {
@@ -176,23 +181,7 @@ public class LoginFragment extends Fragment {
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
                 .show();
 
-        //Go back to previous fragment after login
-        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-        if (getActivity() instanceof LoginActivity || getActivity() instanceof IntroActivity) {
-            startActivity(new Intent(getActivity(), WelcomeActivity.class));
-        } else if (getActivity() instanceof MarksActivity) {
-            Fragment fragment;
-            getActivity().setTitle("Marks");
-            fragment = new MarksFragment();
-            fragmentTransaction.replace(R.id.marks_fragment, fragment);
-            fragmentTransaction.commit();
-        } else if (getActivity() instanceof AttendanceActivity) {
-            Fragment fragment;
-            getActivity().setTitle("Attendance");
-            fragment = new AttendanceFragment();
-            fragmentTransaction.replace(R.id.fragment_attendance, fragment);
-            fragmentTransaction.commit();
-        }
+        startActivity(new Intent(getActivity(), WelcomeActivity.class));
     }
 
     private class JSoupLoginTask extends AsyncTask<Void, Void, Void> {

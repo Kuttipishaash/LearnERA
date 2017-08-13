@@ -10,7 +10,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.learnera.app.data.User;
-import com.learnera.app.fragments.AboutFragment;
 import com.learnera.app.fragments.AttendanceFragment;
 
 /**

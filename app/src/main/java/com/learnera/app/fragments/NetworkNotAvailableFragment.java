@@ -1,9 +1,5 @@
 package com.learnera.app.fragments;
 
-
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -41,6 +37,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_network_not_available, container, false);
         retryButton = (Button) view.findViewById(R.id.button_retry_connection);
         retryButton.setOnClickListener(this);

@@ -1,7 +1,6 @@
 package com.learnera.app.fragments;
 
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,6 +34,7 @@ public class AboutFragment extends Fragment {
         mAppName = (TextView) view.findViewById(R.id.app_name);
         mContact = (Button) view.findViewById(R.id.button_contact_us);
 
+        //open gmail
         mContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -2,7 +2,6 @@ package com.learnera.app.fragments;
 
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,7 +43,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
 
     public static int countSemesters;
-    static Intent i;
     protected ArrayList<String> semList;
     @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
@@ -63,11 +61,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     Elements list;
     Connection.Response res;
     String finalFetchURL;
-    ProgressDialog mLoading;
+    ProgressDialog mProgressDialog;
     private RecyclerView mRecyclerView;
     private MarksAdapter marksAdapter;
 
-    private View v;
+    private View view;
     private User user;
 
     public MarksFragment() {
@@ -80,6 +78,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         user = new User();
         user = user.getLoginInfo(getActivity());
+
+        initProgressDialog();
 
         JSoupSemesterTask jSoupSemesterTask = new JSoupSemesterTask();
         jSoupSemesterTask.execute();
@@ -97,11 +97,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        v = inflater.inflate(R.layout.fragment_marks, container, false);
-        mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_marks);
-        spinner1 = (Spinner) v.findViewById(R.id.spinner_marks_semesters);
-        spinner2 = (Spinner) v.findViewById(R.id.spinner_marks_category);
-        return v;
+        view = inflater.inflate(R.layout.fragment_marks, container, false);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_marks);
+        spinner1 = (Spinner) view.findViewById(R.id.spinner_marks_semesters);
+        spinner2 = (Spinner) view.findViewById(R.id.spinner_marks_category);
+        return view;
     }
 
 
@@ -111,13 +111,16 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                                long id) {
         switch (parent.getId()) {
             case R.id.spinner_marks_semesters:
+                //execute asynctask for 2nd spinner
                 JSoupSpinnerCategoryTask JSoupSpinnerCategoryTask = new JSoupSpinnerCategoryTask(semListCode.get(spinner1.getSelectedItemPosition()));
                 JSoupSpinnerCategoryTask.execute();
 
+                //check for internet connectivity
                 Handler handler = new Handler();
                 Utils.testInternetConnectivity(JSoupSpinnerCategoryTask, handler);
                 break;
             case R.id.spinner_marks_category:
+                //execute spinner for fetching marks data
                 finalFetchURL = Constants.markURL + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
@@ -138,7 +141,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         }
         //SPINNER 1
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(
-                v.getContext(),
+                view.getContext(),
                 android.R.layout.simple_spinner_item,
                 semList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -150,14 +153,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private void dynamicExamList() {
         //SPINNER 2
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(
-                v.getContext(),
+                view.getContext(),
                 android.R.layout.simple_spinner_item,
                 examList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter1);
         spinner2.setOnItemSelectedListener(MarksFragment.this);
     }
-
 
     private void createList() {
 
@@ -169,16 +171,19 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView.setAdapter(marksAdapter);
     }
 
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog.setMessage("Loading Data...");
+        mProgressDialog.setCancelable(false);
+    }
+
     //FOR SPINNER 1 DYNAMIC
     private class JSoupSemesterTask extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
             if (Utils.isNetworkAvailable(getActivity())) {
-                mLoading = new ProgressDialog(getActivity());
-                mLoading.setMessage("Loading Data...");
-                mLoading.setCancelable(false);
-                mLoading.show();
+                mProgressDialog.show();
             } else {
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -189,8 +194,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mLoading.isShowing()) {
-                mLoading.hide();
+            if(mProgressDialog.isShowing()) {
+                mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
         }
@@ -227,7 +232,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 }
             }
             dynamicSemList();
-            mLoading.dismiss();
+            mProgressDialog.dismiss();
         }
     }
 
@@ -243,10 +248,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         @Override
         protected void onPreExecute() {
             if (Utils.isNetworkAvailable(getActivity())) {
-                mLoading = new ProgressDialog(getActivity());
-                mLoading.setMessage("Loading Data...");
-                mLoading.setCancelable(false);
-                mLoading.show();
+                mProgressDialog.show();
             }
             else {
                 Utils.doWhenNoNetwork(getActivity());
@@ -273,8 +275,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mLoading.isShowing()) {
-                mLoading.hide();
+            if(mProgressDialog.isShowing()) {
+                mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
         }
@@ -290,7 +292,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 }
             }
             dynamicExamList();
-            mLoading.dismiss();
+            mProgressDialog.dismiss();
         }
     }
 
@@ -303,8 +305,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mLoading.isShowing()) {
-                mLoading.hide();
+            if(mProgressDialog.isShowing()) {
+                mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
         }
@@ -312,9 +314,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         @Override
         protected void onPreExecute() {
             if (Utils.isNetworkAvailable(getActivity())) {
-                mLoading = new ProgressDialog(getActivity());
-                mLoading.setMessage("Loading Data...");
-                mLoading.show();
+                mProgressDialog.show();
             } else {
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -414,7 +414,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             subjectNames.clear();
             subjectMarksOutOf.clear();
             subjectMarks.clear();
-            mLoading.dismiss();
+            mProgressDialog.dismiss();
         }
     }
 

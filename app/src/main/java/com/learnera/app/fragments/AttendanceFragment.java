@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
@@ -95,18 +94,17 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         initProgressDialog();
 
-        mSemesterList = new ArrayList<>(); //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
-
+        //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
+        mSemesterList = new ArrayList<>();
         initLists();
 
         //initiate patterns for matching string
-        codePattern = Pattern.compile("\\w{2}\\d{3}");
-        threePattern = Pattern.compile("[A-Z]{3}");
-        singlePattern = Pattern.compile("[A-Z]");
+        initPatterns();
 
         final JSoupSpinnerTask jSoupSpinnerTask = new JSoupSpinnerTask();
         jSoupSpinnerTask.execute();
 
+        //check for internet connectivity
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
         return view;
@@ -117,10 +115,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //Extract semester code from spinner selection
         pos = spinner.getSelectedItemPosition();
         code = mSemesterList.get(pos);
+
         //Start populating recycler view
         final JSoupAttendanceTask jSoupAttendanceTask  = new JSoupAttendanceTask();
         jSoupAttendanceTask.execute();
 
+        //check for internet connectivity
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupAttendanceTask, handler);
 
@@ -152,6 +152,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mSubjectCodeList.clear();
         mMissedList.clear();
         mTotalList.clear();
+    }
+
+    private void initPatterns() {
+        codePattern = Pattern.compile("\\w{2}\\d{3}");
+        threePattern = Pattern.compile("[A-Z]{3}");
+        singlePattern = Pattern.compile("[A-Z]");
     }
 
     private void extractAttendanceData() {

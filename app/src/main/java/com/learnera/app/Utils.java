@@ -13,15 +13,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.learnera.app.fragments.AboutFragment;
-import com.learnera.app.fragments.AttendanceFragment;
 import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
-
-import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by praji on 7/4/2017.
@@ -38,7 +31,7 @@ public class Utils {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    //To check internet connection
+    //To check internet connection. handler runs for 10000microseconds and then cancels the asynctask
     public static void testInternetConnectivity(final AsyncTask asyncTask, Handler handler) {
         handler.postDelayed(new Runnable() {
             @Override
@@ -50,12 +43,10 @@ public class Utils {
     }
 
     // TODO: 8/10/2017 About us for announcements
-    //Show About us
+    //Show About us fragment
     public static void showAbout(FragmentActivity fragmentActivity) {
         Fragment fragment = new AboutFragment();
-        FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
 
         if(fragmentActivity instanceof AttendanceActivity) {
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
@@ -75,7 +66,7 @@ public class Utils {
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {
         Fragment fragment = new NetworkNotAvailableFragment();
         FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         if (fragmentActivity instanceof MarksActivity) {
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
         } else if (fragmentActivity instanceof AttendanceActivity) {
