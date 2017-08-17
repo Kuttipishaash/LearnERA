@@ -3,18 +3,18 @@
     <string name="app_version">v0.1-beta</string>
 
     <!-- Strings for intro screens -->
-    <string name="intro_welcome_title">Welcome to LearnERA</string>
-    <string name="intro_welcome_desc">The new ERA of education</string>
+    <string name="intro_welcome_desc">Everything a student needs in RSET</string>
     <string name="intro_attendance_title">Attendance</string>
-    <string name="intro_attendance_desc">What you gained and what you missed, in a glance</string>
+    <string name="intro_attendance_desc">Check the amount of classes that you have attended, in a glance</string>
     <string name="intro_marks_title">Marks</string>
-    <string name="intro_marks_desc">Knowledge aint about the marks you scored but have a look anyway</string>
-    <string name="intro_points_title">Activity Points</string>
-    <string name="intro_points_desc">See what you did beyond the textbooks</string>
+    <string name="intro_marks_desc">Have a look at the amount of marks you have scored in various exams</string>
     <string name="intro_contacts_title">Contacts</string>
-    <string name="intro_contacts_desc">Contact your teachers and other college staff with just a click</string>
+    <string name="intro_contacts_desc">Contact faculties and college staff with just a click</string>
     <string name="intro_login_desc">Please login to use the application</string>
-
+    <string name="intro_syllabus_title">Syllabus</string>
+    <string name="intro_syllabus_desc">Learn what you have to learn about</string>
+    <string name="intro_announcement_title">Announcements</string>
+    <string name="intro_announcement_desc">Stay updated with what\'s going on</string>
 
     <!-- Navigation strings -->
     <string name="navigate_back_home">Take Me Back Home!</string>

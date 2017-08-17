@@ -49,10 +49,12 @@ public class Utils {
         FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
 
         if(fragmentActivity instanceof AttendanceActivity) {
-            fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+            fragmentTransaction.addToBackStack("attendance");
+            fragmentTransaction.add(R.id.fragment_attendance, fragment);
         }
         else if(fragmentActivity instanceof MarksActivity) {
-            fragmentTransaction.replace(R.id.marks_fragment, fragment);
+            fragmentTransaction.addToBackStack("marks");
+            fragmentTransaction.add(R.id.marks_fragment, fragment);
         } /*
         else if(fragmentActivity instanceof AnnouncementsActivity) {
             fragmentTransaction.addToBackStack("annfrag");

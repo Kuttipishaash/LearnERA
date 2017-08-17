@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.learnera.app.AnnouncementsActivity;
+import com.learnera.app.AttendanceActivity;
+import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
 
 /**
@@ -22,7 +25,6 @@ import com.learnera.app.R;
 public class AboutFragment extends Fragment {
 
     private View view;
-    private TextView mAppName;
     private Button mContact;
 
     @Nullable
@@ -31,8 +33,9 @@ public class AboutFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_about, container, false);
         setHasOptionsMenu(true);
 
-        mAppName = (TextView) view.findViewById(R.id.app_name);
         mContact = (Button) view.findViewById(R.id.button_contact_us);
+
+        getActivity().setTitle("About Us");
 
         //open gmail
         mContact.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +50,21 @@ public class AboutFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        if(getActivity() instanceof AttendanceActivity) {
+            getActivity().setTitle("Attendance");
+        }
+        else if(getActivity() instanceof MarksActivity) {
+            getActivity().setTitle("Marks");
+        }
+        else if(getActivity() instanceof AnnouncementsActivity) {
+            getActivity().setTitle("Announcements");
+        }
     }
 
     @Override

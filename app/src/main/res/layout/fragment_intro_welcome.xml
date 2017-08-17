@@ -21,7 +21,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="@string/intro_welcome_title"
+        android:text="@string/app_name"
         android:textColor="#ffffff"
         android:textSize="35sp" />
 

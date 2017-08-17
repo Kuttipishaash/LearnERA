@@ -18,7 +18,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="32dp"
-        android:text="Syllabus"
+        android:text="@string/intro_syllabus_title"
         android:textColor="#ffffff"
         android:textSize="35sp" />
 
@@ -46,7 +46,7 @@
         android:gravity="center"
         android:paddingLeft="64dp"
         android:paddingRight="64dp"
-        android:text="Know what you are going to learn about"
+        android:text="@string/intro_syllabus_desc"
         android:textColor="#ffffff"
         android:textSize="17sp" />
 

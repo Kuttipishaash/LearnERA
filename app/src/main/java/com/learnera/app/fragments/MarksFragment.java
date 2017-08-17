@@ -81,6 +81,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         initProgressDialog();
 
+        getActivity().setTitle("Marks");
+
         JSoupSemesterTask jSoupSemesterTask = new JSoupSemesterTask();
         jSoupSemesterTask.execute();
 

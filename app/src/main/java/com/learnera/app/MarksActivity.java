@@ -32,6 +32,7 @@ public class MarksActivity extends AppCompatActivity {
             }
             else {
                 Utils.doWhenNotLoggedIn(this);
+                Utils.doWhenNotLoggedIn(this);
             }
         } else {
             Utils.doWhenNoNetwork(this);
