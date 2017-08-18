@@ -47,6 +47,8 @@ public class Utils {
     public static void showAbout(FragmentActivity fragmentActivity) {
         Fragment fragment = new AboutFragment();
         FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_left,
+                R.anim.slide_out_right, R.anim.slide_in_right);
 
         if(fragmentActivity instanceof AttendanceActivity) {
             fragmentTransaction.addToBackStack("attendance");

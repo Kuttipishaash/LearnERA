@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.learnera.app.Utils;
 import com.learnera.app.R;
@@ -161,6 +162,14 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter1);
         spinner2.setOnItemSelectedListener(MarksFragment.this);
+
+        if(spinner2.getCount() == 0) {
+            spinner2.setEnabled(false);
+            Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();    
+        }
+        else {
+            spinner2.setEnabled(true);
+        }
     }
 
     private void createList() {
