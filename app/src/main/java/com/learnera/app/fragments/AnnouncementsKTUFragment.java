@@ -70,6 +70,8 @@ public class AnnouncementsKTUFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
+
         if (Utils.isNetworkAvailable(getActivity())) {
             AnnouncementsActivity.network.setVisibility(View.GONE);
             AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);

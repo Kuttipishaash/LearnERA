@@ -16,4 +16,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:textStyle="italic" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingTop="16dp"
+        android:src="@drawable/divider" />
 </LinearLayout>

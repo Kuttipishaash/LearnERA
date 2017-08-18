@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
@@ -63,11 +64,31 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
     public class MyParentViewHolder extends ParentViewHolder {
 
         public TextView listHeader;
-
+        public ImageView expansionArrow;
+        public ImageView divider;
         public MyParentViewHolder(View itemView) {
             super(itemView);
             listHeader = (TextView) itemView.findViewById(R.id.announcement_title);
+            divider = (ImageView) itemView.findViewById(R.id.divider_ktu);
+            expansionArrow = (ImageView) itemView.findViewById(R.id.expansion_arrow_announcements);
+            expansionArrow.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (isExpanded()) {
+                        collapseView();
+                        divider.setVisibility(View.VISIBLE);
+                    } else {
+                        divider.setVisibility(View.GONE);
+                        expandView();
+                    }
+                }
+            });
     }
+
+        @Override
+        public boolean shouldItemViewClickToggleExpansion() {
+            return false;
+        }
     }
 
 
