@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_about"
-    android:orientation="vertical"
-    android:background="@color/md_white_1000">
+    android:background="@color/md_white_1000"
+    android:orientation="vertical">
 
     <Space
         android:layout_width="match_parent"
@@ -14,10 +14,10 @@
         android:id="@+id/text_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:padding="2dp"
         android:text="@string/app_name"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp"/>
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -29,47 +29,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_version"
+        android:layout_gravity="center_horizontal"
         android:padding="2dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"/>
+        android:text="@string/app_version"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="4dp"
-        android:textStyle="bold"
-        android:text="Developers:"/>
+        android:text="Developers:"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Prejith Premkumar"/>
+        android:text="Prejith Premkumar" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Prabhashankar Kannappan"/>
+        android:text="Prabhashankar Kannappan" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="4dp"
-        android:textStyle="bold"
-        android:text="Icons:"/>
+        android:text="Icons:"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Mebin Johnson"/>
+        android:text="Mebin Johnson" />
 
     <Button
         android:id="@+id/button_contact_us"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
