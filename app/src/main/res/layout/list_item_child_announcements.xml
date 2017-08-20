@@ -2,20 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="4dp" >
 
-    <TextView
-        android:id="@+id/announcement_description"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:background="@color/md_grey_100">
 
-    <TextView
-        android:id="@+id/announcement_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:textStyle="italic" />
+        <TextView
+            android:id="@+id/announcement_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/announcement_date"
+            android:padding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"

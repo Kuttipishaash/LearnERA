@@ -4,6 +4,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +17,8 @@ import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.learnera.app.R;
 
 import java.util.List;
+
+import static com.learnera.app.AnnouncementsActivity.ktuFragment;
 
 /**
  * Created by Shankar on 06-08-2017.
@@ -71,14 +76,25 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
             listHeader = (TextView) itemView.findViewById(R.id.announcement_title);
             divider = (ImageView) itemView.findViewById(R.id.divider_ktu);
             expansionArrow = (ImageView) itemView.findViewById(R.id.expansion_arrow_announcements);
+
+            final RotateAnimation rotateAnimation = new RotateAnimation(180.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            rotateAnimation.setInterpolator(new DecelerateInterpolator());
+            rotateAnimation.setRepeatCount(0);
+            rotateAnimation.setDuration(600);
+            rotateAnimation.setFillAfter(true);
+
             expansionArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (isExpanded()) {
-                        collapseView();
+                        expansionArrow.startAnimation(rotateAnimation);
                         divider.setVisibility(View.VISIBLE);
+                        expansionArrow.setImageResource(R.drawable.ic_keyboard_arrow_down_black);
+                        collapseView();
                     } else {
+                        expansionArrow.startAnimation(rotateAnimation);
                         divider.setVisibility(View.GONE);
+                        expansionArrow.setImageResource(R.drawable.ic_keyboard_arrow_up_black);
                         expandView();
                     }
                 }
