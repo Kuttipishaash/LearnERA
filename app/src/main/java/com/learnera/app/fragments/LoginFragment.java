@@ -18,12 +18,15 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.learnera.app.Utils;
 import com.learnera.app.R;
+import com.learnera.app.Utils;
 import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
@@ -31,6 +34,7 @@ import com.learnera.app.data.User;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -41,6 +45,7 @@ import java.io.IOException;
 
 public class LoginFragment extends Fragment {
 
+    Spinner mDepartment;
     EditText mUserName;
     EditText mPassword;
     TextInputLayout mUserInput;
@@ -59,6 +64,9 @@ public class LoginFragment extends Fragment {
     View view;
 
     String name;
+    String[] brancheslist;
+
+    int countSemesters = 0;
 
     public LoginFragment() {
 
@@ -83,45 +91,44 @@ public class LoginFragment extends Fragment {
 
         initProgressDialog();
 
+        initSpinner();
+
         getActivity().setTitle("RSMS Login");
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            String userName = mUserName.getText().toString();
-            String password = mPassword.getText().toString();
+                String userName = mUserName.getText().toString();
+                String password = mPassword.getText().toString();
 
-            if(TextUtils.isEmpty(userName)) {
-                //set error on username field
-                mUserInput.setError("Username cannot be empty");
+                if (TextUtils.isEmpty(userName)) {
+                    //set error on username field
+                    mUserInput.setError("Username cannot be empty");
 
-                //request focus for username field
-                mUserInput.requestFocus();
+                    //request focus for username field
+                    mUserInput.requestFocus();
 
-                //show keyboard on emtpy username entered
-                inputMethodManager.showSoftInput(mUserName, InputMethodManager.SHOW_IMPLICIT);
-            }
-            else if(TextUtils.isEmpty(password)) {
-                mPassInput.setError("Password cannot be empty");
-                mPassInput.requestFocus();
-                inputMethodManager.showSoftInput(mPassword, InputMethodManager.SHOW_IMPLICIT);
-            }
-            else {
-                if(Utils.isNetworkAvailable(getActivity())) {
+                    //show keyboard on emtpy username entered
+                    inputMethodManager.showSoftInput(mUserName, InputMethodManager.SHOW_IMPLICIT);
+                } else if (TextUtils.isEmpty(password)) {
+                    mPassInput.setError("Password cannot be empty");
+                    mPassInput.requestFocus();
+                    inputMethodManager.showSoftInput(mPassword, InputMethodManager.SHOW_IMPLICIT);
+                } else {
+                    if (Utils.isNetworkAvailable(getActivity())) {
 
-                    JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
-                    jSoupLoginTask.execute();
+                        JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
+                        jSoupLoginTask.execute();
 
-                    Handler handler = new Handler();
-                    Utils.testInternetConnectivity(jSoupLoginTask, handler);
+                        Handler handler = new Handler();
+                        Utils.testInternetConnectivity(jSoupLoginTask, handler);
 
-                    user.setUserName(userName);
-                    user.setPassword(Integer.parseInt(password));
+                        user.setUserName(userName);
+                        user.setPassword(Integer.parseInt(password));
+                    } else {
+                        Utils.doWhenNoNetwork(getActivity());
+                    }
                 }
-                else {
-                    Utils.doWhenNoNetwork(getActivity());
-                }
-            }
             }
         });
 
@@ -141,7 +148,7 @@ public class LoginFragment extends Fragment {
 
     private boolean isLoginInfoCorrect() {
         //Check if URL redirects to home page. Login redirects to home page only when entered username & password are correct
-        if(res.url().toString().equals(Constants.homeURL))
+        if (res.url().toString().equals(Constants.homeURL))
             return true;
         else {
             Toast.makeText(view.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
@@ -156,6 +163,28 @@ public class LoginFragment extends Fragment {
         mUserInput = (TextInputLayout) view.findViewById(R.id.text_input_username_field);
         mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        mDepartment = (Spinner) view.findViewById(R.id.department_spinner);
+    }
+
+    private void initSpinner() {
+        String[] list = getResources().getStringArray(R.array.branches_array);
+        brancheslist = getResources().getStringArray(R.array.branches);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mDepartment.setAdapter(adapter);
+
+        //item selection handling
+        mDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                user.setDept(brancheslist[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     private void initProgressDialog() {
@@ -172,11 +201,15 @@ public class LoginFragment extends Fragment {
         editor = sharedPreferences.edit();
         editor.putString("user",
                 user.getUser());
+        editor.putString("sem",
+                user.getSem());
+        editor.putString("dept",
+                user.getDept());
         editor.putString("username",
                 user.getUserName());
         editor.putInt("password",
                 user.getPassword());
-        editor.apply();
+        editor.commit();
 
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
                 .show();
@@ -185,6 +218,8 @@ public class LoginFragment extends Fragment {
     }
 
     private class JSoupLoginTask extends AsyncTask<Void, Void, Void> {
+        Elements list;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -196,7 +231,7 @@ public class LoginFragment extends Fragment {
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog.isShowing()) {
+            if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -206,8 +241,17 @@ public class LoginFragment extends Fragment {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
+            for (Element ls : list) {
+                for (Element opt : ls.select("option")) {
+                    countSemesters += 1;
+                }
+            }
+            String x = "s" + countSemesters;
+            user.setSem(x);
+
             name = u.text();
             user.setUser(name);
+
             mProgressDialog.dismiss();
 
             if (isLoginInfoCorrect()) {
@@ -229,6 +273,10 @@ public class LoginFragment extends Fragment {
                         .cookies(res.cookies())
                         .get();
                 u = doc.select("strong");
+                Document doc2 = Jsoup.connect(Constants.markURL)
+                        .cookies(res.cookies())
+                        .get();
+                list = doc2.select("select[name=code]");
             } catch (IOException e) {
                 Log.e("LOGIN_ACTIVITY", "Error checking login info");
             }

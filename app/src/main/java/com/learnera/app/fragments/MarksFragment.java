@@ -18,8 +18,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.learnera.app.Utils;
 import com.learnera.app.R;
+import com.learnera.app.Utils;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.Marks;
 import com.learnera.app.data.MarksAdapter;
@@ -42,8 +42,8 @@ import butterknife.BindView;
  */
 public class MarksFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-
     public static int countSemesters;
+    public long startTime, stopTime, elapsedTime;
     protected ArrayList<String> semList;
     @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
@@ -89,6 +89,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupSemesterTask, handler);
+
     }
 
     @Override
@@ -163,11 +164,10 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         spinner2.setAdapter(adapter1);
         spinner2.setOnItemSelectedListener(MarksFragment.this);
 
-        if(spinner2.getCount() == 0) {
+        if (spinner2.getCount() == 0) {
             spinner2.setEnabled(false);
-            Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();    
-        }
-        else {
+            Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();
+        } else {
             spinner2.setEnabled(true);
         }
     }
@@ -180,6 +180,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(marksAdapter);
+        String x = elapsedTime + "";
+        Toast.makeText(getActivity(), x, Toast.LENGTH_LONG).show();
     }
 
     private void initProgressDialog() {
@@ -205,7 +207,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog.isShowing()) {
+            if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -260,8 +262,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onPreExecute() {
             if (Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
-            }
-            else {
+            } else {
                 Utils.doWhenNoNetwork(getActivity());
             }
             super.onPreExecute();
@@ -286,7 +287,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog.isShowing()) {
+            if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -316,7 +317,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog.isShowing()) {
+            if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -346,6 +347,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPostExecute(Void result) {
+            startTime = System.currentTimeMillis();
             Marks marks;
             String subjectHeader[] = new String[3];
             int rownum = 0, colnum;
@@ -419,6 +421,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 marks.setmSubMarks(subjectMarks.get(i));
                 marksList.add(marks);
             }
+            stopTime = System.currentTimeMillis();
+            elapsedTime = stopTime - startTime;
             createList();
             subjectLetters.clear();
             subjectCodes.clear();
@@ -426,7 +430,9 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             subjectMarksOutOf.clear();
             subjectMarks.clear();
             mProgressDialog.dismiss();
+
         }
+
     }
 
 

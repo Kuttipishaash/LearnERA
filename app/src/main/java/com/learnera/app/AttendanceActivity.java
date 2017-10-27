@@ -58,6 +58,9 @@ public class AttendanceActivity extends AppCompatActivity {
         }
     }
 
+    private void showdetailedview() {
+
+    }
 
     public void doWhenNetworkPresent() {
         fragment = new AttendanceFragment();

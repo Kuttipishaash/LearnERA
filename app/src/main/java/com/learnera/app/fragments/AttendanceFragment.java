@@ -1,8 +1,10 @@
 package com.learnera.app.fragments;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,13 +13,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.learnera.app.R;
 import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
-import com.learnera.app.R;
+import com.learnera.app.data.AttendenceTableAdapter;
+import com.learnera.app.data.AttendenceTableCells;
+import com.learnera.app.data.AttendenceTableRow;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
@@ -30,9 +39,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import android.os.Handler;
-import android.widget.Toast;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,17 +50,27 @@ import java.util.regex.Pattern;
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    final protected String sub = "Total Class";
+    public ArrayList<AttendenceTableRow> tableRows;
     protected int pos;
     protected String code;
     protected Document doc;
     protected Connection.Response res;
+    protected Pattern codePattern, singlePattern, threePattern;
+    protected ArrayAdapter<String> mSpinnerAdapter;
+    protected Spinner spinner;
+    //For Attendence Table
+    protected TextView viewDetailsTextView;
+    protected View attendenceTable;
+    protected AttendenceTableAdapter tableAdapter;
+    protected ListView tableList;
+    //To remove
+    long startTime, stopTime, elapsedTime;
+    long startTime2, stopTime2, elapsedTime2;
     private ProgressDialog mProgressDialog;
     private int count;
     private View view;
     private User user;
-    protected Pattern codePattern, singlePattern, threePattern;
-    final protected String sub = "Total Class";
-
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
@@ -63,21 +79,17 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private List<String> mSubjectCodeList;
     private List<String> mMissedList;
     private List<String> mTotalList;
-
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
-    protected ArrayAdapter<String> mSpinnerAdapter;
-    protected Spinner spinner;
 
-    public AttendanceFragment(){
+    public AttendanceFragment() {
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = new User();
-
         user = user.getLoginInfo(getActivity());
     }
 
@@ -87,7 +99,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
-        spinner =(Spinner) view.findViewById(R.id.spinner_attendance);
+        spinner = (Spinner) view.findViewById(R.id.spinner_attendance);
         spinner.setOnItemSelectedListener(this);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_attendance);
@@ -109,6 +121,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //check for internet connectivity
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
+
+        //For attendence details
+        viewDetailsTextView = (TextView) view.findViewById(R.id.text_view_attendence_details);
+        viewDetailsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                attendenceDetails();
+            }
+        });
         return view;
     }
 
@@ -119,7 +140,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         code = mSemesterList.get(pos);
 
         //Start populating recycler view
-        final JSoupAttendanceTask jSoupAttendanceTask  = new JSoupAttendanceTask();
+        final JSoupAttendanceTask jSoupAttendanceTask = new JSoupAttendanceTask();
         jSoupAttendanceTask.execute();
 
         //check for internet connectivity
@@ -163,13 +184,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void extractAttendanceData() {
-
+        startTime = System.currentTimeMillis();
         Elements tables = doc.select("table [width=96%]");
         for (Element table : tables) {
             Elements rows = table.select("tr");
             for (Element row : rows) {
                 Elements tds = rows.select("td");
-                for(Element td: tds.select(":containsOwn(Total Class)")) {
+                for (Element td : tds.select(":containsOwn(Total Class)")) {
                     String data = td.text();
 
                     mTotalList.add(data.substring(data.toLowerCase().indexOf(sub.toLowerCase())).replaceAll("[^\\d]", ""));
@@ -183,7 +204,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     Matcher matcher2 = threePattern.matcher(htmlData);
                     Matcher matcher3 = singlePattern.matcher(htmlData);
 
-                    if(count > 1) {
+                    if (count > 1) {
                         if (matcher.find()) {
                             mSubjectCodeList.add(matcher.group());
                         } else if (matcher2.find()) {
@@ -203,11 +224,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     String data = td.select(":containsOwn(%)").text();
                     String data2 = td.getElementsByTag("strong").text();
 
-                    if(td.text().equals("-")) {
+                    if (td.text().equals("-")) {
                         mPercentageList.add("-");
                         mMissedList.add("-");
-                    }
-                    else {
+                    } else {
                         if (!data.equals("")) {
                             //Remove first 2 characters as they are invalid
                             StringBuilder build = new StringBuilder(data);
@@ -227,6 +247,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             }
             break;
         }
+        stopTime = System.currentTimeMillis();
+        elapsedTime = stopTime - startTime;
+        String x = elapsedTime + "";
+        Toast.makeText(getActivity(), x, Toast.LENGTH_LONG).show();
     }
 
     private void extractSemesterList() {
@@ -247,6 +271,66 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         count = 0;
     }
 
+    private void attendenceDetails() {
+        //To show table view of attendence of the days on which the student was absent
+        tableRows = new ArrayList<AttendenceTableRow>();
+
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_attendence_details);
+        tableList = (ListView) dialog.findViewById(R.id.list_view_attendence_table);
+
+
+        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendence_dialog_dismiss);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
+        Elements tables = doc.select("table [width=96%]");
+        int count = 0;
+        int rowNumber;
+        int colNumber;
+        for (Element table : tables) {
+            if (count == 0) {
+                count++;
+                continue;
+            }
+            rowNumber = 0;
+            Elements rows = table.select("tr");
+            for (Element row : rows) {
+                if (rowNumber <= 1) {
+                    rowNumber++;
+                    continue;
+                }
+                colNumber = 0;
+                AttendenceTableRow attendenceTableRow = new AttendenceTableRow();
+                Elements tds = row.select("td");
+                for (Element td : tds) {
+                    if (colNumber == 0) {
+                        attendenceTableRow.setDate(td.text());
+                    } else {
+                        String subject = td.text();
+                        String color = td.attr("bgcolor");
+                        attendenceTableRow.addCell(new AttendenceTableCells(subject, color));
+                    }
+                    colNumber++;
+                }
+                rowNumber++;
+                tableRows.add(attendenceTableRow);
+            }
+        }
+        tableAdapter = new AttendenceTableAdapter(getActivity(), tableRows);
+        tableList.setAdapter(tableAdapter);
+
+
+        dialog.show();
+    }
+
     //For populating spinner
     private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
 
@@ -254,7 +338,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog != null) {
+            if (mProgressDialog != null) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -265,10 +349,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPreExecute();
 
             setDefaultCountValue();
-            if(Utils.isNetworkAvailable(getActivity())) {
+            if (Utils.isNetworkAvailable(getActivity())) {
                 mProgressDialog.show();
-            }
-            else {
+            } else {
                 Utils.doWhenNoNetwork(getActivity());
             }
         }
@@ -317,7 +400,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mProgressDialog.isShowing() ) {
+            if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -339,8 +422,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             clearLists();
 
             mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList);
-            mRecyclerView.setAdapter(mRecyclerAdapter);
-
             setDefaultCountValue();
         }
 
@@ -349,7 +430,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPostExecute(aVoid);
 
             extractAttendanceData();
-
+            mRecyclerView.setAdapter(mRecyclerAdapter);
             mProgressDialog.dismiss();
         }
 

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="branches_array">
+        <item>Information Technology</item>
+        <item>Computer Science</item>
+        <item>Electronics and Communication</item>
+        <item>Electrical and Electronics</item>
+        <item>Mechanical Engineering</item>
+        <item>Applied Electronics and Instrumentation</item>
+        <item>Civil Engineering</item>
+    </string-array>
+
+    <string-array name="branches">
+        <item>it</item>
+        <item>cs</item>
+        <item>ec</item>
+        <item>ee</item>
+        <item>me</item>
+        <item>ae</item>
+        <item>ce</item>
+    </string-array>
+
+
+    <array name="s1sub">
+        <item>ph100</item>
+        <item>be100</item>
+    </array>
+    <array name="s1subnames">
+        <item>Engineering Physics</item>
+        <item>Engineering Mechanics</item>
+    </array>
+
+
+    <string-array name="its3sub"></string-array>
+    <string-array name="its3subnames"></string-array>
+
+    <string-array name="css3sub"></string-array>
+    <string-array name="css3subnames"></string-array>
+
+    <string-array name="ecs3sub"></string-array>
+    <string-array name="ecs3subnames"></string-array>
+
+    <string-array name="aes3sub"></string-array>
+    <string-array name="aes3subnames"></string-array>
+
+    <string-array name="ces3sub"></string-array>
+    <string-array name="ces3subnames"></string-array>
+
+    <string-array name="ees3sub"></string-array>
+    <string-array name="ees3subnames"></string-array>
+
+
+    <string-array name="its4sub"></string-array>
+    <string-array name="its4subnames"></string-array>
+
+    <string-array name="css4sub"></string-array>
+    <string-array name="css4subnames"></string-array>
+
+    <string-array name="ecs4sub"></string-array>
+    <string-array name="ecs4subnames"></string-array>
+
+    <string-array name="aes4sub"></string-array>
+    <string-array name="aes4subnames"></string-array>
+
+    <string-array name="ces4sub"></string-array>
+    <string-array name="ces4subnames"></string-array>
+
+    <string-array name="ees4sub"></string-array>
+    <string-array name="ees4subnames"></string-array>
+
+
+    <string-array name="its5sub"></string-array>
+    <string-array name="its5subnames"></string-array>
+
+    <string-array name="css5sub"></string-array>
+    <string-array name="css5subnames"></string-array>
+
+    <string-array name="ecs5sub"></string-array>
+    <string-array name="ecs5subnames"></string-array>
+
+    <string-array name="aes5sub"></string-array>
+    <string-array name="aes5subnames"></string-array>
+
+    <string-array name="ces5sub"></string-array>
+    <string-array name="ces5subnames"></string-array>
+
+    <string-array name="ees5sub"></string-array>
+    <string-array name="ees5subnames"></string-array>
+
+
+    <string-array name="its6sub"></string-array>
+    <string-array name="its6subnames"></string-array>
+
+    <string-array name="css6sub"></string-array>
+    <string-array name="css6subnames"></string-array>
+
+    <string-array name="ecs6sub"></string-array>
+    <string-array name="ecs6subnames"></string-array>
+
+    <string-array name="aes6sub"></string-array>
+    <string-array name="aes6subnames"></string-array>
+
+    <string-array name="ces6sub"></string-array>
+    <string-array name="ces6subnames"></string-array>
+
+    <string-array name="ees6sub"></string-array>
+    <string-array name="ees6subnames"></string-array>
+
+</resources>

@@ -42,11 +42,11 @@ public class AnnouncementsRSETFragment extends Fragment {
     Document doc;
     Elements list;
     Connection.Response res;
-    ProgressDialog mLoading;
     private ArrayList<AnnouncementRSET> rsetArrayList;
     private RecyclerView mRecyclerView;
     private AnnouncementsRSETAdapter announcementAdapter;
     private User user;
+    private boolean isLoaded = false, isVisibleToUser = false;
 
     public AnnouncementsRSETFragment() {
         announcementRSETURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Notice.asp";
@@ -59,19 +59,27 @@ public class AnnouncementsRSETFragment extends Fragment {
         user = user.getLoginInfo(getActivity());
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setupPage();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements__rset, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_rset);
-        setupPage();
+        if (isVisibleToUser && (!isLoaded)) {
+            setupPage();
+            isLoaded = true;
+        }
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        this.isVisibleToUser = isVisibleToUser;
+        if (this.isVisibleToUser && !isLoaded) {
+            setupPage();
+            isLoaded = true;
+        }
     }
 
     private void setupPage() {
@@ -102,14 +110,14 @@ public class AnnouncementsRSETFragment extends Fragment {
 
     private class JsoupAsyncTask extends AsyncTask<Void, Void, Void> {
 
-        Elements tables;
+
         private ProgressDialog mLoading;
 
         @Override
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mLoading.isShowing()) {
+            if (mLoading.isShowing()) {
                 mLoading.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -118,7 +126,7 @@ public class AnnouncementsRSETFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
-            mLoading.setMessage("Loading Data...");
+            mLoading.setMessage("Loading  RSET Data...");
             mLoading.show();
             super.onPreExecute();
         }

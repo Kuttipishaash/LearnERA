@@ -3,9 +3,7 @@ package com.learnera.app;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     ImageView mAnnouncement;
     ImageView mAttendance;
-//    ImageView mContacts;
+    //    ImageView mContacts;
     ImageView mLogout;
     ImageView mSyllabus;
     ImageView mMarks;
@@ -45,16 +43,15 @@ public class WelcomeActivity extends AppCompatActivity {
             editor.putBoolean(getString(R.string.pref_previously_started), true);
             editor.apply();
             startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
-        }
-        else if(!User.isLoggedIn(this)) {
+        } else if (!User.isLoggedIn(this)) {
             Toast.makeText(this, "Please login to continue", Toast.LENGTH_SHORT).show();
-            startActivity(new  Intent(WelcomeActivity.this, LoginActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
         }
 
         initViews();
 
         //Set font
-        Typeface face= Typeface.createFromAsset(getAssets(),"fonts/Letter Gothic Std Medium.ttf");
+        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Letter Gothic Std Medium.ttf");
         mLoginStatus.setTypeface(face);
         mAppName.setTypeface(face);
     }
@@ -72,15 +69,15 @@ public class WelcomeActivity extends AppCompatActivity {
         user = sharedPreferences.getString("user", null);
 
         String longText;
-        if(user != null) {
+        if (user != null) {
             longText = "Logged in as : " + user;
             mLoginStatus.setText(longText);
-        }
-        else {
+        } else {
             longText = "Not logged into RSMS";
             mLoginStatus.setText(longText);
         }
     }
+
     public void initViews() {
 
         mLoginStatus = (TextView) findViewById(R.id.login_status);
@@ -90,7 +87,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
             }
         });
 
@@ -98,7 +95,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
             }
         });
 /*
@@ -122,7 +119,7 @@ public class WelcomeActivity extends AppCompatActivity {
         mSyllabus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSyllabus();
+                startActivity(new Intent(WelcomeActivity.this, SyllabusActivity.class));
             }
         });
 
@@ -135,7 +132,7 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
-    //intent to syllabus app
+    /*intent to syllabus app
     void getSyllabus() {
         PackageManager pm = this.getPackageManager();
         Intent i = pm.getLaunchIntentForPackage("com.du.shankar.syllabus");
@@ -147,5 +144,5 @@ public class WelcomeActivity extends AppCompatActivity {
                             Uri.parse("https://play.google.com/store/apps/details?id=com.du.shankar.syllabus"));
             startActivity(viewIntent);
         }
-    }
+    }*/
 }

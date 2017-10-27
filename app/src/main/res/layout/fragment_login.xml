@@ -11,8 +11,13 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:layout_margin="2dp" />
+
+    <Spinner
+        android:id="@+id/department_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,7 +28,8 @@
             android:id="@+id/text_input_username_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp" >
+            android:padding="4dp">
+
             <EditText
                 android:id="@+id/et_uid"
                 android:layout_width="match_parent"
@@ -44,6 +50,7 @@
             android:layout_height="wrap_content"
             android:padding="4dp"
             app:passwordToggleEnabled="true">
+
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"

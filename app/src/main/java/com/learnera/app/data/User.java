@@ -18,6 +18,8 @@ public class User {
     static private String userName;
     static private int password;
     static private String user;
+    static private String sem;
+    static private String dept;
 
     public User() {
     }
@@ -31,7 +33,7 @@ public class User {
     }
 
     public static void logout(final Activity activity) {
-        if(isLoggedIn(activity)) {
+        if (isLoggedIn(activity)) {
             AlertDialog.Builder alert = new AlertDialog.Builder(activity);
             alert.setTitle("Logout")
                     .setMessage("Are you sure you want to logout")
@@ -45,8 +47,7 @@ public class User {
                     })
                     .setNegativeButton("No", null)
                     .show();
-        }
-        else {
+        } else {
             Toast.makeText(activity, "You are not logged in", Toast.LENGTH_SHORT).show();
         }
     }
@@ -57,8 +58,23 @@ public class User {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user.setUserName(sharedPreferences.getString("username", null));
         user.setPassword(sharedPreferences.getInt("password", 0));
-
         return user.getPassword() != 0 && user.getUserName() != null;
+    }
+
+    public String getSem() {
+        return sem;
+    }
+
+    public void setSem(String sem) {
+        User.sem = sem;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        User.dept = dept;
     }
 
     public String getUser() {
@@ -90,9 +106,11 @@ public class User {
         User result = new User();
 
         SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        result.setUserName(sharedPreferences.getString("user", null));
+        result.setUser(sharedPreferences.getString("user", null));
         result.setUserName(sharedPreferences.getString("username", null));
         result.setPassword(sharedPreferences.getInt("password", 0));
+        result.setSem(sharedPreferences.getString("sem", null));
+        result.setDept(sharedPreferences.getString("dept", null));
         return result;
     }
 }

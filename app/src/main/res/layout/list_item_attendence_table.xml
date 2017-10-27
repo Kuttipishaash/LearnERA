@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/absentDate"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="5dp"
+        android:text="DATE"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sub1"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+
+        <TextView
+            android:id="@+id/sub2"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+
+        <TextView
+            android:id="@+id/sub3"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sub4"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+
+        <TextView
+            android:id="@+id/sub5"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+
+        <TextView
+            android:id="@+id/sub6"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+
+        <TextView
+            android:id="@+id/sub7"
+            style="@style/attendenceTableCells"
+            android:text="DATE" />
+    </LinearLayout>
+</LinearLayout>

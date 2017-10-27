@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <array name="ph100">
+        <item>Physics</item>
+        <item>REFERENCE TEXTS\n\n1. Aruldhas, G., Engineering Physics. Pill Ltd. \n2. Beiser. A..
+            Concepts of Modern Physics. McGraw Hill India Ltd. \n3. Bhattacharya and Tandon,
+            Engineering Physics , Oxford India \n4. Brijlal and Subramanyam. A Text Book of Optics.
+            S. Chand and Co. \n5. Dominic and Nahari, A Text Book of Engineering Physics, Owl Books
+            Publishers \n6. Hecht, E., Optics, Pearson Education \n7. Mchta, N.. Applied Physics for
+            Engineers, Pill Ltd \n8. Patois, J. C., Fiber Optic Communications, Pearson Education
+            \n9. Pandey. B. K. and Chathurvedi. S.. Engineering Physics. Cengage Learning \n10.
+            Philip, J., A Text Book of Engineering Physics, Educational Publishers \n11. Premlet.
+            B.. Engineering Physics, Mc GrawUill India Ltd \n12. Sarin, A. and Rewal, A.,
+            Engineering Physics, Wiley India Pvt Ltd \n13. Sears and Zemansky, University Physics ,
+            Pearson \n14. Vasudeva, A. S., A Text Book of Engineering Physics, S. Chand and Co
+        </item>
+        <item>Four</item>
+        <item>NONE</item>
+        <item>Harmonic Oscillations and Waves</item>
+        <item>Harmonic Oscillations: Differential equation of damped harmonic oscillation, forced
+            harmonic oscillation and their solutions- Resonance, Q factor, Sharpness of resonance-
+            LCR circuit as an electrical analogue of Mechanical Oscillator (Qualitative) Waves: One
+            dimensional wave - differential equation and solution. Three dimensional waves -
+            Differential equation and its solution. (No derivation) Transverse vibrations of a
+            stretched string.
+        </item>
+        <item>Interference and Diffraction</item>
+        <item>Interference: Coherence. Interference in thin films and wedge shaped films (Reflected
+            system) Newton\'s rings-measurement of wavelength and refractive index of liquid
+            Interference filters. Anlireflection coaling. Diffraction lresnel and Fraunhofer
+            diffraction. Fraunhofer diffraction at a single slit. Plane transmission grating.
+            Grating equation - measurment of wavelength. Rayleigh\'s criterion for resolution of
+            grating- Resolving power and dispersive power of grating.
+        </item>
+        <item>Polarization and Superconductors</item>
+        <item>Polarization of Light: Types of polarized light. Double refraction. Nicol Prism.
+            Quarter wave plate and half wave plate. Production and detection of circularly and
+            elliptically polarized light. Induced birefringence- Kerr Cell - Polaroid and
+            applications. Superconductivity: Superconducting phenomena. Meissner effect. Type-I and
+            Type-II superconductors. BCS theory (qualitative). High temperature superconductors -
+            Applications of superconductors.
+        </item>
+        <item>Quantum Mechanics and Statistical Mechanics</item>
+        <item>Quantum Mechanics: Uncertainty principle and its applications-formulation of time
+            dependent and Time independent SchrOdinger equations- physical meaning of wave function-
+            Energy and momentum Operators-Eigen values and functions- One dimensional infinite
+            square well potential .Quantum mechanical \'Funnelling (Qualitative) Statistical
+            Mechanics: Macrostates and Microstates. Phase space. Basic postulates of Maxwell-
+            Boltzmann, Bose-Einstein and Fermi Dirac statistics. Distribution equations in the three
+            cases (no derivation). Fermi Level and its significance.
+        </item>
+        <item>Acoustics and Ultrasonics</item>
+        <item>Acoustics: Intensity of sound- Loudness-Absorption coefficient -Reverberation and
+            reverberation time- Significance of reverberation time-Sabine\'s formula (No derivation)
+            -Factors affecting acoustics of a building.
+            Ultrasonics: Production of ultrasonic waves - Magnetostriction effect and Piezoelectric
+            effect - Magnetostriction oscillator and Piezoelectric oscillator - Detection of
+            ultrasonics -thermal and piezoelectric methods-Applications of ultrasonics - NDT and
+            medical.
+        </item>
+        <item>Laser and Photonics</item>
+        <item>Laser: Properties of Lasers, absorption, spontaneous and stimulated emissions,
+            Population inversion, Einstein\'s coefficients, Working principle of laser,Optical
+            resonant cavity. Ruby Laser, Helium-Neon Laser, Semiconductor Laser (qualitative).
+            Applications of laser, holography (Recording and reconstruction)
+            Photonics: Basics of solid state lighting - LED — Photodetectors - photo voltaic cell,
+            junction and avalanche photo diodes, photo transistors, thermal detectors, Solar cells-
+            I-V characteristics - Optic fibre-Principle of propagation-numerical aperture-optic
+            communication system (block diagram) - Industrial, medical and technological
+            applications of optical fibre. Fibre optic sensors - Basics of Intensity modulated and
+            phase modulated sensors.
+        </item>
+    </array>
+
+    <array name="be100">
+        <item>EM</item>
+        <item>MAIN TEXTS\n\n(1) Shames. I. H., Engineering Mechanics - Statics and Dynamics, Pearson
+            Prentice \n(2) Timoshenko, S. and Young D. H., Engineering Mechanics, McGraw Hill
+            \n\nREFERENCE BOOKS: \n\n1. Babu. J.. Engineering Mechanics, Pearson Prentice Hall \n2.
+            Beer and Johnson, Vector Mechanics for Engineers - Statics and Dynamics, Tata McGraw
+            Hill Publishing Company Limited \n3. Benjamin J.. Engineering Mechanics. Pentex Book
+            Publishers and Distributors \n4. Bhavikkatti, S. S.. Engineering Mechanics, New Age
+            International Publishers \n5. Hibbeler, R. C., Engineering Mechanics: Statics and
+            Dynamics. Pearson Prentice Hall \n6. Kumar. K. L.. Engineering Mechanics. Tata McGraw
+            Hill Publishing Company Limited \n7. Merriam J. L. and Kraige L. G.. Engineering
+            Mechanics — Vol. 1 and 2 John Wiley \n8. Rajasekaran S. and Sankarasubramanian, G.,
+            Engineering Mechanics, Vikas Publishing House Private Limited \n9. Tayal, A. K.,
+            Engineering Mechanics- Statics and Dynamics, Umesh Publications
+        </item>
+        <item>Four</item>
+        <item>NONE</item>
+        <item></item>
+        <item>Statics: Fundamental concepts and laws of mechanics — Rigid body —Principle of
+            transmissibility of forces Coplanar force systems - Moment of a force — Principle of
+            moments Resultant of force and couple system Equilibrium of rigid body — Free body
+            diagram — Conditions of equilibrium in two dimensions — Two force and three force
+            members.
+        </item>
+        <item></item>
+        <item>Types of supports — Problems involving point loads and uniformly distributed loads
+            only. Force systems in space — Degrees of freedom — Free body diagram —Equations of
+            equilibrium — Simple resultant and Equilibrium problems.
+        </item>
+        <item></item>
+        <item>Properties of planar surfaces — Centroid and second moment of area (Derivations not
+            required) - Parallel and perpendicular axis theorem — Centroid and Moment of Inertia of
+            composite area. Polar Moment of Inertia — Radius of gyration — Mass moment of inertia of
+            cylinder and thin disc (No derivations required). Product of inertia — Principal Moment
+            of Inertia (conceptual level). Theorems of Pappus and Guldinus.
+        </item>
+        <item></item>
+        <item>Friction — Characteristics of dry friction — Problems involving friction of ladder,
+            wedges and connected bodies. Definition of work and virtual work — Principle of virtual
+            work for a system of connection bodies — Problems on determinate beams only.
+        </item>
+        <item></item>
+        <item>Dynamics: Rectangular and Cylindrical co-ordinate system Combined motion of rotation
+            and translation — Concept of instantaneous centre — Motion of connecting rod of piston
+            and crank of a reciprocating pump. Rectilinear translation — Newton\'s second law —
+            D\'Alembert\'s Principle — Application to connected bodies (Problems on motion of lin
+            only).
+        </item>
+        <item></item>
+        <item>Mechanical vibrations — Free and forced vibration - Degree of freedom. Simple harmonic
+            motion — Spring-mass model — Period — Stiffness —Frequency — Simple numerical problems
+            of single degree of freedom.
+        </item>
+    </array>
+
+
+</resources>

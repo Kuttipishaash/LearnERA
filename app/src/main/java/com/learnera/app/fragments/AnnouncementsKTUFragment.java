@@ -38,6 +38,7 @@ public class AnnouncementsKTUFragment extends Fragment {
 
     protected String ktuURL;
     private RecyclerView mRecyclerView;
+    private boolean isLoaded = false, isVisibleToUser = false;
 
     public AnnouncementsKTUFragment() {
         // Required empty public constructor
@@ -50,11 +51,6 @@ public class AnnouncementsKTUFragment extends Fragment {
         //respondToInternetStatus();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setupPage();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,6 +60,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         setupPage();
         return view;
     }
+
 
     private void setupPage() {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
@@ -95,7 +92,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         protected void onCancelled() {
             super.onCancelled();
 
-            if(mLoading.isShowing()) {
+            if (mLoading.isShowing()) {
                 mLoading.hide();
                 Utils.doWhenNoNetwork(getActivity());
             }
@@ -104,7 +101,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
-            mLoading.setMessage("Loading Data...");
+            mLoading.setMessage("Loading KTU Data...");
             mLoading.show();
             super.onPreExecute();
         }
