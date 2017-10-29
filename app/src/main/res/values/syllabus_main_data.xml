@@ -24,6 +24,7 @@
     <array name="s1sub">
         <item>ph100</item>
         <item>be100</item>
+        <item>TEST</item>
     </array>
     <array name="s1subnames">
         <item>Engineering Physics</item>
