@@ -21,11 +21,11 @@
     </string-array>
 
 
-    <array name="s1sub">
+    <array name="its5sub">
         <item>ph100</item>
         <item>be100</item>
     </array>
-    <array name="s1subnames">
+    <array name="its5subnames">
         <item>Engineering Physics</item>
         <item>Engineering Mechanics</item>
     </array>
@@ -69,9 +69,10 @@
     <string-array name="ees4subnames"></string-array>
 
 
+    <!--
     <string-array name="its5sub"></string-array>
     <string-array name="its5subnames"></string-array>
-
+-->
     <string-array name="css5sub"></string-array>
     <string-array name="css5subnames"></string-array>
 
