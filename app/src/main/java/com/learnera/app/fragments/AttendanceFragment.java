@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -60,7 +61,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
     //For Attendence Table
-    protected TextView viewDetailsTextView;
+    protected FloatingActionButton fab;
     protected View attendenceTable;
     protected AttendenceTableAdapter tableAdapter;
     protected ListView tableList;
@@ -123,10 +124,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
 
         //For attendence details
-        viewDetailsTextView = (TextView) view.findViewById(R.id.text_view_attendence_details);
-        viewDetailsTextView.setOnClickListener(new View.OnClickListener() {
+        fab = (FloatingActionButton) view.findViewById(R.id.attendance_fab);
+        fab.setSize(FloatingActionButton.SIZE_NORMAL);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 attendenceDetails();
             }
         });

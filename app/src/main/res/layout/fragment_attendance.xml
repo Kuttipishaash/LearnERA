@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -8,46 +8,51 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <ScrollView
+    <Spinner
+        android:id="@+id/spinner_attendance"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:padding="4dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <View
+        android:id="@+id/divider_attendance"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/spinner_attendance"
+        android:background="?android:attr/dividerHorizontal" />
 
-            <Spinner
-                android:id="@+id/spinner_attendance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view_attendance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text_view_attendence_details"
+        android:layout_below="@+id/divider_attendance"
+        android:layout_alignParentStart="true"
+        android:scrollbars="vertical"
+        android:visibility="visible" />
+<!--
+    <TextView
+        android:id="@+id/text_view_attendence_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="View Details"
+        android:textAlignment="center"
+        android:textColor="@color/md_amber_500"
+        android:padding="4dp"
+        android:textSize="16dp" />
+-->
+    <com.learnera.app.MovableFloatingActionButton
+        android:id="@+id/attendance_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_view_agenda" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="4dp"
-                android:background="?android:attr/dividerHorizontal" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view_attendance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="vertical"
-                android:visibility="visible" />
-
-            <TextView
-                android:id="@+id/text_view_attendence_details"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="View Details"
-                android:textAlignment="center"
-                android:textColor="@color/md_amber_500"
-                android:textSize="16dp" />
-
-
-        </LinearLayout>
-    </ScrollView>
-
-</LinearLayout>
+</RelativeLayout>

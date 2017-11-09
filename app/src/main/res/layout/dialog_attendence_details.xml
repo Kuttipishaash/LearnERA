@@ -4,7 +4,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="500dp"
         android:orientation="vertical"
         android:padding="8dp">
@@ -36,6 +36,6 @@
             android:layout_marginRight="12dp"
             android:padding="8dp"
             android:text="DISMISS"
-            android:textColor="@color/md_amber_500" />
+            android:textColor="@color/md_amber_600" />
     </RelativeLayout>
 </ScrollView>
