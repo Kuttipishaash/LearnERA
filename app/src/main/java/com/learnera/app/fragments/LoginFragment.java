@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -59,6 +60,7 @@ public class LoginFragment extends Fragment {
     EditText mPassword;
     TextView mTitleRsms;
     TextView mTitleLogin;
+    TextView mCreators;
     TextInputLayout mUserInput;
     TextInputLayout mPassInput;
     Button mLogin;
@@ -111,17 +113,18 @@ public class LoginFragment extends Fragment {
         //set fonts to rsmslogin
         mTitleRsms = (TextView) view.findViewById(R.id.text_title_rsms);
         mTitleLogin = (TextView) view.findViewById(R.id.text_title_login);
+        mCreators = (TextView) view.findViewById(R.id.text_creators);
         Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-Bold.ttf");
         Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
         mTitleRsms.setTypeface(boldSans);
         mTitleLogin.setTypeface(exLightSans);
+        mCreators.setTypeface(boldSans);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String userName = mUserName.getText().toString();
                 String password = mPassword.getText().toString();
-
                 if (TextUtils.isEmpty(userName)) {
                     //set error on username field
                     mUserInput.setError("Username cannot be empty");
@@ -135,6 +138,11 @@ public class LoginFragment extends Fragment {
                     mPassInput.setError("Password cannot be empty");
                     mPassInput.requestFocus();
                     inputMethodManager.showSoftInput(mPassword, InputMethodManager.SHOW_IMPLICIT);
+                } else if(mDepartment.getSelectedItemPosition() == 0) {
+                    TextView errorText = (TextView)mDepartment.getSelectedView();
+                    errorText.setError("No branch selected");
+                    errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                    errorText.setText("Please select a branch");//changes the selected item text to this
                 } else {
                     if (Utils.isNetworkAvailable(getActivity())) {
 
@@ -314,7 +322,9 @@ public class LoginFragment extends Fragment {
      * @author Tristan Waddington
      */
     public class TypefaceSpan extends MetricAffectingSpan {
-        /** An <code>LruCache</code> for previously loaded typefaces. */
+        /**
+         * An <code>LruCache</code> for previously loaded typefaces.
+         */
         private LruCache<String, Typeface> sTypefaceCache =
                 new LruCache<String, Typeface>(12);
 

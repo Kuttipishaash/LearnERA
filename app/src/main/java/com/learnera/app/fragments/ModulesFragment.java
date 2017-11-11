@@ -52,46 +52,33 @@ public class ModulesFragment extends Fragment {
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View v,
-                                           int index, long arg3) {
+                                           final int index, long arg3) {
                 //Share with WhatsApp option only if module details are long pressed. It won't appear on long press of text books, credits or prerequisites
-                if (index > 2) {
-                    final AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
-                    build.setTitle("Share via WhatsApp");
-                    build.setMessage("Would you like to share the syllabus of " + modules.get(0) + " via WhatsApp?");
-                    build.setPositiveButton("SHARE", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            share = new StringBuffer();
-                            share.append("*SYLLABUS OF : " + modules.get(0) + "*");
-                            for (int i = 5, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
-                                share.append("\n\n*MODULE " + moduleNumber + ":*\n");
-                                if (modules.get(i).equals("")) {
-                                    share.append(modules.get(i + 1));
-                                } else {
-                                    share.append(modules.get(i) + "\n\n" + modules.get(i + 1));
-                                }
-                            }
-                            share.append("\n\n_Syllabus shared using LearnERA_");
-                            dialog.dismiss();
-                            Intent whatsappIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
-                            whatsappIntent.setType("text/plain");
-                            whatsappIntent.setPackage("com.whatsapp");
-                            whatsappIntent.putExtra(Intent.EXTRA_TEXT, share.toString());
-                            try {
-                                startActivity(whatsappIntent);
-                            } catch (android.content.ActivityNotFoundException ex) {
-                                Toast toast = Toast.makeText(getActivity(), "WhatsApp is not installed on your device.", Toast.LENGTH_SHORT);
-                                toast.show();
-                            }
-                        }
-                    });
-                    build.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    });
-                    build.show();
-
-                }
+                final AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
+                Toast.makeText(getActivity(), "" + index, Toast.LENGTH_SHORT).show();
+                final int tempIndex = index + 1;
+                build.setTitle("Share");
+                build.setMessage("Would you like to share the syllabus of Module " + tempIndex + "?");
+                build.setPositiveButton("Share", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        share = new StringBuffer();
+                        share.append("Syllabus of " + modules.get(0) + "\nModule " + tempIndex + "\n");
+                        share.append(modules.get(tempIndex + tempIndex + 4));
+                        share.append("\n\nSyllabus shared using LearnERA");
+                        dialogInterface.dismiss();
+                        Intent sendIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
+                        sendIntent.setType("text/plain");
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, share.toString());
+                        startActivity(Intent.createChooser(sendIntent, "Share syllabus with"));
+                    }
+                });
+                build.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+                build.show();
                 return true;
             }
 
@@ -124,13 +111,9 @@ public class ModulesFragment extends Fragment {
         Bundle modulesBundle = getArguments();
         modules = modulesBundle.getStringArrayList("modules");
         getActivity().setTitle(modules.get(1));
-        Module textBooks = new Module("Text Books", "", modules.get(2));
-        Module credits = new Module("Credits", "", modules.get(3));
-        Module prerequisites = new Module("Prerequisites", "", modules.get(4));
+
         modulesList = new ArrayList<Module>();
-        modulesList.add(textBooks);
-        modulesList.add(credits);
-        modulesList.add(prerequisites);
+
         for (int i = 5, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
             modulesList.add(new Module("Module " + moduleNumber, modules.get(i), modules.get(i + 1)));
         }

@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/md_red_900"
     tools:context="com.learnera.app.WelcomeActivity">
-
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    </LinearLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -23,72 +16,109 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="50sp"
-                android:paddingTop="28dp"
-                android:text="LEARNERA"
-                android:textColor="@color/md_white_1000"
                 android:background="@color/md_red_900"
+                android:gravity="center"
+                android:paddingTop="33dp"
+                android:text="LEARNERA"
                 android:textAlignment="center"
-                android:gravity="center" />
+                android:textColor="@color/md_white_1000"
+                android:textSize="53sp" />
 
             <TextView
                 android:id="@+id/login_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/md_white_1000"
                 android:background="@color/md_red_900"
+                android:paddingBottom="20dp"
                 android:text="NOT LOGGED IN"
                 android:textAlignment="center"
-                android:paddingBottom="10dp"/>
+                android:textSize="16sp"
+                android:textColor="@color/md_white_1000" />
 
-            <ImageView
-                android:id="@+id/drawable_announcement"
-                android:src="@drawable/announcement_custom"
+            <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:adjustViewBounds="true" />
+                android:layout_marginTop="20dp"
+                android:columnCount="2"
+                android:padding="4dp"
+                android:rowCount="2">
 
-            <ImageView
-                android:id="@+id/drawable_attendance"
-                android:src="@drawable/attendance_custom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/drawable_announcement"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_columnSpan="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:layout_marginLeft="25dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/rectangle_shadow"
+                    android:src="@drawable/announcement_custom" />
 
-            <ImageView
-                android:id="@+id/drawable_marks"
-                android:src="@drawable/marks_custom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
-<!--
-            <ImageView
-                android:id="@+id/drawable_contacts"
-                android:src="@drawable/contacts_custom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
--->
-            <ImageView
-                android:id="@+id/drawable_syllabus"
-                android:src="@drawable/syllabus_custom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/drawable_attendance"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:layout_marginRight="50dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/rectangle_shadow"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/attendance_custom" />
 
-            <ImageView
-                android:id="@+id/drawable_logout"
-                android:src="@drawable/logout_custom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
+                <ImageView
+                    android:id="@+id/drawable_marks"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="left"
+                    android:layout_margin="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/rectangle_shadow"
+                    android:layout_marginLeft="25dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/marks_custom" />
+                <!--
+                            <ImageView
+                                android:id="@+id/drawable_contacts"
+                                android:src="@drawable/contacts_custom"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:adjustViewBounds="true"/>
+                -->
+                <ImageView
+                    android:id="@+id/drawable_syllabus"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_gravity="right"
+                    android:layout_margin="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/rectangle_shadow"
+                    android:layout_marginRight="50dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/syllabus_custom" />
+
+                <ImageView
+                    android:id="@+id/drawable_logout"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
+                    android:layout_columnSpan="2"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:elevation="6dp"
+                    android:background="@drawable/rectangle_shadow"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/logout_custom" />
+            </GridLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

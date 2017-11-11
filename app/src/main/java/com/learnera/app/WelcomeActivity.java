@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,13 +16,10 @@ import android.widget.Toast;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
-import java.lang.reflect.Type;
-
 public class WelcomeActivity extends AppCompatActivity {
 
     ImageView mAnnouncement;
     ImageView mAttendance;
-    //    ImageView mContacts;
     ImageView mLogout;
     ImageView mSyllabus;
     ImageView mMarks;
@@ -54,7 +52,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //Set font
         Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
-        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/Letter Gothic Std Medium.ttf");
+        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
         mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
     }
@@ -101,15 +99,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
             }
         });
-/*
-        mContacts = (ImageView) findViewById(R.id.drawable_contacts);
-        mContacts.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            startActivity(new Intent(WelcomeActivity.this, ContactsActivity.class));
-            }
-        });
-*/
+
         mLogout = (ImageView) findViewById(R.id.drawable_logout);
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,17 +125,4 @@ public class WelcomeActivity extends AppCompatActivity {
         });
     }
 
-    /*intent to syllabus app
-    void getSyllabus() {
-        PackageManager pm = this.getPackageManager();
-        Intent i = pm.getLaunchIntentForPackage("com.du.shankar.syllabus");
-        if (i != null) {
-            startActivity(i);
-        } else {
-            Intent viewIntent =
-                    new Intent("android.intent.action.VIEW",
-                            Uri.parse("https://play.google.com/store/apps/details?id=com.du.shankar.syllabus"));
-            startActivity(viewIntent);
-        }
-    }*/
 }

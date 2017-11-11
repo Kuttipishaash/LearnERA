@@ -124,7 +124,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 Utils.testInternetConnectivity(JSoupSpinnerCategoryTask, handler);
                 break;
             case R.id.spinner_marks_category:
-                //execute spinner for fetching marks data
+                //execute spinner for fetching marks_custom data
                 finalFetchURL = Constants.markURL + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
