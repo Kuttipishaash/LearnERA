@@ -36,6 +36,6 @@
             android:layout_marginRight="12dp"
             android:padding="8dp"
             android:text="DISMISS"
-            android:textColor="@color/md_amber_600" />
+            android:textColor="@color/md_red_900" />
     </RelativeLayout>
 </ScrollView>

@@ -4,14 +4,21 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.style.MetricAffectingSpan;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -23,12 +30,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.Utils;
 import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
+import com.learnera.app.data.NothingSelectedSpinnerAdapter;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
@@ -48,6 +57,8 @@ public class LoginFragment extends Fragment {
     Spinner mDepartment;
     EditText mUserName;
     EditText mPassword;
+    TextView mTitleRsms;
+    TextView mTitleLogin;
     TextInputLayout mUserInput;
     TextInputLayout mPassInput;
     Button mLogin;
@@ -93,7 +104,17 @@ public class LoginFragment extends Fragment {
 
         initSpinner();
 
-        getActivity().setTitle("RSMS Login");
+        SpannableString s = new SpannableString("LEARNERA");
+        s.setSpan(new TypefaceSpan(getActivity(), "Pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        getActivity().setTitle(s);
+
+        //set fonts to rsmslogin
+        mTitleRsms = (TextView) view.findViewById(R.id.text_title_rsms);
+        mTitleLogin = (TextView) view.findViewById(R.id.text_title_login);
+        Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-Bold.ttf");
+        Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
+        mTitleRsms.setTypeface(boldSans);
+        mTitleLogin.setTypeface(exLightSans);
 
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,11 +188,14 @@ public class LoginFragment extends Fragment {
     }
 
     private void initSpinner() {
-        String[] list = getResources().getStringArray(R.array.branches_array);
         brancheslist = getResources().getStringArray(R.array.branches);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.branches_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mDepartment.setAdapter(adapter);
+        mDepartment.setAdapter(new NothingSelectedSpinnerAdapter(
+                adapter,
+                R.layout.contact_spinner_row_nothing_selected,
+                getActivity()
+        ));
 
         //item selection handling
         mDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -281,6 +305,50 @@ public class LoginFragment extends Fragment {
                 Log.e("LOGIN_ACTIVITY", "Error checking login info");
             }
             return null;
+        }
+    }
+
+    /**
+     * Style a {@link Spannable} with a custom {@link Typeface}.
+     *
+     * @author Tristan Waddington
+     */
+    public class TypefaceSpan extends MetricAffectingSpan {
+        /** An <code>LruCache</code> for previously loaded typefaces. */
+        private LruCache<String, Typeface> sTypefaceCache =
+                new LruCache<String, Typeface>(12);
+
+        private Typeface mTypeface;
+
+        /**
+         * Load the {@link Typeface} and apply to a {@link Spannable}.
+         */
+        public TypefaceSpan(Context context, String typefaceName) {
+            mTypeface = sTypefaceCache.get(typefaceName);
+
+            if (mTypeface == null) {
+                mTypeface = Typeface.createFromAsset(context.getApplicationContext()
+                        .getAssets(), String.format("fonts/%s", typefaceName));
+
+                // Cache the loaded Typeface
+                sTypefaceCache.put(typefaceName, mTypeface);
+            }
+        }
+
+        @Override
+        public void updateMeasureState(TextPaint p) {
+            p.setTypeface(mTypeface);
+
+            // Note: This flag is required for proper typeface rendering
+            p.setFlags(p.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
+        }
+
+        @Override
+        public void updateDrawState(TextPaint tp) {
+            tp.setTypeface(mTypeface);
+
+            // Note: This flag is required for proper typeface rendering
+            tp.setFlags(tp.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
         }
     }
 }

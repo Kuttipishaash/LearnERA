@@ -10,7 +10,9 @@
         <item>Civil Engineering</item>
     </string-array>
 
+<!-- Empty entry in branches array to account for placeholder text in spinner  -->
     <string-array name="branches">
+        <item></item>
         <item>it</item>
         <item>cs</item>
         <item>ec</item>
@@ -20,8 +22,11 @@
         <item>ce</item>
     </string-array>
 
-
     <array name="its5sub">
+        <item>ph100</item>
+        <item>be100</item>
+        <item>ph100</item>
+        <item>be100</item>
         <item>ph100</item>
         <item>be100</item>
         <item>TEST</item>
@@ -29,6 +34,11 @@
     <array name="its5subnames">
         <item>Engineering Physics</item>
         <item>Engineering Mechanics</item>
+        <item>Engineering Physics</item>
+        <item>Engineering Mechanics</item>
+        <item>Engineering Physics</item>
+        <item>Engineering Mechanics</item>
+
     </array>
 
 

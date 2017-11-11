@@ -7,6 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -44,7 +47,7 @@ public class ModulesFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_modules, container, false);
         mListView = (ListView) view.findViewById(R.id.modulesListView);
         getlist();
-
+        setHasOptionsMenu(true);
 
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -96,6 +99,26 @@ public class ModulesFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        MenuInflater menuInflater = getActivity().getMenuInflater();
+        menuInflater.inflate(R.menu.menu_syllabus, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_share:
+                shareFullSyllabus();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     //populates the list view
     private void getlist() {
         Bundle modulesBundle = getArguments();
@@ -113,7 +136,24 @@ public class ModulesFragment extends Fragment {
         }
         moduleAdapter = new ModuleAdapter(getActivity(), modulesList);
         mListView.setAdapter(moduleAdapter);
-
     }
 
+    private void shareFullSyllabus() {
+        share = new StringBuffer();
+        share.append("SYLLABUS OF : " + modules.get(0));
+        for (int i = 5, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
+            share.append("\n\nMODULE " + moduleNumber + ":\n");
+            if (modules.get(i).equals("")) {
+                share.append(modules.get(i + 1));
+            } else {
+                share.append(modules.get(i) + "\n\n" + modules.get(i + 1));
+            }
+        }
+        share.append("\n\nSyllabus shared using LearnERA");
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.setType("text/plain");
+        sendIntent.putExtra(Intent.EXTRA_TEXT, share.toString());
+        startActivity(Intent.createChooser(sendIntent, "Share syllabus with"));
+    }
 }

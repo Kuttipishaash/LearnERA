@@ -28,7 +28,6 @@ public class SyllabusSubjectFragment extends Fragment {
     ListView mListView;
     private SyllabusSubjectAdapter syllabusSubjectAdapter;
 
-
     public SyllabusSubjectFragment() {
         // Required empty public constructor
     }

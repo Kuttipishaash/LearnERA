@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
 
+import java.lang.reflect.Type;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     ImageView mAnnouncement;
@@ -51,9 +53,10 @@ public class WelcomeActivity extends AppCompatActivity {
         initViews();
 
         //Set font
-        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Letter Gothic Std Medium.ttf");
-        mLoginStatus.setTypeface(face);
-        mAppName.setTypeface(face);
+        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
+        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/Letter Gothic Std Medium.ttf");
+        mLoginStatus.setTypeface(loginName);
+        mAppName.setTypeface(appName);
     }
 
     @Override

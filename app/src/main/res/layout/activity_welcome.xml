@@ -31,10 +31,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="50sp"
-                android:paddingTop="25dp"
-                android:text="LearnEra"
+                android:paddingTop="28dp"
+                android:text="LEARNERA"
                 android:textColor="@color/md_white_1000"
-                android:background="@color/md_grey_700"
+                android:background="@color/md_red_900"
                 android:textAlignment="center"
                 android:gravity="center" />
 
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/md_white_1000"
-                android:background="@color/md_grey_700"
+                android:background="@color/md_red_900"
                 android:text="NOT LOGGED IN"
                 android:textAlignment="center"
                 android:paddingBottom="10dp"/>
