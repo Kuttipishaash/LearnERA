@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/md_red_900"
     tools:context="com.learnera.app.WelcomeActivity">
 
     <android.support.v4.widget.NestedScrollView
@@ -14,15 +13,16 @@
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:background="@color/md_red_900"
                 android:gravity="center"
                 android:paddingTop="33dp"
@@ -35,90 +35,86 @@
                 android:id="@+id/login_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/app_name"
                 android:background="@color/md_red_900"
                 android:paddingBottom="20dp"
                 android:text="NOT LOGGED IN"
                 android:textAlignment="center"
-                android:textSize="16sp"
-                android:textColor="@color/md_white_1000" />
+                android:textColor="@color/md_white_1000"
+                android:textSize="16sp" />
 
-            <GridLayout
+            <LinearLayout
+                android:id="@+id/linear_row_1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:columnCount="2"
-                android:padding="4dp"
-                android:rowCount="2">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/login_status"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/drawable_announcement"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_columnSpan="1"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="10dp"
-                    android:layout_marginLeft="25dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
                     android:elevation="6dp"
-                    android:background="@drawable/rectangle_shadow"
                     android:src="@drawable/announcement_custom" />
 
                 <ImageView
                     android:id="@+id/drawable_attendance"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_gravity="right"
-                    android:layout_margin="10dp"
-                    android:layout_marginRight="50dp"
-                    android:elevation="6dp"
-                    android:background="@drawable/rectangle_shadow"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
                     android:adjustViewBounds="true"
+                    android:elevation="6dp"
                     android:src="@drawable/attendance_custom" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_row_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/linear_row_1">
 
                 <ImageView
                     android:id="@+id/drawable_marks"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_gravity="left"
-                    android:layout_margin="10dp"
-                    android:elevation="6dp"
-                    android:background="@drawable/rectangle_shadow"
-                    android:layout_marginLeft="25dp"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
                     android:adjustViewBounds="true"
+                    android:elevation="6dp"
                     android:src="@drawable/marks_custom" />
-                <!--
-                            <ImageView
-                                android:id="@+id/drawable_contacts"
-                                android:src="@drawable/contacts_custom"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:adjustViewBounds="true"/>
-                -->
-                <ImageView
-                    android:id="@+id/drawable_syllabus"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_gravity="right"
-                    android:layout_margin="10dp"
-                    android:elevation="6dp"
-                    android:background="@drawable/rectangle_shadow"
-                    android:layout_marginRight="50dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/syllabus_custom" />
 
                 <ImageView
-                    android:id="@+id/drawable_logout"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:layout_columnSpan="2"
+                    android:id="@+id/drawable_syllabus"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:elevation="6dp"
-                    android:background="@drawable/rectangle_shadow"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/logout_custom" />
-            </GridLayout>
-        </LinearLayout>
+                    android:elevation="6dp"
+                    android:src="@drawable/syllabus_custom" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/drawable_logout"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/linear_row_2"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:elevation="6dp"
+                android:src="@drawable/logout_custom" />
+        </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>
