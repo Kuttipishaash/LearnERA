@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_red_600"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/text_title_rsms"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:paddingBottom="30dip"
+            android:paddingTop="30dip"
+            android:text="RSMS"
+            android:textAlignment="center"
+            android:textColor="@color/md_white_1000"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/text_title_rsms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="30dip"
-                android:paddingTop="30dip"
-                android:text="RSMS"
-                android:textAlignment="center"
-                android:textColor="@color/md_white_1000"
-                android:textSize="40sp" />
+        <TextView
+            android:id="@+id/text_title_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="Login"
+            android:textAlignment="center"
+            android:textColor="@color/md_white_1000"
+            android:textSize="40sp" />
 
-            <TextView
-                android:id="@+id/text_title_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dip"
-                android:paddingTop="10dip"
-                android:text="Login"
-                android:textAlignment="center"
-                android:textColor="@color/md_white_1000"
-                android:textSize="40sp" />
+    </LinearLayout>
 
-        </LinearLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header">
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_login"
-            app:cardCornerRadius="7dp"
-            app:cardElevation="7dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/header">
+            app:cardCornerRadius="7dp"
+            app:cardElevation="7dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="15dp"
+                android:paddingBottom="30dp"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="15dp">
+                android:paddingTop="30dp">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/text_input_username_field"
@@ -83,10 +83,10 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/text_input_password_field"
-                    app:passwordToggleEnabled="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="4dp">
+                    android:padding="4dp"
+                    app:passwordToggleEnabled="true">
 
                     <EditText
                         android:id="@+id/et_password"
@@ -119,16 +119,16 @@
                     android:text="LOGIN" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
+    </android.support.v4.widget.NestedScrollView>
 
-        <TextView
-            android:id="@+id/text_creators"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/card_login"
-            android:layout_marginTop="40dp"
-            android:text="Created by Prejith, Prabhashankar and Mebin"
-            android:textAlignment="center"
-            android:textColor="@color/md_white_1000"
-            android:textSize="12sp" />
-    </RelativeLayout>
-</android.support.v4.widget.NestedScrollView>
+    <TextView
+        android:id="@+id/text_creators"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:text="Created by Prejith, Prabhashankar and Mebin"
+        android:textAlignment="center"
+        android:textColor="@color/md_white_1000"
+        android:textSize="12sp" />
+</RelativeLayout>
