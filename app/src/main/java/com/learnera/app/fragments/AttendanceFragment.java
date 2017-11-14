@@ -29,6 +29,7 @@ import com.learnera.app.data.AttendenceTableAdapter;
 import com.learnera.app.data.AttendenceTableCells;
 import com.learnera.app.data.AttendenceTableRow;
 import com.learnera.app.data.Constants;
+import com.learnera.app.data.RecyclerItemClickListener;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
@@ -106,7 +107,17 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                bunkCalculate(Integer.parseInt(mMissedList.get(position)), Integer.parseInt(mTotalList.get(position)), position);
+            }
 
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
         initProgressDialog();
 
         //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
@@ -279,6 +290,69 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         count = 0;
     }
 
+    //to calculate classes bunkable
+    private void bunkCalculate(int missedClasses, int totalClasses, int itemPositionClicked) {
+        double percent;
+        int bunkOrAttend;
+        String predictedStatus;
+        int attendedClasses = totalClasses - missedClasses;
+        percent = (double) attendedClasses / totalClasses * 100.0;
+        if (percent > 75) {
+            bunkOrAttend = canBunk(percent, attendedClasses, totalClasses);
+            predictedStatus = "You can bunk : ";
+        } else if (percent < 75) {
+            bunkOrAttend = toAttend(percent, attendedClasses, totalClasses);
+            predictedStatus = "You should attend : ";
+        } else {
+            bunkOrAttend = 0;
+            predictedStatus = "You can bunk : ";
+        }
+
+        //display bunkable dialog
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.dialog_attendence_bunk_view);
+        TextView dialogButton = (TextView) dialog.findViewById(R.id.bunk_dialog_dismiss);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        TextView bunkSubjectTextView = (TextView) dialog.findViewById(R.id.bunk_subject_text_view);
+        TextView bunkSubjectCodeTextView = (TextView) dialog.findViewById(R.id.bunk_subject_code_text_view);
+        TextView classCountTextView = (TextView) dialog.findViewById(R.id.num_of_classes_text_view);
+        bunkSubjectTextView.setText(mSubjectList.get(itemPositionClicked));
+        bunkSubjectCodeTextView.setText(mSubjectCodeList.get(itemPositionClicked));
+        classCountTextView.setText(predictedStatus + String.valueOf(bunkOrAttend) + " classes");
+        dialog.show();
+    }
+
+    private int canBunk(double attendencePercent, int attendedClasses, int totalClasses) {
+        int count = 0;
+        while (attendencePercent >= 75) {
+            totalClasses++;
+            attendencePercent = (double) attendedClasses / totalClasses * 100.0;
+            count++;
+        }
+        count--;
+        return count;
+    }
+
+    private int toAttend(double attendencePercent, int attendedClasses, int totalClasses) {
+        int count = 0;
+        while (attendencePercent < 75) {
+            totalClasses++;
+            attendedClasses++;
+            attendencePercent = (double) attendedClasses / totalClasses * 100.0;
+            count++;
+        }
+        count++;
+        return count;
+    }
+
+
     private void attendenceDetails() {
         //To show table view of attendence of the days on which the student was absent
         tableRows = new ArrayList<AttendenceTableRow>();
@@ -297,7 +371,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 dialog.dismiss();
             }
         });
-
 
         Elements tables = doc.select("table [width=96%]");
         int count = 0;
