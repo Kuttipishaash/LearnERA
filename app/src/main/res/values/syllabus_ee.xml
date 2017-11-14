@@ -1,4 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
 
+    <array name="ee205">
+    <item>DC MAT</item>
+    <item>1. Bimbra P. S., Electrical Machinery, 7/e, Khanna Publishers, 2011.
+        \n2. Nagrath J. and D. P. Kothari, Theory of AC Machines, Tata McGraw Hill, 2006</item>
+    <item></item>
+    <item>NONE</item>
+    <item></item>
+    <item>Electromagnetic principles for Machines
+        Electro dynamical equations and their solution – rotational
+        motion system – mutually coupled coils – construction of DC
+        machines – energy conversion in rotating electrical machines –
+        eddy currents and eddy current losses – flux distribution curve
+        in the airgap – armature windings – lap and wave windings –
+        selection criteria – equalizer rings – dummy coils.</item>
+    <item></item>
+    <item>DC generators – EMF equation – methods of excitation –
+        separately and self excited – shunt, series, compound –
+        armature reaction – effects of armature reaction –
+        demagnetizing & cross magnetizing ampere-turns –
+        compensating windings – interpoles – commutation – methods
+        to improve commutation – voltage build-up – no loadcharacteristics – load characteristics – losses and efficiency –
+        power flow diagram – parallel operation – applications of dc
+        generators</item>
+    <item></item>
+    <item>DC motor – principle of operation – back emf – classification
+        – torque equation – losses and efficiency – power flow
+        diagram – performance characteristics of shunt, series and
+        compound motors – starting of dc motors – necessity and
+        types of starters – speed control – methods of speed control –
+        testing – Swinburne’s test – Hopkinson’s test – separation of
+        losses – retardation test – applications of dc motors.</item>
+    <item></item>
+    <item>Transformer losses and efficiency – voltage regulation – OC
+        & SC test – Sumpner’s test – all day efficiency
+        Autotransformer – saving of copper – current rating and kVA
+        rating of autotransformers, parallel operation of single phase
+        transformers, necessary and desirable conditions of parallel
+        operation, on load and off load tap changers.</item>
+    <item></item>
+    <item>Transformer losses and efficiency – voltage regulation – OC
+        & SC test – Sumpner’s test – all day efficiency
+        Autotransformer – saving of copper – current rating and kVA
+        rating of autotransformers, parallel operation of single phase
+        transformers, necessary and desirable conditions of parallel
+        operation, on load and off load tap changers.</item>
+    <item></item>
+    <item>3-phase transformer – 3-phase transformer connections – Δ-Δ,
+        Y-Υ , Δ-Y , Y-Δ, V-V – vector groupings Yy0, Dd0, Yd1,
+        Yd11, Dy1, Dy11 – Scott connection – three winding
+        transformer – tertiary winding – percentage and per unit
+        impedance – parallel operation of three phase transformers.</item>
+</array>
+
+
+
+    <array name="ee311">
+        <item>EDCA</item>
+        <item>
+            1. Kothari D. P. and I. J. Nagrath, Electrical Machines, Tata McGraw Hill, 2004.\n
+            2. Nagrath .I.J. & Kothari .D.P, Electrical Machines, Tata McGraw-Hill, 1998\n
+            3. Richard Crowder, Electrical Drives and Electromechanical systems, Elsevier, 2013\n
+            4. Mehta V. K. and R. Mehta, Principles of Electrical and Electronics, S. Chand &
+            Company
+            Ltd., 1996.\n
+            5. Theraja B. L. and A. K. Theraja, A Text Book of Electrical Technology, S. Chand &
+            Company Ltd., 2008.\n
+            6. Vedam Subrahmaniam, Electric Drives (concepts and applications), Tata McGraw- Hill,
+            2001\n
+        </item>
+        <item>3</item>
+        <item>NIL</item>
+        <item>DC Machines</item>
+        <item>Principle of operation-emf equation-types of excitations. Separately excited, shunt
+            and series excited DC generators, compound generators. General idea of armature
+            reaction, OCC and load characteristics - simple numerical problems.
+        </item>
+        <item>Principles of DC motors</item>
+        <item>Torque and speed equations-torque speed characteristics- variations of speed, torque
+            and power with motor current. Applications of dc shunt series and compound motors.
+            Principles of starting, losses and efficiency – load test- simple numerical problems
+        </item>
+        <item>Transformers</item>
+        <item>Principles of operations – emf equation- vector diagrams- losses and efficiency – OC
+            and SC tests. Equivalent circuits-efficiency calculations- maximum efficiency – all day
+            efficiency –simple numerical problems. Auto transformers constant voltage transformer-
+            instrument transformers
+        </item>
+        <item>Three phase induction motors</item>
+        <item>Slip ring and squirrel cage types-principles of operation – rotating magnetic field-
+            torque slip
+            characteristics- no load and blocked rotor tests. Circle diagrams- methods of starting –
+            direct online – auto transformer starting
+        </item>
+        <item>Single phase motors</item>
+        <item>Principle of operation of single phase induction motor – split phase motor – capacitor
+            start motor- stepper motor-universal motor Synchronous machines types – emf equation of
+            alternator – regulation of alternator by emf method. Principles of operation of
+            synchronous motors- methods of starting- V curves-synchronous condenser
+        </item>
+        <item>Stepper motors</item>
+        <item>Principle of operation, multistack variable reluctance motors, single-stack variable
+            reluctance motors, Hybrid stepper motors,Linear stepper motor, comparison, Torque-speed
+            characteristics,control of stepper motors
+            Controllers for automation, servo control, Digital controllers, Advanced control
+            systems, Digital signal processors, motor controllers,Axis controllers, Machine tool
+            controllers, Programmable Logic Controllers
+        </item>
+    </array>
+-->
 </resources>

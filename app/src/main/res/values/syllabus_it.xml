@@ -1,4 +1,773 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="it301">
+        <item>SAD</item>
+        <item>Reference Books: \n\n 1. Eric J. Braude , Software Design, John Wiley and Sons.\n
+            2. Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides : Design Patterns:
+            Elements of Reusable Object-Oriented Software, Addison – Wesley 1994\n
+            3. James Rumbaugh, Object Oriented Modeling and Design, Prentice Hall India\n
+            4. Len Bass, Paul Clements, Rick Kazman, Software Architecture in Practice (2nd Ed.),
+            Pearson\n
+            5. Mary Shaw and David Garlan, Software Architecture – Perspectives on an emerging
+            discipline, Pearson, 1996\n
+            6. Roger S.Pressman, Software Engineering – A Practitioner’s approach, 8th
+            edition(2014), McGraw Hill Education
+        </item>
+        <item>3-1-0 - 4</item>
+        <item>Nil</item>
+        <item></item>
+        <item>The Nature of Software – Defining software, Software Application domains. Software
+            Engineering. The Software Process, Process Models: - Water fall model, Incremental
+            model, Prototyping model, RAD, Spiral model and Agile Development. (Brief introduction
+            of Agile Development). What is Software Architecture? Why is software architecture
+            important? Role of software architect.
+        </item>
+        <item></item>
+        <item>Software Design principles – Correctness and Robustness – Flexibility, Reusability and
+            Efficiency – Tradeoffs among robustness, flexibility, reusability and efficiency
+        </item>
+        <item></item>
+        <item>Introduction to UML diagrams – Use case diagrams, Class diagrams, Sequence diagrams,
+            Activity diagrams, State Transition diagram, Deployment diagram.
+            Case study discussion on UML diagrams – Group presentation by students on different case
+            studies
+        </item>
+        <item></item>
+        <item>Software architectural styles - pipes and filters, layered, eventbased, data-centered,
+            interpreter, MVC, message dispatcher, multi-tier distributed
+        </item>
+        <item></item>
+        <item>What is a design pattern? Creational patterns – Factory, Abstract Factory, Prototype
+            and Singleton. Structural patterns – Composite, Decorator, Adapter, Façade and
+            Flyweight. s
+        </item>
+        <item></item>
+        <item>Behavioral patterns- Chain of responsibility, Command, Interpreter, Mediator, State,
+            Template and Observer. Evaluation of architectural design - ATAM
+        </item>
+    </array>
+
+    <array name="it302">
+        <item>IT</item>
+        <item>TEXT BOOK \n\n1. Paul J. Deitel, Harvey M. Deitel, Abbey Deitel, “Internet and World
+            Wide Web How To Program”, 5/E, Pearson Education, 2012.
+
+            \n\nREFERENCES \n\n1. Robert W. Sebesta, “Programming the World Wide Web”, 8/E, Pearson
+            Education, 2012.
+            \n2. Chris Bates, “Web Programming – Building Intranet applications”, Wiley
+            Publications, 3rd Edition, 2009.
+            \n3. Jonathan Chaffer, Karl Swedberg, “Learning jQuery: Better interaction Design and
+            Web Development with Simple JavaScript Techniques”, PACKT publishing, 2007
+            \n4. www.w3schools.com
+        </item>
+        <item>4-0-0-4</item>
+        <item>Nil</item>
+        <item></item>
+        <item>mIntroduction to Computers and the Internet- Web Basics, Introduction to HTML5 - W3C
+            HTML5 Validation Service, Headings, Linking, Images, Special Characters and Horizontal
+            Rules, Lists, Tables, Forms, Internal Linking, meta elements, New HTML5 Form input
+            Types, input and data list elements and autocomplete Attribute, Page-Structure Elements.
+        </item>
+        <item></item>
+        <item>Introduction to Cascading Style Sheets -Inline Styles, Embedded Style Sheets,
+            Conflicting Styles, Linking External Style Sheets, Positioning Elements - Absolute
+            Positioning, zindex, Relative Positioning, span, Backgrounds, Element Dimensions, Box
+            Model and Text Flow, Media Types, DropDown Menus
+        </item>
+        <item></item>
+        <item>JavaScript: Introduction to Scripting - Control Statements - if Selection Statement,
+            if…else Selection Statement, while Repetition Statement, for Repetition Statement,
+            switch Multiple-Selection Statement, do…while Repetition Statement, break and continue
+            Statements, JavaScript: Functions- Function Definitions, Random Number Generation,
+            JavaScript Global Functions, JavaScript: Arrays - Declaring, Allocating and Using
+            Arrays, Passing Arrays to Functions, Sorting Arrays with sort, Searching Arrays with
+            index Of, JavaScript: Objects: Math, String, Date, Boolean and Number, document Object.
+        </item>
+        <item></item>
+        <item>Document Object Model (DOM): Modeling a Document: DOM Nodes and Trees, Traversing and
+            Modifying a DOM Tree, DOM Collections, Dynamic Styles, Using a Timer and Dynamic Styles
+            to Create Animated Effects, JavaScript Event Handling: load Event, Event mouse move and
+            the event Object, Form Processing with focus and blur, submit and reset, Event Bubbling
+        </item>
+        <item></item>
+        <item>XML: Introduction, XML Basics, Structuring Data, XML Namespaces, Document Type
+            Definitions (DTDs), W3C XML Schema Documents, XML Vocabularies: MathML, Extensible Style
+            sheet Language and XSL Transformations, Document Object Model (DOM). Ajax-Enabled Rich
+            Internet Applications with XML and JSON: Introduction, Rich Internet Applications (RIAs)
+            with Ajax, Using XML and the DOM , Creating a FullScale Ajax-Enabled Applicatio
+        </item>
+        <item></item>
+        <item>Web Servers: Introduction, HTTP Transactions, Multitier Application Architecture,
+            Client-Side Scripting versus ServerSide Scripting, Accessing Web Servers.
+            Server Side Programming with PHP - Introduction, converting Between Data Types,
+            Arithmetic Operators, Initializing and Manipulating Arrays, String Comparisons, String
+            Processing with Regular Expressions, Form Processing and Business Logic, Using PHP to
+            Process HTML5 Forms, Accessing MySQL Database with PHP, Using Cookies, Dynamic Content
+        </item>
+    </array>
+
+    <array name="it303">
+        <item>TOC</item>
+        <item>Text Book: \n\n1. Hopcroft J. E., J. D. Ullman and R. Motwani, Introduction to
+            Automata Theory, Languages and Computation, Pearson Education, 2008
+            \n2. Misra and Chandrasekharan, Theory of Computation, Prentice Hall
+            \n\nReferences: \n\n1. John Martin, Introduction to Language and Theory of Computation,
+            TMH
+            \n2. K.V.N. Sunitha and N Kalyani, Formal languages and Automata Theory Tata McGraw
+            Hill, NewDelhi
+            \n3. Michael Sipser, Introduction to the Theory of Computation, Thomson Learning
+            \n4. Moret B. M., The Theory of Computation, Pearson Education
+            \n5. Peter Linz, An Introduction to Formal Languages and Automata Narosa Publucation
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item></item>
+        <item>Introduction: Formal representation of languages – Chomsky Classification,
+            Introduction to Automata theory, Alphabets and Languages, language operations:
+            Concatenation, sub string Kleene closure, Reversal, Finite state systems, Transition
+            diagram and table
+        </item>
+        <item></item>
+        <item>Finite automata, Finite state automata – description of finite automata, language
+            acceptability, designing finite automata, NFA, . Difference between NFAandDFA finite
+            automata with epsilon moves, equivalence of NFA and DFA –Conversion of NFA to DFA -
+            Minimisation of DFA-, Applications of finite automata, , Finite Automata with output.
+            Moore and Meelay Machines.
+        </item>
+        <item></item>
+        <item>Regular Expressions – Properties of Regular sets , Ardens theoremDFA to Regular
+            Expressions conversion,DFA construction for given regular expression ,Pumping Lemma ,
+            closure properties.
+        </item>
+        <item></item>
+        <item>Context Free Grammar – Derivation trees, ambiguity, simplification of CFLs, normal
+            forms of CFGs: Chomsky and Greibach NFs. PDA – formal definition, examples of PDA, ,
+            language acceptability ,Deterministic PDA. Pumping lemma for CFGs. Applications of PDA
+            and CFLs
+        </item>
+        <item></item>
+        <item>Turing machines - Chomsky classification of languages, formal definition of Turing
+            Machine, language acceptability by TM, examples of TM. Variants of TMs – multitape TM,
+            multiple tracks ,checking off symbols , Subroutines, Non-deterministic TM, offline TMs,
+            Universal Turing Machine, equivalence of single tape and multitape TMs.
+        </item>
+        <item></item>
+        <item>Linear bounded automata, Recursive and recursively enumerable languages – properties
+            recursive and r.e. languages. Decidability - decidable and undecidable problems,
+            tractable and intractable problems, halting problem, reducibility. Church Thesis
+        </item>
+    </array>
+
+    <array name="it304">
+        <item>DWM</item>
+        <item>Text Book: \n\n1. Jaiwei Han, Micheline Kamber, “Data Mining Concepts and Techniques”,
+            Elsevier, 2006.
+            \n2. M. Sudeep Elayidom, “Data Mining and Warehousing”, 1st Edition, 2015 Cengage
+            Learning India Pvt. Ltd.
+            \n\nReferences: \n\n1. Pang-Ning Tan, Michael Steinbach, “Introduction to Data Mining”,
+            Addison Wesley, 2006.
+            \n2. Dunham M H, “Data Mining: Introductory and Advanced Topics”, Pearson Education, New
+            Delhi, 2003.
+            \n3. Mehmed Kantardzic, “Data Mining Concepts, Methods and Algorithms”, John Wiley and
+            Sons, USA, 2003.
+        </item>
+        <item>3-0-0-3</item>
+        <item>CS208 Principles of data base design</item>
+        <item></item>
+        <item>Data Mining: Concepts: Concepts, Data Mining Applications, Data Mining Stages, Data
+            Mining Models, Data Warehousing and OLAP, Need for Data Warehousing, Challenges,
+            Application of Data Mining Principles, Machine Learning and Statistics, Ethics of Data
+            Mining, Popular Tools. OLTP Vs DWH, Applications of DWH
+        </item>
+        <item></item>
+        <item>Data Preprocessing: Data Preprocessing Concepts, Data Cleaning, Handling Missing Data,
+            Data Transformation and Discretization, Data Visualization. UCI Data Sets and Their
+            Significance
+        </item>
+        <item></item>
+        <item>Classification Models: Introduction to Classification Models, Decision Tree, Neural
+            Networks
+        </item>
+        <item></item>
+        <item>Naive Bayes Classifier, Support Vector Machines. Prediction Models, Issues regarding
+            classification and prediction.
+        </item>
+        <item></item>
+        <item>Association Rules Mining: Concepts, Apriori Algorithm. Cluster Analysis: Introduction,
+            Concepts, K-Means Clustering, DensityBased Clustering, Weighted Graph Partitioning,
+            Hypergraph Partitioning,
+        </item>
+        <item></item>
+        <item>Practical Data Mining Tools: Weka, R Package for Data Mining. Advanced Data Mining
+            Techniques: Introduction, Web Mining- Web Content Mining, Web Structure Mining, Web
+            Usage Mining. Text Mining, CRM Applications and Data Mining, CRM Data Mining Models.
+            Data Warehousing with Oracle BI
+        </item>
+    </array>
+
+    <array name="it305">
+        <item>OS</item>
+        <item>Text Books: \n\n1. Andrew S. Tanenbaum, “Modern Operating Systems”, Prentice Hall
+            \n2. J. L. Peterson and A. Silberschatz , Operating System Concepts, Addison Wesley.
+            \n\nReferences: \n\n1. D M Dhamdhere, “Operating Systems A Concept-based Approach”, Tata
+            McGraw Hill, New Delhi, 2nd Edition, 2010.
+            \n2. William Stallings, Operating Systems,6th Edition,Pearson,2009,ISBN
+            978-81-317-2528-3
+            \n3. Garry Nutt, “Operating Systems – A Modern perspective ”, Third Edition, Pearson
+            Education
+        </item>
+        <item>3-0-0:3</item>
+        <item>C202 Computer Organization and Architecture</item>
+        <item></item>
+        <item>Introduction: Operating Systems – Batch, Multi programmed, Time-sharing and Real time
+            systems –System calls – System Programs –– Simple structure, Layered approach – Kernel,
+            Shell.
+        </item>
+        <item></item>
+        <item>Processes-. Process Scheduling - Round Robin Scheduling – Priority scheduling
+            -multiple queues - Shortest Job First - Guaranteed scheduling - Two- level scheduling.
+            Preemptive scheduling, Dispatcher –Multiple-processor scheduling.
+        </item>
+        <item></item>
+        <item>Inter process Communication -Race Conditions - Critical Sections – Mutual Exclusion -
+            Busy Waiting - Sleep And Wakeup - Semaphores - Event Counters - Monitors - Message
+            Passing
+        </item>
+        <item></item>
+        <item>Memory management : Basics - swapping - fixed partitions - variable partitions -
+            overlay - paging - segmentation - segmented paging - virtual memory concepts - demand
+            paging - page replacement - space allocation policies - dynamic linking ,Thrashing
+        </item>
+        <item></item>
+        <item>Device management : Physical characteristics – disk scheduling algorithms - sector
+            queuing -device drivers. Dead locks : Deadlock characteristics -conditions for deadlock-
+            prevention - avoidance - detection – recovery from dead lock bankers algorithm.-
+            resource trajectories - starvation.
+        </item>
+        <item></item>
+        <item>File System: File concept – Access methods – Directory structure – Directory
+            implementation – Linear list, Hash table – Case study: Linux system.
+        </item>
+    </array>
+
+    <array name="it306">
+        <item>DS</item>
+        <item>Text Books:
+            \n\n1. George Coulouris, Jean Dollimore, Tim Kindberg, “Distributed Systems: Concepts
+            and Design”, Pearson 2009, 4th Edition.
+            \n\nReferences:
+            \n\n1. Andrew S Tanenbaum and Marteen Van Steen, “Distributed Systems Principles and
+            Paradigms”, Pearson Education / Prentice Hall of India , New Delhi, 2002.
+            \n2. Pradeep K Sinha, “Distributed Operating Systems: Concepts and Design”, Prentice
+            Hall of India, New Delhi, 2004.
+            \n3. Mukesh Singhal, Niranjan G Shivarathri, “Advanced Concepts in Operating systems”,
+            Tata Mc Graw Hill Ltd.
+            \n4. Tanenbaum A S, “ Modern Operating System”, 3/e, PHI
+        </item>
+        <item>3-0-0-3</item>
+        <item>IT305 Operating Systems</item>
+        <item></item>
+        <item>Characterization of Distributed Systems-Introduction-ExamplesResource Sharing and the
+            Web-Challenges. System ModelsArchitectural-Fundamental. Inter process
+            CommunicationIntroduction-API for Internet protocols-External data representation and
+            marshalling--Client-server communication-Group communication- Case study: Inter process
+            Communication in UNIX.
+        </item>
+        <item></item>
+        <item>Distributed Objects and Remote Invocation-IntroductionCommunication between
+            distributed objects-Remote procedure callsEvents and notifications-Case study: Java RMI.
+            Operating System Support-Introduction-OS layer-Protection-Processes and threads-
+            Communication and invocation OS architecture
+        </item>
+        <item></item>
+        <item>Distributed File Systems-Introduction-File service architecture-Case Study: Sun
+            Network File System-Enhancements and further developments. Name
+            Services-Introduction-Name Services and the Domain Name System-Directory Services-Case
+            Study: Global Name Service
+        </item>
+        <item></item>
+        <item>Time and Global States-Introduction-Clocks, events and process states-Synchronizing
+            physical clocks-Logical time and logical clocksGlobal states-Distributed debugging
+        </item>
+        <item></item>
+        <item>Coordination and Agreement-Introduction-Distributed mutual exclusion – Elections ¬
+            Multicast communication-Consensus and related problems.
+        </item>
+        <item></item>
+        <item>Distributed Shared Memory-Introduction-Design and implementation issues-Sequential
+            consistency and Ivy case study Release consistency and Munin case study-Other
+            consistency models. CORBA Case Study- Introduction-CORBA RMI-CORBA services.
+        </item>
+    </array>
+
+    <array name="it307">
+        <item>CN</item>
+        <item>Text Book: \n\n1. Andrew S. Tanenbaum, “Computer Networks”, Prentice Hall, 4th
+            Edition, 2003 (Module 1 to 5)
+            \n2. James F Kurose, Keith W Ross, Computer Networking: A top Down Approach featuring
+            the Internet, Pearson Education, 3rd Edition. (Module 6)
+            \n\nReferences: \n\n1. Behrouz A. Forouzan, TCP/IP Protocol Suite, Fourth Edition, Mc
+            Graw Hill
+            \n2. Behrouz A. Forouzan, Data Communication and Networking, Fourth Edition, Mc Graw
+            Hill
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item>INTRODUCTION AND PHYSICAL LAYER</item>
+        <item>Introduction: - Types of Computer Networks, Network Software - Protocol Hierarchies,
+            Connection oriented and Connection less hierarchies, Reference Models - ISO-OSI
+            Reference Model, TCP/IP Reference Model – Comparison of OSI and TCP/IP reference models.
+            Physical Layer: - Guided Transmission Media– Twisted Pair, Coaxial and Fiber Optics,
+            Wireless Transmission- Radio and Microwave transmission, Communication Satellites – GEO,
+            MEO, LEO. Comparison of Network hardware - Repeaters, Routers, Bridges, Gateways, Hub
+            and Cable Modem
+        </item>
+        <item>DATA LINK LAYER</item>
+        <item>Data Link Layer: - Data link Layer design issues-Error Detection and correction –
+            Elementary Data link protocols- Sliding window protocols- Basic Concept, One Bit Sliding
+            window protocol, Concept of Go Back n and Selective repeat.
+        </item>
+        <item>MEDIUM ACCESS CONTROL</item>
+        <item>Medium Access Control:- Static and Dynamic channel allocation in LAN, Multiple access
+            protocols – ALOHA – Pure ALOHA – Slotted ALOHA – Carrier Sense Multiple Access protocols
+            – persistent and non-persistent CSMA – CSMA with collision detection – Ethernet-
+            Ethernet Cabling, Encoding, Frame Format, Binary Exponential Back Off Algorithm,
+            Comparison of Fast and Gigabit Ethernet.
+        </item>
+        <item>NETWORK LAYER</item>
+        <item>Network layer: -Network Layer Design Issues, Routing Algorithm – Optimality principle
+            - Flooding - Distance vector routing – Link state routing –Multicast Routing -
+            Congestion Control Algorithms – General principles – Congestion prevention policies –
+            Choke packets – Random Early Detection- Quality of Service requirements- Buffering,
+            Traffic shaping – Leaky bucket algorithm.
+        </item>
+        <item>TRANSPORT LAYER</item>
+        <item>Transport Layer: - Transport Service – The services provided to upper layers,
+            Transport Service primitives, Berkley Sockets. Elements of transport protocols, UDP-
+            Segment Structure, Remote Procedure Call. TCP – Service model, TCP Protocol, TCP Segment
+            Header, Connection establishment and Release, Transmission Policy, Congestion Control
+        </item>
+        <item>APPLICATION LAYER</item>
+        <item>Application Layer: - HTTP- Overview, Persistent and non persistent Connections,
+            Message formats, Concept of Cookies and Web Cache -FTP - Electronic Mail – SMTP, Mail
+            message formats, POP3, IMAP – DNS- Services provided by DNS, Overview of how DNS works,
+            DNS Caching, Message format - P2P File sharing
+        </item>
+    </array>
+
+    <array name="it361">
+        <item>GT</item>
+        <item>References: \n\n1. Bondy,J. A. and Murty,U.S.R., ‘Graph Theory with Applications’,
+            Springer, 2008.
+            \n2. Diestel, R. Graph Theory (Graduate Texts in Mathematics). New York, NY:
+            Springer-Verlag, 1997. ISBN: 3540261834
+            \n3. N. Alon and J. Spenser, "Probabilistic Methods", John Wiley and Sons, 2nd edition,
+            2000.
+            Bollobás, B. Modern Graph Theory (Graduate Texts in Mathematics). New York, NY:
+            SpringerVerlag, 1998. ISBN: 0387984917.
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item>GRAPHS AND SUB GRAPHS. TREES</item>
+        <item>GRAPHS AND SUBGRAPH - Graphs and Simple Graphs, Graph Isomorphism, The Incidence and
+            Adjacency Matrices, Subgraphs, Vertex Degrees, Paths and Connection, Cycles,
+            Applications – The Shortest Path Problem, Sperner &#39;s Lemma .
+            TREES - Cut Edges and Bonds, Cut Vertices, Cayley &#39;s Formula, Applications - The
+            Connector Problem
+        </item>
+        <item>CONNECTIVITY</item>
+        <item>CONNECTIVITY - Blocks, Applications-Construction of Reliable Communication Networks
+            Euler Tours, Hamilton Cycles, Applications-The Chinese Postman Problem, The Travelling
+            Salesman Problem
+        </item>
+        <item>MATCHINGS AND INDEPENDENT SETS and CLIQUES</item>
+        <item>MATCHINGS - Matchings and Coverings in Bipartite Graphs Perfect Matchings,
+            Applications - The Personnel Assignment Problem, The Optimal Assignment Problem.
+            INDEPENDENT SETS AND CLIQUES - Independent Sets, Ramsey &#39;s Theorem, TurAn &#39;s
+            Theorem, Applications - Schur &#39;s Theorem, A Geometry Problem.
+        </item>
+        <item>VERTEX COLOURINGS</item>
+        <item>VERTEX COLOURINGS - Chromatic Number, Brooks &#39; Theorem, Hajos &#39; Conjecture,
+            Chromatic Polynomials, Girth and Chromatic Number, Applications - A Storage Problem
+        </item>
+        <item>Planar Graphs</item>
+        <item>Planar Graphs - Plane and Planar Graphs, Dual Graphs, Euler &#39;s Formula, Bridges,
+            Muratowski &#39;s Theorem, The Five-Colour Theorem and the Four-Colour Conjecture,
+            Nonharniltonian Planar Graphs, Applications - A Planarity Algorithm
+        </item>
+        <item>DIRECTED GRAPHS AND NETWORKS</item>
+        <item>DIRECTED GRAPHS - Directed Graphs, Directed Paths, Directed Cycles, Applications - A
+            Job Sequencing Problem, Designing an Efficient Computer Drum, Making a Road System
+            One-way, Ranking the Participants in a Tournament
+            NETWORKS - Flows , Cuts, The Max-Flow Min-Cut Theorem, Applications - Menger &#39;s
+            Theorems, Feasible Flows
+        </item>
+    </array>
+
+    <array name="it362">
+        <item>IR</item>
+        <item>Text Books: \n\n1. C. Manning, P. Raghavan, and H. Schütze, “Introduction to
+            Information Retrieval”, Cambridge University Press, 2008.
+            \n2. C.J. Van Rijsbergen , Information Retrieval:,
+            http://www.dcs.gla.ac.uk/Keith/Preface.html
+            \n3. Ricardo Baexa-Yates and Berthier Ribeiro-Neto, “Modern Information Retrieval”,
+            Addison Wesley Longman, 1999.
+            \n\nReferences: \n\n1. Bruce Croft, Donald Metzler and Trevor Strohman, “Search Engines:
+            Information Retrieval in Practice”, 1st Edition Addison Wesley, 2009.
+            \n2. Manu Konchady, “Building Search Applications: Lucene, Ling Pipe”, First Edition,
+            Gate Mustru Publishing, 2008.
+            \n3. Mark Levene, “An Introduction to Search Engines and Web Navigation”, 2nd Edition
+            Wiley, 2010.
+            \n4. Ophir Frieder, “Information Retrieval: Algorithms and Heuristics: The Information
+            Retrieval Series”, 2nd Edition, Springer, 2004.
+            \n5. Stefan Buettcher, Charles L. A. Clarke, Gordon V. Cormack, “Information Retrieval:
+            Implementing and Evaluating Search Engines”, The MIT Press, 2010.
+        </item>
+        <item>3-0-0-3</item>
+        <item>CS205 Data structures</item>
+        <item></item>
+        <item>Introduction – Information versus Data Retrieval. Modeling of Information retrieval.
+            Boolean Model, Vector Model, Probabilistic Model, Set Theoretical Models, Structured
+            Text Retrieval Models.
+        </item>
+        <item>MODULE 2</item>
+        <item>Classification, Measures of Association, Cluster Hypothesis, Single Link Clusters,
+            File Structures, Inverted Files, Index Sequential Files, Ring Structures, Doubly Chained
+            Trees, Hash Addressing
+        </item>
+        <item>MODULE 3</item>
+        <item>Evaluation, Relevance, Precision and Recall, Interpolation, Averaging techniques, The
+            Swets Model.
+        </item>
+        <item>MODULE 4</item>
+        <item>Search Engines, Boolean Search, Matching Functions, Serial Search, Cluster
+            Representatives, Cluster based retrieval.
+        </item>
+        <item>MODULE 5</item>
+        <item>Web search basics – Web characteristics - crawling and indexes – Features of a crawler
+            – Crawler architecture – DNS resolution – The URL frontier – Distributing indexes –
+            Connectivity servers.
+        </item>
+        <item>MODULE 6</item>
+        <item>Link Analysis – The Web as a graph – Anchor text and the web graph, PageRank – Markov
+            chains, Page Rank computation, Topic-specific Page Rank, Hubs and authorities.
+        </item>
+    </array>
+
+    <array name="it363">
+        <item>USP</item>
+        <item>Text Book: \n\n1. Sumitabha Das , “Unix the ultimate guide”, TMH. 2nd Edition.
+            \n2. Behrouz A. Forouzan, Richard F. Gilberg,” Unix and shell Programming.”, Cengage
+            Learning
+            \n\nReferences: \n\n1. Kernighan and Pike, “Unix programming environment”, PHI. /
+            Pearson Education
+            \n2. Graham Glass, King Ables,” Unix for programmers and users”, 3rd edition, Pearson
+            Education
+            \n3. Maurice J. Bach, “The Design of the Unix Operating System”, First Edition, Pearson
+            Education, 1999
+        </item>
+        <item>3-0-0-3</item>
+        <item>IT 201 Operating Systems</item>
+        <item>MODULE 1</item>
+        <item>Introduction to Unix:- Architecture of Unix, Features of Unix , Introduction to unix
+            file system, Basic Unix Commands – General-purpose utilities, vi editor
+        </item>
+        <item>MODULE 2</item>
+        <item>The Unix file system – Parent-Child relationship – File types - File operations - File
+            Permissions – File Ownership –File modification and access times – Directories –
+            Directory permissions – File System and Inodes – Links and symbolic links – locating
+            Files.
+        </item>
+        <item>MODULE 3</item>
+        <item>Introduction to Shells – Shell as command Processor – quotes, escape characters, wild
+            cards – Redirection – pipes –tee command –variables –command substitution – filters
+        </item>
+        <item>MODULE 4</item>
+        <item>Concepts of process in Unix – process creation – process status – Background and
+            foreground Jobs – Job Execution with low priority – Signals – Termination of process –
+            Job control
+            TCP/IP Networking tools – talk, mesg, finger, telnet, rlogin, ftp, rcp, rsh – security
+            for the Berkeley r-Utilities.
+        </item>
+        <item>MODULE 5</item>
+        <item>Filters using regular expressions – grep –sed – programming with awk – preliminaries,
+            formatted output, variables, number processing, comparison operators, BEGIN and END
+            sections, arrays, control flows, looping and functions.
+        </item>
+        <item>MODULE 6</item>
+        <item>Shell Programming – Shell variables – Shell scripts – positional parameters – Exit
+            status of a command – logical operator – script termination – conditional branching –
+            looping – sleep and wait - set and let commands – redirection – Exporting shell
+            variables – Arrays – String handling – Conditional Parameter Substitution – Shell
+            functions –eval and exec statements.
+        </item>
+    </array>
+
+    <array name="it364">
+        <item>SPM</item>
+        <item>References \n\n1. Roger S. Pressman, Software Engineering, 8/e, McGraw Hill, 2014.
+            \n2. Ian Sommervile, Software Engineering, 7/e, University of Lancastor, Pearson
+            Education, 2004.
+            \n3. Bob Huges, Mike Cotterell, Rajib Mall, Software Project Management, 8/e, McGraw
+            Hill, 2015.
+            \n4. Walker Royce, Software Project Management : A Unified Frame Work, Pearson
+            Education.
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item></item>
+        <item>Introduction to software engineering- scope of software engineering, historical
+            aspects, economic aspects, maintenance aspects, specification and design aspects, team
+            programming aspects. Layered technology, processes, methods and tools.
+            Phases in Software development.
+            Process models- prescriptive process models- waterfall model, incremental models,
+            evolutionary models, and concurrent models. Specialised process models- component based
+            development, formal methods model, aspect oriented software development. The unified
+            process, personal and team process models.
+        </item>
+        <item></item>
+        <item>Agile development- agility, agile process. Extreme programming- XP Values, The XP
+            Process, Industrial XP, The XP Debate. Agile development models- Adaptive Software
+            Development (ASD), Scrum, Dynamic Systems Development Method (DSDM), Crystal, Feature
+            Driven Development (FDD), Lean Software Development (LSD), Agile Modeling (AM) , Agile
+            Unified Process (AUP).
+            Project management concepts- the management spectrum, people, product, process, and
+            project.
+        </item>
+        <item></item>
+        <item>Process and project metrics- software measurement- size oriented, function oriented,
+            LOC and function point, metrics for software quality- measuring quality, defect removal
+            efficiency, integrating metrics within the software process.
+            Estimation for software projects- project planning, software scope, resources. Software
+            project estimation, decomposition techniques- Software Sizing, Problem-Based Estimation,
+            Process-Based Estimation.
+        </item>
+        <item></item>
+        <item>Empirical estimation models- structure of estimation models, COCOMO II model.
+            Estimation for agile development. Make/buy decision.
+            Project scheduling - relationship between people and effort, effort distribution. Task
+            set, defining a task network. Scheduling- timeline chart, tracking the schedule. Earned
+            value analysis.
+        </item>
+        <item></item>
+        <item>Risk management- risk strategies, software risks, risk identification, risk
+            projection, risk refinement, Risk Mitigation, Monitoring, and Management. The RMMM Plan.
+            Software Configuration Management - An SCM Scenario, Elements of a Configuration
+            Management System, Baselines, Software Configuration Items. The SCM Repository - The
+            Role of the repository, General Features and Content, SCM Features. The SCM Process-
+            Identification of Objects in the Software Configuration, Version Control, Change
+            Control, and
+            Configuration Audit, Status Reporting.
+        </item>
+        <item></item>
+        <item>Software quality assurance- Background Issues, Elements of Software Quality Assurance.
+            SQA Tasks, Goals, and Metrics. Formal Approaches to SQA. Statistical Software Quality
+            Assurance- A Generic Example, Six Sigma for Software Engineering. Software Reliability
+            -Measures of Reliability and Availability, Software Safety. The ISO 9000 Quality
+            Standards. The SQA Plan.
+            Software process improvement- Approaches to SPI, Maturity Models. The SPI Process-
+            Assessment and Gap Analysis, Education and Training, Selection and Justification,
+            Installation/Migration, Evaluation, Risk Management for SPI, Critical Success Factors.
+            The CMMI, The People CMM. Other SPI Frameworks. SPI Return on Investment. SPI trends.
+        </item>
+    </array>
+
+    <array name="it365">
+        <item>CAPP</item>
+        <item>Text Books \n\n1. D.E. Culler, J.P. Singh, and A. Gupta. Parallel Computer
+            Architecture - A Hardware/Software Approach. Morgan Kaufmann Publishers, 2010.
+            \n2. Hennessy J. L., D. Patterson, “Computer Architecture – A quantitative Approach”,
+            5/e, Morgan Kauffman 2012.
+            \n\nReferences \n\n1. Kai Hwang, “Advanced Computer Architecture Parallelism,
+            Scalability, Programmability”, Tata McGraw-Hill, 2003.
+            \n2. Research papers from top conferences such as ISCA, HPCA, MICRO, and ASPLOS.
+            \n3. S.W. Keckler, K. Olukotun, and H.P. Hofstee. Multicore Processors and Systems.
+            Springer, 2009.
+            \n4. W.J. Dally and B. Towles. Principles and Practices of Interconnection Networks.
+            Morgan Kaufmann Publishers, 2003.
+            \n5. WWW Computer Architecture page. http://www.cs.wisc.edu/arch.
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item></item>
+        <item>Computer architecture - design issues-Memory wall, Power Wall , Frequency Wall Classes
+            of parallelism and parallel architecture,
+            \n Performance measurements, Pipelining- Scalar and super scalar processors- Instruction
+            level parallelism -concepts and challenges, ILP Wall
+        </item>
+        <item></item>
+        <item>Data hazards, Structural Hazards, Branch Hazards, Branch Prediction schemes
+            \n Basic compiler techniques for exposing instruction-level parallelism.
+        </item>
+        <item></item>
+        <item>Dynamic Scheduling- Tomasulo &#39;s approach, Hardware based speculation.
+            \n ILP using multiple issue and static scheduling, ILP using dynamic scheduling,
+            multiple issue and speculation.
+        </item>
+        <item>MODULE 4</item>
+        <item>Case study- Intel Core i7.
+            \n Data level parallelism -Vector architecture-Vector instruction types, Vector-Access
+            memory schemes , Graphic processing units.
+        </item>
+        <item></item>
+        <item>Centralized shared memory architecture. Multiprocessor cache coherence Distributed
+            shared memory and Directory based coherence.
+            \n Interconnection Network Design -- Interconnection topologies, routing techniques,
+            flow control mechanisms, router architecture, arbitration logic
+        </item>
+        <item></item>
+        <item>Designing Multicore Architectures -- Unique challenges in multicore architectures,
+            \n Multicore memory hierarchy organization, dealing with performance volatility,
+            multicore memory traffic reduction techniques.
+        </item>
+    </array>
+
+
+    <array name="it366">
+        <item>ADBMS</item>
+        <item>Text Book: \n\n1. R. Elmasri, S.B. Navathe, “Fundamentals Of Database Systems”,
+            Pearson Education, 2004
+            \n\nReferences: \n\n1. Abdullah Uz Tansel Et Al, “Temporal Databases: Theory, Design and
+            Principles”, Benjamin Cummings Publishers, 1993.
+            \n2. C.S.R Prabhu, “Object-Oriented Database Systems”, Prentice Hall Of India, 1998.
+            \n3. Carlo Zaniolo, Stefano Ceri, Christos Faloustsos, R.T.Snodgrass, V.S.Subrahmanian,
+            “Advanced Database Systems”, Morgan Kaufman, 1997.
+            \n4. Elisa Bertino, Barbara Catania, Gian Piero Zarri, “Intelligent Database Systems”,
+            Addison-Wesley, 2001.
+            \n5. Henry F Korth, Abraham Silberschatz, S. Sudharshan, “Database System Concepts”,
+            Fourth Edition, McGraw Hill, 2002.
+            \n6. N.Tamer Ozsu, Patrick Valduriez, “Principles Of Distributed Database Systems”,
+            Prentice Hall International Inc., 1999.
+            \n7. Raghu Ramakrishnan, Johannes Gehrke, “Database Management Systems”, McGraw Hill,
+            Third Edition 2004
+        </item>
+        <item>3-0-0-3</item>
+        <item>CS208 Principles of database design</item>
+        <item>Distributed Databases</item>
+        <item>Distributed Databases Vs Conventional Databases – Architecture – Fragmentation– Query
+            Processing – Transaction Processing – Concurrency Control – Recovery.
+        </item>
+        <item>Object Oriented Databases</item>
+        <item>Introduction to Object Oriented Data Bases - Approaches - Modelling and Design-
+            Persistence – Query Languages - Transaction - Concurrency – Multi VersionLocks -
+            Recovery.
+        </item>
+        <item>Emerging Systems</item>
+        <item>Enhanced Data Models - Client/Server Model - Web Databases – Mobile Databases.</item>
+        <item>Data mining and data ware housing</item>
+        <item>Data mining introduction-concepts-association-classificationclustering-applications
+            Datawarehousing-introduction-architecture-characteristicsmodeling and building data
+            warehouse
+        </item>
+        <item>Database Design Issues</item>
+        <item>ER Model - Normalization - Security - Integrity - Consistency - Database Tuning-
+            Optimization and Research Issues – Design of Temporal Databases – Spatial Databases
+        </item>
+        <item>Current Issues</item>
+        <item>Rules - Knowledge Bases - Active And Deductive Databases - Parallel Databases–
+            Multimedia Databases – Image Databases – Text Database
+        </item>
+    </array>
+
+    <array name="it367">
+        <item>CGandM</item>
+        <item>References \n\n1. Donald Hearn, Pauline Baker, “ Computer Graphics – C Version”,
+            Pearson Education.
+            \n2. Steinmetz R. and Nahrstedt K., “Multimedia: Computing, Communications and
+            Applications”, Pearson Education.
+            \n3. David F. Rogers, “Procedural Elements for Computer Graphics”, Tata McGraw-Hill
+            \n4. Foley, van Dam, Feiner and Hughes, “Computer Graphics Principles and Practice”,
+            Pearson Education.
+            \n5. William M. Newman, Robert F. Sproull, “Principles of Interactive Computer Graphics”
+            , Tata McGraw-Hill.
+            \n6. David F. Rogers, J. Alan Adams, “Mathematical Elements for Computer Graphics”, Tata
+            McGraw-Hill.
+            \n7. Tay Vaughan, “Multimedia: Making it Work”, Tata McGraw-Hill.
+        </item>
+        <item>3-0-0-3</item>
+        <item>Nil</item>
+        <item></item>
+        <item>Graphics Systems – Raster Scan and Random Scan systems. Output Primitives – Line
+            Drawing Algorithms (DDA, Bresenham), Circle generation algorithm. Filled Area
+            \nPrimitives – Scan Fill, Flood Fill, Boundary Fill. Inside outside tests.
+        </item>
+        <item></item>
+        <item>Multimedia: Data Compression- Source, Entropy and Hybrid Coding, Basic compression
+            techniques, JPEG, H.261, MPEG, DVI.
+        </item>
+        <item></item>
+        <item>Display Technologies: Working principle behind CRT, LCD, Plasma, LED, OLED, AMOLED,
+            E-Paper displays.
+        </item>
+        <item></item>
+        <item>2-Dimensional Geometric Transformations ( Basic Transforamtions, Reflection and
+            Shear), Homogenous Matrix representation of transformations. Composite Transformations.
+        </item>
+        <item></item>
+        <item>2-D Clipping- Point Clipping, Cohen-Sutherland Line Clipping Algorithm,
+            Sutherland-Hodgeman Polygon Clipping Algorithm. 3-Dimensional Geometric Transformations
+            -Basic Transforamtions, Composite 3 D transformations.
+        </item>
+        <item></item>
+        <item>Visible Surface Detection Methods: Back Face Detection, Depth Buffer, A-Buffer, Scan
+            line, Depth sorting methods. Digital Image Processing: Histogram, Equalisation, Image
+            Segmentation, Region Labeling.
+        </item>
+    </array>
+
+    <array name="it368">
+        <item>ITC</item>
+        <item>References: \n\n1. Ranjan Bose ,Information Theory, Coding and Cryptography 2nd
+            Edition:, Tata McGrawHill, New Delhi, 2008
+            \n2. Simon Haykin, Communication Systems: John Wiley and Sons. Pvt. Ltd.
+            \n3. Taub and Schilling, Principles of Communication Systems: Tata McGraw-Hill
+            \n4. Das, Mullick and Chatterjee, Principles of Digital Communication: Wiley Eastern
+            Ltd.
+            \n5. Shu Lin and Daniel J. Costello Jr, Error Control Coding Fundamentals and
+            Applications: Prentice Hall Inc.
+            \n6. Bernard Sklar, Digital Communications Fundamentals and Applications, Prentice Hall,
+            2/e, 2001
+        </item>
+        <item>3-0-0-3</item>
+        <item>NIL</item>
+        <item>Information theory</item>
+        <item>Concept of amount of information units, Entropy -marginal, conditional and joint
+            entropies relation among entropies Mutual information, information rate, channel
+            capacity, redundancy and efficiency of channels.
+        </item>
+        <item>Discrete channels</item>
+        <item>Symmetric channels, Binary Symmetric Channel, Binary Erasure Channel, Cascaded
+            channels, repetition of symbols, Binary unsymmetric channel, Shannon theorem.
+        </item>
+        <item>Continuous channels</item>
+        <item>Capacity of band limited Gaussian channels, Shannon-Hartley theorem, Trade off between
+            band width and signal to noise ratio, Capacity of a channel with infinite band width,
+            Optimum modulation system.
+        </item>
+        <item>Source codingl</item>
+        <item>Encoding techniques, Purpose of encoding, Instantaneous codes, Construction of
+            instantaneous codes, Kraft &#39;s inequality, Coding efficiency and redundancy,
+            Noiseless coding theorem. Construction of basic source codes: - Shannon-Fano algorithm,
+            Huffman coding, Arithmetic coding, ZIP coding.
+        </item>
+        <item>Codes for error detection and correction</item>
+        <item>Parity check coding, Linear block codes,Error detecting and correcting capabilities,
+            Generator and Parity check matrices, Standard array and Syndrome decoding, Hamming
+            codes, Encoding and decoding of systematic and unsystematic codes. Cyclic codes: -
+            Generator polynomial, Generator and Parity check matrices, Encoding of cyclic codes,
+            Syndrome computation and error detection, Decoding of cyclic codes, BCH codes, RS codes,
+            Burst error correction.
+        </item>
+        <item>Convolutional codes and ARQ</item>
+        <item>Encoding- State, Tree and Trellis diagrams, Maximum likelihood decoding of
+            convolutional codes -Viterby algorithm, Sequential decoding Stackalgorithm.
+            \nInterleaving techniques: - Block and convolutional interleaving, Coding
+            andinterleaving applied to CD digital audio system -CIRC encoding and
+            decoding,interpolation and muting. \nARQ: - Types of ARQ, Performance of ARQ,
+            Probability of error and throughput.
+        </item>
+    </array>
+
+
 </resources>

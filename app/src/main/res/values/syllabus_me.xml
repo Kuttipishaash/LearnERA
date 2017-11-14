@@ -1,4 +1,686 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="me301">
+        <item>MM</item>
+        <item>1. Ballaney P. L., Theory of Machines and Mechanisms, Khanna Publishers,2005\n
+            2. S. S. Rattan, Theory of Machines, Tata Mc Graw Hill,2009
+        </item>
+        <item>4</item>
+        <item>NIL</item>
+        <item>Introduction to kinematics and mechanisms</item>
+        <item> Various mechanisms, kinematic diagrams, degree of freedom- Grashof’scriterion,
+            inversions, coupler curves straight line mechanisms exact, approximate – Ackerman
+            Steering Mechanism - Hooke’s joint - Geneva mechanism -mechanical advantage,
+            transmission angle
+        </item>
+        <item>Displacement, velocity and acceleration analysis</item>
+        <item> Relative motion - relative velocity - instant centre -Kennedy’s theorem Relative
+            acceleration - Coriolis acceleration - graphical and analytical methods – complex number
+            methods – computer oriented methods. Cams - classification of cam and followers –
+            displacement diagrams, velocity and acceleration analysis of SHM, uniform velocity,
+            uniform acceleration, cycloidal motion
+        </item>
+        <item>Module 3</item>
+        <item>Graphical cam profile synthesis, pressure angle Analysis of tangent cam with roller
+            follower and circular cam with flat follower Introduction to polynomial cams.
+        </item>
+        <item>Gears</item>
+        <item>Gears – terminology of spur gears – law of Gearing - involute
+            spur gears involutometry - contact ratio - interference - backlash -
+            gear standardization – interchangability
+            Non-standard gears, centre distance modification, long and short
+            addendum system. - internal gears - theory and details of bevel,
+            helical and worm gearing
+
+        </item>
+        <item>Gear trains</item>
+        <item>Simple and compound gear trains - planetary gear trains – differential -solution of
+            planetary gear train problems –applications Kinematic synthesis ( planar mechanisms) -
+            tasks of kinematic synthesis – type, number and dimensional synthesis – precision
+            points. Graphical synthesis for motion - path and prescribed timing -function generator
+        </item>
+        <item></item>
+        <item>2 position and 3 position synthesis – overlay Method Analytical synthesis techniques,
+            Freudenstein&apos;s equation –complex number methods - one case study in synthesis of
+            mechanism.
+        </item>
+    </array>
+
+
+    <array name="me303">
+        <item>MTDM</item>
+        <item>
+            1. Chapman W. A. J., Workshop Technology, Viva books (P) Ltd,1988\n
+            2. HMT, Production Technology, Tata McGraw-Hill,2001\n
+            3. Zude Zhou, Shane (Shengquan) Xie and Dejun Chen, Fundamentals of Digital
+            Manufacturing Science, Springer-Verlag London Limited,2012\n
+        </item>
+        <item>3</item>
+        <item>NIL</item>
+        <item>Introduction to metal cutting</item>
+        <item>Tool nomenclature – Attributes of each tool nomenclature – Attributes of feed and tool
+            nomenclature on surface roughness obtainable Orthogonal and oblique cutting - Mechanism
+            of metal removal –Primary and secondary deformation shear zones Mechanism of chip
+            formation – Types of chips, need and types of chip breakers – Merchant’s theory.
+            Analysis of cutting forces in orthogonal cutting– Work done, power required (simple
+            problems) Friction forces in metal cutting – development of cutting tool materials.
+            Thermal aspects of machining -Tool wear and wear mechanisms. Factors affecting tool
+            life– Economics of machining (simple problems) Cutting fluids
+        </item>
+        <item>General purpose machine tools </item>
+        <item>Principle and operation of lathe –Types of lathes and size specification. Work holding
+            parts of lathes and their functions – Main operations.
+            Taper turning and thread cutting attachments Feeding mechanisms, Apron mechanisms
+            Drilling Machines – Types – Work holding devices Tool holding devices – Drill machine
+            operations Drilling machine tools – Twist drill nomenclature- cutting forces in
+            drilling.
+        </item>
+        <item>Reciprocating machines</item>
+        <item>Shaping machines – Types – Size –Principal parts – Mechanism Work holding devices –
+            operations performed – Tools
+            Cutting speed, feed and depth of cut – Machining time. Slotting machines – Types – Size
+            – principal parts – Mechanism –Work holding devices
+            Operations performed – Tools – Cutting speed, feed and depth of cut
+            Planing machines – Types – Size – Principal parts – Mechanism –
+            Work holding devices
+            Operations performed – Tools – Cutting speed, feed and depth of cut – Machining time-
+            Surface roughness obtainable.
+
+        </item>
+        <item>Milling machines</item>
+        <item>Types – Principal parts – Milling mechanism Work holding devices – Milling machine
+            attachments Types of milling cutters – Elements of plain milling cutters
+            Nomenclature - Cutting forces in milling – Milling cutter materials Up milling, down
+            milling and face milling operations Calculation of machining time Indexing – Simple
+            indexing – Differential indexing
+        </item>
+        <item>Grinding machines</item>
+        <item>Classification – Operations – Surface,cylindrical and centreless grinding
+            Grinding mechanisms – Grinding wheels: Specification – types of abrasives, grain size
+            Types of bond, grade, structure – Marking system of grinding wheels – Selection of
+            grinding wheels
+            Glazing and loading of wheels – Dressing and Truing of grinding wheels, surface
+            roughness obtainable
+            Superfinishing operations: Lapping operation– Types of hand lapping – Lapping machines –
+            Types of honing –Methods of honing Types of honing stones – Honing conditions – Cutting
+            fluids –Types of broaches – Force required for broaching – Surface roughness obtainable
+            in lapping, honing and broaching operations. Semi-automatic machine tools – Turret and
+            capstan lathes. Automatic machine tools – Single and multi-spindle machines
+        </item>
+        <item>Introduction to Digital Manufacturing</item>
+        <item>Concepts and research and development status of digital manufacturing
+            Definition of digital manufacturing – Features and development of digital manufacturing.
+            Theory system of digital manufacturing science: Operation Mode and Architecture of
+            Digital Manufacturing System
+            Operation reference mode of digital manufacturing system –Architecture of digital
+            manufacturing system Modeling theory and method of digital manufacturing science
+            Critical modeling theories and technologies of digital manufacturing science
+            Theory system of digital manufacturing science – Basic architecture model of digital
+            manufacturing system.
+        </item>
+    </array>
+
+
+    <array name="me305">
+        <item>CP</item>
+        <item>
+            1. Balagurusamy, Computer Programming 1e McGraw Hill Education , 2013\n
+            2. Balagurusamy, Numerical Methods 1e McGraw Hill Education, 1999\n
+            3. Jose S., Computer Programming and Numerical Methods, Pentagon, 2015.\n
+            4. Ravichandran D., Programming with C++, Tata McGraw Hill, 2007.\n
+        </item>
+        <item>3</item>
+        <item>NIL</item>
+        <item>Introduction to Computer programming concept</item>
+        <item>Internal representation of data - Algorithm and flow chart, Basics of procedure
+            oriented and object oriented programming. Introduction to C++: Structure of C++ program;
+            Keywords; Identifiers; Data types – integer, real, character, string, boolean,
+            enumeration, Constant and Variables; Operators – assignment, arithmetic, relational,
+            logical, increment, decrement and conditional operators;Statements – simple &amp;
+            compound, declaration statements. Input and output streams.
+        </item>
+        <item>Control statements</item>
+        <item>if, if-else, switch, for, while, do-while, break and continue statements, Arrays – one
+            dimensional &amp; two dimensional; Functions: inline functions, function over loading,
+            Functions
+            with default arguments, recursion
+        </item>
+        <item>Basics of Pointers.</item>
+        <item>Function call by value, call by reference. Preparation of programs for evaluation of
+            Factorial of a number, infinite series, Sorting, Searching and Matrix multiplication
+        </item>
+        <item>Introduction to Class and Object</item>
+        <item>Definition, data members, member function. private &amp; public member functions,
+            member access, friend declaration, class objects, predefined classes, initialization.
+            Inheritance- base class and derived class. Simple programs using the above features. (No
+            programming questions for University examination and internals)
+        </item>
+        <item>Errors and approximations</item>
+        <item>Sources of errors. Solution of linear system of equations: Gauss elimination,
+            Gauss-Jordan and Gauss–Seidel methods. Interpolation: Lagrange and Aitken techniques.
+        </item>
+        <item>Curve fitting</item>
+        <item>Method of least squares, non-linear relationships, Linear correlation, measures of
+            correlation. Solution of Partial differential equations: classification, Laplace
+            equation, Finite difference method. Numerical problems and preparation of computer
+            programs for the above methods
+        </item>
+    </array>
+
+
+    <array name="me361">
+        <item>AFM</item>
+        <item>
+            1. Bansal R. K., A Text Book of Fluid Mechanics and Machines, Laxmi Publications,
+            2010.\n
+            2. Douglas J. F., Fluid Mechanics, Pearson Education, 2005.\n
+            3. Kumar D. S., Fluid Mechanics and Fluid Power Engineering, S. K. Kataria &amp; Sons,
+            1987.\n
+            4. Muralidhar K., G. Biswas, Advanced Engineering Fluid Mechanics, Alpha Science
+            International limited, 2005.\n
+            5. Rama D. D., Fluid Mechanics and Machines, New Age International, 2009\n
+        </item>
+        <item>3</item>
+        <item>ME203 Mechanics of fluids</item>
+        <item>Basic Concepts and Fundamentals</item>
+        <item>Fluid statics, Cartesian Tensors, Fluid Kinematics, and Description of fluid motion
+            –Types of motion of fluid elements, Vorticity and circulation– Concept of rotational and
+            irrotational flows. Equation of motion of forced and free vortex flow.
+            Stream function and Potential function. Stream function and its relation with velocity
+            field. Relation between stream function and stream lines - Relation between stream
+            function
+            and velocity potential for a 2-D irrotational and incompressible flow.
+        </item>
+        <item></item>
+        <item>Relation between stream lines and lines of constant potential. Sketching of stream
+            lines. Lagrangian and Eulerian approaches, acceleration, temporal acceleration,
+            convective acceleration. Reynolds transport theorem, derivation of continuity and
+            momentum equations using Reynolds transport theorem. Problems on the application of
+            momentum equation
+        </item>
+        <item>Potential flow</item>
+        <item>Uniform flow, source flow, sink flow, free vortex flow and super imposed flow-source
+            and sink pair,doublet, plane source in a uniform flow(flow past a half body), source and
+            sink pair in a uniform flow(flow past a Rankine oval body), doublet in a uniform
+            flow(flow past a circular cylinder). Pressure distribution on the surface of the
+            cylinder. Flow past a cylinder with Circulation, Kutta-Juokowsky’s law. Complex flow
+            potential, complex flow potentials for source, sink, vortex and doublet. Potential flow
+            between two parallel plates, potential flow in a sector. Introduction to conformal
+            transformation, conformal mapping.
+        </item>
+        <item>MODULE 4</item>
+        <item>Incompressible viscous flow. Concepts of laminar and turbulent flows . Stokes
+            viscosity law. Navier Stoke’s equation and significance (Derivation not
+            necessary).Simplification of Havier stock equation for steady incompressible flows with
+            negligible body forces. Parallel flow through straight channel and couette flow. Hagen -
+            Poiseuille flow. Derivation of Hagen Poissuille equations for velocity and discharge
+            through a pipe, derivation of friction factor for laminar flow, Couette flow for
+            negative, zero and positive pressure gradients, flow in a rotating annulus, Viscometer
+            based on rotating annulus
+        </item>
+        <item></item>
+        <item>Boundary layer theory, Boundary layer thickness, Displacement thickness, momentum
+            thickness, Energy thickness and their calculation. Laminar Boundary Layers,Boundary
+            layer equations; Boundary layer on a flat plate, Prandtl boundary layer equations,
+            Blasius solution for flow over a flat plate, Von- Karman momentum integral equations,
+            Pohlhausen approximation solution of boundary layer for non-zero pressure gradient flow,
+            favorable and adverse pressure gradients, Entry flow into a duct, flow separation and
+            vortex shedding.
+
+        </item>
+        <item>Turbulent Flow</item>
+        <item>Introduction to turbulent flow, Governing equations of turbulent flow, Turbulent
+            boundary layer equation, Flat plate turbulent boundary layer, Fully developed Turbulent
+            pipe flow for moderate Reynold’s number, Prandtl mixing hypothesis, Turbulence modeling.
+            Boundary layer control.
+        </item>
+    </array>
+
+
+    <array name="me363">
+
+        <item>COMPOSITE MATERIALS AND MECHANICS</item>
+
+        <item>CMM</item>
+
+        <item>1. K. K. Chawla, Composite Materials : Science and Engineering, Springer, 3e, 2013.\n
+            2. Reddy J N (Ed.), Mechanics of Composite Materials; Selected Works of Nicholas J.
+            Pagano,
+            Springer, 1994\n
+            3. Robert M. Jones, Mechanics of Composite Materials, CRC Press, 1998\n
+        </item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item>Composite</item>
+
+        <item>Introduction, definition, characteristics, functions classification of composites
+            based on structure and matrix smart composites, advantages and limitations history,
+            industrial scene and applications Interfaces: wettability and bonding interface in
+            composites
+            types of bonding at interface.
+        </item>
+
+        <item>Fibers</item>
+
+        <item>Introduction, types of fibers, natural fibers glass fiber fabrication, structure,
+            properties and applications boron fiber fabrication, structure, properties and
+            applications carbon fiber, Ex-Pan carbon fiber Ex cellulose carbon fiber, Ex-Pitch
+            carbon carbon fiber structure, properties and applications aramid fiber fabrication,
+            structure, properties and applications whiskers: characteristics, properties and
+            applications
+        </item>
+
+        <item>Polymer matrix composites </item>
+
+        <item>Thermoset, thermoplastic and elastomeric polymers properties, characteristics and
+            applications as matrix materials processing of polymer matrix composites: hand methods,
+            Lay up method, spray up method moulding methods, pressure bagging and bag moulding
+            methods, pultrusion and filament winding process.
+        </item>
+
+        <item>Metal matrix composites (MMC)</item>
+
+        <item>Classification of metals, intermetallics, alloys and their potential role as matrices
+            in composites properties, characteristics and applications of metals as matrix materials
+            production techniques: powder metallurgy, diffusion bonding, melt stirring squeeze
+            casting, liquid infiltration under pressure, spray code position, insitu process.
+        </item>
+
+        <item>Ceramic matrix composites (CMC)</item>
+
+        <item>Classification of ceramics and their potential role as matrices,properties,
+            characteristics and applications of ceramics as matrix materials conventional techniques
+            : cold pressing and sintering, hot pressing,reaction bonding,hot pressing and reaction
+            bonding new techniques : liquid infiltration, pultrusion, lanxide process, insitu
+            chemical technique, sol-gel technique
+        </item>
+
+        <item>Post processing operations</item>
+
+        <item>Machining, cutting, polishing, welding, rivetting and painting Advanced post
+            processing methods : ultrasonic welding, plasma coating, Water jet cutting and laser
+            machining Micromechanics of composites: maximum stress and strain
+            criterion(derivations)Tsai-Hill and Tsai-Wu failure criterion (derivations)mechanics of
+            load transfer from matrix to fiber (description)
+        </item>
+
+    </array>
+
+
+    <array name="me365">
+
+        <item>Advanced Metal Casting</item>
+
+        <item>AMC</item>
+
+        <item>1. A.K.Chakrabarti, Casting Technology and Cast Alloys, Prentice –Hall Of India Ltd,
+            2005\n
+            2. Beely, Foundry Technology, Newnes-Butterworths, 1979\n
+            3. Gruzleski, The Treatment of Liquid Aluminum-Silicon Alloys, the American
+            Foundrymen’s Society Inc, USA, 1992\n
+            4. Heine, Loper and Rosenthal, Principle of Metal Casting, 2
+            Edition, Tata Mc-Graw-Hill Publishing Company Limited, New Delhi, 1978\n
+            5. John Cambell, Casting, Butterworth-Heineman Ltd, Jordon Hill, Oxford, 1991\n
+            6. T.V.Rama Rao, Metal casting Principles and Practice, New Age International,2010\n
+            7. Gruzleski, The Treatment of Liquid Aluminum-Silicon Alloys, the American\n
+            Foundrymen’s Society Inc, USA, 1992.\n
+        </item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item>Design of molds</item>
+
+        <item>Functional requirements of molding materials, type of sands Properties of molding
+            sand, sand testing techniques Effect of molding on sand properties, Bonding material
+            Mould surface coating Sand design and control Thermal aspect of molding sand, mould wall
+            movement
+
+        </item>
+
+        <item>Pouring and feeding Gating
+        </item>
+
+        <item>Type of gating- gating design Factor involved in gating design-illustrative problems
+            in determination of filling time and discharge rate Aspiration effect- effects of
+            friction and velocity distribution
+            Risers – primary function of a riser Theoretical consideration Riser design and
+            placement Determination of dimensions of rise- blind risers Internal risers-use of
+            chills Use of insulators and exothermic compound
+
+        </item>
+
+        <item>Solidification</item>
+
+        <item>Freezing of pure metal Skin effects- nucleation and growth Shrinkage- freezing of
+            alloys Effect of mould materials and alloy composition on casting Fluidity- factor
+            affecting fluidity- fluidity measurement and application of fluidity Gases in metals-
+            degassing Grain refinement Illustrative problems related to determination of
+            solidification time
+        </item>
+
+        <item>Heat transfer during solidification</item>
+
+        <item>Methods of manipulating heat transfer Experimental methods for the study of heat
+            transfer during solidification Crystal growth methods Heat flow in solidification Heat
+            transfer with in the solid/liquid metal system Heat transfer at the metal-mould
+            interface Heat flow in one dimensional solidification geometries Freezing at mould wall
+            Rapid freezing in contact with a cold substrate with initial melt super cooling
+        </item>
+
+        <item>Ferrous and non ferrous castings Steel Casting
+        </item>
+
+        <item>The family of cast iron Melting of steels and cast irons–Grey iron Foundry practice –
+            ductile iron – Malleable Iron casting design
+            Aluminum and its alloys: Different Aluminum alloy systems
+            Advantage and limitation of Aluminum alloy castings Molding for aluminum castings -
+            melting of Aluminum- degassing- grain refinement Modification- effect of various melt
+            treatment on the
+            mechanical properties of Aluminum castings.
+            Magnesium and its alloys: different alloy systems- advantage and limitation of Magnesium
+            alloy castings Molding for magnesium casting- melting of Magnesium-
+            flux and flux less melting Type and functions of fluxes used- degassing and grain
+            refinement- pouring technique.
+            Copper alloys: advantage of Copper alloys- melting- drossing-oxygen and hydrogen in
+            Copper melting- control of gases- de oxidation
+
+        </item>
+
+        <item>Casting defects and testing</item>
+
+        <item>Functional design- metallurgical design simplification of foundry practice- economic
+            considerations design of junction- specification of castings inspection of castings-
+            analysis of casting defects nondestructive testing of casting- dye penetrant testing
+            magnetic flaw detection, radiography, ultrasonic testing,etc.quality control and quality
+            assurance
+        </item>
+
+    </array>
+
+
+    <array name="me367">
+
+        <item>Non-Destructive Testing</item>
+
+        <item>NDT</item>
+
+        <item>Baldev Raj, Practical Non – Destructive Testing, Narosa Publishing House ,1997</item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item>Introduction to NDT</item>
+
+        <item>Comparison between destructive and NDT,Importance of NDT, Scope of NDT, difficulties
+            of NDT, future progress in NDT, economics aspects of NDT.
+            Visual Inspection - tools, applications and limitations -Fundamentals of visual testing:
+            vision, lighting, material attributes,environmental factors.visual perception, direct
+            and indirect methods mirrors, magnifiers,boroscopes, fibroscopes, closed circuit
+            television, light sources special lighting, a systems, computer enhanced system
+        </item>
+
+        <item>Liquid Penetrant Inspection</item>
+
+        <item> Principles, properties required for a good penetrants and developers - Types of
+            penetrants and developers and advantages and limitations of various methods of LPI – LPI
+            technique/ test procedure interpretation and evaluation of penetrant test indications,
+            false indication and safety precaution required in LPI, applications, advantages and
+            limitations
+
+        </item>
+
+        <item>Magnetic Particle Inspection (MPI)</item>
+
+        <item>Principles of MPI, basic physics of magnetism, permeability, flux density, cohesive
+            force, magnetizing force, rentivity, residual magnetism Methods of magnetization,
+            magnetization techniques such as headshot technique, cold shot technique, central
+            conductor testing,magnetization using products using yokes direct and indirect method of
+            magnetization, continuous testing of MPI, residual technique of MPI, system sensitivity,
+            checking devices in MPI Interpretation of MPI, indications, advantage and limitation of
+            MPI.
+        </item>
+
+        <item>Ultrasonic Testing</item>
+
+        <item>Principle, types of waves, frequency,velocity, wavelength, reflection, divergence,
+            attenuation, mode conversion in ultrasonic UT testing methods contact testing and
+            immersion testing, normal beam and straight beam testing, angle beam testing, dual
+            crystal probe, ultrasonic testing techniques resonance testing, through transmission
+            technique, pulse echotesting technique, instruments used UT, accessories such as
+            transducers, types, frequencies, and sizes commonly used. Reference blocks with
+            artificially created defects, calibration of equipment, Applications, advantages,
+            limitations, A, B and C scan- Time of Flight Diffraction (TOFD).
+        </item>
+
+        <item>Radiography Testing</item>
+
+        <item>Principle, electromagnetic radiation sources: X-ray source, production of X-rays, high
+            energy X-ray source, gamma ray source - Properties of X-rays and gamma rays Inspection
+            techniques like SWSI, DWSI, DWDI, panoramic exposure, real time radiography, films used
+            in industrial radiography, types of film, speed of films, qualities of film screens used
+            in radiography, quality of a good radiograph, film processing, interpretation,
+            evaluation of test results, safety aspects required in radiography applications,
+            advantages and limitations of RT
+        </item>
+
+        <item>Eddy Current Testing (ECT)</item>
+
+        <item>Principle, physics aspects of ECT like conductivity, permeability, resistivity,
+            inductance, inductive reactance, impedance Field factor and lift of effect, edge effect,
+            end effect, impedance plane diagram in brief, depth of penetration of ECT, relation
+            between frequency and depth of penetration in ECT equipments and accessories, various
+            application of ECT such as conductivity measurement, hardness measurement, defect
+            detection coating thickness measurement, advantages and limitations of eddy current
+            testing
+        </item>
+
+    </array>
+
+
+    <array name="me369">
+        <item>Tribology</item>
+
+        <item>1. Ernest Rabinowicz, Friction and Wear of Materials, John Wiley &amp; sons,1995
+            2. I.M. Hutchings, Tribology: Friction and Wear of Engineering Materials, Butterworth-
+            Heinemann,1992
+            3. Prasanta Sahoo, Engineering Tribology, PHI Learning Private Ltd, New Delhi, 2011
+        </item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item></item>
+
+        <item>Introduction to Tribology- Tribology in Design, Tribology in Industry, Economic
+            Aspects of Tribology Tribological Parameters Like Friction, Wear and Lubrication The
+            Topography of Engineering Surface, Contact Between Surfaces.Types of Bearings,
+            Comparison of Sliding and Rolling Contact Bearings.
+        </item>
+
+        <item></item>
+
+        <item>Introduction, Empirical Laws of Friction, Kinds of Friction Causes of Friction,
+            Theories of Friction Measurement of Friction Friction of Metals, Ceramic Materials,
+            Polymers.Rolling Friction- Laws of Rolling Friction, Relation Between Temperature and
+            Friction Stick-Slip, Prevention of Stick-Slip, Consequences of Friction
+        </item>
+
+        <item></item>
+
+        <item>Types of Wear, Various Factors Affecting Wear Theories of Wear, Wear Mechanisms
+            Measurement of Wear.Wear Regime Maps, Alternative Form of Wear Equations Lubricated and
+            Unlubricated Wear of Metals, Materials Used in Different Wear Situations.
+        </item>
+
+        <item></item>
+
+        <item>Fundamentals of Viscosity And Viscous Flow Principle and Application of;
+            Hydrodynamic Lubrication, Elastrodynamic Lubrication, Boundary and Solid
+            Lubrication.Types of Lubricants, Properties of Lubricants Effect of Speed and Load on
+            Lubrication, Frictional Polymers.Lubrication in Metal Working: Rolling, Forging, Drawing
+            and Extrusion.
+        </item>
+
+        <item>Adhesion</item>
+
+        <item>Introduction, Adhesion Effect by Surface Tension, Purely Normal Contact and
+            Compression Plus Shear Adhesion in Magnetic Recording Systems Dependence of Adhesion on
+            Material and Geometric Properties.
+            Bearing Materials: Introduction, Rolling Bearing, Fluid Film Lubricated Bearing, Dry
+            Bearing, Bearing Constructions.
+
+        </item>
+
+        <item></item>
+
+        <item>Introduction To Surface Engineering, Concept and Scope of Surface Engineering.Surface
+            Modification – Transformation Hardening, Surface Melting, Thermo chemical Processes
+            Surface Coating – Plating and Anoding Processes, Fusion Processes, Vapor Phase
+            Processes.Selection of Coating For Wear And Corrosion Resistance,Potential Properties
+            and Parameters of Coating
+        </item>
+
+    </array>
+
+
+    <array name="me371">
+
+
+        <item>NE</item>
+
+        <item>1. S. Glasstone and A. Sesonske, Nuclear Reactor Engineering, D. Van Nostrand
+            Company,\n
+            INC. 1967.
+            2. S Glasstone, Source book on atomic energy, Krieger Pub Co., 1979\n
+        </item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item></item>
+
+        <item>Review of Elementary nuclear physics: Atomic structure – nuclear energy and nuclear
+            forces – Nuclear fission. Nuclear reactions and radiations – Principles of radioactive
+            decay interactions of an ray with matter – Neutron cross sections and reactions –The
+            fission process – Chain reactions
+        </item>
+
+        <item></item>
+
+        <item>Basic principles of controlled fusion .Nuclear reactor principles –Reactor
+            classification – Critical size. Basic diffusion theory -Slowing down of neutrons –
+            Neutrons – Neutron flux and power –Four factor formula – Criticality condition – Basic
+            features of reactor control 
+        </item>
+
+        <item></item>
+
+        <item>Boiling water reactor . Description of reactor system – Main components –Control and
+            safety features .Materials of reactor construction – Fuel , moderator , coolant
+        </item>
+
+        <item></item>
+
+        <item>Structural materials – Cladding –Radiation damage,Nuclear fuels : Metallurgy of
+            Uranium – General principles of solvent extraction – Reprocessing of irradiated fuel –
+            eparation process fuel enrichment .
+        </item>
+
+        <item></item>
+
+        <item>Reactor heat removal / equations of heat transfer as applied to reactor cooling–
+            Reactor heat transfer systems – Heat removed in fast reactors. Radiation safety :
+            Reactor shielding – Radiation dozes – Standards of radiation protection
+        </item>
+
+        <item></item>
+        <item>Safety and disposal: Nuclear plant safety-safety systems-changes and consequences of
+            accident-criteria for safety-nuclear waste- types of waste and its disposal-radiation
+            hazards and their prevention-weapons proliferation
+        </item>
+
+    </array>
+
+
+    <array name="me373">
+
+
+        <item>HRM</item>
+
+        <item>1. Gary Dessler, Human Resource Management., Pearson Education, 2017\n
+            2. Seema Sanghi , Stephen P. Robbins, , Timoti A Judge : Organizational Behaviour,
+            Pearson
+            Education, 2009\n
+        </item>
+
+        <item>3</item>
+
+        <item>NIL</item>
+
+        <item>Human Behaviour</item>
+
+        <item>Biological characteristics, age, gender, tenure.Ability, intellectual and physical
+            abilities. Learning, theories of learning.Values, importance of values, types.
+            Attitudes, types, attitudes and
+            consistency, workforce diversity. Personality and emotions, personality determinants and
+            traits, emotion dimensions. Perception, factors influencing perception, making judgement
+            about others, link betweenperception and individual decision making
+        </item>
+
+        <item>Human Behaviour and Relations in Groups</item>
+
+        <item>Defining and classifying different groups. Stages of group development, Five stage
+            model. Group structure, roles, norms, status and size. Group decision making, group
+            versus the individual. Types of teams, self-managed work teams, problem solving teams.
+            Creating effective teams, composition, work design, process and team players.
+        </item>
+
+        <item>Management of Human Relations in Organisations</item>
+
+        <item>Ethics and fair treatment at work, ethics and the law, ethics fair treatment and
+            justice. Ethical behaviour at work, individual factors, organizational factors, the
+            boss’s influence, ethics policies and codes, the organization’s culture, role of HR in
+            fostering ethics and fair treatment. Disciplining an employee, formal disciplinary
+            appeals process, discipline without punishment, employee privacy.
+        </item>
+
+        <item>Management of Human Laws and Collective Bargaining</item>
+
+        <item>Employment law, gross misconduct, personal supervisory liability, layoffs and the
+            plant closing law. Collective bargaining, good faith, negotiating team, bargaining
+            items, bargaining stages, bargaining hints, impasses, mediation, and strikes, the
+            contract agreement. Grievances, sources of grievances, the grievance procedure,
+            guidelines for handling grievances.
+        </item>
+
+        <item>Management of Training and Employer-Employee Relations</item>
+
+        <item>Training and development, objectives, strategies, methods and techniques. Design and
+            organisation of training and evaluation of training. Employee relations,
+            management-employee relations, managing discipline, grievance and stress, counselling,
+            are handling problem employees. Industrial relations implications of personnel policies,
+            nature of employment relationship
+        </item>
+
+        <item>Management of Human Conflicts, Customer Relations, Unions and Global Relations
+        </item>
+
+        <item>Industrial and organisational conflict, managing for good industrial relations and
+            managing the moment of conflict. Customer relationship management, what if customer is
+            the problem. Place of unions in organizations. The future scenario, the changing
+            personnel management scenario. Managing global human relations. HRD the development role
+            of personnel to the force. Employee safety and health
+        </item>
+
+    </array>
+
 </resources>

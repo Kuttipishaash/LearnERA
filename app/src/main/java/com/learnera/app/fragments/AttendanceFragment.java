@@ -227,8 +227,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     String data2 = td.getElementsByTag("strong").text();
 
                     if (td.text().equals("-")) {
-                        mPercentageList.add("-");
-                        mMissedList.add("-");
+                        int index = mPercentageList.size();
+                        mTotalList.remove(index);
+                        mSubjectCodeList.remove(index);
+                        mSubjectList.remove(index);
+                        continue;
+
+                        //mPercentageList.add("-");
+                        // mMissedList.add("-");
                     } else {
                         if (!data.equals("")) {
                             //Remove first 2 characters as they are invalid
@@ -333,6 +339,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         dialog.show();
     }
 
+
     //For populating spinner
     private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
 
@@ -422,7 +429,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             //Clear lists before populating recycler view by continuous spinner selections
             clearLists();
-
             mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList);
             setDefaultCountValue();
         }

@@ -1,4 +1,977 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="ae202">
+        <item>CP</item>
+        <item>Text Books:\n
+            Text Books 1. Kelley, Al &amp; Pohl, Ira. A Book on Computer Programming in C, 4th Ed,,
+            Pearson Education 2. Lambert K. A., Fundamentals of Python - First Programs, Cengage
+            Learning India, 2015
+            \n\nReferences:\n
+            1. Balagurusamy E., Programming in ANSI C, Tata McGraw Hill 2. Samarjit Ghosh, All of C,
+            PHI Learning 3.Barry, P., Head First Python, , O’ Reilly Publishers 4. Guzdial, M. J.,
+            Introduction to Computing and Programming in Python, Pearson India 5 Pradip Dey and
+            Manas Ghosh, Computer Fundamentals and Programming in C, Oxford. 6. Ashok N Kamthane ;
+            Programming in C 7.Downey, A. et al., How to think like a Computer Scientist: Learning
+            with Python, John Wiley, 2015 8. www.python .org 9. www.tutorialpoints.com.
+        </item>
+        <item>3</item>
+        <item>NONE</item>
+        <item></item>
+        <item>Programming basics: Flowcharts and Algorithms. Compiler– Interpreter-Linker-Loader.
+            Structured programming Introduction to C: Character set, Identifiers, Keywords,
+            Constants –Data Types- Variables – Operators and Expressions – Operator precedence and
+            associativity – Expression Evaluation (Simple Examples) – Simple computational problems
+            involving the above constructs
+        </item>
+        <item></item>
+        <item>Control Statements: Selection, Iteration (for, while, do-while), Branching (switch,
+            break, continue, goto), Nesting of control statements- simple programs using control
+            statements
+        </item>
+        <item></item>
+        <item>Arrays and Strings: 1D and 2D arrays –Searching (Linear and binary) - Sorting (Bubble,
+            Selection) – Matrix manipulation programs – Strings and basic operations on strings –
+            String functions – Basic Programs on string manipulation. Functions: Definition –
+            Calling – Declaration – Parameter Passing (by value and by reference) – Recursion –
+            Library functions –Basic Programs based on functions.
+        </item>
+        <item></item>
+        <item>User defined data types: Structure – Union - Enumerated data type - Programs involving
+            structure and union. Pointers: Declaration, Initialization – Pointers and arrays –
+            Pointers and structures – Pointers and functions – Command line arguments – Dynamic
+            memory allocation – Operations on pointers – Basic Programs involving the above concepts
+            Files: file operations
+        </item>
+        <item></item>
+        <item>Object oriented programming Introduction to Python : Comparison of following Python
+            constructs with C- keywords, variables, operators, expression and statements, control
+            statements- programming examples
+        </item>
+        <item></item>
+        <item>Comparison of constructs of python with C - Functions, calling functions, user defined
+            functions, strings and lists-programming examples Basics of Tuples, Dictionary and
+            Exception handling in python.
+        </item>
+    </array>
 
+    <array name="ae204">
+        <item>SAT</item>
+        <item>Text Books:\n
+            1. John P. Bentley, “Principles of Measurement Systems”, 3rd Edition, Pearson Education,
+            2. S.M. Sze, “Semiconductor sensors”, John Wiley &amp; Sons Inc., Singapore, 1994. 4. S.
+            Renganathan “Transducer Engineering”, Allied publishers Limited, Chennai, 2003.
+
+            \n\nReferences:\n
+            Transducers: Definition of transducers, classification based on transduction principle,
+            measurand, material and technology, Analog and digital transducers, Active and passive
+            transducers, Primary and Secondary transducers. Characteristics of transducers
+        </item>
+        <item>3</item>
+        <item>NONE</item>
+        <item></item>
+        <item>Transducers: Definition of transducers, classification based on transduction
+            principle, measurand, material and technology, Analog and digital transducers, Active
+            and passive transducers, Primary and Secondary transducers. Characteristics of
+            transducers
+        </item>
+        <item></item>
+        <item>Resistance Transducer : Basic principle – Potentiometer – Loading effects, Resolution,
+            Linearity, Resistance strain gauge –Types.Inductance Transducer :- Basic principle –
+            Linear variable differential transformer – RVDT-types. Capacitance Transducer : Basic
+            principle- transducers using change in area of plates – distance between plates-
+            variation of dielectric constants-frequency response –Types
+        </item>
+        <item></item>
+        <item>Force and Torque Transducers: Proving ring, hydraulic and pneumatic load cell,
+            dynamometer and gyroscopes. Sound Transducers: Sound level meter, sound characteristics,
+            Microphone. Torque transducer design-the torque measurement system-the rotation rate
+            measurement system
+        </item>
+        <item></item>
+        <item>Pressure Transducers: basic principle- different types of manometers-u tube
+            manometer-well type manometers. Level transducer-continuous level measurement-discrete
+            level measurement-mass –capacitive level gauges, Dead weight calibrator
+        </item>
+        <item></item>
+        <item>Hall effect transducers, Digital transducers, Proximity devices, , Piezo-electric
+            sensors, eddy current transducers, tachogenerators and stroboscope, Magnetostrictive
+            transducers, Fibre optic sensor, Semiconductor sensor. Basics of Seismic instrument and
+            accelerometers
+        </item>
+        <item></item>
+        <item>Flow Transducers: Bernoulli’s principle and continuity, orifice plate, nozzle plate,
+            venture tube, Rota meter, anemometers, electromagnetic flow meter, impeller meter and
+            turbid flow meter
+        </item>
+    </array>
+
+
+    <array name="ae301">
+        <item>CS</item>
+        <item>Text Books:\n
+            .1. I J Nagrath and M. Gopal, Control Systems Engineering, New Age International
+            Publishers, New Delhi,1997 2. M. Gopal, Digital Control and State Variable Methods, 2 nd
+            ed., Tata McGraw Hill, New Delhi, 2003
+
+            \n\nReferences:\n
+            1. G. J. Thaler, Automatic Control Systems, Jaico Publishing House, Mumbai, 2005 2. K.
+            Ogata, Modern Control Engineering, 4th ed., Pearson Education, Delhi, 2002 3. B. C. Kuo,
+            Automatic Control Systems, 7th ed., Prentice Hall of India, New Delhi, 1995 4. R. C.
+            Dorf and R. H. Bishop, Modern Control Systems, 10th ed., Pearson Education, Delhi, 2004
+        </item>
+        <item>3</item>
+        <item>NONE</item>
+        <item></item>
+        <item>System Analysis: Systems, subsystems, and stochastic and deterministic systems -
+            Principles of automatic control -Open loop and closed loop systems -Principles of
+            superposition and homogeneity-Transfer Function Approach: Mathematical models of
+            physical systems and transfer function approach Impulse response and transfer function
+            -Determination of transfer functions for simple electrical, mechanical,
+            electromechanical, hydraulic and pneumatic systems - Analogous systems -Multiple-input
+            multiple-output systems: Block diagram algebra - block diagram reduction -Signal flow
+            graphs -Mason&apos;s gain formula.
+        </item>
+        <item></item>
+        <item>Time Domain Analysis: Standard test signals -Response of systems to standard test
+            signals –Step response of second order systems -Time domain specifications (of second
+            order system) -Steady state response -Steady state error -Static and dynamic error
+            coefficients -Zero input and zero state response
+        </item>
+        <item></item>
+        <item>Stability of linear systems -absolute stability -relative stability -Hurwitz and Routh
+            stability criterion -Root locus method construction of root locus -root contours -root
+            sensitivity to gain k -effect of poles and zeros and their locations on the root locus.
+        </item>
+        <item></item>
+        <item>Frequency Domain Analysis: Frequency response representation -Frequency domain
+            specifications -Correlation between time and frequency response -Polar plots Logarithmic
+            plots -Bode plots – All pass, minimum-phase and non-minimum-phase systems
+            -Transportation lag - Stability in frequency domain -Nyquist stability criterion
+            Stability from polar and bode plot -Gain margin and phase margin -relative stability
+            -M-N circles -Nichols chart
+        </item>
+        <item></item>
+        <item>State Variable Analysis: Concepts of state, state variables, state vector and state
+            space -State model of continuous time systems Transformation of state variable
+            -Derivation of transfer function from state model -invariance property
+        </item>
+        <item></item>
+        <item>State diagram -State variable from transfer function -bush or companion form
+            -controllable canonical form - observable canonical form -Jordan canonical form
+            -Diagonalization-State transition matrix -computation of state transition matrix by
+            Laplace transform, Cayley-Hamilton theorem -Controllability and observability of a
+            system. (proof not required
+        </item>
+    </array>
+
+
+    <array name="ae302">
+        <item>PCL</item>
+        <item>Text Books:\n
+            .1. I J Nagrath and M. Gopal, Control Systems Engineering, New Age International
+            Publishers, New Delhi,1997 2. M. Gopal, Digital Control and State Variable Methods, 2 nd
+            ed., Tata McGraw Hill, New Delhi, 2003
+
+            \n\nReferences:\n
+            1. B.G.Liptak ,Handbook of Instrumentation -Process control ,Chilton 2. Considine,
+            Process Instrumentation and control Handbook , 5th Ed., McGraw Hill 3. Krishna Kant,
+            Computer Based Industrial Control ,PHI 4. Murrill ,Applications concepts of Process
+            control, ISA 5. Murrill, Fundamentals of Process Control , ISA 6. Stephanopoulos George
+            ,Chemical Process Control, PHI 7. T.J.Ross Fuzzy Logic with Engineering Applications,
+            John Wiley &amp; Sons, 2004 8. Thomas E Marlin - Process Control- Designing processes
+            and Control Systems for Dynamic performance, McGraw-Hill International Editions
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Process characteristics: Incentives for process control, Process Variables types and
+            selection criteria,, Process degree of freedom, The period of Oscillation and Damping,
+            Characteristics of physical System: Resistance, Capacitive and Combination of both.
+            Elements of Process Dynamics, Types of processes- Dead time, Single /multi capacity,
+            selfRegulating /non self-regulating, Interacting /non interacting, Linear/non-linear,
+            and Selection of control action for them. Study of Liquid Processes, Gas Processes, Flow
+            Processes, Thermal Processes in respect to above concepts
+        </item>
+        <item></item>
+        <item>Analysis of Control Loop: Steady state gain, Process gain, Valve gain, Process time
+            constant, Variable time Constant, Transmitter gain, Linearizing an equal percentage
+            valve, Variable pressure drop. Analysis of Flow Control, Pressure Control, Liquid level
+            Control, Temperature control, SLPC-features, faceplate, functions, MLPC- features,
+            faceplate, functions, SLPC and MLPC comparison. Scaling: types of scaling, examples of
+            scaling
+        </item>
+        <item></item>
+        <item>Feedback Control: Basic principles, Elements of the feedback Loop, Block Diagram,
+            Control Performance Measures for Common Input Changes, Selection of Variables for
+            Control Approach to Process Control. Factors in Controller Tuning, Determining Tuning
+            Constants for Good Control Performance, Correlations for tuning Constants, Fine Tuning
+            of the controller tuning Constants
+        </item>
+        <item></item>
+        <item>Multi Loop &amp; Nonlinear Systems: Cascade control, Feed forward control,
+            feedback-feed forward control, Ratio control, Selective Control , Split range control-
+            Basic principles, Design Criteria , Performance, Controller Algorithm and Tuning,
+            Implementation issues, Examples and any special features of the individual loop and
+            industrial applications. Nonlinear Elements in Loop: Limiters, Dead Zones, Backlash,
+            Dead Band Velocity Limiting, Negative Resistance
+        </item>
+        <item></item>
+        <item>Multivariable Control: Concept of Multivariable Control: Interactions and its effects,
+            Modelling and transfer functions, Influence of Interaction o the possibility of feedback
+            control, important effects on Multivariable system behaviour Relative Gain Array, effect
+            of Interaction on stability and tuning of Multi Loop Control system. Multi Loop control
+            Performance through: Loop Paring, tuning, Enhancement through Decoupling, Single Loop
+            Enhancements
+        </item>
+        <item></item>
+        <item>Intelligent Controllers: Step analysis method for finding first, second and multiple
+            time constants and dead time. Model Based controllers: Internal Model control, Smith
+            predictor, optimal controller, Model Predictive controller, Dynamic matrix controller
+            (DMC). Self Tuning Controller. Fuzzy logic systems and Fuzzy controllers, Introduction,
+            Basic Concepts of Fuzzy Logic, Fuzzy Sets, Fuzzy Relation, Fuzzy Graphs, and Fuzzy
+            Arithmetic, Fuzzy If-Then Rules, Fuzzy Logic Applications, Neuro-Fuzzy Artificial Neural
+            networks and ANN controller
+        </item>
+    </array>
+
+    <array name="ae303">
+        <item>EMMI</item>
+        <item>Text Books:\n
+            1. Baldwin, C.T., “Fundamentals of electrical measurements” – Lyall Book Depot, New
+            Delhi, 1973. 2. David.A.Bell, “Electronic Instrumentation and Measurements”, 2nd
+            Edition, Prentice Hall, New Jersy, 1994. 3. Golding, E.W. and Widdis, F.C., “Electrical
+            Measurements and Measuring Instruments” A.H.Wheeler and Co, 5th Edition, 1993.
+            \n\nReferences:\n
+            1. Cooper, W.D. and Helfric, A.D., “Electronic Instrumentation and Measurement
+            Techniques” Prentice Hall of India, 1991. 2. Kalsi.H.S., “Electronic Instrumentation”,
+            Tata McGraw Hill, New Delhi, 1995 3. Pattanabis, “Sensors and Transducers”, 2nd Edition,
+            Prentice Hall India Pvt. Ltd., 2003. 4. Waldemar Nawrocki, “Measurement Systems and
+            Sensors”, Artech House, 2005
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>General Principles of Measurements: Absolute and Working Standards- Calibration of
+            Meters- Qualities of MeasurementsAccuracy, precision, sensitivity, resolution, loading
+            effect. - Characteristics - Errors in Measurement and its Analysis
+        </item>
+        <item></item>
+        <item>Essentials of indicating instruments- deflecting, damping, controlling torques- Moving
+            Coil , Moving Iron, Dynamo Meter, Induction, Thermal, Electrostatic and Rectifier Type
+            meter; Shunts and Multipliers-Various Types of Galvanometers- Accuracy class.
+        </item>
+        <item></item>
+        <item>DC Bridges: Introduction, sources &amp; detectors for DC bridge,general equation for
+            bridge at balance. Wheatstone and Kelvin’s double bridge, Carry Foster Slide Wire Bridge
+            – Bridge Current Limitations
+        </item>
+        <item></item>
+        <item>AC bridges: Introduction, sources &amp; detectors for a.c bridge, general equation for
+            bridge at balance. Maxwell’s Inductance &amp; Maxwell’s Inductance-Capacitance Bridge,
+            Anderson bridge, Measurements of capacitance using Schering Bridge. Potentiometers:
+            General principle, Modern forms of dc potentiometers, standardization, Vernier dial
+            principle, AC potentiometers – coordinate and polar types, application of dc and ac
+            potentiometers
+        </item>
+        <item></item>
+        <item>Cathode ray oscilloscope (review), Special purpose oscilloscopes- delayed time base,
+            analog storage, sampling oscilloscopes. Digital storage oscilloscopes-DSO applications.
+            Method of measuring voltage, current, phase, frequency and period using CRO, DSO.
+            Graphic Recording Instruments: strip chart recorder, X-Y recorder, Plotter, liquid
+            crystal display (LCD).
+        </item>
+        <item></item>
+        <item>Waveform analysing instruments: Distortion meter, Spectrum analyser, Digital spectrum
+            analyser, Q meter, Watthour meter, Power-factor meter, Instrument transformers,
+            Thermocouple instruments, Peak response voltmeter, True RMS meter
+        </item>
+    </array>
+
+    <array name="ae304">
+        <item>II</item>
+        <item>Text Books:\n
+            1. Baldwin, C.T., “Fundamentals of electrical measurements” – Lyall Book Depot, New
+            Delhi, 1973. 2. David.A.Bell, “Electronic Instrumentation and Measurements”, 2nd
+            Edition, Prentice Hall, New Jersy, 1994. 3. Golding, E.W. and Widdis, F.C., “Electrical
+            Measurements and Measuring Instruments” A.H.Wheeler and Co, 5th Edition, 1993.
+            \n\nReferences:\n
+            1. Andrew W.G, “Applied Instrumentation in Process Industries – A survey”, Vol I &amp;
+            Vol II, Gulf Publishing Company, Houston, 2001. 2. Douglas M. Considine, “Process /
+            Industrial Instruments &amp; Controls Handbook”, 5th Edition, McGraw Hill, Singapore,
+            1999. 3. Liptak B.G, “Process Measurement and Analysis”, 4th Edition, Chilton Book
+            Company, Radnor, Pennsylvania, 2003. 4. Noltingk B.E., “Instrumentation Reference Book”,
+            2ndEdition, Butterworth Heinemann, 1995.
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Temperature measurement: Resistance temperature detector (RTD), principle and types,
+            construction requirements for industry, measuring circuits. Thermistors, principle and
+            sensor types, manufacturing techniques, measuring circuits, linearization methods and
+            applications. Pneumatic and suction pyrometers, integrated circuit sensors, diode type
+            sensors, ultrasonic thermometers, Johnson noise thermometer, fluidic sensors,
+            spectroscopic temperature measurements, thermograph, temperature switches and
+            thermostats.
+        </item>
+        <item></item>
+        <item>Pressure measurement basics, mechanical type instruments, electromechanical type, low
+            pressure measurement, related accessories, pressure measuring standards, selection and
+            application. Transmitter definition, classification, pneumatic transmitter-force balance
+            type, torque balance type, two wire and four wire transmitters, I/P and P/I converters.
+        </item>
+        <item></item>
+        <item>Measurement of viscosity: definitions, units, Newtonian and Newtonian behaviour,
+            measurement of viscosity using laboratory viscometers, industrial viscometers.
+            Viscometer selection and application. Measurement of density, definitions, units, liquid
+            density measurement, gas densitometers, its application and selection
+        </item>
+        <item></item>
+        <item>Flow measurement: Introduction, definitions and units, classification of flow meters,
+            pitot tubes, positive displacement liquid meters and provers, positive displacement gas
+            flow meters, variable area flow meters.
+        </item>
+        <item></item>
+        <item>Anemometers: Hot wire/hot film anemometer, laser Doppler anemometer (LDA),
+            electromagnetic flow meter, turbine and other rotary element flow meters, ultrasonic
+            flow meters, doppler flow meters, cross correlation flow meters, vortex flow meters.
+            Measurement of mass flow rate: radiation, angular momentum, impeller, turbine, constant
+            torque hysteresis clutch, twin turbine Coriolis, gyroscopic and heat transfer type mass
+            flow meters. Target flow meters: V-cone flow meters purge flow regulators, flow
+            switches, flow meter calibration concepts, flow meter selection and application.
+        </item>
+        <item></item>
+        <item>Level measurement: introduction, float level devices, displacer level devices,
+            rotating paddle switches, diaphragm and deferential pressure detectors, resistance,
+            capacitance and RF probes, radiation, conductivity, field effect, thermal, ultrasonic,
+            microwave level switches, radar and vibrating type level sensors. Level sensor selection
+            and application.
+        </item>
+    </array>
+
+    <array name="ae305">
+        <item>MP AND MC</item>
+        <item>Text Books:\n
+            1. A K Ray and K M Bhurchandi, , Advanced Microprocessors and Peripherals, Tata McGraw
+            Hill, 2006 2. D V Hall, Microprocessors and Interfacing: Programming and Hardware, 2nd
+            ed., Tata McGraw Hill, 1999. 3. M A Mazidi and J. G. Mazidi, The 8051 Microcontroller
+            and Embedded Systems, Pearson Education, Delhi, 2004 4. Ramani Kalpathi and Ganesh Raja,
+            Microcontrollers and Applications, Pearson Education, 2010
+            \n\nReferences:\n
+            1. B Brey, The Intel Microprocessors, 8086/8088, 80186, 80286, 80386 and 80486
+            architecture, Programming and interfacing, 6th ed., Prentice Hall of India, New Delhi,
+            2003 2. K J Ayala, The 8051 Microcontroller- Architecture, Programming and applications,
+            Thomson Delmar Publishers Inc., India reprint Penram 3. Y C Liu and G A Gibson,
+            Microcomputer system: The 8086/8088 family, 2nd ed., Prentice Hall of India, New Delhi,
+            1986
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Intel 8086, format:, Assembler directives and operators, Assembly process, Linking and
+            relocation, stacks, procedures, interrupt routines, macros.
+        </item>
+        <item></item>
+        <item>8086 hardware design - Bus structure, bus buffering and latching, system bus timing
+            with diagram, Minimum and maximum mode configurations of 8086, Multi-processor
+            configuration, 8087 co-processor architecture and configuration, Memory (RAM and ROM)
+            interfacing, memory address decoding
+        </item>
+        <item></item>
+        <item>8087 co-processor architecture and configuration, Memory (RAM and ROM) interfacing,
+            memory address decoding
+        </item>
+        <item></item>
+        <item>Introduction to 80386 – Memory management unit – Descriptors, selectors, description
+            tables and TSS – Real and protected mode – Memory paging – Pentium processor -Special
+            features of the Pentium processor – Branch prediction logic– Superscalar architecture,
+            microprocessors - state of the art
+        </item>
+        <item></item>
+        <item>8051 Microcontroller: Overview of 8051 family, architecture of 8051, Program counter,
+            ROM space in 8051, data types and directives, flags and PSW register, register bank and
+            stack, Addressing modes. Instruction set Arithmetic instructions JUMP, LOOP,CALL
+            instructions, time delay generations
+        </item>
+        <item></item>
+        <item>Assembly Language programming in 8051 (some simple programs): programs using
+            arithmetic and logic instructions, single bit instructions and programs, Timer/counter
+            programming, 8051 serial communication programming, programming timer interrupts.
+            Interfacing with Stepper motor, keyboard, DAC, external memory
+        </item>
+    </array>
+
+    <array name="ae306">
+        <item>DSP</item>
+        <item>Text Books:\n
+            1. Chen, C.T., “Digital Signal Processing: Spectral Computation &amp; Filter Design”,
+            Oxford Univ. Press, 2001 2. Ifeachor, E.C., &amp; Jervis, B.W., “Digital Signal
+            Processing: A Practical Approach”, 2/e, Pearson Education Asia, 2002. 3. Proakis, J.G.
+            &amp; Manolakis, D.G., “Digital Signal Processing: Principles, Algorithms, &amp;
+            Applications”, 3/e Prentice Hall of India, 1996.
+            \n\nReferences:\n 1. Embree, P.M., &amp; Danieli, D., “C++ Algorithms for Digital Signal
+            Processing”, 2/e, Prentice Hall Upper Saddle River, NJ, 1999. 2. McClellan, J.H.,
+            Schafer, R.W., &amp; Yoder, M.A., “DSP First: A Multimedia Approach”, Prentice Hall
+            Upper Saddle River, NJ, 1998 3. Mitra, S.K., “Digital Signal Processing: A
+            Computer-Based Approach”, McGraw Hill, NY, 1998
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Signal Processing Fundamentals: Discrete-time and digital signals, A/D, D/A conversion
+            and Nyquist rate, Frequency aliasing due to sampling, Need for anti-aliasing filters.
+            Discrete Time Fourier transform and frequency spectra, Spectral computation,
+            Computational complexity of the DFT and the FFT, Algorithmic development and
+            computational advantages of the FFT, Inverse FFT, Implementation of the FFT, Correlation
+            of discrete-time signals.
+        </item>
+        <item></item>
+        <item>Discrete-time systems, Difference equations and the Ztransform, Analysis of
+            discrete-time LTIL systems, Stability and Jury’s test.
+        </item>
+        <item></item>
+        <item>FIR Filters: Ideal digital filters, Realizability and filter specifications,
+            Classification of linear phase FIR filters, Design using direct truncation, window
+            methods and frequency sampling, Least-squares optimal FIR filters, Minimax optimal FIR
+            filters, Design of digital differentiators and Hilbert transformers, comparison of
+            design methods.
+        </item>
+        <item></item>
+        <item>IIR Filters: Design of analogue prototype filters, Analog frequency transformations,
+            Impulse invariance method and digital frequency transformations, Bilinear
+            transformation, Analog prototype to digital transformations, Difficulties in direct IIR
+            filter design, Comparisons with FIR filters.
+        </item>
+        <item></item>
+        <item>Filter Realization: Structures for FIR filters, Structures for IIR filters,
+            State-space analysis and filter structures, Fixed point and floating-point
+            representation of numbers, Errors resulting from rounding and truncating, Quantization
+            effects of filter coefficients, Round-off effects of digital filters
+        </item>
+        <item></item>
+        <item>DSP Processors: Computer architectures for signal processing – Harvard architecture
+            and pipelining, General purpose digital signal processors, Selection of DSPs,
+            Implementation of DSP algorithms on a general purpose DSP, Special purpose hardware –
+            hardware digital filters and hardware FFT processors, Evaluation boards for realtime
+            DSP.
+        </item>
+    </array>
+
+    <array name="ae307">
+        <item>SS</item>
+        <item>Text Books:\n
+            1. Haykin S. &amp; Veen B.V., Signals &amp; Systems, John Wiley 2. Oppenheim A.V.,
+            Willsky A.S. &amp; Nawab S.H., Signals and Systems, Tata McGraw Hill 3. Taylor F.H.,
+            Principles of Signals &amp; Systems, McGraw Hill
+            \n\nReferences \n 1. Bracewell R.N., Fourier Transform &amp; Its Applications, McGraw
+            Hill 2. Haykin S., Communication Systems, John Wiley 3. Lathi B.P., Modern Digital &amp;
+            Analog Communication Systems, Oxford University Press 4. Papoulis A., Fourier Integral
+            &amp; Its Applications, McGraw Hill
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+
+        <item>Introduction to signals and systems - Classification of signals - Basic operations on
+            signals – Elementary signals - Concept of system - Properties of systems - Stability,
+            invertability, time invariance - Linearity - Causality - Memory - Time domain
+            description - Convolution - Impulse response
+        </item>
+        <item>2</item>
+        <item>Representation of LTI systems - Differential equation and difference equation
+            representations of LTI systems ,Continuous Time LTI systems and Convolution Integral,
+            Discrete Time LTI systems and linear convolution
+        </item>
+        <item></item>
+        <item>Frequency response of LTI systems - Correlation theory of deterministic signals -
+            Condition for distortionless transmission through an LTI system - Transmission of a
+            rectangular pulse through an ideal low pass filter - Hilbert transform – Sampling and
+            reconstruction
+        </item>
+        <item></item>
+        <item>Frequency Domain Representation of Continuous Time Signals- Continuous Time Fourier
+            Series: Convergence. Continuous Time Fourier Transform: Properties. Frequency Domain
+            Representation of Discrete Time Signals- Discrete Time Fourier Transform: Properties,
+            Sampling Theorem, aliasing, reconstruction filter, sampling of band pass signals.
+            Fourier Series Representation of Discrete Time Periodic Signals
+        </item>
+        <item></item>
+        <item>Laplace Transform – ROC – Inverse transform – properties – Analysis of Continuous LTI
+            systems using Laplace Transform – unilateral Laplace Transform. Relation between Fourier
+            and Laplace Transforms. Laplace transform analysis of systems - Relation between the
+            transfer function and differential equation - Causality and stability - Inverse system -
+            Determining the frequency response from poles and zeros
+        </item>
+        <item></item>
+        <item>Z Transform - Definition - Properties of the region of convergence - Properties of the
+            Z transform - Analysis of LTI systems - Relating the transfer function and difference
+            equation - Stability and causality - Inverse systems - Determining the frequency
+            response from poles and zeros
+        </item>
+    </array>
+
+
+    <array name="ae308">
+        <item>AM</item>
+        <item>Text Books:\n 1. Andrew N. Sloss, Dominic Symes, Chris Wright ARM System Developer’s
+            Guide, Designing and Optimizing System Software, Elsevier 2. Muhammad Ali Mazidi, ARM
+            Assembly Language Programming &amp; Architecture, Kindle edition 3. Steve Furber ARM
+            System-on-chip Architecture, 2nd Edition, , Pearson publication 4. William Hohl and
+            Christopher Hinds, ARM Assembly Language, Fundamentals and Techniques, 2nd edition, CRC
+            Press.
+            \n\nReferences \n 1. Douglas V.Hall, “Microprocessors and Interfacing”, Tata McGraw
+            Hill, II Edition 2006 2. Mohamed Rafiquzzaman, “Microprocessors and Microcomputer Based
+            System Design”, II Edition, CRC Press, 2007
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+
+        <item>Introduction: Need of advance microprocessors, Difference between RISC and CISC, RISC
+            Design philosophy, ARM Design Philosophy, History of ARM microprocessor, ARM processor
+            family, Development of ARM architecture.
+
+        </item>
+        <item></item>
+        <item>The ARM Architecture and Programmers Model : The Acorn RISC Machine, ARM Core data
+            flow model, Architectural inheritance, The ARM7TDMI programmer’s model: General purpose
+            registers, CPSR, SPSR, ARM memory map, data format, load and store Architecture, Core
+            extensions, Architecture revisions, ARM development tool.
+        </item>
+        <item></item>
+        <item>ARM Instruction set: Data processing instructions, Arithmetic and logical
+            instructions, Rotate and barrel shifter, Branch instructions, Load and store
+            instructions, Software interrupt instructions, Program status register
+            instructions,Conditional execution, Multiple register load and store instructions, Stack
+            instructions, Thumb instruction set, advantage of thumb instructions, Assembler rules
+            and directives, Assembly language programs for shifting of data, factorial calculation,
+            swapping register contents, moving values between integer and floating point registers
+        </item>
+        <item></item>
+        <item>C Programming for ARM: Overview of C compiler and optimization, Basic C data types, C
+            Looping structures, Register allocations, function calls, pointer aliasing, structure
+            arrangement, bit fields, unaligned data and Endianness, Division, floating point, Inline
+            functions and inline assembly, Portability issues. C programs for General purpose I/O,
+            general purpose timer, PWM Modulator, UART, I2C Interface, SPI Interface, ADC, DAC.
+        </item>
+        <item></item>
+        <item>Memory management units: Moving from memory protection unit (MPU) to memory management
+            unit (MMU), Working of virtual memory, Multitasking, Memory organization in virtual
+            memory system, Page tables, Translation look aside buffer, Caches and write Buffer, Fast
+            context switch extension.
+        </item>
+        <item></item>
+        <item>Advanced Microprocessor Bus Architecture (AMBA) Bus System, User peripherals,
+            Exception handling in ARM, ARM optimization Techniques.
+        </item>
+    </array>
+
+
+    <array name="ae312">
+        <item>PE</item>
+        <item>Text Books:\n 1. M. H. Rashid, Power Electronics: Circuits, Devices and Applications,
+            3rd ed., Pearson Education, Delhi, 2002 2. N. Mohan, T. M. Underland, and W. P. Robbins,
+            Power Electronics: Converter, Applications and Design, John Wiley &amp; Sons, New York
+            3. P. S. Bimbhra, Power Electronics, Khanna Publishers, New Delhi, 2002
+            \n\nReferences \n  G. K. Dubey, S. R. Doradla, A. Joshi and R. M. K. Sinha,
+            Thyristorised Power Controllers, NewAge International Publishers, New Delhi, 1996
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Power semiconductor devices: Power diodes-types, power transistors, thyristor family,
+            SCRs, Triac, GTOs, power MOSFETs, IGBTs, MCTs-static and dynamic characteristics,
+            protection circuits, series and parallel connections, turn-on characteristics, turn off
+            characteristics
+        </item>
+        <item></item>
+        <item>Controlled rectifiers- single phase and three phase converters-power factor
+            improvements-design of converter circuits-AC volt-age controllers-single phase and three
+            phase-cyclo converters-single phase and three phase, design of AC voltage controller
+            circuits.
+        </item>
+        <item></item>
+        <item>DC choppers – principle of step down and step up operations – step down chopper with
+            RL load, Classes of chopper, MOSFET/IGBT choppers
+        </item>
+        <item></item>
+        <item>DC to AC converters: Thyristor inverters, McMurrayMcMurray Bedford inverter, current
+            source inverter, voltage control waveform control, inverters using devices other than
+            thyristors, vector control of induction motors.
+        </item>
+        <item></item>
+        <item>DC and AC power supplies: Switched mode, resonant, bidirectional and multistage
+            conversions, buck, boost, buck boost regulators. UPS-block diagram, types. Drive
+            requirements and design of simple drive circuits for power BJT, MOSFET and IGBT
+        </item>
+        <item></item>
+        <item>Advanced control of power electronic circuits using microprocessors, microcontrollers,
+            isolation amplifier circuits, synchronization circuits.
+        </item>
+    </array>
+
+
+    <array name="ae361">
+        <item>VID</item>
+        <item>Text Books:\n 1. Peter W. Gofton, ‘Understanding Serial Communications’, Sybex
+            International. 2. Robert H. Bishop, ‘Learning with Lab-view’, Prentice Hall, 2003. 3. S.
+            Gupta and J.P Gupta, ‘PC Interfacing for Data Acquisition and Process Control’,
+            Instrument society of America, 1994
+            \n\nReferences \n 1. Gary W. Johnson, Richard Jennings, ‘Lab-view Graphical
+            Programming’, McGraw Hill Professional Publishing, 2006. 2. Kevin James, ‘PC Interfacing
+            and Data Acquisition: Techniques for Measurement, Instrumentation and Control’, Newness,
+            2000. WEB RESOURCES: www.ni.com
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Review of digital instrumentation: - Representation of analog signals in the digital
+            domain – Review of quantization in amplitude and time axes, sample and hold, sampling
+            theorem, ADC and DAC
+        </item>
+        <item></item>
+        <item>Virtual Instrumentation: Historical perspective - advantages - block diagram and
+            architecture of a virtual instrument Conventional Instruments versus Traditional
+            Instruments - data-flow techniques, graphical programming in data flow, comparison with
+            conventional programming.
+        </item>
+        <item></item>
+        <item>VI programming techniques: VIs and sub-VIs, loops and charts, arrays, clusters and
+            graphs, case and sequence structures, formula nodes, local and global variables, State
+            machine, string and file I/O, Instrument Drivers, Publishing measurement data in the
+            web.
+        </item>
+        <item></item>
+        <item>Data acquisition basics: Introduction to data acquisition on PC, Sampling
+            fundamentals, Input/Output techniques and buses. ADC, DAC, Digital I/O, counters and
+            timers, DMA, Software and hardware installation, Calibration, Resolution, Data
+            acquisition interface requirements.
+        </item>
+        <item></item>
+        <item>VI Chassis requirements. Common Instrument Interfaces: Current loop, RS 232C/ RS485,
+            GPIB. Bus Interfaces: USB, PCMCIA, VXI, SCSI, PCI, PXI, Firewire. PXI system
+            controllers, Ethernet control of PXI. Networking basics for office &amp; Industrial
+            applications, VISA and IVI
+        </item>
+        <item></item>
+        <item>VI toolsets, Distributed I/O modules. Application of Virtual Instrumentation:
+            Instrument Control, Development of process database management system, Simulation of
+            systems using VI, Development of Control system, Industrial Communication, Image
+            acquisition and processing, Motion control.
+        </item>
+    </array>
+
+
+    <array name="ae362">
+        <item>IP</item>
+        <item>Text Books:\n 1. Aswathappa K (2008) Human Resource Management (fifth edition), Tata
+            McGraw Hill 2. Blum &amp; Naylor (1982) Industrial Psychology. Its theoretical &amp;
+            social foundations, CBS Publications. 3. Singh N. (2011). Industrial Psychology. Tata
+            McGraw hill Education private limited
+        </item>
+
+        <item>References \n 1. Aamodt.M G (2016) Industrial/Organizational Psychology: An applied
+            Approach (8th edition), Cengage Learning 2. Miner J B (1992) Industrial/Organizational
+            Psychology. N Y: McGraw Hill 3. Robbins, S. P. (2010). Organizational behaviour. Tata
+            McGraw Hill publications. 4. Schiffman, L G &amp; Wisenblit, J. (2010). Consumer
+            behaviour. Pearson publications. 5. Schultz, D. P., &amp; Schultz, E. S. (2008).
+            Psychology and Work today. New York: Mac Milan publishing company
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Introduction to Industrial and Organizational Psychology: Introduction to industrial
+            psychology, Definition, scope, major influences, goals, key forces, and fundamental
+            concepts, History of industrial psychology, Major Fields of I/O Psychology, scientific
+            management.
+        </item>
+        <item></item>
+        <item>Individual in Workplace : Motivation- Definition, Types, Theory-Maslow’s and Herzberg,
+            Job satisfaction- Definition, Factors affecting Job Satisfaction, Consequences,
+            Leadership - Definition, Leadership Styles, Approaches to Leadership, Organizational
+            Culture -Definition, Levels, Characteristics, Types, Functions
+        </item>
+        <item></item>
+        <item>Development of Human Resources: Job Analysis- Definition, Purpose, Types, Process,
+            Methods, Recent Developments Recruitment and Selection- Nature and objectives, Sources-
+            Internal and External, Process, Definition and steps in selection process Performance
+            Management- Definition, Scope, Process, Tools Training and Development- Meaning and
+            nature, Objectives, Methods- on the job and off the job
+        </item>
+        <item></item>
+        <item>Introduction to Consumer Psychology: Definition, Scope, Marketing concept. Market
+            Segmentation- consumer rooted, consumption specific, and brand experience as
+            segmentation bases. Targeting- criteria for effective targeting; Positioning and
+            repositioning
+        </item>
+        <item></item>
+        <item>Consumer Decision Making : Levels of Decision making, Views of consumer decision
+            making, Model of consumer decision making: Input – marketing efforts, socio cultural
+            environment. Process – psychological field, need recognition, pre-purchase search,
+            Evaluation of alternatives Output – Purchase behavior and post purchase evaluation.
+        </item>
+        <item></item>
+        <item>Performance management: Training &amp; Development: Work environment &amp; engineering
+            psychology – fatigue, boredom, accidents &amp; safety, Job analysis, Recruitment &amp;
+            Selection, Reliability &amp; Validity of recruitment tests.
+        </item>
+    </array>
+
+
+    <array name="ae363">
+        <item>VCD</item>
+        <item>Text Books:\n 1. Douglas A. Pucknell &amp; Kamran Eshraghian, Basic VLSI Design, PHI.
+            2. Jan M. Rabaey, A. Chandrakasan, B. Nikolic, Digital Integrated Circuits- A Design
+            perspective, 2/e, Pearson education. 3. Sung-Mo Kang, Yusuf Leblebici, CMOS Digital
+            Integrated Circuits Analysis and Design, Tata Mc-Graw-Hill
+            \n\nReferences \n 1. Charles H Roth Jr – Fundamentals of Logic Design 4 Ed, Jaico
+            Publishers 2. Mead &amp; Conway , Introduction to VLSI System Design-Addison Wesley 3. S
+            M Sze, VLSI Technology, PHI 4. Wayne Wolf: Modern VLSI Design Systems on Chip-Pearson
+            Education, 2nd ed., 5. Weste and Eshraghian, Principles of CMOS VLSI Design, A Systems
+            Perspective,2/e, Pearson Education.
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>VLSI process integration: - fundamental considerations in IC processing - NMOS IC
+            technology - CMOS IC technology - BiCMOS IC technology - GaAs technology. Ion
+            implantation in IC fabrication
+        </item>
+        <item></item>
+        <item>The MOS device: (n - channel &amp; p- channel) - capacitance of MOS structure -
+            accumulation, depletion and inversion, threshold voltage, current equations -
+            characteristics, channel pinch-off. Second order MOS device effects: short-channel
+            effect, narrow width effect, sub-threshold current, device saturation characteristics
+        </item>
+        <item></item>
+        <item>Switch logic- pass transistors and transmission gates, Gate logic-The basic inverter
+            using NMOS-circuit – current equations - pull up to pull down ratio- transfer
+            characteristics- Alternate forms of pull up. Basic NAND, NOR circuits. The CMOS
+            inverter, characteristics – NAND, NOR and compound circuits using CMOS. Other forms of
+            CMOS logic: pseudo CMOS, CMOS domino logic, n-p logic
+        </item>
+        <item></item>
+        <item>Layout design of static MOS circuits – Layout rules - general principles &amp; steps
+            of lay-out design - use of stick diagrams - design rules - Layout examples of NAND and
+            NOR-Fabrication
+        </item>
+        <item></item>
+        <item>Combinational circuits - clocked sequential circuit - drivers for bus lines. Scaling
+            of MOS circuits: scaling models and scaling factors for device parameters
+        </item>
+        <item></item>
+        <item>Timing issues in VLSI system design: timing classification- synchronous timing basics
+            – skew and jitter- latch based clocking- self timed circuit design - self timed logic,
+            completion signal generation, self-timed signalling– synchronizers and arbiters
+        </item>
+    </array>
+
+    <array name="ae364">
+        <item>MEMS/NEMS</item>
+
+        <item>Text Books:\n  Maluf, Nadim “An introduction to Microelectromechanical Systems
+            Engineering “AR Tech house, Boston 2000References \n 1. Mohamed Gad – el – Hak “MEMS
+            Handbook” Edited CRC Press 2002 2. Sabrie Solomon “Sensors Handbook”, Mc Graw Hill, 1998
+            3. Marc F Madou, “ Fundamentals of micro fabrication,” CRC Press 2002 2nd Edition 4.
+            Francis E.H Tay and W. O. Choong, “Micro fluidics and bio MEMS application” IEEE Press
+            New York 1997 5. Trimmer William S, “Micromachanics and MEMS”, IEEE Press, New York 1997
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Foundation in Microsystems : Review of microelectronics manufacture and introduction
+            to MEMS- Overview of microsystems technology, Laws of scaling- The multidisciplinary
+            nature of MEMS- Survey of materials central to micro engineering- Applications of MEMS
+            in various industries
+        </item>
+        <item></item>
+        <item>Micro Manufacturing Techniques : Photolithography- Film deposition, Etching
+            Processes-Bulk micro machining, silicon surface micro machining
+        </item>
+        <item></item>
+        <item>Micro Actuators : Energy conversion and force generationElectromagnetic Actuators,
+            Reluctance motors, piezoelectric actuators, bi-metal-actuator Friction and wear
+        </item>
+        <item></item>
+        <item>Micro Sensors : Transducer principles-Signal detection and signal
+            processing-Mechanical and physical sensorsAcceleration sensor, pressure sensor, Sensor
+            arrays.
+        </item>
+        <item></item>
+        <item>Introduction to Micro/Nano Fluids : Fundamentals of micro fluidics- Micro pump –
+            introduction – Types - Mechanical Micro pump – Non mechanical micro pumps, Actuating
+            Principles, Design rules for micro pump – modeling and simulation, Verification and
+            testing – Applications
+        </item>
+        <item></item>
+        <item>Microsystem Design and Packaging : Design considerations-Mechanical Design, Process
+            design, Realization of MEMS components using Intellisuite. Micro system
+            packaging-Packing Technologies-Assembly of Microsystems- Reliability in MEMS.
+        </item>
+    </array>
+
+
+    <array name="ae365">
+        <item>IFA</item>
+        <item>Text Books:\n 1. C D Johnson Process control and instrumentation technology, PHI 2.
+            Patranabis, Industrial instrumentation, TMH. 3. Wills B.A., “Mineral Processing
+            Technology”, 4th Ed.,Pergamon Press
+            \n\nReferences \n  B.G.Liptak , Instrumentation handbook-process control, Chilton
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Necessity of instrumentation &amp; control for agriculture, engineering properties of
+            soil: fundamental definitions &amp; relationships, index properties of soil,
+            permeability &amp; seepage analysis, shear strength, Mohr’s circle of stress, active
+            &amp; passive earth pressures, stability &amp; slopes, Sensors: introduction to sonic
+            anemometers, hygrometers, fine wire thermocouples, open &amp; close path gas analysers,
+            brief introduction to various bio-sensors.
+        </item>
+        <item></item>
+        <item>Flow diagram of sugar plant &amp; instrumentation set up for it, flow diagram of
+            fermenter &amp; control(batch process),flow diagram of dairy industry &amp;
+            instrumentation set up for it, juice extraction control process &amp; instrumentation
+            set up for it
+        </item>
+        <item></item>
+        <item>Irrigation systems: necessity, irrigation methods: overhead, centre pivot, lateral
+            move, micro irrigation systems &amp; it’s performance, comparison of different
+            irrigation systems, soil moisture measurement methods: resistance based method, voltage
+            based method, thermal based method, details of gypsum block soil moisture sensor,
+            irrigation scheduling, irrigation efficiencies, design considerations in irrigation
+            channels.
+        </item>
+        <item></item>
+        <item>Application of SCADA for DAM parameters &amp; control, irrigation control management
+            up- stream &amp; down - stream control systems, green houses &amp; instrumentation:
+            ventilation, cooling &amp; heating, wind speed, temperature &amp; humidity, rain gauge
+            carbon dioxide enrichment measurement &amp; control
+        </item>
+        <item></item>
+        <item>Automation in earth moving equipments &amp; farm equipments, application of SCADA
+            &amp; PLC in packing industry and cold storage systems, implementation of Hydraulic,
+            pneumatic &amp; electronics control circuits in harvester’s cotton pickers, tractor etc.
+            classification of pumps: pump characteristics, pump selection &amp; installation
+        </item>
+        <item></item>
+        <item>Leaf area length evapotranspiration, temperature, wetness &amp; respiration
+            measurement &amp; data logging, electromagnetic radiations photosynthesis, infrared
+            &amp; UV bio sensor methods in agriculture, agro metrological instrumentation weather
+            stations, surface flux measurement, soil water content measurement using time-domain
+            reflectrometery (TDR), ground water occurrence confined &amp; unconfined aquifers,
+            evaluation of aquifer properties, ground water recharge
+        </item>
+    </array>
+
+
+    <array name="ae366">
+        <item>ESD</item>
+        <item>Text Books:\n 1. Shibu K.V, Introduction to Embedded Systems, Mc Graw Hill 2. Wayne
+            Wolf, Computers as Components: Principles of Embedded Computing System Design – Harcourt
+            India, Morgan Kaufman Publishers, First Indian Reprint 2001
+        </item>
+
+        <item>Reference Books \n 1. David E. Simon An Embedded Software Primer, Pearson Education.
+            2. Frank Vahid and Tony Givargis, Embedded System Design – A unified Hardware / Software
+            Introduction, John Wiley, 2002. 3. Lyla B Das, Embedded Systems An Integrated Approach,
+            Pearson, 2013 4. Rajkamal, Embedded Systems Architecture, Programming and Design, TATA
+            McGraw-Hill, First reprint Oct. 2003
+        </item>
+        <item></item>
+        <item>NONE</item>
+        <item></item>
+        <item>Introduction to Embedded Systems: Definition of Embedded System, Embedded Systems Vs
+            General Computing Systems, History of Embedded Systems, Classification, Major
+            Application Areas, Purpose of Embedded Systems, Characteristics and Quality Attributes
+            of Embedded Systems
+        </item>
+        <item></item>
+        <item>Typical Embedded System: Core of the Embedded System: General Purpose and Domain
+            Specific Processors, ASICs, PLDs, Commercial Off-The-Shelf Components (COTS), Memory:
+            ROM, RAM, Memory according to the type of Interface, Memory Shadowing, Memory selection
+            for Embedded Systems, Sensors and Actuators, Communication Interface: On board and
+            External Communication Interfaces.
+        </item>
+        <item></item>
+        <item>Embedded Firmware: Reset Circuit, Brown-out Protection Circuit, Oscillator Unit, Real
+            Time Clock, Watchdog Timer, Embedded Firmware Design Approaches and Development
+            Languages
+        </item>
+        <item></item>
+        <item>RTOS Based Embedded System Design: Operating System Basics, Types of Operating
+            Systems, Tasks, Process and Threads, Multiprocessing and Multitasking, Task Scheduling
+        </item>
+        <item></item>
+        <item>Task Communication: Shared Memory, Message Passing, Remote Procedure Call and Sockets,
+            Task Synchronization: Task Communication /Synchronization Issues, Task Synchronization
+            Techniques, Device Drivers, How to Choose an RTOS
+        </item>
+        <item></item>
+        <item>Programming concepts of Embedded programming in C Program Elements, Macros and
+            functions - Use of Pointers - NULL Pointers - Use of Function Calls – Multiple function
+            calls in a Cyclic Order in the Main Function Pointers – Function Queues and Interrupt
+            Service Routines Queues Pointers – Concepts of embedded programming in C++ – Cross
+            compiler – Optimization of memory codes. Real time operating systems Definitions of
+            process, tasks and threads.
+        </item>
+    </array>
+
+
+    <array name="ae368">
+        <item>PE</item>
+        <item>Text Books:\n 1. Cyril Donaldson, George H.Lecain, V C Goold, Tool Design, TATA McGraw
+            Hill,1998. 2. Fred W. Billmeyer, Jr., Text Book of Polymer Science, John Wiley &amp;Sons,
+            Singapore,1994. 3. G.J.L. Griffin, Chemistry and Technology of Biodegradable Polymers,
+            Blackie Academic Professional, 1994
+            \n\nReference Books \n 1. Abraham J. Domb, Joseph Kost &amp; David M.Wiseman, Handbook
+            of Biodegradable polymers, CRC Press 2. Dominick V. Rosato, DonaldV. Rosato, Injection
+            Molding Hand Book, CBC Publishers&amp;Distributors,1987 3. Gerald Scott &amp; Dan Gilad,
+            Degradable Polymers-Principles &amp; Applications, Chapman &amp; Hall, 1995. 4. Gordon
+            L. Robertson, Food Packaging Principles and Practice, Marcel Dekker, Inc., New York
+            1993. 5. IrwinI Rubin, Injection Molding Theory and Practice, Wisely Inter science
+            Publication, 1972. 6. Louis T. Manzione, Plastic Packaging of Microelectronic Devices,
+            Van Nostrand Reinhold, New York, 1990. 7. Plastics Engineering Hand Book of the Society
+            of the Plastics Industry Inc.,Van Nostrand Reinhold Company, 1945. 8. Vishu Shah, Hand
+            Book of Plastics Testing Technology, John Wiley &amp; Sons Inc., New York, 1998
+        </item>
+        <item></item>
+
+        <item>NONE</item>
+        <item></item>
+        <item>Engineering Plastics : Sources and Manufacture of raw materials, Methods of
+            Manufacture of Polymer, General Properties and applications of Acrylonitrile Butadiene
+            Styrene -Polyamides (PA-6,PA-66,PA-6,10,PA-11&amp;12) – Polycarbonates – Poly acetal
+            &amp; Copolymers - Thermoplastic Polyesters (PET&amp;PBT) Poly phenylene oxide – Poly
+            sulfones Fluoropolymers (PVF,PVDF,PTFE,PCTFE) - Thermoplastic Polyurethane
+        </item>
+        <item></item>
+        <item>Concept of testing &amp; identification of plastics : Basic concepts of testing -
+            Specification and Standards - National and International Standards - Test specimen
+            preparation - Pre-conditioning and test atmosphere. Identification of plastics by simple
+            tests - Visual examination - Density - Melting point - Solubility test - Flame test -
+            Chemical tests
+        </item>
+        <item></item>
+        <item>Test methods and standards for bio-degradable plastics: Plastics – criteria used in
+            evaluation of biodegradable plastics – description of current Test methods – Scanning
+            test for ready biodegradability – Test for inherent biodegradability – Test for
+            simulation studies – Other methods for assessing polymer biodegradability
+        </item>
+        <item></item>
+        <item>Recycling technologies for bio degradable plastics: Conventional recycling –
+            Degradable complicate recycling – reprocessing polyethylene starch/film scrap –
+            Economics in in-plant recycling
+        </item>
+        <item></item>
+        <item>Inspection and quality control of moulds : Introduction to Tool Room measuring
+            instruments – Vernier– Micrometer – Height Gauge–Slip Gauge–Dial Gauge–Measuring tapers
+            and angles–CMM
+        </item>
+        <item></item>
+        <item>Environmental consideration: Plastic waste – Classification, Segregation, Sorting and
+            Waste Management viz. source reduction, reuse/repair, recycling related to packaging
+            films and constrainers. Pollutants an outline – Chloro Fluoro Carbon (CFC), Dioxin Life
+            cycle assessment: A case study
+        </item>
+    </array>
 </resources>
