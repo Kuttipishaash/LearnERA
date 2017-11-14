@@ -1,6 +1,7 @@
 package com.learnera.app.fragments;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ public class AboutFragment extends Fragment {
 
     private View view;
     private Button mContact;
+    private TextView mAppName;
 
     @Nullable
     @Override
@@ -36,6 +38,10 @@ public class AboutFragment extends Fragment {
         mContact = (Button) view.findViewById(R.id.button_contact_us);
 
         getActivity().setTitle("About Us");
+
+        mAppName = (TextView) view.findViewById(R.id.text_app_name);
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
+        mAppName.setTypeface(typeface);
 
         //open gmail
         mContact.setOnClickListener(new View.OnClickListener() {

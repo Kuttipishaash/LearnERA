@@ -11,6 +11,7 @@ public class Constants {
     public final static String attendanceURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Leave.asp";
     public final static String homeURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Home.asp";
     public final static String markURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Mark.asp";
+    public final static String noticesURL = "https://www.rajagiritech.ac.in/Home/notice/notice.asp";
 
     //SharedPreferences file to store login details
     public static final String PREFERENCE_FILE="user_preferences";

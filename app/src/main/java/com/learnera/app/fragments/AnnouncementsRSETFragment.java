@@ -1,6 +1,10 @@
 package com.learnera.app.fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +15,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -20,6 +26,7 @@ import com.learnera.app.Utils;
 import com.learnera.app.data.AnnouncementRSET;
 import com.learnera.app.data.AnnouncementsRSETAdapter;
 import com.learnera.app.data.Constants;
+import com.learnera.app.data.RecyclerItemClickListener;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
@@ -46,7 +53,9 @@ public class AnnouncementsRSETFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private AnnouncementsRSETAdapter announcementAdapter;
     private User user;
-    private boolean isLoaded = false, isVisibleToUser = false;
+    private boolean isLoaded = false;
+    private boolean isVisibleToUser = false;
+    private AlertDialog.Builder mBrowserDialog;
 
     public AnnouncementsRSETFragment() {
         announcementRSETURL = "https://www.rajagiritech.ac.in/stud/KTU/Parent/Notice.asp";
@@ -69,7 +78,41 @@ public class AnnouncementsRSETFragment extends Fragment {
             setupPage();
             isLoaded = true;
         }
+
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                mBrowserDialog = new AlertDialog.Builder(getActivity());
+                mBrowserDialog.setMessage("Want to view the detailed announcement?");
+                mBrowserDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.noticesURL));
+                        startActivity(browserIntent);
+                    }
+                });
+                mBrowserDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                mBrowserDialog.show();
+            }
+
+            @Override
+            public void onLongItemClick(View view, int position) {
+
+            }
+        }));
+        setHasOptionsMenu(true);
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_attendance, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
@@ -127,6 +170,7 @@ public class AnnouncementsRSETFragment extends Fragment {
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
             mLoading.setMessage("Loading  RSET Data...");
+            mLoading.setCancelable(false);
             mLoading.show();
             super.onPreExecute();
         }

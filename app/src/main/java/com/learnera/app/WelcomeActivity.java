@@ -65,6 +65,13 @@ public class WelcomeActivity extends AppCompatActivity {
         setUserStatus();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finishAffinity();
+    }
+
     public void setUserStatus() {
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user = sharedPreferences.getString("user", null);

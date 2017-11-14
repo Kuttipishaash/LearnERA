@@ -10,6 +10,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -51,6 +53,11 @@ public class AnnouncementsKTUFragment extends Fragment {
         //respondToInternetStatus();
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_attendance, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +65,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_ktu);
         setupPage();
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -102,6 +110,7 @@ public class AnnouncementsKTUFragment extends Fragment {
         protected void onPreExecute() {
             mLoading = new ProgressDialog(getActivity());
             mLoading.setMessage("Loading KTU Data...");
+            mLoading.setCancelable(false);
             mLoading.show();
             super.onPreExecute();
         }

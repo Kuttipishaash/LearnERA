@@ -22,6 +22,7 @@
         android:layout_below="@+id/no_network_error_text_view"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:text="RETRY" />
 
 

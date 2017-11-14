@@ -21,7 +21,6 @@ import com.learnera.app.fragments.NetworkNotAvailableFragment;
  */
 
 public class Utils {
-    static boolean b;
 
     //To check network connection
     public static boolean isNetworkAvailable(FragmentActivity fragmentActivity) {
@@ -57,11 +56,15 @@ public class Utils {
         else if(fragmentActivity instanceof MarksActivity) {
             fragmentTransaction.addToBackStack("marks");
             fragmentTransaction.add(R.id.marks_fragment, fragment);
-        } /*
+        }
         else if(fragmentActivity instanceof AnnouncementsActivity) {
-            fragmentTransaction.addToBackStack("annfrag");
-            fragmentTransaction.replace(R.id.fr, fragment);
-        } */
+            fragmentTransaction.addToBackStack("announcement");
+            fragmentTransaction.add(R.id.announcement_network, fragment);
+        }
+        else if(fragmentActivity instanceof SyllabusActivity) {
+            fragmentTransaction.addToBackStack("syllabus");
+            fragmentTransaction.add(R.id.fragment_syllabus, fragment);
+        }
         fragmentTransaction.commit();
     }
 
@@ -87,7 +90,6 @@ public class Utils {
 
     //open up login fragment when not logged in
     public static void doWhenNotLoggedIn(FragmentActivity fragmentActivity) {
-        Toast.makeText(fragmentActivity, "Please login first", Toast.LENGTH_SHORT).show();
         Fragment fragment = new LoginFragment();
         FragmentTransaction fragmentTransaction = fragmentActivity.getSupportFragmentManager().beginTransaction();
         if(fragmentActivity instanceof AttendanceActivity)

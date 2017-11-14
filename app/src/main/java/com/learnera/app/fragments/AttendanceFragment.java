@@ -63,12 +63,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected Spinner spinner;
     //For Attendence Table
     protected FloatingActionButton fab;
-    protected View attendenceTable;
     protected AttendenceTableAdapter tableAdapter;
     protected ListView tableList;
     //To remove
-    long startTime, stopTime, elapsedTime;
-    long startTime2, stopTime2, elapsedTime2;
     private ProgressDialog mProgressDialog;
     private int count;
     private View view;
@@ -197,7 +194,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void extractAttendanceData() {
-        startTime = System.currentTimeMillis();
         Elements tables = doc.select("table [width=96%]");
         for (Element table : tables) {
             Elements rows = table.select("tr");
@@ -266,10 +262,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             }
             break;
         }
-        stopTime = System.currentTimeMillis();
-        elapsedTime = stopTime - startTime;
-        String x = elapsedTime + "";
-        Toast.makeText(getActivity(), x, Toast.LENGTH_LONG).show();
     }
 
     private void extractSemesterList() {
@@ -311,7 +303,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //display bunkable dialog
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
         dialog.setContentView(R.layout.dialog_attendence_bunk_view);
         TextView dialogButton = (TextView) dialog.findViewById(R.id.bunk_dialog_dismiss);
         dialogButton.setOnClickListener(new View.OnClickListener() {
@@ -359,10 +350,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
         dialog.setContentView(R.layout.dialog_attendence_details);
         tableList = (ListView) dialog.findViewById(R.id.list_view_attendence_table);
-
 
         TextView dialogButton = (TextView) dialog.findViewById(R.id.attendence_dialog_dismiss);
         dialogButton.setOnClickListener(new View.OnClickListener() {
