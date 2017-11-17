@@ -3,16 +3,16 @@
     android:id="@+id/fragment_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_white_1000" >
+    android:background="@color/md_white_1000">
 
     <TextView
         android:id="@+id/text_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:padding="5dp"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="30dp"
+        android:padding="5dp"
         android:text="@string/app_name"
         android:textSize="30sp" />
 
@@ -20,8 +20,8 @@
         android:id="@+id/about_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/text_app_name"
+        android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/intro_icon" />
 
@@ -32,71 +32,103 @@
         android:layout_below="@+id/about_logo"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
-        android:padding="2dp"
         android:layout_marginTop="10dp"
+        android:padding="2dp"
         android:text="@string/app_version"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_about_version"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="13dp"
-        android:padding="5dp"
-        android:text="Developers:"
-        android:textStyle="bold"
-        android:id="@+id/about_text_developers" />
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/about_scroll"
+        android:layout_below="@id/text_about_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/about_text_developer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text_developers"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:text="Prejith Premkumar" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/about_text_developer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text_developer1"
-        android:layout_centerHorizontal="true"
-        android:text="Prabhashankar Kannappan" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="13dp"
+                android:padding="5dp"
+                android:text="Developers:"
+                android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text_developer2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:padding="5dp"
-        android:text="Design:"
-        android:textStyle="bold"
-        android:id="@+id/about_text_designers" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Prejith Premkumar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text_designers"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center_horizontal"
-        android:text="Mebin Johnson"
-        android:id="@+id/about_text_designer1" />
+            <TextView
+                android:id="@+id/about_text_developer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Prabhashankar Kannappan" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="14dp"
+                android:padding="5dp"
+                android:text="Design:"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Mebin Johnson" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:text="Data Entry:"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Naina Fathima Syed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Sangeetha S" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Razni Azees" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
     <Button
         android:id="@+id/button_contact_us"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/about_text_designer1"
+        android:layout_below="@+id/about_scroll"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="18dp"
         android:text="Contact Us" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/about_text_disclaimer"
@@ -104,7 +136,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="This app is intended only for students studying at Rajagiri"
+        android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
         android:textStyle="italic" />
 
 </RelativeLayout>

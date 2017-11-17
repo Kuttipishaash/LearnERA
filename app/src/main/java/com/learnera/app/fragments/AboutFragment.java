@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.AttendanceActivity;
@@ -55,6 +57,8 @@ public class AboutFragment extends Fragment {
                 startActivity(sendIntent);
             }
         });
+
+        Toast.makeText(getActivity(), "" + getFragmentManager().getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -70,6 +74,15 @@ public class AboutFragment extends Fragment {
         }
         else if(getActivity() instanceof AnnouncementsActivity) {
             getActivity().setTitle("Announcements");
+        }
+        else {
+            FragmentManager fragmentManager = getFragmentManager();
+            if(fragmentManager.getBackStackEntryCount() == 1) {
+                getActivity().setTitle("Syllabus");
+            }
+            else if(fragmentManager.getBackStackEntryCount() == 2) {
+                getActivity().setTitle("kopp");
+            }
         }
     }
 

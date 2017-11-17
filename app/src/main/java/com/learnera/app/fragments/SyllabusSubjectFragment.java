@@ -36,9 +36,13 @@ public class SyllabusSubjectFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -47,7 +51,7 @@ public class SyllabusSubjectFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_syllabus_subject, container, false);
         mListView = (ListView) view.findViewById(R.id.syllabusSubjectsListView);
         getlist();
-        getActivity().setTitle("Syllabus");
+
         return view;
     }
 

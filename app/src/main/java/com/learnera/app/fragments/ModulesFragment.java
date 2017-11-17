@@ -110,7 +110,7 @@ public class ModulesFragment extends Fragment {
     private void getlist() {
         Bundle modulesBundle = getArguments();
         modules = modulesBundle.getStringArrayList("modules");
-        getActivity().setTitle(modules.get(1));
+     //   getActivity().setTitle(modules.get(1));
 
         modulesList = new ArrayList<Module>();
 
