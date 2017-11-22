@@ -108,13 +108,13 @@ public class AnnouncementsRSETFragment extends Fragment {
         setHasOptionsMenu(true);
         return view;
     }
-
+/*
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_attendance, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
-
+*/
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);

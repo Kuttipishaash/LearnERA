@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.AttendanceActivity;
+import com.learnera.app.LoginActivity;
 import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
 import com.learnera.app.Utils;
@@ -61,6 +62,10 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 } else if (getActivity() instanceof AttendanceActivity) {
                     fragment = new AttendanceFragment();
                     fragmentTransaction.replace(R.id.fragment_attendance, fragment);
+                }
+                else if(getActivity() instanceof LoginActivity) {
+                    fragment = new LoginFragment();
+                    fragmentTransaction.replace(R.id.fragment_login, fragment);
                 }
                 fragmentTransaction.commit();
             } else {
