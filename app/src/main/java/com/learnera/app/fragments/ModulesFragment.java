@@ -70,8 +70,9 @@ public class ModulesFragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         share = new StringBuffer();
-                        share.append("Syllabus of " + modules.get(0) + "\nModule " + tempIndex + "\n");
-                        share.append(modules.get(tempIndex + tempIndex + 4));
+                        share.append("Syllabus of " + modules.get(0) + "\n\nModule " + tempIndex + "\n\n");
+                        share.append(modules.get((tempIndex * 2)) + "\n");
+                        share.append(modules.get((tempIndex * 2) + 1));
                         share.append("\n\nSyllabus shared using LearnERA");
                         dialogInterface.dismiss();
                         Intent sendIntent = new Intent(Intent.ACTION_SEND_MULTIPLE);
@@ -131,7 +132,7 @@ public class ModulesFragment extends Fragment {
 
     private void shareFullSyllabus() {
         share = new StringBuffer();
-        share.append("SYLLABUS OF : " + modules.get(0));
+        share.append("Syllabus of : " + modules.get(0));
 
         //use int i = 5 ater putting text books
         for (int i = 2, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {

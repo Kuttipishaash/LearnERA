@@ -21,7 +21,6 @@
         <item>ae</item>
         <item>ce</item>
     </string-array>
-
     <!-- FIRST YEARS -->
     <string-array name="s1sub">
         <item>ma101</item>
@@ -46,7 +45,7 @@
     <string-array name="s1subnames">
         <item>Calculus</item>
         <item>Engineering Chemistry</item>
-        <item>ngineering Physics</item>
+        <item>Engineering Physics</item>
         <item>Engineering Mechanics</item>
         <item>Engineering Graphics</item>
         <item>Basics of Electronics Engineering</item>
@@ -204,6 +203,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 INFORMATION TECHNOLOGY -->
     <string-array name="its4sub">
         <item>ma202</item>
         <item>cs202</item>
@@ -223,6 +223,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 COMPUTER SCIENCE -->
     <string-array name="css4sub">
         <item>ma202</item>
         <item>cs202</item>
@@ -242,6 +243,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 ELECTRONICS AND COMMUNICATION -->
     <string-array name="ecs4sub">
         <item>ma204</item>
         <item>ec202</item>
@@ -262,6 +264,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 APPLIED ELECTRONICS-->
     <string-array name="aes4sub">
         <item>ma204</item>
         <item>ae202</item>
@@ -282,6 +285,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 CIVIL -->
     <string-array name="ces4sub">
         <item>ma202</item>
         <item>ce202</item>
@@ -301,6 +305,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 ELETRICAL AND ELECTRONICS-->
     <string-array name="ees4sub">
         <item>ma202</item>
         <item>ee202</item>
@@ -320,6 +325,7 @@
         <item>Business Economics</item>
     </string-array>
 
+    <!-- SEMESTER 4 MECHANICAL -->
     <string-array name="mes4sub">
         <item>ma202</item>
         <item>me202</item>
@@ -339,7 +345,7 @@
         <item>Business Economics</item>
     </string-array>
 
-
+    <!-- SEMESTER 5 INFORMATION TECHNOLOGY -->
     <string-array name="its5sub">
         <item>it301</item>
         <item>it303</item>
@@ -363,6 +369,7 @@
         <item>Computer Graphics and Multimedia</item>
     </string-array>
 
+    <!-- SEMESTER 5 COMPUTER SCIENCE -->
     <string-array name="css5sub">
         <item>cs301</item>
         <item>cs303</item>
@@ -371,6 +378,10 @@
         <item>cs309</item>
         <item>cs361</item>
 
+        <item>cs363</item>
+        <item>cs365</item>
+        <item>cs367</item>
+        <item>cs369</item>
     </string-array>
     <string-array name="css5subnames">
         <item>THEORY OF COMPUTATION</item>
@@ -379,9 +390,13 @@
         <item>DATA COMMUNICATION</item>
         <item>GRAPH THEORY AND COMBINATORICS</item>
         <item>SOFT COMPUTING</item>
-
+        <item>Signals and Systems</item>
+        <item>OPTIMIZATION TECHNIQUES</item>
+        <item>Logic for Computer Science</item>
+        <item>Digital System Testing &amp; Testable Design</item>
     </string-array>
 
+    <!-- SEMESTER 5 ELECTRONICS AND COMMUNICATION -->
     <string-array name="ecs5sub">
         <item>ec301</item>
         <item>ec303</item>
@@ -405,6 +420,7 @@
         <item>Principles of Management</item>
     </string-array>
 
+    <!-- SEMESTER 5 APPLIED ELECTRONICS-->
     <string-array name="aes5sub">
         <item>ae301</item>
         <item>ae303</item>
@@ -415,7 +431,6 @@
         <item>ec361</item>
         <item>ae363</item>
         <item>ae365</item>
-
     </string-array>
     <string-array name="aes5subnames">
         <item>Control System</item>
@@ -429,6 +444,7 @@
         <item>INSTRUMENTATION FOR AGRICULTURE</item>
     </string-array>
 
+    <!-- SEMESTER 5 CIVIL -->
     <string-array name="ces5sub">
         <item>ce301</item>
         <item>ce303</item>
@@ -458,11 +474,61 @@
         <item>ADVANCED MECHANICS OF MATERIALS</item>
     </string-array>
 
-    <string-array name="ees5sub"></string-array>
-    <string-array name="ees5subnames"></string-array>
+    <!-- SEMESTER 5 ELETRICAL AND ELECTRONICS-->
+    <string-array name="ees5sub">
+        <item>ee301</item>
+        <item>ee303</item>
+        <item>ee305</item>
+        <item>ee307</item>
+        <item>ee309</item>
+        <item>ee361</item>
+        <item>ee363</item>
+        <item>ee365</item>
+        <item>ee367</item>
+        <item>ee369</item>
+    </string-array>
+    <string-array name="ees5subnames">
+        <item>POWER GENERATION, TRANSMISSION AND PROTECTION</item>
+        <item>Linear Control Systems</item>
+        <item>Power Electronics</item>
+        <item>SIGNAL AND SYSTEMS</item>
+        <item>Microprocessor and Embedded Systems</item>
+        <item>Object Oriented Programming</item>
+        <item>Computer Organization and Design</item>
+        <item>Digital System Design</item>
+        <item>New and Renewable Energy Systems</item>
+        <item>High Voltage Engineering</item>
+    </string-array>
 
-    <string-array name="mes5sub"></string-array>
-    <string-array name="mes5subnames"></string-array>
+    <!-- SEMESTER 5 MECHANICAL-->
+    <string-array name="mes5sub">
+        <item>me301</item>
+        <item>me303</item>
+        <item>me305</item>
+        <item>ee311</item>
+        <item>hs300</item>
+        <item>me361</item>
+        <item>me363</item>
+        <item>me365</item>
+        <item>me367</item>
+        <item>me369</item>
+        <item>me371</item>
+        <item>me373</item>
+    </string-array>
+    <string-array name="mes5subnames">
+        <item>MECHANICS OF MACHINERY</item>
+        <item>MACHINE TOOLS AND DIGITAL MANUFACTURING</item>
+        <item>COMPUTER PROGRAMMING AND NUMERICAL METHODS</item>
+        <item>Electrical Drives and Control for Automation</item>
+        <item>Principles of Management</item>
+        <item>Advanced Fluid Mechanics</item>
+        <item>COMPOSITE MATERIALS AND MECHANICS</item>
+        <item>Advanced Metal Casting</item>
+        <item>Non-Destructive Testing</item>
+        <item>Tribology</item>
+        <item>Nuclear Engineering</item>
+        <item>Human Relations Management</item>
+    </string-array>
 
 
     <!-- TODO: SIXTH SEMESTER SYLLABUS
@@ -487,5 +553,6 @@
         <string-array name="mes6sub"></string-array>
         <string-array name="mes6subnames"></string-array>
      -->
+
 
 </resources>

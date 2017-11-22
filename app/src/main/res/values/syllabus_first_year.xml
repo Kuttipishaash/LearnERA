@@ -50,7 +50,7 @@
     <array name="cy100">
         <item>Chemistry</item>
         <item>Spectroscopy</item>
-        <item>Introduction, Beer Lambert &apos; s Law (no derivations)(Numericals)\nUV-Visible
+        <item>Introduction, Beer Lambert \' s Law (no derivations)(Numericals)\nUV-Visible
             Spectroscopy -Principle,Instrumentation and Applications\nIR Spectroscopy - Principle,
             Chemical Shift - spin - spin splitting and applications including MRI(brief),Spectral
             Problems
@@ -102,10 +102,10 @@
         </item>
         <item>Interference and Diffraction</item>
         <item>Interference: Coherence. Interference in thin films and wedge shaped films (Reflected
-            system) Newton&apos;s rings-measurement of wavelength and refractive index of liquid
+            system) Newton\'s rings-measurement of wavelength and refractive index of liquid
             Interference filters. Anlireflection coaling. Diffraction lresnel and Fraunhofer
             diffraction. Fraunhofer diffraction at a single slit. Plane transmission grating.
-            Grating equation - measurment of wavelength. Rayleigh&apos;s criterion for resolution of
+            Grating equation - measurment of wavelength. Rayleigh\'s criterion for resolution of
             grating- Resolving power and dispersive power of grating.
         </item>
         <item>Polarization and Superconductors</item>
@@ -120,14 +120,14 @@
         <item>Quantum Mechanics: Uncertainty principle and its applications-formulation of time
             dependent and Time independent SchrOdinger equations- physical meaning of wave function-
             Energy and momentum Operators-Eigen values and functions- One dimensional infinite
-            square well potential .Quantum mechanical &apos;Funnelling (Qualitative) Statistical
+            square well potential .Quantum mechanical \'Funnelling (Qualitative) Statistical
             Mechanics: Macrostates and Microstates. Phase space. Basic postulates of Maxwell-
             Boltzmann, Bose-Einstein and Fermi Dirac statistics. Distribution equations in the three
             cases (no derivation). Fermi Level and its significance.
         </item>
         <item>Acoustics and Ultrasonics</item>
         <item>Acoustics: Intensity of sound- Loudness-Absorption coefficient -Reverberation and
-            reverberation time- Significance of reverberation time-Sabine&apos;s formula (No
+            reverberation time- Significance of reverberation time-Sabine\'s formula (No
             derivation)
             -Factors affecting acoustics of a building.
             Ultrasonics: Production of ultrasonic waves - Magnetostriction effect and Piezoelectric
@@ -137,7 +137,7 @@
         </item>
         <item>Laser and Photonics</item>
         <item>Laser: Properties of Lasers, absorption, spontaneous and stimulated emissions,
-            Population inversion, Einstein&apos;s coefficients, Working principle of laser,Optical
+            Population inversion, Einstein\'s coefficients, Working principle of laser,Optical
             resonant cavity. Ruby Laser, Helium-Neon Laser, Semiconductor Laser (qualitative).
             Applications of laser, holography (Recording and reconstruction)
             Photonics: Basics of solid state lighting - LED — Photodetectors - photo voltaic cell,
@@ -178,8 +178,8 @@
         <item></item>
         <item>Dynamics: Rectangular and Cylindrical co-ordinate system Combined motion of rotation
             and translation — Concept of instantaneous centre — Motion of connecting rod of piston
-            and crank of a reciprocating pump. Rectilinear translation — Newton&apos;s second law —
-            D&apos;Alembert&apos;s Principle — Application to connected bodies (Problems on motion
+            and crank of a reciprocating pump. Rectilinear translation — Newton\'s second law —
+            D\'Alembert\'s Principle — Application to connected bodies (Problems on motion
             of lin
             only).
         </item>
@@ -378,7 +378,7 @@
         <item></item>
         <item>Fundamental Concepts of Circuit Elements and Circuit variables:
             Electromotive force, potential and voltage. Resistors, Capacitors, Inductors- terminal
-            V-I relations. Basic Circuit Laws: Kirchhoff&apos;s current and voltage laws, analysis
+            V-I relations. Basic Circuit Laws: Kirchhoff\'s current and voltage laws, analysis
             of
             resistive circuits - mesh, node analysis, super mesh and super node analysis. Star delta
             transformation. Numerical problems.

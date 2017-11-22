@@ -184,7 +184,7 @@
         </item>
         <item>Process Synchronization</item>
         <item>Critical Section-
-            Peterson&apos;s solution. Synchronization – Locks,
+            Peterson\'s solution. Synchronization – Locks,
             Semaphores, Monitors, Classical Problems –
             Producer Consumer, Dining Philosophers and
             Readers-Writers Problems
@@ -745,7 +745,7 @@
             domain, bandwidth - Digital Signals; Digital data Transmission:- Analog &amp; Digital
             data, Analog &amp; Digital signals, Analog &amp;Digital transmission – Transmission
             Impairments: Attenuation, Delay distortion, Noise - Channel capacity: Nyquist Bandwidth,
-            Shannon&apos;s Capacity formula.
+            Shannon\'s Capacity formula.
         </item>
 
         <item></item>
@@ -834,7 +834,7 @@
         </item>
 
         <item></item>
-        <item>Euler graphs, Hamiltonian paths and circuits, Dirac&apos;s theorem for Hamiltonicity,
+        <item>Euler graphs, Hamiltonian paths and circuits, Dirac\'s theorem for Hamiltonicity,
             Travelling salesman problem. Directed graphs – types of digraphs, Digraphs and binary
             relation
         </item>
@@ -846,7 +846,7 @@
 
         <item></item>
         <item>Vertex Connectivity, Edge Connectivity, Cut set and Cut Vertices, Fundamental
-            circuits, Planar graphs, Different representation of planar graphs, Euler&apos;s
+            circuits, Planar graphs, Different representation of planar graphs, Euler\'s
             theorem, Geometric dual, Combinatorial dual.
         </item>
 
@@ -867,7 +867,7 @@
 
         <item></item>
         <item>Modern Processors : Stored Program Computer Architecture- General purpose cache- based
-            microprocessor-Performance based metrics and benchmarks- Moore&apos;s Law- Pipelining-
+            microprocessor-Performance based metrics and benchmarks- Moore\'s Law- Pipelining-
             SuperscalaritySIMD- Memory Hierarchies Cache- mapping- prefetch- Multicore processors-
             Mutithreaded processors- Vector Processors- Design Principles- Maximum performance
             estimates- Programming for vector architecture.

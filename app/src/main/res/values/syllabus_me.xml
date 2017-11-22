@@ -468,11 +468,7 @@
     </array>
     <array name="me301">
         <item>MM</item>
-        <item>1. Ballaney P. L., Theory of Machines and Mechanisms, Khanna Publishers,2005\n
-            2. S. S. Rattan, Theory of Machines, Tata Mc Graw Hill,2009
-        </item>
-        <item>4</item>
-        <item>NIL</item>
+
         <item>Introduction to kinematics and mechanisms</item>
         <item> Various mechanisms, kinematic diagrams, degree of freedom- Grashof’scriterion,
             inversions, coupler curves straight line mechanisms exact, approximate – Ackerman
@@ -515,14 +511,7 @@
 
     <array name="me303">
         <item>MTDM</item>
-        <item>
-            1. Chapman W. A. J., Workshop Technology, Viva books (P) Ltd,1988\n
-            2. HMT, Production Technology, Tata McGraw-Hill,2001\n
-            3. Zude Zhou, Shane (Shengquan) Xie and Dejun Chen, Fundamentals of Digital
-            Manufacturing Science, Springer-Verlag London Limited,2012\n
-        </item>
-        <item>3</item>
-        <item>NIL</item>
+
         <item>Introduction to metal cutting</item>
         <item>Tool nomenclature – Attributes of each tool nomenclature – Attributes of feed and tool
             nomenclature on surface roughness obtainable Orthogonal and oblique cutting - Mechanism
@@ -589,14 +578,7 @@
 
     <array name="me305">
         <item>CP</item>
-        <item>
-            1. Balagurusamy, Computer Programming 1e McGraw Hill Education , 2013\n
-            2. Balagurusamy, Numerical Methods 1e McGraw Hill Education, 1999\n
-            3. Jose S., Computer Programming and Numerical Methods, Pentagon, 2015.\n
-            4. Ravichandran D., Programming with C++, Tata McGraw Hill, 2007.\n
-        </item>
-        <item>3</item>
-        <item>NIL</item>
+
         <item>Introduction to Computer programming concept</item>
         <item>Internal representation of data - Algorithm and flow chart, Basics of procedure
             oriented and object oriented programming. Introduction to C++: Structure of C++ program;
@@ -636,18 +618,6 @@
 
     <array name="me361">
         <item>AFM</item>
-        <item>
-            1. Bansal R. K., A Text Book of Fluid Mechanics and Machines, Laxmi Publications,
-            2010.\n
-            2. Douglas J. F., Fluid Mechanics, Pearson Education, 2005.\n
-            3. Kumar D. S., Fluid Mechanics and Fluid Power Engineering, S. K. Kataria &amp; Sons,
-            1987.\n
-            4. Muralidhar K., G. Biswas, Advanced Engineering Fluid Mechanics, Alpha Science
-            International limited, 2005.\n
-            5. Rama D. D., Fluid Mechanics and Machines, New Age International, 2009\n
-        </item>
-        <item>3</item>
-        <item>ME203 Mechanics of fluids</item>
         <item>Basic Concepts and Fundamentals</item>
         <item>Fluid statics, Cartesian Tensors, Fluid Kinematics, and Description of fluid motion
             –Types of motion of fluid elements, Vorticity and circulation– Concept of rotational and
@@ -705,20 +675,8 @@
 
     <array name="me363">
 
-        <item>COMPOSITE MATERIALS AND MECHANICS</item>
 
         <item>CMM</item>
-
-        <item>1. K. K. Chawla, Composite Materials : Science and Engineering, Springer, 3e, 2013.\n
-            2. Reddy J N (Ed.), Mechanics of Composite Materials; Selected Works of Nicholas J.
-            Pagano,
-            Springer, 1994\n
-            3. Robert M. Jones, Mechanics of Composite Materials, CRC Press, 1998\n
-        </item>
-
-        <item>3</item>
-
-        <item>NIL</item>
 
         <item>Composite</item>
 
@@ -782,22 +740,6 @@
 
         <item>AMC</item>
 
-        <item>1. A.K.Chakrabarti, Casting Technology and Cast Alloys, Prentice –Hall Of India Ltd,
-            2005\n
-            2. Beely, Foundry Technology, Newnes-Butterworths, 1979\n
-            3. Gruzleski, The Treatment of Liquid Aluminum-Silicon Alloys, the American
-            Foundrymen’s Society Inc, USA, 1992\n
-            4. Heine, Loper and Rosenthal, Principle of Metal Casting, 2
-            Edition, Tata Mc-Graw-Hill Publishing Company Limited, New Delhi, 1978\n
-            5. John Cambell, Casting, Butterworth-Heineman Ltd, Jordon Hill, Oxford, 1991\n
-            6. T.V.Rama Rao, Metal casting Principles and Practice, New Age International,2010\n
-            7. Gruzleski, The Treatment of Liquid Aluminum-Silicon Alloys, the American\n
-            Foundrymen’s Society Inc, USA, 1992.\n
-        </item>
-
-        <item>3</item>
-
-        <item>NIL</item>
 
         <item>Design of molds</item>
 
@@ -871,15 +813,8 @@
 
     <array name="me367">
 
-        <item>Non-Destructive Testing</item>
 
         <item>NDT</item>
-
-        <item>Baldev Raj, Practical Non – Destructive Testing, Narosa Publishing House ,1997</item>
-
-        <item>3</item>
-
-        <item>NIL</item>
 
         <item>Introduction to NDT</item>
 
@@ -952,15 +887,6 @@
     <array name="me369">
         <item>Tribology</item>
 
-        <item>1. Ernest Rabinowicz, Friction and Wear of Materials, John Wiley &amp; sons,1995
-            2. I.M. Hutchings, Tribology: Friction and Wear of Engineering Materials, Butterworth-
-            Heinemann,1992
-            3. Prasanta Sahoo, Engineering Tribology, PHI Learning Private Ltd, New Delhi, 2011
-        </item>
-
-        <item>3</item>
-
-        <item>NIL</item>
 
         <item></item>
 
@@ -1021,16 +947,6 @@
 
         <item>NE</item>
 
-        <item>1. S. Glasstone and A. Sesonske, Nuclear Reactor Engineering, D. Van Nostrand
-            Company,\n
-            INC. 1967.
-            2. S Glasstone, Source book on atomic energy, Krieger Pub Co., 1979\n
-        </item>
-
-        <item>3</item>
-
-        <item>NIL</item>
-
         <item></item>
 
         <item>Review of Elementary nuclear physics: Atomic structure – nuclear energy and nuclear
@@ -1080,17 +996,6 @@
 
 
         <item>HRM</item>
-
-        <item>1. Gary Dessler, Human Resource Management., Pearson Education, 2017\n
-            2. Seema Sanghi , Stephen P. Robbins, , Timoti A Judge : Organizational Behaviour,
-            Pearson
-            Education, 2009\n
-        </item>
-
-        <item>3</item>
-
-        <item>NIL</item>
-
         <item>Human Behaviour</item>
 
         <item>Biological characteristics, age, gender, tenure.Ability, intellectual and physical
