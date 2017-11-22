@@ -2,20 +2,6 @@
 <resources>
     <array name="ae202">
         <item>CP</item>
-        <item>Text Books:\n
-            Text Books 1. Kelley, Al &amp; Pohl, Ira. A Book on Computer Programming in C, 4th Ed,,
-            Pearson Education 2. Lambert K. A., Fundamentals of Python - First Programs, Cengage
-            Learning India, 2015
-            \n\nReferences:\n
-            1. Balagurusamy E., Programming in ANSI C, Tata McGraw Hill 2. Samarjit Ghosh, All of C,
-            PHI Learning 3.Barry, P., Head First Python, , O’ Reilly Publishers 4. Guzdial, M. J.,
-            Introduction to Computing and Programming in Python, Pearson India 5 Pradip Dey and
-            Manas Ghosh, Computer Fundamentals and Programming in C, Oxford. 6. Ashok N Kamthane ;
-            Programming in C 7.Downey, A. et al., How to think like a Computer Scientist: Learning
-            with Python, John Wiley, 2015 8. www.python .org 9. www.tutorialpoints.com.
-        </item>
-        <item>3</item>
-        <item>NONE</item>
         <item></item>
         <item>Programming basics: Flowcharts and Algorithms. Compiler– Interpreter-Linker-Loader.
             Structured programming Introduction to C: Character set, Identifiers, Keywords,
@@ -56,18 +42,6 @@
 
     <array name="ae204">
         <item>SAT</item>
-        <item>Text Books:\n
-            1. John P. Bentley, “Principles of Measurement Systems”, 3rd Edition, Pearson Education,
-            2. S.M. Sze, “Semiconductor sensors”, John Wiley &amp; Sons Inc., Singapore, 1994. 4. S.
-            Renganathan “Transducer Engineering”, Allied publishers Limited, Chennai, 2003.
-
-            \n\nReferences:\n
-            Transducers: Definition of transducers, classification based on transduction principle,
-            measurand, material and technology, Analog and digital transducers, Active and passive
-            transducers, Primary and Secondary transducers. Characteristics of transducers
-        </item>
-        <item>3</item>
-        <item>NONE</item>
         <item></item>
         <item>Transducers: Definition of transducers, classification based on transduction
             principle, measurand, material and technology, Analog and digital transducers, Active
@@ -108,19 +82,6 @@
 
     <array name="ae301">
         <item>CS</item>
-        <item>Text Books:\n
-            .1. I J Nagrath and M. Gopal, Control Systems Engineering, New Age International
-            Publishers, New Delhi,1997 2. M. Gopal, Digital Control and State Variable Methods, 2 nd
-            ed., Tata McGraw Hill, New Delhi, 2003
-
-            \n\nReferences:\n
-            1. G. J. Thaler, Automatic Control Systems, Jaico Publishing House, Mumbai, 2005 2. K.
-            Ogata, Modern Control Engineering, 4th ed., Pearson Education, Delhi, 2002 3. B. C. Kuo,
-            Automatic Control Systems, 7th ed., Prentice Hall of India, New Delhi, 1995 4. R. C.
-            Dorf and R. H. Bishop, Modern Control Systems, 10th ed., Pearson Education, Delhi, 2004
-        </item>
-        <item>3</item>
-        <item>NONE</item>
         <item></item>
         <item>System Analysis: Systems, subsystems, and stochastic and deterministic systems -
             Principles of automatic control -Open loop and closed loop systems -Principles of
@@ -167,22 +128,6 @@
 
     <array name="ae302">
         <item>PCL</item>
-        <item>Text Books:\n
-            .1. I J Nagrath and M. Gopal, Control Systems Engineering, New Age International
-            Publishers, New Delhi,1997 2. M. Gopal, Digital Control and State Variable Methods, 2 nd
-            ed., Tata McGraw Hill, New Delhi, 2003
-
-            \n\nReferences:\n
-            1. B.G.Liptak ,Handbook of Instrumentation -Process control ,Chilton 2. Considine,
-            Process Instrumentation and control Handbook , 5th Ed., McGraw Hill 3. Krishna Kant,
-            Computer Based Industrial Control ,PHI 4. Murrill ,Applications concepts of Process
-            control, ISA 5. Murrill, Fundamentals of Process Control , ISA 6. Stephanopoulos George
-            ,Chemical Process Control, PHI 7. T.J.Ross Fuzzy Logic with Engineering Applications,
-            John Wiley &amp; Sons, 2004 8. Thomas E Marlin - Process Control- Designing processes
-            and Control Systems for Dynamic performance, McGraw-Hill International Editions
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Process characteristics: Incentives for process control, Process Variables types and
             selection criteria,, Process degree of freedom, The period of Oscillation and Damping,
@@ -236,20 +181,6 @@
 
     <array name="ae303">
         <item>EMMI</item>
-        <item>Text Books:\n
-            1. Baldwin, C.T., “Fundamentals of electrical measurements” – Lyall Book Depot, New
-            Delhi, 1973. 2. David.A.Bell, “Electronic Instrumentation and Measurements”, 2nd
-            Edition, Prentice Hall, New Jersy, 1994. 3. Golding, E.W. and Widdis, F.C., “Electrical
-            Measurements and Measuring Instruments” A.H.Wheeler and Co, 5th Edition, 1993.
-            \n\nReferences:\n
-            1. Cooper, W.D. and Helfric, A.D., “Electronic Instrumentation and Measurement
-            Techniques” Prentice Hall of India, 1991. 2. Kalsi.H.S., “Electronic Instrumentation”,
-            Tata McGraw Hill, New Delhi, 1995 3. Pattanabis, “Sensors and Transducers”, 2nd Edition,
-            Prentice Hall India Pvt. Ltd., 2003. 4. Waldemar Nawrocki, “Measurement Systems and
-            Sensors”, Artech House, 2005
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>General Principles of Measurements: Absolute and Working Standards- Calibration of
             Meters- Qualities of MeasurementsAccuracy, precision, sensitivity, resolution, loading
@@ -289,21 +220,6 @@
 
     <array name="ae304">
         <item>II</item>
-        <item>Text Books:\n
-            1. Baldwin, C.T., “Fundamentals of electrical measurements” – Lyall Book Depot, New
-            Delhi, 1973. 2. David.A.Bell, “Electronic Instrumentation and Measurements”, 2nd
-            Edition, Prentice Hall, New Jersy, 1994. 3. Golding, E.W. and Widdis, F.C., “Electrical
-            Measurements and Measuring Instruments” A.H.Wheeler and Co, 5th Edition, 1993.
-            \n\nReferences:\n
-            1. Andrew W.G, “Applied Instrumentation in Process Industries – A survey”, Vol I &amp;
-            Vol II, Gulf Publishing Company, Houston, 2001. 2. Douglas M. Considine, “Process /
-            Industrial Instruments &amp; Controls Handbook”, 5th Edition, McGraw Hill, Singapore,
-            1999. 3. Liptak B.G, “Process Measurement and Analysis”, 4th Edition, Chilton Book
-            Company, Radnor, Pennsylvania, 2003. 4. Noltingk B.E., “Instrumentation Reference Book”,
-            2ndEdition, Butterworth Heinemann, 1995.
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Temperature measurement: Resistance temperature detector (RTD), principle and types,
             construction requirements for industry, measuring circuits. Thermistors, principle and
@@ -350,22 +266,6 @@
 
     <array name="ae305">
         <item>MP AND MC</item>
-        <item>Text Books:\n
-            1. A K Ray and K M Bhurchandi, , Advanced Microprocessors and Peripherals, Tata McGraw
-            Hill, 2006 2. D V Hall, Microprocessors and Interfacing: Programming and Hardware, 2nd
-            ed., Tata McGraw Hill, 1999. 3. M A Mazidi and J. G. Mazidi, The 8051 Microcontroller
-            and Embedded Systems, Pearson Education, Delhi, 2004 4. Ramani Kalpathi and Ganesh Raja,
-            Microcontrollers and Applications, Pearson Education, 2010
-            \n\nReferences:\n
-            1. B Brey, The Intel Microprocessors, 8086/8088, 80186, 80286, 80386 and 80486
-            architecture, Programming and interfacing, 6th ed., Prentice Hall of India, New Delhi,
-            2003 2. K J Ayala, The 8051 Microcontroller- Architecture, Programming and applications,
-            Thomson Delmar Publishers Inc., India reprint Penram 3. Y C Liu and G A Gibson,
-            Microcomputer system: The 8086/8088 family, 2nd ed., Prentice Hall of India, New Delhi,
-            1986
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Intel 8086, format:, Assembler directives and operators, Assembly process, Linking and
             relocation, stacks, procedures, interrupt routines, macros.
@@ -402,20 +302,6 @@
 
     <array name="ae306">
         <item>DSP</item>
-        <item>Text Books:\n
-            1. Chen, C.T., “Digital Signal Processing: Spectral Computation &amp; Filter Design”,
-            Oxford Univ. Press, 2001 2. Ifeachor, E.C., &amp; Jervis, B.W., “Digital Signal
-            Processing: A Practical Approach”, 2/e, Pearson Education Asia, 2002. 3. Proakis, J.G.
-            &amp; Manolakis, D.G., “Digital Signal Processing: Principles, Algorithms, &amp;
-            Applications”, 3/e Prentice Hall of India, 1996.
-            \n\nReferences:\n 1. Embree, P.M., &amp; Danieli, D., “C++ Algorithms for Digital Signal
-            Processing”, 2/e, Prentice Hall Upper Saddle River, NJ, 1999. 2. McClellan, J.H.,
-            Schafer, R.W., &amp; Yoder, M.A., “DSP First: A Multimedia Approach”, Prentice Hall
-            Upper Saddle River, NJ, 1998 3. Mitra, S.K., “Digital Signal Processing: A
-            Computer-Based Approach”, McGraw Hill, NY, 1998
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Signal Processing Fundamentals: Discrete-time and digital signals, A/D, D/A conversion
             and Nyquist rate, Frequency aliasing due to sampling, Need for anti-aliasing filters.
@@ -458,17 +344,6 @@
 
     <array name="ae307">
         <item>SS</item>
-        <item>Text Books:\n
-            1. Haykin S. &amp; Veen B.V., Signals &amp; Systems, John Wiley 2. Oppenheim A.V.,
-            Willsky A.S. &amp; Nawab S.H., Signals and Systems, Tata McGraw Hill 3. Taylor F.H.,
-            Principles of Signals &amp; Systems, McGraw Hill
-            \n\nReferences \n 1. Bracewell R.N., Fourier Transform &amp; Its Applications, McGraw
-            Hill 2. Haykin S., Communication Systems, John Wiley 3. Lathi B.P., Modern Digital &amp;
-            Analog Communication Systems, Oxford University Press 4. Papoulis A., Fourier Integral
-            &amp; Its Applications, McGraw Hill
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
 
         <item>Introduction to signals and systems - Classification of signals - Basic operations on
@@ -512,18 +387,6 @@
 
     <array name="ae308">
         <item>AM</item>
-        <item>Text Books:\n 1. Andrew N. Sloss, Dominic Symes, Chris Wright ARM System Developer’s
-            Guide, Designing and Optimizing System Software, Elsevier 2. Muhammad Ali Mazidi, ARM
-            Assembly Language Programming &amp; Architecture, Kindle edition 3. Steve Furber ARM
-            System-on-chip Architecture, 2nd Edition, , Pearson publication 4. William Hohl and
-            Christopher Hinds, ARM Assembly Language, Fundamentals and Techniques, 2nd edition, CRC
-            Press.
-            \n\nReferences \n 1. Douglas V.Hall, “Microprocessors and Interfacing”, Tata McGraw
-            Hill, II Edition 2006 2. Mohamed Rafiquzzaman, “Microprocessors and Microcomputer Based
-            System Design”, II Edition, CRC Press, 2007
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
 
         <item>Introduction: Need of advance microprocessors, Difference between RISC and CISC, RISC
@@ -568,15 +431,6 @@
 
     <array name="ae312">
         <item>PE</item>
-        <item>Text Books:\n 1. M. H. Rashid, Power Electronics: Circuits, Devices and Applications,
-            3rd ed., Pearson Education, Delhi, 2002 2. N. Mohan, T. M. Underland, and W. P. Robbins,
-            Power Electronics: Converter, Applications and Design, John Wiley &amp; Sons, New York
-            3. P. S. Bimbhra, Power Electronics, Khanna Publishers, New Delhi, 2002
-            \n\nReferences \n  G. K. Dubey, S. R. Doradla, A. Joshi and R. M. K. Sinha,
-            Thyristorised Power Controllers, NewAge International Publishers, New Delhi, 1996
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Power semiconductor devices: Power diodes-types, power transistors, thyristor family,
             SCRs, Triac, GTOs, power MOSFETs, IGBTs, MCTs-static and dynamic characteristics,
@@ -612,17 +466,6 @@
 
     <array name="ae361">
         <item>VID</item>
-        <item>Text Books:\n 1. Peter W. Gofton, ‘Understanding Serial Communications’, Sybex
-            International. 2. Robert H. Bishop, ‘Learning with Lab-view’, Prentice Hall, 2003. 3. S.
-            Gupta and J.P Gupta, ‘PC Interfacing for Data Acquisition and Process Control’,
-            Instrument society of America, 1994
-            \n\nReferences \n 1. Gary W. Johnson, Richard Jennings, ‘Lab-view Graphical
-            Programming’, McGraw Hill Professional Publishing, 2006. 2. Kevin James, ‘PC Interfacing
-            and Data Acquisition: Techniques for Measurement, Instrumentation and Control’, Newness,
-            2000. WEB RESOURCES: www.ni.com
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Review of digital instrumentation: - Representation of analog signals in the digital
             domain – Review of quantization in amplitude and time axes, sample and hold, sampling
@@ -663,21 +506,6 @@
 
     <array name="ae362">
         <item>IP</item>
-        <item>Text Books:\n 1. Aswathappa K (2008) Human Resource Management (fifth edition), Tata
-            McGraw Hill 2. Blum &amp; Naylor (1982) Industrial Psychology. Its theoretical &amp;
-            social foundations, CBS Publications. 3. Singh N. (2011). Industrial Psychology. Tata
-            McGraw hill Education private limited
-        </item>
-
-        <item>References \n 1. Aamodt.M G (2016) Industrial/Organizational Psychology: An applied
-            Approach (8th edition), Cengage Learning 2. Miner J B (1992) Industrial/Organizational
-            Psychology. N Y: McGraw Hill 3. Robbins, S. P. (2010). Organizational behaviour. Tata
-            McGraw Hill publications. 4. Schiffman, L G &amp; Wisenblit, J. (2010). Consumer
-            behaviour. Pearson publications. 5. Schultz, D. P., &amp; Schultz, E. S. (2008).
-            Psychology and Work today. New York: Mac Milan publishing company
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Introduction to Industrial and Organizational Psychology: Introduction to industrial
             psychology, Definition, scope, major influences, goals, key forces, and fundamental
@@ -719,18 +547,6 @@
 
     <array name="ae363">
         <item>VCD</item>
-        <item>Text Books:\n 1. Douglas A. Pucknell &amp; Kamran Eshraghian, Basic VLSI Design, PHI.
-            2. Jan M. Rabaey, A. Chandrakasan, B. Nikolic, Digital Integrated Circuits- A Design
-            perspective, 2/e, Pearson education. 3. Sung-Mo Kang, Yusuf Leblebici, CMOS Digital
-            Integrated Circuits Analysis and Design, Tata Mc-Graw-Hill
-            \n\nReferences \n 1. Charles H Roth Jr – Fundamentals of Logic Design 4 Ed, Jaico
-            Publishers 2. Mead &amp; Conway , Introduction to VLSI System Design-Addison Wesley 3. S
-            M Sze, VLSI Technology, PHI 4. Wayne Wolf: Modern VLSI Design Systems on Chip-Pearson
-            Education, 2nd ed., 5. Weste and Eshraghian, Principles of CMOS VLSI Design, A Systems
-            Perspective,2/e, Pearson Education.
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>VLSI process integration: - fundamental considerations in IC processing - NMOS IC
             technology - CMOS IC technology - BiCMOS IC technology - GaAs technology. Ion
@@ -767,16 +583,6 @@
 
     <array name="ae364">
         <item>MEMS/NEMS</item>
-
-        <item>Text Books:\n  Maluf, Nadim “An introduction to Microelectromechanical Systems
-            Engineering “AR Tech house, Boston 2000References \n 1. Mohamed Gad – el – Hak “MEMS
-            Handbook” Edited CRC Press 2002 2. Sabrie Solomon “Sensors Handbook”, Mc Graw Hill, 1998
-            3. Marc F Madou, “ Fundamentals of micro fabrication,” CRC Press 2002 2nd Edition 4.
-            Francis E.H Tay and W. O. Choong, “Micro fluidics and bio MEMS application” IEEE Press
-            New York 1997 5. Trimmer William S, “Micromachanics and MEMS”, IEEE Press, New York 1997
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Foundation in Microsystems : Review of microelectronics manufacture and introduction
             to MEMS- Overview of microsystems technology, Laws of scaling- The multidisciplinary

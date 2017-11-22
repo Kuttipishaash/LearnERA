@@ -1,21 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="it201">
+        <item>DSD</item>
+        <item></item>
+        <item>Number systems – Decimal, Binary, Octal and
+            Hexadecimal – conversion from one system to
+            another –representation of negative numbers –
+            representation of BCD numbers – character
+            representation – character coding schemes –
+            ASCII – EBCDIC etc.\n
+            Addition, subtraction, multiplication and division
+            of binary numbers (no algorithms). Addition and
+            subtraction of BCD, Octal and Hexadecimal
+            numbers.\n
+            Representation of floating point numbers –
+            precision –addition, subtraction, multiplication
+            and division of floating point numbers.
+        </item>
+        <item></item>
+        <item>Introduction — Postulates of Boolean algebra –
+            Canonical and Standard Forms — logic
+            functions and gates.\n
+            Methods of minimization of logic functions —
+            Karnaugh map method and Quine- McClusky
+            method.\n
+            Product-of-Sums Simplification — Don’t-Care
+            Conditions.\n
+        </item>
+        <item></item>
+        <item>Combinational Logic: combinational Circuits
+            and design procedure — binary adder and
+            subtractor — multi—level NAND and NOR
+            circuits — Exclusive-OR and Equivalence
+            Functions.\n
+            Implementation of combination logic: parallel
+            adder,
+            carry look ahead adder, BCD adder, code
+            converter,
+            magnitude comparator, decoder, multiplexer,
+            demultiplexer, parity generator.
+        </item>
+        <item></item>
+        <item>Sequential logic circuits: latches and flip-flops –
+            edge triggering and level-triggering — RS, JK,
+            D and T flipflops — race condition — master-slave
+            flip-flop.\n
+            Clocked sequential circuits: state diagram —
+            state.\n
+            reduction and assignment — design with state
+            equations.
+        </item>
+        <item></item>
+        <item>Registers: registers with parallel load - shift
+            registers.\n
+            universal shift registers – application: serial
+            adder.\n
+            Counters: asynchronous counters — binary and BCD
+            ripple counters — timing sequences — synchronous
+            counters — up-down counter, BCD counter, Johnson
+            counter, Ring counter.
+        </item>
+        <item></item>
+        <item>Memory and Programmable Logic: Random-Access.\n
+            Memory (RAM)—Memory Decoding—Error Detection and Correction — Read only Memory (ROM),
+            Programmable Logic Array (PLA).
+            HDL: fundamentals, combinational logic, adder,
+            multiplexer.\n
+            Case Study : Implementation of 4-bit adder and 4-bit by 4-bit multiplier using VHDL.\n
+            Arithmetic algorithms: Algorithms for addition and
+            subtraction of binary and BCD numbers, algorithms for floating point addition and
+            subtraction , Booth’s Algorithm.
+        </item>
+    </array>
+    <array name="it202">
+        <item>AAD</item>
+
+        <item>Introduction and Complexity</item>
+        <item>What is an algorithm – Properties of an Algorithm, Development of an algorithm,
+            Pseudo-code Conventions, Recursive Algorithms – Performance Analysis - Space and Time
+            Complexity –Asymptotic Notations – ‘Oh’,‘Omega’, ‘Theta’, Worst, Best and Average Case
+            Complexity,
+            Running Time Comparison, Common Complexity Functions -
+            Recurrence Relations – Solving Recurrences using Iteration
+            and Recurrence Trees – Example Problems.\n
+            Profiling - Amortized Complexity.
+        </item>
+        <item>Divide and Conquer</item>
+        <item>Control Abstraction, Finding
+            Maximum and Minimum,Binary Search, Divide and Conquer
+            Matrix Multiplication, Stressen’s Matrix Multiplication, Quick
+            Sort, Merge Sort.
+        </item>
+        <item>Greedy Strategy</item>
+        <item>Control Abstraction, General Knapsack
+            Problem, Minimum Cost Spanning Trees – PRIM’s Algorithm,
+            Kruskal’s Algorithm, Job sequencing with deadlines.
+        </item>
+        <item>Backtracking and Branch and Bound Techniques</item>
+        <item>Backtracking– State Space Tree - Fixed Tuple and Variable
+            Tuple Formulation - Control Abstraction – Generating
+            Function and Bounding Function - Efficiency of the method -
+            Monte Carlo Method – N-Queens Problem, Sum of Subsets.\n
+            Branch and Bound Techniques– FIFO, LIFO, and LC
+            Control Abstractions, 15-puzzle.
+        </item>
+        <item>Dynamic Programming-</item>
+        <item>Principle of Optimality, Multistage
+            Graph Problem, Forward Approach, Backward Approach, All-
+            Pairs Shortest Paths, Traveling Salesman Problem.
+            Sophisticated Algorithms- Approximation Algorithms – Planar
+            Graph Coloring, Vertex cover.
+        </item>
+        <item></item>
+        <item>String Matching Algorithms – Rabin Karp algorithm -
+            Topological Sort - Deterministic and Non-Deterministic
+            Algorithms.\n
+            Lower Bound Theory- Comparison Trees for Searching and
+            Sorting, lower bound on comparison based algorithms, Sorting,
+            Selection and Merging; Oracles and Adversary Arguments –
+            Merging,Basic concepts of randomized algorithm-Las Vagas
+            algorithm for search.
+        </item>
+    </array>
+    <array name="it203">
+        <item>DC</item>
+
+        <item></item>
+        <item>Communication model Simplex, half duplex and full duplex
+            transmission. Time Domain and Frequency Domain concepts -
+            Analog and Digital data and signals - Transmission Impairments -
+            Attenuation, Delay distortion, Noise - Different types of noise
+            Channel capacity -Shannon\'s Theorem - Transmission mediatwisted
+            pair, Coaxial cable, optical fiber, terrestrial microwave,
+            satellite microwave.
+        </item>
+        <item></item>
+        <item>Synchronous and Asynchronous transmission. Sampling theorem
+            - Encoding digital data into digital signal - NRZ, Biphase,
+            Multilevel binary - Encoding digital data into analog signals -
+            ASK, FSK, PSK.
+        </item>
+        <item></item>
+        <item>Encoding analog data into digital signals - PCM, PM, DM -
+            Encoding analog data into analog signals - AM, FM, PM.\n
+            Multiplexing - TDM, FDM, WDM and DWDM Encoding
+            techniques, . Spread spectrum-The concept of spread spectrum –
+            frequency hopping spread spectrum – direct sequence spread
+            spectrum – code division multiple access
+        </item>
+        <item></item>
+        <item>Purpose of encoding, Instantaneous codes, Construction of
+            instantaneous codes. Construction of basic source codes.
+            Huffman coding, Arithmetic coding, ZIP coding.\n
+            Error Detecting and correcting codes. Error detection - parity
+            check, Forward Error Correction. Block codes, Convolution
+            codes.
+        </item>
+        <item></item>
+        <item>Cyclic codes: - Generator polynomial, Generator and Parity
+            check matrices, Encoding of cyclic codes, Syndrome
+            computation and error detection -CRC, VRC.\n
+            Decoding of cyclic codes, BCH codes, RS codes, Burst error
+            correction.
+        </item>
+        <item></item>
+        <item>Hamming codes, Encoding and decoding of systematic and unsystematic codes.\n
+            Basic principles of switching - circuit switching, packet switching, message
+            switching.\n
+            Basics of wireless communication, Introduction to WiFi, WiMax, GSM, GPRS.
+        </item>
+    </array>
+    <array name="it204">
+        <item>OOT</item>
+        <item>Need of OOP, Objects and Classes</item>
+        <item>Why Do We Need Object-Oriented Programming? - Procedural Languages - The
+            Object-Oriented Approach - Characteristics of Object-Oriented Languages – Objects –
+            Classes – Inheritance – Reusability - Creating New Data Types - Polymorphism and
+            Overloading - C++ and C.\n
+            Objects and Classes - A Simple Class - Classes and Objects - Defining the Class - Using
+            the Class - Calling Member Functions - C++ Objects as Physical Objects - C++ Objects as
+            Data Types – Constructors – Destructors - Objects as Function Arguments - Overloaded
+            Constructors - Member Functions Defined Outside the Class - Objects as Arguments - The
+            Default Copy Constructor - Static Class Data - const and Classes.
+        </item>
+        <item>Arrays, Strings and Operator Overloading</item>
+        <item>Arrays and Strings - Array Fundamentals - Arrays as Class Member Data - Arrays of
+            Objects - The Standard C++ string Class.\n
+            Operator Overloading - Overloading Unary Operators - Overloading Binary Operators - Data
+            Conversion.
+        </item>
+        <item>Inheritance and Class Hierarchies</item>
+        <item>Inheritance - Derived Class and Base Class - Derived Class Constructors - Overriding
+            Member Functions - Which Function Is Used?\n
+            Class Hierarchies - Public and Private Inheritance - Levels of Inheritance - Multiple
+            Inheritance.
+        </item>
+        <item>Pointers and Functions</item>
+        <item>Pointers - Addresses and Pointers - The Address-of Operator and - Pointers and
+            Arrays.\n
+            Pointers and Functions - Memory Management: new and delete - Pointers to Objects
+        </item>
+        <item>Functions, Streams and Files</item>
+        <item>Virtual Functions - Friend Functions - Static Functions - Assignment and Copy
+            Initialization - The this Pointer
+            Streams and Files - Stream Classes - Stream Errors - Disk File I/O with Streams - File
+            Pointers - File I/O with Member Functions.
+        </item>
+        <item>Templates and Exceptions</item>
+        <item>Templates and Exceptions - Function Templates - Class Templates.\n
+            Exceptions - Exception Syntax - Multiple Exceptions - Exceptions with Arguments
+        </item>
+    </array>
+
+
     <array name="it301">
         <item>SAD</item>
-        <item>Reference Books: \n\n 1. Eric J. Braude , Software Design, John Wiley and Sons.\n
-            2. Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides : Design Patterns:
-            Elements of Reusable Object-Oriented Software, Addison – Wesley 1994\n
-            3. James Rumbaugh, Object Oriented Modeling and Design, Prentice Hall India\n
-            4. Len Bass, Paul Clements, Rick Kazman, Software Architecture in Practice (2nd Ed.),
-            Pearson\n
-            5. Mary Shaw and David Garlan, Software Architecture – Perspectives on an emerging
-            discipline, Pearson, 1996\n
-            6. Roger S.Pressman, Software Engineering – A Practitioner’s approach, 8th
-            edition(2014), McGraw Hill Education
-        </item>
-        <item>3-1-0 - 4</item>
-        <item>Nil</item>
         <item></item>
         <item>The Nature of Software – Defining software, Software Application domains. Software
             Engineering. The Software Process, Process Models: - Water fall model, Incremental
@@ -50,19 +250,6 @@
 
     <array name="it302">
         <item>IT</item>
-        <item>TEXT BOOK \n\n1. Paul J. Deitel, Harvey M. Deitel, Abbey Deitel, “Internet and World
-            Wide Web How To Program”, 5/E, Pearson Education, 2012.
-
-            \n\nREFERENCES \n\n1. Robert W. Sebesta, “Programming the World Wide Web”, 8/E, Pearson
-            Education, 2012.
-            \n2. Chris Bates, “Web Programming – Building Intranet applications”, Wiley
-            Publications, 3rd Edition, 2009.
-            \n3. Jonathan Chaffer, Karl Swedberg, “Learning jQuery: Better interaction Design and
-            Web Development with Simple JavaScript Techniques”, PACKT publishing, 2007
-            \n4. www.w3schools.com
-        </item>
-        <item>4-0-0-4</item>
-        <item>Nil</item>
         <item></item>
         <item>mIntroduction to Computers and the Internet- Web Basics, Introduction to HTML5 - W3C
             HTML5 Validation Service, Headings, Linking, Images, Special Characters and Horizontal
@@ -109,19 +296,6 @@
 
     <array name="it303">
         <item>TOC</item>
-        <item>Text Book: \n\n1. Hopcroft J. E., J. D. Ullman and R. Motwani, Introduction to
-            Automata Theory, Languages and Computation, Pearson Education, 2008
-            \n2. Misra and Chandrasekharan, Theory of Computation, Prentice Hall
-            \n\nReferences: \n\n1. John Martin, Introduction to Language and Theory of Computation,
-            TMH
-            \n2. K.V.N. Sunitha and N Kalyani, Formal languages and Automata Theory Tata McGraw
-            Hill, NewDelhi
-            \n3. Michael Sipser, Introduction to the Theory of Computation, Thomson Learning
-            \n4. Moret B. M., The Theory of Computation, Pearson Education
-            \n5. Peter Linz, An Introduction to Formal Languages and Automata Narosa Publucation
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
         <item></item>
         <item>Introduction: Formal representation of languages – Chomsky Classification,
             Introduction to Automata theory, Alphabets and Languages, language operations:
@@ -161,19 +335,6 @@
 
     <array name="it304">
         <item>DWM</item>
-        <item>Text Book: \n\n1. Jaiwei Han, Micheline Kamber, “Data Mining Concepts and Techniques”,
-            Elsevier, 2006.
-            \n2. M. Sudeep Elayidom, “Data Mining and Warehousing”, 1st Edition, 2015 Cengage
-            Learning India Pvt. Ltd.
-            \n\nReferences: \n\n1. Pang-Ning Tan, Michael Steinbach, “Introduction to Data Mining”,
-            Addison Wesley, 2006.
-            \n2. Dunham M H, “Data Mining: Introductory and Advanced Topics”, Pearson Education, New
-            Delhi, 2003.
-            \n3. Mehmed Kantardzic, “Data Mining Concepts, Methods and Algorithms”, John Wiley and
-            Sons, USA, 2003.
-        </item>
-        <item>3-0-0-3</item>
-        <item>CS208 Principles of data base design</item>
         <item></item>
         <item>Data Mining: Concepts: Concepts, Data Mining Applications, Data Mining Stages, Data
             Mining Models, Data Warehousing and OLAP, Need for Data Warehousing, Challenges,
@@ -208,17 +369,6 @@
 
     <array name="it305">
         <item>OS</item>
-        <item>Text Books: \n\n1. Andrew S. Tanenbaum, “Modern Operating Systems”, Prentice Hall
-            \n2. J. L. Peterson and A. Silberschatz , Operating System Concepts, Addison Wesley.
-            \n\nReferences: \n\n1. D M Dhamdhere, “Operating Systems A Concept-based Approach”, Tata
-            McGraw Hill, New Delhi, 2nd Edition, 2010.
-            \n2. William Stallings, Operating Systems,6th Edition,Pearson,2009,ISBN
-            978-81-317-2528-3
-            \n3. Garry Nutt, “Operating Systems – A Modern perspective ”, Third Edition, Pearson
-            Education
-        </item>
-        <item>3-0-0:3</item>
-        <item>C202 Computer Organization and Architecture</item>
         <item></item>
         <item>Introduction: Operating Systems – Batch, Multi programmed, Time-sharing and Real time
             systems –System calls – System Programs –– Simple structure, Layered approach – Kernel,
@@ -251,22 +401,9 @@
         </item>
     </array>
 
+
     <array name="it306">
         <item>DS</item>
-        <item>Text Books:
-            \n\n1. George Coulouris, Jean Dollimore, Tim Kindberg, “Distributed Systems: Concepts
-            and Design”, Pearson 2009, 4th Edition.
-            \n\nReferences:
-            \n\n1. Andrew S Tanenbaum and Marteen Van Steen, “Distributed Systems Principles and
-            Paradigms”, Pearson Education / Prentice Hall of India , New Delhi, 2002.
-            \n2. Pradeep K Sinha, “Distributed Operating Systems: Concepts and Design”, Prentice
-            Hall of India, New Delhi, 2004.
-            \n3. Mukesh Singhal, Niranjan G Shivarathri, “Advanced Concepts in Operating systems”,
-            Tata Mc Graw Hill Ltd.
-            \n4. Tanenbaum A S, “ Modern Operating System”, 3/e, PHI
-        </item>
-        <item>3-0-0-3</item>
-        <item>IT305 Operating Systems</item>
         <item></item>
         <item>Characterization of Distributed Systems-Introduction-ExamplesResource Sharing and the
             Web-Challenges. System ModelsArchitectural-Fundamental. Inter process
@@ -303,17 +440,7 @@
 
     <array name="it307">
         <item>CN</item>
-        <item>Text Book: \n\n1. Andrew S. Tanenbaum, “Computer Networks”, Prentice Hall, 4th
-            Edition, 2003 (Module 1 to 5)
-            \n2. James F Kurose, Keith W Ross, Computer Networking: A top Down Approach featuring
-            the Internet, Pearson Education, 3rd Edition. (Module 6)
-            \n\nReferences: \n\n1. Behrouz A. Forouzan, TCP/IP Protocol Suite, Fourth Edition, Mc
-            Graw Hill
-            \n2. Behrouz A. Forouzan, Data Communication and Networking, Fourth Edition, Mc Graw
-            Hill
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
+
         <item>INTRODUCTION AND PHYSICAL LAYER</item>
         <item>Introduction: - Types of Computer Networks, Network Software - Protocol Hierarchies,
             Connection oriented and Connection less hierarchies, Reference Models - ISO-OSI
@@ -358,17 +485,7 @@
 
     <array name="it361">
         <item>GT</item>
-        <item>References: \n\n1. Bondy,J. A. and Murty,U.S.R., ‘Graph Theory with Applications’,
-            Springer, 2008.
-            \n2. Diestel, R. Graph Theory (Graduate Texts in Mathematics). New York, NY:
-            Springer-Verlag, 1997. ISBN: 3540261834
-            \n3. N. Alon and J. Spenser, "Probabilistic Methods", John Wiley and Sons, 2nd edition,
-            2000.
-            Bollobás, B. Modern Graph Theory (Graduate Texts in Mathematics). New York, NY:
-            SpringerVerlag, 1998. ISBN: 0387984917.
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
+
         <item>GRAPHS AND SUB GRAPHS. TREES</item>
         <item>GRAPHS AND SUBGRAPH - Graphs and Simple Graphs, Graph Isomorphism, The Incidence and
             Adjacency Matrices, Subgraphs, Vertex Degrees, Paths and Connection, Cycles,
@@ -407,49 +524,31 @@
 
     <array name="it362">
         <item>IR</item>
-        <item>Text Books: \n\n1. C. Manning, P. Raghavan, and H. Schütze, “Introduction to
-            Information Retrieval”, Cambridge University Press, 2008.
-            \n2. C.J. Van Rijsbergen , Information Retrieval:,
-            http://www.dcs.gla.ac.uk/Keith/Preface.html
-            \n3. Ricardo Baexa-Yates and Berthier Ribeiro-Neto, “Modern Information Retrieval”,
-            Addison Wesley Longman, 1999.
-            \n\nReferences: \n\n1. Bruce Croft, Donald Metzler and Trevor Strohman, “Search Engines:
-            Information Retrieval in Practice”, 1st Edition Addison Wesley, 2009.
-            \n2. Manu Konchady, “Building Search Applications: Lucene, Ling Pipe”, First Edition,
-            Gate Mustru Publishing, 2008.
-            \n3. Mark Levene, “An Introduction to Search Engines and Web Navigation”, 2nd Edition
-            Wiley, 2010.
-            \n4. Ophir Frieder, “Information Retrieval: Algorithms and Heuristics: The Information
-            Retrieval Series”, 2nd Edition, Springer, 2004.
-            \n5. Stefan Buettcher, Charles L. A. Clarke, Gordon V. Cormack, “Information Retrieval:
-            Implementing and Evaluating Search Engines”, The MIT Press, 2010.
-        </item>
-        <item>3-0-0-3</item>
-        <item>CS205 Data structures</item>
+
         <item></item>
         <item>Introduction – Information versus Data Retrieval. Modeling of Information retrieval.
             Boolean Model, Vector Model, Probabilistic Model, Set Theoretical Models, Structured
             Text Retrieval Models.
         </item>
-        <item>MODULE 2</item>
+        <item></item>
         <item>Classification, Measures of Association, Cluster Hypothesis, Single Link Clusters,
             File Structures, Inverted Files, Index Sequential Files, Ring Structures, Doubly Chained
             Trees, Hash Addressing
         </item>
-        <item>MODULE 3</item>
+        <item></item>
         <item>Evaluation, Relevance, Precision and Recall, Interpolation, Averaging techniques, The
             Swets Model.
         </item>
-        <item>MODULE 4</item>
+        <item></item>
         <item>Search Engines, Boolean Search, Matching Functions, Serial Search, Cluster
             Representatives, Cluster based retrieval.
         </item>
-        <item>MODULE 5</item>
+        <item></item>
         <item>Web search basics – Web characteristics - crawling and indexes – Features of a crawler
             – Crawler architecture – DNS resolution – The URL frontier – Distributing indexes –
             Connectivity servers.
         </item>
-        <item>MODULE 6</item>
+        <item></item>
         <item>Link Analysis – The Web as a graph – Anchor text and the web graph, PageRank – Markov
             chains, Page Rank computation, Topic-specific Page Rank, Hubs and authorities.
         </item>
@@ -457,45 +556,34 @@
 
     <array name="it363">
         <item>USP</item>
-        <item>Text Book: \n\n1. Sumitabha Das , “Unix the ultimate guide”, TMH. 2nd Edition.
-            \n2. Behrouz A. Forouzan, Richard F. Gilberg,” Unix and shell Programming.”, Cengage
-            Learning
-            \n\nReferences: \n\n1. Kernighan and Pike, “Unix programming environment”, PHI. /
-            Pearson Education
-            \n2. Graham Glass, King Ables,” Unix for programmers and users”, 3rd edition, Pearson
-            Education
-            \n3. Maurice J. Bach, “The Design of the Unix Operating System”, First Edition, Pearson
-            Education, 1999
-        </item>
-        <item>3-0-0-3</item>
-        <item>IT 201 Operating Systems</item>
-        <item>MODULE 1</item>
+
+        <item></item>
         <item>Introduction to Unix:- Architecture of Unix, Features of Unix , Introduction to unix
             file system, Basic Unix Commands – General-purpose utilities, vi editor
         </item>
-        <item>MODULE 2</item>
+        <item></item>
         <item>The Unix file system – Parent-Child relationship – File types - File operations - File
             Permissions – File Ownership –File modification and access times – Directories –
             Directory permissions – File System and Inodes – Links and symbolic links – locating
             Files.
         </item>
-        <item>MODULE 3</item>
+        <item></item>
         <item>Introduction to Shells – Shell as command Processor – quotes, escape characters, wild
             cards – Redirection – pipes –tee command –variables –command substitution – filters
         </item>
-        <item>MODULE 4</item>
+        <item></item>
         <item>Concepts of process in Unix – process creation – process status – Background and
             foreground Jobs – Job Execution with low priority – Signals – Termination of process –
             Job control
             TCP/IP Networking tools – talk, mesg, finger, telnet, rlogin, ftp, rcp, rsh – security
             for the Berkeley r-Utilities.
         </item>
-        <item>MODULE 5</item>
+        <item></item>
         <item>Filters using regular expressions – grep –sed – programming with awk – preliminaries,
             formatted output, variables, number processing, comparison operators, BEGIN and END
             sections, arrays, control flows, looping and functions.
         </item>
-        <item>MODULE 6</item>
+        <item></item>
         <item>Shell Programming – Shell variables – Shell scripts – positional parameters – Exit
             status of a command – logical operator – script termination – conditional branching –
             looping – sleep and wait - set and let commands – redirection – Exporting shell
@@ -506,16 +594,7 @@
 
     <array name="it364">
         <item>SPM</item>
-        <item>References \n\n1. Roger S. Pressman, Software Engineering, 8/e, McGraw Hill, 2014.
-            \n2. Ian Sommervile, Software Engineering, 7/e, University of Lancastor, Pearson
-            Education, 2004.
-            \n3. Bob Huges, Mike Cotterell, Rajib Mall, Software Project Management, 8/e, McGraw
-            Hill, 2015.
-            \n4. Walker Royce, Software Project Management : A Unified Frame Work, Pearson
-            Education.
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
+
         <item></item>
         <item>Introduction to software engineering- scope of software engineering, historical
             aspects, economic aspects, maintenance aspects, specification and design aspects, team
@@ -575,21 +654,7 @@
 
     <array name="it365">
         <item>CAPP</item>
-        <item>Text Books \n\n1. D.E. Culler, J.P. Singh, and A. Gupta. Parallel Computer
-            Architecture - A Hardware/Software Approach. Morgan Kaufmann Publishers, 2010.
-            \n2. Hennessy J. L., D. Patterson, “Computer Architecture – A quantitative Approach”,
-            5/e, Morgan Kauffman 2012.
-            \n\nReferences \n\n1. Kai Hwang, “Advanced Computer Architecture Parallelism,
-            Scalability, Programmability”, Tata McGraw-Hill, 2003.
-            \n2. Research papers from top conferences such as ISCA, HPCA, MICRO, and ASPLOS.
-            \n3. S.W. Keckler, K. Olukotun, and H.P. Hofstee. Multicore Processors and Systems.
-            Springer, 2009.
-            \n4. W.J. Dally and B. Towles. Principles and Practices of Interconnection Networks.
-            Morgan Kaufmann Publishers, 2003.
-            \n5. WWW Computer Architecture page. http://www.cs.wisc.edu/arch.
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
+
         <item></item>
         <item>Computer architecture - design issues-Memory wall, Power Wall , Frequency Wall Classes
             of parallelism and parallel architecture,
@@ -626,24 +691,7 @@
 
     <array name="it366">
         <item>ADBMS</item>
-        <item>Text Book: \n\n1. R. Elmasri, S.B. Navathe, “Fundamentals Of Database Systems”,
-            Pearson Education, 2004
-            \n\nReferences: \n\n1. Abdullah Uz Tansel Et Al, “Temporal Databases: Theory, Design and
-            Principles”, Benjamin Cummings Publishers, 1993.
-            \n2. C.S.R Prabhu, “Object-Oriented Database Systems”, Prentice Hall Of India, 1998.
-            \n3. Carlo Zaniolo, Stefano Ceri, Christos Faloustsos, R.T.Snodgrass, V.S.Subrahmanian,
-            “Advanced Database Systems”, Morgan Kaufman, 1997.
-            \n4. Elisa Bertino, Barbara Catania, Gian Piero Zarri, “Intelligent Database Systems”,
-            Addison-Wesley, 2001.
-            \n5. Henry F Korth, Abraham Silberschatz, S. Sudharshan, “Database System Concepts”,
-            Fourth Edition, McGraw Hill, 2002.
-            \n6. N.Tamer Ozsu, Patrick Valduriez, “Principles Of Distributed Database Systems”,
-            Prentice Hall International Inc., 1999.
-            \n7. Raghu Ramakrishnan, Johannes Gehrke, “Database Management Systems”, McGraw Hill,
-            Third Edition 2004
-        </item>
-        <item>3-0-0-3</item>
-        <item>CS208 Principles of database design</item>
+
         <item>Distributed Databases</item>
         <item>Distributed Databases Vs Conventional Databases – Architecture – Fragmentation– Query
             Processing – Transaction Processing – Concurrency Control – Recovery.
@@ -672,21 +720,7 @@
 
     <array name="it367">
         <item>CGandM</item>
-        <item>References \n\n1. Donald Hearn, Pauline Baker, “ Computer Graphics – C Version”,
-            Pearson Education.
-            \n2. Steinmetz R. and Nahrstedt K., “Multimedia: Computing, Communications and
-            Applications”, Pearson Education.
-            \n3. David F. Rogers, “Procedural Elements for Computer Graphics”, Tata McGraw-Hill
-            \n4. Foley, van Dam, Feiner and Hughes, “Computer Graphics Principles and Practice”,
-            Pearson Education.
-            \n5. William M. Newman, Robert F. Sproull, “Principles of Interactive Computer Graphics”
-            , Tata McGraw-Hill.
-            \n6. David F. Rogers, J. Alan Adams, “Mathematical Elements for Computer Graphics”, Tata
-            McGraw-Hill.
-            \n7. Tay Vaughan, “Multimedia: Making it Work”, Tata McGraw-Hill.
-        </item>
-        <item>3-0-0-3</item>
-        <item>Nil</item>
+
         <item></item>
         <item>Graphics Systems – Raster Scan and Random Scan systems. Output Primitives – Line
             Drawing Algorithms (DDA, Bresenham), Circle generation algorithm. Filled Area
@@ -718,19 +752,7 @@
 
     <array name="it368">
         <item>ITC</item>
-        <item>References: \n\n1. Ranjan Bose ,Information Theory, Coding and Cryptography 2nd
-            Edition:, Tata McGrawHill, New Delhi, 2008
-            \n2. Simon Haykin, Communication Systems: John Wiley and Sons. Pvt. Ltd.
-            \n3. Taub and Schilling, Principles of Communication Systems: Tata McGraw-Hill
-            \n4. Das, Mullick and Chatterjee, Principles of Digital Communication: Wiley Eastern
-            Ltd.
-            \n5. Shu Lin and Daniel J. Costello Jr, Error Control Coding Fundamentals and
-            Applications: Prentice Hall Inc.
-            \n6. Bernard Sklar, Digital Communications Fundamentals and Applications, Prentice Hall,
-            2/e, 2001
-        </item>
-        <item>3-0-0-3</item>
-        <item>NIL</item>
+
         <item>Information theory</item>
         <item>Concept of amount of information units, Entropy -marginal, conditional and joint
             entropies relation among entropies Mutual information, information rate, channel

@@ -22,100 +22,470 @@
         <item>ce</item>
     </string-array>
 
-    <array name="its5sub">
+    <!-- FIRST YEARS -->
+    <string-array name="s1sub">
+        <item>ma101</item>
+        <item>cy100</item>
         <item>ph100</item>
         <item>be100</item>
-        <item>ph100</item>
-        <item>be100</item>
-        <item>ph100</item>
-        <item>be100</item>
-        <item>TEST</item>
-    </array>
-    <array name="its5subnames">
-        <item>Engineering Physics</item>
+        <item>be110</item>
+        <item>ec100</item>
+        <item>be10101</item>
+        <item>be10102</item>
+        <item>be10103</item>
+        <item>be10104</item>
+        <item>be10105</item>
+        <item>be103</item>
+        <item>ce100</item>
+        <item>me100</item>
+        <item>ee100</item>
+        <item>ma102</item>
+        <item>be102</item>
+    </string-array>
+
+    <string-array name="s1subnames">
+        <item>Calculus</item>
+        <item>Engineering Chemistry</item>
+        <item>ngineering Physics</item>
         <item>Engineering Mechanics</item>
-        <item>Engineering Physics</item>
-        <item>Engineering Mechanics</item>
-        <item>Engineering Physics</item>
-        <item>Engineering Mechanics</item>
-
-    </array>
-
-
-    <string-array name="its3sub"></string-array>
-    <string-array name="its3subnames"></string-array>
-
-    <string-array name="css3sub"></string-array>
-    <string-array name="css3subnames"></string-array>
-
-    <string-array name="ecs3sub"></string-array>
-    <string-array name="ecs3subnames"></string-array>
-
-    <string-array name="aes3sub"></string-array>
-    <string-array name="aes3subnames"></string-array>
-
-    <string-array name="ces3sub"></string-array>
-    <string-array name="ces3subnames"></string-array>
-
-    <string-array name="ees3sub"></string-array>
-    <string-array name="ees3subnames"></string-array>
+        <item>Engineering Graphics</item>
+        <item>Basics of Electronics Engineering</item>
+        <item>Introduction to Civil Engineering</item>
+        <item>Introduction to Mechanical Engineering Sciences</item>
+        <item>Introduction to Electrical Engineering</item>
+        <item>Introduction to Electronics Engineering</item>
+        <item>Introduction to Computing and Problem Solving</item>
+        <item>Introduction to Sustainable Engineering</item>
+        <item>Basics of Civil Engineering</item>
+        <item>Basics of Mechanical Engineering</item>
+        <item>Basics of Electrical Engineering</item>
+        <item>Differential Equations</item>
+        <item>Design and Engineering</item>
+    </string-array>
 
 
-    <string-array name="its4sub"></string-array>
-    <string-array name="its4subnames"></string-array>
+    <!-- SEMESTER 3 INFORMATION TECHNOLOGY -->
+    <string-array name="its3sub">
+        <item>ma201</item>
+        <item>cs201</item>
+        <item>it201</item>
+        <item>cs205</item>
+        <item>it203</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="its3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Discrete Computational Structures</item>
+        <item>Digital System Design</item>
+        <item>Data Structures</item>
+        <item>Data Communication</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
-    <string-array name="css4sub"></string-array>
-    <string-array name="css4subnames"></string-array>
+    <!-- SEMESTER 3 COMPUTER SCIENCE -->
+    <string-array name="css3sub">
+        <item>ma201</item>
+        <item>cs201</item>
+        <item>cs203</item>
+        <item>cs205</item>
+        <item>cs207</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="css3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Discrete Computational Structures</item>
+        <item>Switching Theory and Logic Design</item>
+        <item>Data Structures</item>
+        <item>Electronic Devices and Circuits</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
-    <string-array name="ecs4sub"></string-array>
-    <string-array name="ecs4subnames"></string-array>
+    <!-- SEMESTER 3 ELECTRONICS AND COMMUNICATION -->
+    <string-array name="ecs3sub">
+        <item>ma201</item>
+        <item>ec201</item>
+        <item>ec203</item>
+        <item>ec205</item>
+        <item>ec207</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ecs3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Network Theory</item>
+        <item>Solid State Devices</item>
+        <item>Electronic Circuits</item>
+        <item>Logic Circuit Design</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
-    <string-array name="aes4sub"></string-array>
-    <string-array name="aes4subnames"></string-array>
+    <!-- SEMESTER 3 APPLIED ELECTRONICS AND INSTRUMENTATION -->
+    <string-array name="aes3sub">
+        <item>ma201</item>
+        <item>ec201</item>
+        <item>ec203</item>
+        <item>ec205</item>
+        <item>ec207</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="aes3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Network Theory</item>
+        <item>Solid State Devices</item>
+        <item>Electronic Circuits</item>
+        <item>Logic Circuit Design</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
-    <string-array name="ces4sub"></string-array>
-    <string-array name="ces4subnames"></string-array>
+    <!-- SEMESTER 3 CIVIL -->
+    <string-array name="ces3sub">
+        <item>ma201</item>
+        <item>ce201</item>
+        <item>ce203</item>
+        <item>ce205</item>
+        <item>ce207</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ces3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Mechanics of Solids</item>
+        <item>Fluid Mechanics 1</item>
+        <item>Engineering Geology</item>
+        <item>Surveying</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
-    <string-array name="ees4sub"></string-array>
-    <string-array name="ees4subnames"></string-array>
+    <!-- SEMESTER 3 ELECTRICAL AND ELECTRONICS -->
+    <string-array name="ees3sub">
+        <item>ma201</item>
+        <item>ee201</item>
+        <item>ee203</item>
+        <item>ee205</item>
+        <item>ee207</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ees3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Circuits and Networks</item>
+        <item>Analog Electronic Circuits</item>
+        <item>DC MACHINES AND TRANSFORMERS</item>
+        <item>Computer Programming</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <!-- SEMESTER 3 MECHANICAL -->
+    <string-array name="mes3sub">
+        <item>ma201</item>
+        <item>me201</item>
+        <item>me203</item>
+        <item>me205</item>
+        <item>me210</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="mes3subnames">
+        <item>Complex Analysis and Linear Algebra</item>
+        <item>Mechanics of Solids</item>
+        <item>Mechanics of Fluids</item>
+        <item>Thermodynamics</item>
+        <item>Metallurgy and Materials Engineering</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="its4sub">
+        <item>ma202</item>
+        <item>cs202</item>
+        <item>it202</item>
+        <item>it204</item>
+        <item>cs208</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="its4subnames">
+        <item>Probability Distributions, Transforms and Numerical Methods</item>
+        <item>Computer Organisation and Architecture</item>
+        <item>Algorithm Analysis and Design</item>
+        <item>Object Oriented Techniques</item>
+        <item>Principles of Database Design</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="css4sub">
+        <item>ma202</item>
+        <item>cs202</item>
+        <item>cs204</item>
+        <item>cs206</item>
+        <item>cs208</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="css4subnames">
+        <item>Probability Distributions, Transforms and Numerical Methods</item>
+        <item>Computer Organisation and Architecture</item>
+        <item>Operating Systems</item>
+        <item>Object Oriented Design and Programming</item>
+        <item>Principles of Database Design</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="ecs4sub">
+        <item>ma204</item>
+        <item>ec202</item>
+        <item>ec204</item>
+        <item>ec206</item>
+        <item>ec208</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ecs4subnames">
+        <item>Probability distributions, Random
+            Processes and Numerical Methods</item>
+        <item>Signals and Systems</item>
+        <item>Analog Integrated Circuits</item>
+        <item>Computer Organisation</item>
+        <item>Analog Communication Engineering</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="aes4sub">
+        <item>ma204</item>
+        <item>ae202</item>
+        <item>ec204</item>
+        <item>ae204</item>
+        <item>ee216</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="aes4subnames">
+        <item>Probability distributions, Random
+            Processes and Numerical Methods</item>
+        <item>Computer Programming</item>
+        <item>Analog Integrated Circuits</item>
+        <item>Sensors and Transducers</item>
+        <item>Electrical Engineering</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="ces4sub">
+        <item>ma202</item>
+        <item>ce202</item>
+        <item>ce204</item>
+        <item>ce206</item>
+        <item>ce208</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ces4subnames">
+        <item>Probability Distributions, Transforms and Numerical Methods</item>
+        <item>Structural Analysis 1</item>
+        <item>Construction Technology</item>
+        <item>Fluid Mechanics 2</item>
+        <item>Geotechnical Engineering 1</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="ees4sub">
+        <item>ma202</item>
+        <item>ee202</item>
+        <item>ee204</item>
+        <item>ee206</item>
+        <item>ee208</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="ees4subnames">
+        <item>Probability Distributions, Transforms and Numerical Methods</item>
+        <item>Synchronous and Induction Machines</item>
+        <item>Digital Electronics and Logic Design</item>
+        <item>Material Science</item>
+        <item>Measurements and Instrumentation</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
+
+    <string-array name="mes4sub">
+        <item>ma202</item>
+        <item>me202</item>
+        <item>me204</item>
+        <item>me206</item>
+        <item>me220</item>
+        <item>hs210</item>
+        <item>hs200</item>
+    </string-array>
+    <string-array name="mes4subnames">
+        <item>Probability Distributions, Transforms and Numerical Methods</item>
+        <item>Advanced Mechanics of Solids</item>
+        <item>Thermal Engineering</item>
+        <item>Fluid Machinery</item>
+        <item>Manufacturing Technology</item>
+        <item>Life Skills</item>
+        <item>Business Economics</item>
+    </string-array>
 
 
-    <!--
-    <string-array name="its5sub"></string-array>
-    <string-array name="its5subnames"></string-array>
--->
-    <string-array name="css5sub"></string-array>
-    <string-array name="css5subnames"></string-array>
+    <string-array name="its5sub">
+        <item>it301</item>
+        <item>it303</item>
+        <item>cs305</item>
+        <item>it305</item>
+        <item>it307</item>
+        <item>it361</item>
+        <item>it363</item>
+        <item>it365</item>
+        <item>it367</item>
+    </string-array>
+    <string-array name="its5subnames">
+        <item>Software Architecture and Design Patterns</item>
+        <item>Theory of Computation</item>
+        <item>Microprocessors and Microcontrollers</item>
+        <item>Operating systems</item>
+        <item>Computer Networks</item>
+        <item>Graph Theory</item>
+        <item>Unix Shell Programming</item>
+        <item>Computer Architecture and Parallel Processing</item>
+        <item>Computer Graphics and Multimedia</item>
+    </string-array>
 
-    <string-array name="ecs5sub"></string-array>
-    <string-array name="ecs5subnames"></string-array>
+    <string-array name="css5sub">
+        <item>cs301</item>
+        <item>cs303</item>
+        <item>cs305</item>
+        <item>cs307</item>
+        <item>cs309</item>
+        <item>cs361</item>
 
-    <string-array name="aes5sub"></string-array>
-    <string-array name="aes5subnames"></string-array>
+    </string-array>
+    <string-array name="css5subnames">
+        <item>THEORY OF COMPUTATION</item>
+        <item>SYSTEM SOFTWARE</item>
+        <item>Microprocessors and Microcontrollers</item>
+        <item>DATA COMMUNICATION</item>
+        <item>GRAPH THEORY AND COMBINATORICS</item>
+        <item>SOFT COMPUTING</item>
 
-    <string-array name="ces5sub"></string-array>
-    <string-array name="ces5subnames"></string-array>
+    </string-array>
+
+    <string-array name="ecs5sub">
+        <item>ec301</item>
+        <item>ec303</item>
+        <item>ec305</item>
+        <item>ec307</item>
+        <item>ec361</item>
+        <item>ec363</item>
+        <item>ec365</item>
+        <item>ec360</item>
+        <item>hs300</item>
+    </string-array>
+    <string-array name="ecs5subnames">
+        <item>Digital Signal Processing</item>
+        <item>Applied Electromagnetic Theory</item>
+        <item>Microprocessor &amp; Microcontroller</item>
+        <item>Power Electronics &amp; Instrumentation</item>
+        <item>Digital System Design</item>
+        <item>Optimization Techniques</item>
+        <item>Biomedical Engineering</item>
+        <item>Soft Computing</item>
+        <item>Principles of Management</item>
+    </string-array>
+
+    <string-array name="aes5sub">
+        <item>ae301</item>
+        <item>ae303</item>
+        <item>ae305</item>
+        <item>ae307</item>
+        <item>hs300</item>
+        <item>ae361</item>
+        <item>ec361</item>
+        <item>ae363</item>
+        <item>ae365</item>
+
+    </string-array>
+    <string-array name="aes5subnames">
+        <item>Control System</item>
+        <item>Electrical Measurements and Measuring Instruments</item>
+        <item>Microprocessors and Microcontrollers</item>
+        <item>Signals and Systems</item>
+        <item>Principles of Management</item>
+        <item>VIRTUAL INSTRUMENT DESIGN</item>
+        <item>Digital System Design</item>
+        <item>VLSI CIRCUIT DESIGN</item>
+        <item>INSTRUMENTATION FOR AGRICULTURE</item>
+    </string-array>
+
+    <string-array name="ces5sub">
+        <item>ce301</item>
+        <item>ce303</item>
+        <item>ce305</item>
+        <item>ce307</item>
+        <item>ce309</item>
+        <item>ce361</item>
+        <item>ce363</item>
+        <item>ce365</item>
+        <item>ce367</item>
+        <item>ce369</item>
+        <item>ce371</item>
+        <item>ce373</item>
+    </string-array>
+    <string-array name="ces5subnames">
+        <item>DESIGN OF CONCRETE STRUCTURES</item>
+        <item>STRUCTURAL ANALYSIS II</item>
+        <item>GEOTECHNICAL INVESTIGATION</item>
+        <item>GEOMATICS</item>
+        <item>WATER RESOURCES ENGINEERING</item>
+        <item>ADVANCED CONCRETE TECHNOLOGY</item>
+        <item>GEOTECHNICAL INVESTIGATION</item>
+        <item>FUNCTIONAL DESIGN OF BUILDING</item>
+        <item>WATER CONVEYENCE SYSTEMS</item>
+        <item>DISASTER MANAGEMENT</item>
+        <item>ENVIRONMENT AND POLLUTION</item>
+        <item>ADVANCED MECHANICS OF MATERIALS</item>
+    </string-array>
 
     <string-array name="ees5sub"></string-array>
     <string-array name="ees5subnames"></string-array>
 
+    <string-array name="mes5sub"></string-array>
+    <string-array name="mes5subnames"></string-array>
 
-    <string-array name="its6sub"></string-array>
-    <string-array name="its6subnames"></string-array>
 
-    <string-array name="css6sub"></string-array>
-    <string-array name="css6subnames"></string-array>
+    <!-- TODO: SIXTH SEMESTER SYLLABUS
+        <string-array name="its6sub"></string-array>
+        <string-array name="its6subnames"></string-array>
 
-    <string-array name="ecs6sub"></string-array>
-    <string-array name="ecs6subnames"></string-array>
+        <string-array name="css6sub"></string-array>
+        <string-array name="css6subnames"></string-array>
 
-    <string-array name="aes6sub"></string-array>
-    <string-array name="aes6subnames"></string-array>
+        <string-array name="ecs6sub"></string-array>
+        <string-array name="ecs6subnames"></string-array>
 
-    <string-array name="ces6sub"></string-array>
-    <string-array name="ces6subnames"></string-array>
+        <string-array name="aes6sub"></string-array>
+        <string-array name="aes6subnames"></string-array>
 
-    <string-array name="ees6sub"></string-array>
-    <string-array name="ees6subnames"></string-array>
+        <string-array name="ces6sub"></string-array>
+        <string-array name="ces6subnames"></string-array>
+
+        <string-array name="ees6sub"></string-array>
+        <string-array name="ees6subnames"></string-array>
+
+        <string-array name="mes6sub"></string-array>
+        <string-array name="mes6subnames"></string-array>
+     -->
 
 </resources>

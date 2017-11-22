@@ -1,6 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <array name="me201">
+        <item>MS</item>
+        <item></item>
+        <item>Introduction to analysis of deformable bodies – internal forces – method of sections –
+            assumptions and limitations. Stress – stresses due to normal, shear and bearing loads –
+            strength design of simple members. Definition of linear and shear strains. Material
+            behavior – uniaxial tension test – stress-strain diagrams concepts of orthotropy,
+            anisotropy and inelastic behavior – Hooke’s law for linearly elastic isotropic material
+            under axial and shear deformation Deformation in axially loaded bars – thermal effects –
+            statically indeterminate problems – principle of superposition - elastic strain energy
+            for uniaxial stress.
+        </item>
+        <item></item>
+        <item>Definition of stress and strain at a point (introduction to stress and strain tensors
+            and its components only) – Poisson’s ratio – biaxial and triaxial deformations – Bulk
+            modulus - Relations between elastic. Torsion: Shafts - torsion theory of elastic
+            circular bars – assumptions and limitations – polar modulus - torsional rigidity –
+            economic cross-sections – statically indeterminate problems – shaft design for torsional
+            load.
+        </item>
+        <item></item>
+        <item>Beams- classification - diagrammatic conventions for supports and loading - axial
+            force, shear force and bending moment in a beam. Shear force and bending moment diagrams
+            by direct approach. Differential equations between load, shear force and bending moment.
+            Shear force and bending moment diagrams by summation approach – elastic curve – point of
+            inflection.
+        </item>
+        <item></item>
+        <item>Stresses in beams: Pure bending – flexure formula for beams assumptions and
+            limitations – section modulus - flexural rigidity economic sections – beam of uniform
+            strength. Shearing stress formula for beams – assumptions and limitations – design for
+            flexure and shear.
+        </item>
+        <item></item>
+        <item>Deflection of beams: Moment-curvature relation – assumptions and limitations - double
+            integration method – Macaulay’s method superposition techniques – moment area method and
+            conjugate beam ideas for simple cases. Transformation of stress and strains: Plane state
+            of stress - equations of transformation - principal planes and stresses.
+        </item>
+        <item></item>
+        <item>Mohr’s circles of stress – plane state of strain – analogy between stress and strain
+            transformation – strain rosettes. Compound stresses: Combined axial, flexural and shear
+            loads – eccentric loading under tension/compression - combined bending and twisting
+            loads.Theory of columns: Buckling theory –Euler’s formula for long columns – assumptions
+            and limitations – effect of end conditions - slenderness ratio – Rankin’s formula for
+            intermediate columns.
+        </item>
+    </array>
+
+    <array name="me202">
+        <item>AMS</item>
+        <item></item>
+        <item>Introduction to stress analysis in elastic solids - stress at a point – stress tensor
+            – stress components in rectangular and polar coordinate systems - Cauchy’s equations –
+            stress transformation – principal stresses and planes - hydrostatic and deviatoric
+            stress components, octahedral shear stress - equations of equilibrium.\nDisplacement
+            field – engineering strain - strain tensor (basics only) – analogy between stress and
+            strain tensors - strain-displacement relations (small-strain only) – compatibility
+            conditions .
+        </item>
+        <item></item>
+        <item>Constitutive equations – generalized Hooke’s law – equations for linear elastic
+            isotropic solids - relation among elastic constants – Boundary conditions – St. Venant’s
+            principle for end effects – uniqueness theorem.\n2 -D problems in elasticity - Plane
+            stress and plane strain problems – stress compatibility equation - Airy’s stress
+            function and equation – polynomial method of solution – solution for bending of a
+            cantilever with an end load
+        </item>
+        <item></item>
+        <item>Equations in polar coordinates (2D) – equilibrium equation, straindisplacement
+            relations, conversion of Airy\'s equation and definition of stress function and stress
+            components.\nApplication of stress function to Lame’s problem - stress concentration
+            problem of a small hole in a large plate.\nAxisymmetric problems – governing equations –
+            application to thick cylinders, interference fit and rotating discs.
+        </item>
+        <item></item>
+        <item>Unsymmetrical bending of straight beams – curved beams (rectangular c/s) - shear
+            center – shear stresses in thin walled open sections\nStrain energy of deformation –
+            special cases of a body subjected to concentrated loads, moment or torque - reciprocal
+            relation – strain energy of a bar subjected to axial force, shear force, bending moment
+            and torque.
+        </item>
+        <item></item>
+        <item>Maxwell reciprocal theorem – Castigliano’s first and second theorems – virtual work
+            principle – minimum potential energy theorem - complementary energy theorem.\nTorsion of
+            non-circular bars: Saint Venant’s theory - solutions for circular and elliptical
+            cross-sections.
+        </item>
+        <item></item>
+        <item>Prandtl’s method - solutions for circular and elliptical cross-sections - membrane
+            analogy - approximate solution methods for non-circular shafts.\nTorsion of thin walled
+            tubes, thin rectangular sections, rolled sections and multiply connected sections.
+        </item>
+    </array>
+    <array name="me203">
+        <item>MF</item>
+        <item></item>
+        <item>Introduction: Fluids and continuum, Physical properties of fluids, density, specific
+            weight, vapour pressure, Newton’s law of viscosity. Ideal and real fluids, Newtonian and
+            non-Newtonian fluids. Fluid Statics- Pressure-density-height relationship, manometers,
+            pressure on plane and curved surfaces, center of pressure, buoyancy, stability of
+            immersed and floating bodies, fluid masses subjected to uniform accelerations,
+            measurement of pressure.
+        </item>
+        <item></item>
+        <item>Kinematics of fluid flow: Eulerian and Lagrangian approaches, classification of fluid
+            flow, 1-D, 2-D and 3-D flow, steady, unsteady, uniform, non-uniform, laminar, turbulent,
+            rotational, irrotational flows, stream lines, path lines, streak lines, stream tubes,
+            velocity and acceleration in fluid, circulation and vorticity, stream function and
+            potential function, Laplace equation, equipotential lines flow nets, uses and
+            limitations.
+        </item>
+        <item></item>
+        <item>Dynamics of Fluid flow: Fluid Dynamics: Energies in flowing fluid, head, pressure,
+            dynamic, static and total head, Control volume analysis of mass, momentum and energy,
+            Equations of fluid dynamics: Differential equations of mass, energy and momentum
+            (Euler’s equation), Navier-Stokes equations (without proof) in rectangular and
+            cylindrical co-ordinates, Bernoulli’s equation and its applications: Venturi and Orifice
+            meters, Notches and Weirs (description only for notches and weirs). Hydraulic
+            coefficients, Velocity measurements: Pitot tube and Pitot-static tube.
+        </item>
+        <item></item>
+        <item>Pipe Flow: Viscous flow: Reynolds experiment to classify laminar and turbulent flows,
+            significance of Reynolds number, critical Reynolds number, shear stress and velocity
+            distribution in a pipe, law of fluid friction, head loss due to friction, Hagen
+            Poiseuille equation. Turbulent flow: Darcy- Weisbach equation, Chezy’s equation Moody’s
+            chart, Major and minor energy losses, hydraulic gradient and total energy line, flow
+            through long pipes, pipes in series, pipes in parallel, equivalent pipe, siphon,
+            transmission of power through pipes, efficiency of transmission, Water hammer,
+            Cavitation.
+        </item>
+        <item></item>
+        <item>Concept of Boundary Layer : Growth of boundary layer over a flat plate and definition
+            of boundary layer thickness, displacement thickness, momentum thickness and energy
+            thickness, laminar and turbulent boundary layers, laminar sub layer, velocity profile,
+            Von- Karman momentum integral equations for the boundary layers, calculation of drag,
+            separation of boundary and methods of control.
+        </item>
+        <item></item>
+        <item>Dimensional Analysis and Hydraulic similitude: Dimensional analysis, Buckingham’s
+            theorem, important dimensional numbers and their significance, geometric, Kinematic and
+            dynamic similarity, model studies. Froude, Reynold, Weber, Cauchy and Mach laws-
+            Applications and limitations of model testing, simple problems only.
+        </item>
+    </array>
+
+    <array name="me204">
+        <item>Thermal Engineering</item>
+        <item></item>
+        <item>Steam engineering- T- S diagram, Mollier chart, Steam cycles- Rankine cycle, Modified
+            Rankine cycle, Relative efficiency, Improvement in steam cycles-Reheat, Regenerative and
+            Binary vapor cycle Steam Boilers: Types of boilers –Cochran boiler, Babcock and Wilcox
+            boiler, Benson boiler, La Mont boiler, Loeffler boiler, Velox boiler, Boiler Mountings
+            and Accessories Steam nozzles:-Types of nozzle- Velocity of steam, mass flow rate,
+            critical pressure ratio and its significance, effect of friction, super saturated flow
+        </item>
+        <item></item>
+        <item>Steam turbines: classification, compounding of turbines-pressure velocity variation,
+            velocity diagrams, work done, efficiency, condition for maximum efficiency, multistage
+            turbines-condition line, stage efficiency. Steam turbine performance-reheat factor,
+            degree of reaction, cycles with reheating and regenerative heating, governing of
+            turbines
+        </item>
+        <item></item>
+        <item>Internal combustion engines: classification of I.C. Engines- four stroke and two
+            stroke I.C. Engines, Comparison of four stroke and two stroke Engine. Wankel Engine, Air
+            standard cycle-Carnot cycle, Otto cycle; Diesel cycle, dual combustion cycle, comparison
+            of Otto, diesel and dual combustion cycles. Stirling and Ericsson cycles, air standard
+            efficiency, specific work output, work ratio, Actual cycle analysis, deviation of actual
+            engine cycle from ideal cycle. Rotary engines, Stratified charge engine , super charging
+            of SI and CI Engines – turbo charging. Variable specific heats.
+        </item>
+        <item></item>
+        <item>Performance Testing of I C Engines: Indicator diagram, mean effective pressure.
+            Torque, Engine power- BHP, IHP. Engine efficiencymechanical efficiency, volumetric
+            efficiency, thermal efficiency and relative efficiency, Specific fuel consumption.
+            Testing of I C enginesMorse test, Heat balance test and Retardation test Fuels and fuel
+            combustion: flash point and fire point, calorific value, Fuels for SI and CI engine,
+            Important qualities of SI and CI engine fuels, Rating of SI engine and CI engine fuels,
+            Dopes, Additives, Gaseous fuels, LPG, CNG, Biogas, Producer gas. Analysis of fuel
+            combustion-A/F ratio, equivalence ratio, minimum quantity of air, flue gas analysis,
+            excess air.
+        </item>
+        <item></item>
+        <item>Air pollution from I.C. Engine and its remedies: Pollutants from S.I. and C.I.
+            Engines, Methods of emission control, alternative fuels for I.C. Engines; the blending
+            of fuels, Bio fuels. Combustion in I.C. Engines: Combustion phenomena in S.I. engines;
+            Ignition limits, stages of combustion in S.I. Engines, Ignition lag, velocity of flame
+            propagation, auto ignition, detonation; effects of engine variables on detonation;
+            theories of detonation, octane rating of fuels; pre-ignition; S.I. engine combustion
+            chambers. Stages of combustion in C.I. Engines; delay period; variables affecting delay
+            period; knock in C.I. engines, Cetane rating; C.I. engine combustion chambers.
+        </item>
+        <item></item>
+        <item>Gas turbines: classification, Thermodynamic analysis of gas turbine cycles-open ,
+            closed and semi closed cycle; ideal working cycle- Brayton cycle-P-v and T-s diagram,
+            thermal efficiency. Effect of compressor and turbine efficiencies. Optimum pressure
+            ratio for maximum specific work output with and without considering machine
+            efficiencies. Comparison of gas turbine and IC engines, Analysis of open cycle gas
+            turbine, Improvements of the basic gas turbine cycles-regeneration, intercooling and
+            reheating-cycle efficiency and work output-Condition for minimum compressor work and
+            maximum turbine work. Combustion chambers for gas turbines. pressure loss in combustion
+            process and stability loop.
+        </item>
+    </array>
+
+    <array name="me205">
+        <item>Thermodynamics</item>
+        <item></item>
+        <item>Role of Thermodynamics in Engineering and Science -- Applications of Thermodynamics
+            Basic Concepts - Macroscopic and Microscopic viewpoints, Concept of Continuum,
+            Thermodynamic System and Control Volume, Surrounding, Boundaries, Types of Systems,
+            Universe, Thermodynamic properties, Process, Cycle, Thermodynamic Equilibrium, Quasi –
+            static Process, State, Point and Path function. (Review only- self study) Zeroth Law of
+            Thermodynamics, Measurement of TemperatureThermometry, reference Points, Temperature
+            Scales, Ideal gas temperature scale, Comparison of thermometers-Gas Thermometers,
+            Thermocouple, Resistance thermometer Energy - Work - Pdv work and other types of work
+            transfer, free expansion work, heat and heat capacity.
+        </item>
+        <item></item>
+        <item>Joule’s Experiment- First law of Thermodynamics - First law applied to Non flow
+            Process- Enthalpy- specific heats- PMM1, First law applied to Flow Process, Mass and
+            Energy balance in simple steady flow process. Applications of SFEE, Transient flow
+            –Filling and Emptying Process. (Problems), Limitations of the First Law.
+        </item>
+        <item></item>
+        <item>Second Law of Thermodynamics, Thermal Reservoir, Heat Engine, Heat pump - Performance
+            factors, Kelvin-Planck and Clausius Statements, Equivalence of two statements,
+            Reversibility, Irreversible Process, Causes of Irreversibility, Corollaries of second
+            law, PMM2, Carnot’s theorem and its corollaries, Absolute Thermodynamic Temperature
+            scale. Clausius Inequality, Entropy- Causes of Entropy Change, Entropy changes in
+            various thermodynamic processes, principle of increase of entropy and its applications,
+            Entropy generation in open and closed system, Entropy and Disorder, Reversible adiabatic
+            process- isentropic process
+        </item>
+        <item></item>
+        <item>Available Energy, Availability and Irreversibility- Useful work, Dead state,
+            Availability function, Availability and irreversibility in open and closed systems -
+            Gouy-Stodola theorem , Third law of thermodynamics. Pure Substances, Phase
+            Transformations, Triple point, properties during change of phase, T-v, p-v and p-T
+            diagram of pure substance, p-v-T surface, Saturation pressure and Temperature, T-h and
+            T-s diagrams, h-s diagrams or Mollier Charts, Dryness Fraction, steam tables. Property
+            calculations using steam tables.
+        </item>
+        <item></item>
+        <item>The ideal Gas Equation, Characteristic and Universal Gas constants, Deviations from
+            ideal Gas Model: Equation of state of real substancesVander Waals Equation of State,
+            Berthelot, Dieterici, and Redlich-Kwong equations of state , Virial Expansion,
+            Compressibility factor, Law of corresponding state, Compressibility charts Mixtures of
+            ideal Gases – Mole Fraction, Mass fraction, Gravimetric and volumetric Analysis,
+            Dalton’s Law of partial pressure, Amagat’s Laws of additive volumes, Gibbs-Dalton’s law
+            -Equivalent Gas constant and Molecular Weight, Properties of gas mixtures: Internal
+            Energy, Enthalpy, specific heats and Entropy, Introduction to real gas mixtures- Kay’s
+            rule. *Introduction to ideal binary solutions, Definition of solution, ideal binary
+            solutions and their characteristics, Deviation from ideality, Raoult’s Law, Phase
+            diagram, Lever rule(*in this section numerical problems not )
+        </item>
+        <item></item>
+        <item>General Thermodynamic Relations – Combined First and Second law equations – Helmholtz
+            and Gibb’s functions - Maxwell’s Relations, Tds Equations. The Clapeyron Equation,
+            equations for internal energy, enthalpy and entropy, specific heats, Throttling process,
+            Joule Thomson Coefficient, inversion curve. #Introduction to thermodynamics of
+            chemically reacting systems, Combustion, Thermochemistry – Theoretical and Actual
+            combustion processes- Definition and significance of equivalence ratio, enthalpy of
+            formation , enthalpy of combustion and heating value (in this section numerical problems
+            not included)
+        </item>
+    </array>
+
+    <array name="me206">
+        <item>Fluid Machinery</item>
+        <item></item>
+        <item>Impact of jets: Introduction to hydrodynamic thrust of jet on a fixed and moving
+            surface (flat and curve),– Series of vanes - work done and efficiency Hydraulic Turbines
+            : Impulse and Reaction Turbines – Degree of reaction – Pelton Wheel – Constructional
+            features - Velocity triangles – Euler’s equation – Speed ratio, jet ratio and work done
+            , losses and efficiencies, design of Pelton wheel – Inward and outward flow reaction
+            turbines- Francis Turbine – Constructional features – Velocity triangles, work done and
+            efficiencies.
+        </item>
+        <item></item>
+        <item>Axial flow turbine (Kaplan) Constructional features – Velocity triangles- work done
+            and efficiencies – Characteristic curves of turbines – theory of draft tubes – surge
+            tanks – Cavitation in turbines – Governing of turbines – Specific speed of turbine ,
+            Type Number– Characteristic curves, scale Laws – Unit speed – Unit discharge and unit
+            power.
+        </item>
+        <item></item>
+        <item>Rotary motion of liquids – free, forced and spiral vortex flows Rotodynamic pumps-
+            centrifugal pump impeller types,-velocity triangles-manometric head- work, efficiency
+            and losses, H-Q characteristic, typical flow system characteristics, operating point of
+            a pump. Cavitation in centrifugal pumps- NPSH required and availableType number-Pumps in
+            series and parallel operations. Performance characteristics- Specific speed-Shape
+            numbers – Impeller shapes based on shape numbers.
+        </item>
+        <item></item>
+        <item>Positive displacement pumps- reciprocating pump – Single acting and double acting-
+            slip, negative slip and work required and efficiencyindicator diagram- acceleration head
+            - effect of acceleration and friction on indicator diagram – speed calculation- Air
+            vessels and their purposes, saving in work done to air vessels multi cylinder pumps.
+            Multistage pumps-selection of pumps-pumping devices-hydraulic ram, Accumulator,
+            Intensifier, Jet pumps, gear pumps, vane pump and lobe pump.
+        </item>
+        <item></item>
+        <item>Compressors: classification of compressors, reciprocating compressor-single stage
+            compressor, equation for work with and without clearance volume, efficiencies,
+            multistage compressor, intercooler, free air delivered (FAD)
+        </item>
+        <item></item>
+        <item>Centrifugal compressor-working, velocity diagram, work done, power required, width of
+            blades of impeller and diffuser, isentropic efficiency, slip factor and pressure
+            coefficient, surging and chocking. Axial flow compressors:- working, velocity diagram,
+            degree of reaction, performance. Roots blower, vane compressor, screw compressor.
+        </item>
+    </array>
+
+
+    <array name="me210">
+        <item>MME</item>
+        <item></item>
+        <item>Earlier and present development of atomic structure; attributes of ionization energy
+            and conductivity, electronegativity and alloying; correlation of atomic radius to
+            strength; electron configurations; electronic repulsion Primary bonds: - characteristics
+            of covalent, ionic and metallic bond: attributes of bond energy, cohesive force,
+            density, directional and non-directional and ductility. properties based on atomic
+            bonding:- attributes of deeper energy well and shallow energy well to melting
+            temperature, coefficient of thermal expansion - attributes of modulus of elasticity in
+            metal cutting process -Secondary bonds:- classification- hydrogen bond and anomalous
+            behavior of ice float on water, application- atomic mass unit and specific heat,
+            application. (brief review only, no University questions and internal assessment from
+            these portions). \nCrystallography:- Crystal, space lattice, unit cell- BCC, FCC, HCP
+            structures - short and long range order - effects of crystalline and amorphous structure
+            on mechanical properties. \nCoordination number and radius ratio; theoretical density;
+            simple problems - Polymorphism and allotropy. \nMiller Indices: - crystal plane and
+            direction (brief review) - Attributes of miller indices for slip system, brittleness of
+            BCC, HCP and ductility of FCC - Modes of plastic deformation: - Slip and twinning.
+            \nSchmid\'s law, equation, critical resolved shear stress, correlation of slip system
+            with plastic deformation in metals and applications.\n
+        </item>
+        <item></item>
+        <item>Mechanism of crystallization: Homogeneous and heterogeneous nuclei formation, under
+            cooling, dendritic growth, grain boundary irregularity. \n Effects of grain size, grain
+            size distribution, grain shape, grain orientation on dislocation/strength and creep
+            resistance - Hall - Petch theory, simple problems \nClassification of crystal
+            imperfections: - types of dislocation – effect of point defects on mechanical properties
+            - forest of dislocation, role of surface defects on crack initiation.\nBurgers vector
+            –dislocation source, significance of Frank Read source in metals deformation -
+            Correlation of dislocation density with strength and nano concept, applications.
+            \nSignificance high and low angle grain boundaries on dislocation – driving force for
+            grain growth and applications during heat treatment. \nPolishing and etching to
+            determine the microstructure and grain size. \nFundamentals and crystal structure
+            determination by X – ray diffraction, simple problems –SEM and TEM. \nDiffusion in
+            solids, Fick’s laws, mechanisms, applications of diffusion in mechanical engineering,
+            simple problems.
+        </item>
+        <item></item>
+        <item>Phase diagrams: - Limitations of pure metals and need of alloying - classification of
+            alloys, solid solutions, Hume Rothery`s rule - equilibrium diagram of common types of
+            binary systems: five types.\nCoring - lever rule and Gibb`s phase rule - Reactions: -
+            monotectic, eutectic, eutectoid, peritectic, peritectoid. \n Detailed discussion on
+            Iron-Carbon equilibrium diagram with microstructure and properties changes in austenite,
+            ledeburite, ferrite, cementite, special features of martensite transformation, bainite,
+            spheroidite etc. \nHeat treatment: - Definition and necessity – TTT for a eutectoid
+            iron–carbon alloy, CCT diagram, applications - annealing, normalizing, hardening,
+            spheroidizing.\nTempering:- austermpering, martempering and ausforming - Comparative
+            study on ductility and strength with structure of pearlite, bainite, spherodite,
+            martensite, tempered martensite and ausforming. \nHardenability, Jominy end quench test,
+            applications- Surface hardening methods:- no change in surface composition methods :-
+            Flame, induction, laser and electron beam hardening processes- change in surface
+            composition methods :carburizing and Nitriding; applications.
+        </item>
+        <item></item>
+        <item>Types of Strengthening mechanisms: - work hardening, equation - precipitation
+            strengthening and over ageing- dispersion hardening.\nCold working: Detailed discussion
+            on strain hardening; recovery; re-rystallization, effect of stored energy; re-
+            crystallization temperature - hot working Bauschinger effect and attributes in metal
+            forming.Alloy steels:- Effects of alloying elements on steel: dislocation movement,
+            polymorphic transformation temperature, alpha and beta stabilizers, formation and
+            stability of carbides, grain growth, displacement of the eutectoid point, retardation of
+            the transformation rates, improvement in corrosion resistance, mechanical properties .
+            \nNickel steels, Chromium steels etc. - Enhancement of steel properties by adding
+            alloying elements: - Molybdenum, Nickel, Chromium, Vanadium, Tungsten, Cobalt, Silicon,
+            Copper and Lead. \nHigh speed steels:- Mo and W types, effect of different alloying
+            elements in HSS \nCast irons: Classifications; grey, white, malleable and spheroidal
+            graphite cast iron etc, composition, microstructure, properties and applications. \n
+            Principal Non ferrous Alloys: - Aluminum, Copper, Magnesium, Nickel, study of
+            composition, properties, applications, reference shall be made to the phase diagrams
+            whenever necessary.
+        </item>
+        <item></item>
+        <item>Fatigue: - Stress cycles – Primary and secondary stress raisers - Characteristics of
+            fatigue failure, fatigue tests, S-N curve.\nFactors affecting fatigue strength: stress
+            concentration, size effect, surface roughness, change in surface properties, surface
+            residual stress. \nWays to improve fatigue life – effect of temperature on fatigue,
+            thermal fatigue and its applications in metal cutting.\nFracture: – Brittle and ductile
+            fracture – Griffith theory of brittle fracture – Stress concentration, stress raiser –
+            Effect of plastic deformation on crack propagation. \ntransgranular, intergranular
+            fracture - Effect of impact loading on ductile material and its application in forging,
+            applications - Mechanism of fatigue failure. \nStructural features of fatigue: - crack
+            initiation, growth, propagation - Fracture toughness (definition only) - Ductile to
+            brittle transition temperature (DBTT) in steels and structural changes during DBTT,
+            applications.
+        </item>
+        <item></item>
+        <item>Creep: - Creep curves – creep tests - Structural change:- deformation by slip,
+            sub-grain formation, grain boundary sliding.\nMechanism of creep deformation - threshold
+            for creep, prevention against creep - Super plasticity: need and
+            applications.\nComposites:- Need of development of composites - geometrical and spatial
+            Characteristics of particles – classification - fiber phase: - characteristics,
+            classifications - matrix phase:- functions – only need and characteristics of PMC, MMC,
+            and CMC – applications of composites: aircraft applications, aerospace equipment and
+            instrument structure, industrial applications of composites, marine applications,
+            composites in the sporting goods industry, composite biomaterials.\nModern engineering
+            materials: - only fundamentals, need, properties and applications of, intermetallics,
+            maraging steel, super alloys, Titanium – introduction to nuclear materials, smart
+            materials and bio materials.\nCeramics:-coordination number and radius ratios- AX, AmXp,
+            AmBmXp type structures – applications.
+        </item>
+    </array>
+
+    <array name="me220">
+        <item>Manufacturing Technology</item>
+        <item></item>
+        <item>Sand Casting – Sand Molds-Types of Molding Sands and Testing . Type of patterns -
+            Pattern Materials. Cores –Types and applications –Sand Molding Machines. Gating System –
+            Risering. Shell Mold Casting – Ceramic Mold Casting. Investment Casting – Vacuum Casting
+            – Slush Casting. Pressure Casting – Die Casting – Centrifugal Casting. Design
+            Considerations based on Various Shapes - Defects in Castings – simple problems in
+            casting.
+        </item>
+        <item></item>
+        <item>Principles of Rolling –Types of rolling mills, Mechanics of Flat Rolling. Roll Force
+            and Power Requirement - Neutral Point. Hot and Cold Rolling.Defects in Rolled Plates -
+            Rolling Mills.Ring Rolling – Thread Rolling. Applications- Rolling of tubes, wheels,
+            axles and I-beams
+        </item>
+        <item></item>
+        <item>Classification of forging – Forging methods – Forging under sticking condition.
+            Precision Forging – Coining – Heading – Piercing. Die Design:- Preshaping, Design
+            Features, Draft Angles – Die Materials and Lubrication. Forging Machines – Forging
+            Defects and tests. Extrusion Process - Hot Extrusion – Cold Extrusion. Impact Extrusion
+            – Extrusion Defects – Drawing Process, wire drawing process.
+        </item>
+        <item></item>
+        <item>Principles Location - Degrees of Freedom, 3-2-1 principle of locating. Locating from
+            Planes - Locating from Circular Surfaces. Concentric Locating - Principles of Clamping.
+            Types of Clamps - Strap Clamps Slide Clamps - Swing Clamps - Hinge Clamps. Vacuum
+            Clamping - Magnetic Clamping
+        </item>
+        <item></item>
+        <item>Sheet metal characteristics – Typical shearing.Bending Sheet and Plate – Spingback -
+            Bending Force. Press Brake Forming - Tube Bending. Stretch Forming - Deep Drawing.
+            Rubber forming - Spinning Shear Spinning - Tube Spinning. Definition of Welding -
+            Weldability – Solidification of the Weld Metal. Heat Affected Zone – correlation of
+            strength of welded joint with structure - Welding Defects
+        </item>
+        <item></item>
+        <item>Gas Welding: – Flame Characteristics. Equipment, fluxes and filler rods. Arc Welding –
+            Applications and Equipment. Electrodes. Shielded Metal Arc Welding- Submerged Arc
+            Welding. GTAW – Plasma Arc Welding. Ultrasonic Welding – Friction Welding. Resistance
+            Spot Welding. Resistance Seam Welding – Stud Welding – Percussion Welding - simple
+            problems in welding. Brazing:- Filler Metals, Methods - Soldering:- Techniques, Types of
+            Solders and Fluxes
+        </item>
+    </array>
     <array name="me301">
         <item>MM</item>
         <item>1. Ballaney P. L., Theory of Machines and Mechanisms, Khanna Publishers,2005\n

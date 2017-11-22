@@ -1,12 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <array name="ce201">
+        <item>MS</item>
+        <item>Review of Statics</item>
+        <item>Review of Statics Types of external loads - internal stresses - normal and shear
+            stresses - strain - Hooke’s law - working stress - stress strain diagrams - Poisson’s
+            ratio - relationship between elastic constants
+        </item>
+        <item></item>
+        <item>Elongation of bars of constant and varying sections – statically indeterminate
+            problems in tension and compression –Temperature effects – strain energy and
+            complementary energy-strain energy due to tension, compression and shear
+        </item>
+        <item>Bending Moment and Shear force</item>
+        <item>Bending Moment and Shear force: Different types of beams- various types of loading
+            –Relationship connecting intensity of loading , shearing force and bending moment- shear
+            force and bending moment diagrams for cantilever beams and Simply supported beams for
+            different types of loading.
+        </item>
+        <item>Stresses in beams of symmetrical cross sections</item>
+        <item>Stresses in beams of symmetrical cross sections: Theory of simple bending –assumptions
+            and limitations – Normal stresses in beams- Moment of resistance - beams of uniform
+            strength - beams of two materials – strain energy due to bending - shearing stresses in
+            beams.
+        </item>
+        <item>Analysis of stress and strain on oblique sections, Thin and Thick Cylinders, Torsion
+        </item>
+        <item>Analysis of stress and strain on oblique sections: Stress on inclined planes for axial
+            and biaxial stress fields - principal stresses - Mohr’s circle of stress \nThin and
+            Thick Cylinders: Stresses in thin cylinders – thick cylinders - Lame’s equation –
+            stresses in thick cylinders due to internal and external pressures \nTorsion: Torsion of
+            solid and hollow circular shafts.-Pure shear- strain energy in pure shear and
+            torsion.\nSprings: Close coiled and open coiled helical springs
+        </item>
+        <item>Deflection of statically determinate beams, Theory of columns</item>
+        <item>Deflection of statically determinate beams: Differential equation of the elastic curve
+            - Method of successive integration, Macaulay’s method, Method of superposition, moment
+            area method. \nTheory of columns: Direct and bending stresses in short columns- Kern of
+            a section. Buckling and stability-Euler’s buckling/crippling load for columns with
+            different end conditions- Rankine’s formula
+        </item>
+    </array>
+    <array name="ce202">
+        <item>SA1</item>
+        <item></item>
+        <item>TRUSS ANALYSIS: Analysis of determinate trussMethods of joints and sections
+            Displacement response of statically determinate structural systems using energy methods:
+            Elastic theorems and energy principles - strain energy due to axial load, bending
+            moment, shear and torsion - strain energy method, Castigliano’s method for deflection
+        </item>
+        <item></item>
+        <item>Principle of virtual work – Unit load method-Betti‟s theorem - Maxwell‟s law of
+            reciprocal deflections - principle of least work - application of unit load method and
+            strain energy method for determination of deflection of statically determinate beams,
+            frames - pin jointed trusses - temperature effects, lack of fit. Statically
+            indeterminate structures: Degree of static and kinematic indeterminacies - force and
+            displacement method
+        </item>
+        <item>Strain Energy methods and Method of Consistent deformations</item>
+        <item>Strain Energy methods: Analysis of beams, frames and trusses with internal and
+            external redundancy - effect of prestrain, lack of fit, temperature changes, support
+            settlement. \nMethod of Consistent deformations: Analysis of beams frames and trusses
+            with internal and external redundancy - effect of prestrain, lack of fit, temperature
+            changes, support settlement.
+        </item>
+        <item>Moving loads and influence lines</item>
+        <item>Moving loads and influence lines. Introduction to moving loads - concept of influence
+            lines - influence lines for reaction, shear force and bending moment in simply supported
+            beams and over hanging beams - influence lines for forces in beams and trusses analysis
+            for and trusses analysis for different types of moving loads - single concentrated load
+            - several concentrated loads uniformly distributed load shorter and longer than the
+            span.
+        </item>
+        <item></item>
+        <item>Statically determinate suspension bridges and arches Analysis of forces in cables -
+            temperature effects - suspension bridges with three hinged stiffening girders
+        </item>
+        <item></item>
+        <item>Statically indeterminate suspension bridges and arches.- theory of arches – Eddy’s
+            theorem - analysis of three hinged arches-suspension bridges with two hinged stiffening
+            girders - analysis of two hinged arches - settlement and temperature effects.
+        </item>
+    </array>
 
-    <!--
+    <array name="ce203">
+        <item>FM1</item>
+        <item></item>
+        <item>Fluid properties - density – specific gravity - surface tension and capillarity -
+            vapour pressure - viscosity and compressibility - Classification of Fluids (No questions
+            to be asked) . Fluid statics: Fluid pressure, variation of pressure in a fluid,
+            measurement of pressure using manometerssimple manometers, differential manometers,
+            Pressure head. Forces on immersed plane and curved surfaces. Pressure distribution
+            diagram for vertical surfaces, Practical application of total pressure (spillway gates).
+            Buoyancy and Floatation: Buoyant force, stability of floating and submerged bodies,
+            metacentre and metacentric height, Analytical and experimental determination of
+            metacentric height.
+        </item>
+        <item></item>
+        <item>Kinematics of fluid flow: Methods of describing fluid motion, Lagrangian and Eulerian
+            methods, Types of fluid flow: steady and unsteady flow, uniform and non-uniform flow,
+            one, two and three dimensional flow, laminar and turbulent flow, rotational and
+            irrotational flow. Types of flow lines: stream line, path line, streak lines,
+            conservation of mass, equation of continuity in one, two and three dimensions,
+            (Derivation in Cartesian co-ordinate system only) Velocity and Acceleration of fluid
+            particle, convective and local acceleration, Deformation of fluid elements: circulation
+            and vorticity, velocity potential, stream function, equipotential lines, flow net, uses
+            of flow net; Vortex motion, free and forced vortex (no problems).
+        </item>
+        <item></item>
+        <item>Dynamic of fluid flow: Euler’s equation of motion and integration of Euler’s equation
+            of motion along a streamline. Bernoulli’s Equation, Energy correction factors,
+            Applications of Bernoulli’s equation : Pitot tube, Venturimeter and orifice meter.
+            Momentum Principle- Steady flow momentum equation- Momentum correction factor, Force
+            computation on a pipe bend
+        </item>
+        <item></item>
+        <item>Flow through orifices: Different types of orifices, Flow over a sharp edged orifice,
+            Hydraulic coefficients – Experimental determination of these coefficients, flow through
+            large rectangular orifice, Flow through submerged orifices, flow under variable heads,
+            time of emptying. Flow over weirs: flow over rectangular, triangular and trapezoidal
+            sharp crested weir, Cipolletti weir, Broad crested weir, Submerged weirs, Proportional
+            weir.
+        </item>
+        <item></item>
+        <item>Flow through pipes: Viscous flow - Shear stress, pressure gradient relationship -
+            laminar flow between parallel plates - Laminar flow through circular tubes (Hagen
+            Poiseulle&apos;s Eqn) - Hydraulic and energy gradient - flow through pipes - Darcy
+            -Weisbach&apos;s equation - pipe roughness -friction factor- Moody&apos;s diagram- Major
+            and
+            minor losses of flow in pipes - Pipes in series and in parallel.
+        </item>
+        <item></item>
+        <item>Boundary layer theory-no slip condition, boundary layer thickness, boundary layer
+            growth over long thin plate, laminar, turbulent boundary layer, laminar sub layer,
+            Momentum integral equation of boundary layer (no derivation), Blasius boundary layer
+            equations for laminar and turbulent boundary layer. Drag and lift on Immersed
+            bodies-Pressure drag and friction drag, profile drag, Drag and lift co-efficient-
+            computation of drag on a flat plate. Separation of boundary layer and control.
+        </item>
+    </array>
+    <array name="ce204">
+        <item>CT</item>
+        <item></item>
+        <item>Construction Materials – Building stones – Classification of rocks – Quarrying of
+            stones. Dressing – Properties and uses of common stones – Tests conducted on stones.
+            \nTimber – Classification – seasoning -defects in Timber –– decay– preservation –
+            Manufacture, properties and uses of plywood, fibre board, particle board. \nMortar –
+            Types – Sand – properties – uses. \nIron and Steel –Reinforcing steel – types –
+            specifications. Structural steel – specifications \nMiscellaneous materials (only
+            properties, classifications and their use in construction industry): Glass, Plastics,
+            A.C. Sheets, Bitumen, Adhesives, Aluminium
+        </item>
+        <item></item>
+        <item>Concrete – Aggregates – Mechanical and Physical properties and tests – Grading
+            requirements – Water quality for concrete – \nAdmixtures – types and uses – plasticizers
+            – accelerators – retarders –water reducing agents \nMaking of concrete - batching –
+            mixing – types of mixers – transportation – placing – compacting – curing \nProperties
+            of concrete – fresh concrete – workability – segregation and bleeding - factors
+            affecting workability and strength – tests on workability – tests for strength of
+            concrete in compression, tension and flexure
+
+            \nConcrete quality control – statistical analysis of results – standard deviation
+            –acceptance criteria – mix proportioning (B.I.S method) – nominal mixes.
+        </item>
+        <item></item>
+        <item>Building construction - Preliminary considerations –Foundations - shallow and deep
+            foundations – description of spread, grillage, raft and pile foundation. \nMasonry –
+            Types of stone masonry – Bonds in brickwork – advantages and limitations of masonry
+            construction - corbels, cornice and copings composite walls - cavity walls and partition
+            walls – construction details and features – scaffoldings
+        </item>
+        <item></item>
+        <item>Lintels and arches – types and construction details. \nFloors and flooring – different
+            types of floors and floor coverings \nRoofs and roof coverings – different types of
+            roofs – suitability – types and uses of roofing materials \nDoors, windows and
+            ventilators – Types and construction details \nFinishing works – Plastering, pointing,
+            white washing, colour washing, distempering, painting. Methods of providing DPC. Termite
+            proofing
+        </item>
+        <item></item>
+        <item>Tall Buildings – Framed building – steel and concrete frame – structural systems
+            –erection of steel work–concrete framed construction– formwork – construction and
+            expansion. joints Introduction to prefabricated construction – slip form construction
+            \nVertical transportation –Stairs – types - layout and planning.- \nElevators – types –
+            terminology – passenger, service and goods elevators – handling capacity - arrangement
+            and positioning of lifts – \nEscalators – features –use of ramps
+        </item>
+        <item></item>
+        <item>Introduction to Cost-effective construction - principles of filler slab and rat-trap
+            bond masonry \nBuilding failures – General reasons – classification – Causes of failures
+            in RCC and Steel structures \nFoundation failure – failures by alteration, improper
+            maintenance, overloading – Fire, Wind and Earthquake.
+        </item>
+    </array>
+    <array name="ce205">
+        <item>Geology</item>
+        <item></item>
+        <item>Relevance of geology in Civil Engineering. Subdivisions of Geology. Weathering, types
+            and its engineering significance. Laboratory tests used in civil engineering for
+            assessing intensity of weathering. Engineering classification of weathered rock masses.
+            Soil profile. Geological classification of soils.
+        </item>
+        <item></item>
+        <item>Hydrogeology-occurrence of groundwater, Types of aquifers, permeability / hydraulic
+            conductivity. Engineering significance of subsurface water- problems created in
+            construction, as an erosional agent. Methods to control of subsurface water- barriers
+            and liners, drains and wells.(Resistivity survey of groundwater may be demonstrated)
+        </item>
+        <item></item>
+        <item>Minerals- Properties that affect the strength of minerals. Physical properties and
+            chemical composition of following minerals -quartz, feldspars (orthoclase and
+            plagioclase), micas (biotite and muscovite), amphibole (hornblende), pyroxene (augite
+            and hypersthene), gypsum, calcite, clay minerals (kaolinite), their chemical formulae.
+            Earth quakes- in relation to internal structure of earth and plate tectonics
+        </item>
+        <item></item>
+        <item>Rocks as aggregates of minerals. Basic concepts- igneous, sedimentary and metamorphic
+            rocks, Brief account of following rocks- granite, basalt, sandstone, limestone, shale,
+            marble and quartzite. Rock features that influence the strength of rocks as construction
+            material-concepts of lineation and foliation-schistosity and gneissosity. Rock types of
+            Kerala. Brief account of engineering properties of rocks used as construction material
+            (building and foundation) and road aggregates. Assessment of these properties.(Students
+            should be taught to identify common rock forming minerals and common rocks based on
+            their physical properties).
+        </item>
+        <item></item>
+        <item>Attitude of geological structures- strike and dip. Brunton compass. Deformation
+            structures and their engineering significance- folds, faults and joints. Geological
+            factors considered in the construction of dams and reservoirs, tunnels. (Simple
+            exercises based on geological/topographic maps for determination of dip, apparent dip
+            and thickness of lithological beds and preparation of geological cross sections should
+            be performed. The students should be instructed in handling clinometer/Brunton compass
+            to determine strike and dip)
+        </item>
+        <item></item>
+        <item>Introduction to natural hazards-Mass movements (Landslides), floods, their common
+            management strategies. Coastal Processes- waves, currents and landforms. Types of
+            coastal protection strategies. Soil erosion- causes and types and soil conservation
+            measures.
+        </item>
+    </array>
+    <array name="ce206">
+        <item>FM2</item>
+        <item></item>
+        <item>Hydraulic Machines - Impulse momentum principle, impact of jets, force of a jet on
+            fixed and moving vanes. Turbines- classification and comparison of velocity triangles
+            for Pelton wheel and reaction turbines (Francis and Kaplan), work done and efficiency,
+            specific speed, draft tube- different types, penstock, surge tank - types, cavitation in
+            turbines.
+        </item>
+        <item></item>
+        <item>Pumps- classification of pumps - Centrifugal pumps- types, work done, efficiency,
+            minimum speed, velocity triangle for pumps, specific speed, priming, limitation of
+            suction lift, net positive suction head, cavitation in centrifugal pump.
+        </item>
+        <item></item>
+        <item>Introduction: Open channel flow and its relevance in Civil Engineering , Comparison of
+            open channel flow and pipe flow . Flow in open channels-types of channels, types of
+            flow, geometric elements of channel section, velocity distribution in open channels,
+            uniform flow in channels, Chezy’s equation, Kutter’s and Bazin’s equations, Manning’s
+            formula, Most economic section for rectangular, trapezoidal and triangular channels.
+            Condition for maximum discharge and maximum velocity through circular channels,
+            computations for uniform flow, normal depth, conveyance of a channel section, section
+            factor for uniform flow.
+        </item>
+        <item></item>
+        <item>Specific energy, critical depth, discharge diagram, Computation of critical flow,
+            Section factor for critical flow. Specific force, conjugate or sequent depths, hydraulic
+            jump, expression for sequent depths and energy loss for a hydraulic jump in horizontal
+            rectangular channels, types of jump, length of jump, height of jump, uses of hydraulic
+            jump.
+        </item>
+        <item></item>
+        <item>Gradually varied flow - dynamic equation for gradually varied flow, different forms of
+            dynamic equation, Approximation for a wide rectangular channel, classification of
+            surface profiles, Backwater and drawdown curves, characteristics of surface profiles in
+            prismatic channels. Computation of length of surface profiles, direct step method.
+            Design of lined open channels : triangular and trapezoidal cross-sections only
+        </item>
+        <item></item>
+        <item>Dimensional analysis and model studies - dimensions, dimensional homogeneity, methods
+            of dimensional analysis, Rayleigh method, Buckingham method, dimensionless numbers,
+            Similitude - geometric, kinematic and dynamic similarities. Model laws - Reynold’s and
+            Froude model laws, scale ratios, types of models, distorted and undistorted models,
+            scale effect in models.
+        </item>
+    </array>
+    <array name="ce207">
+        <item>Surveying</item>
+        <item>Introduction to Surveying</item>
+        <item>Introduction to Surveying- Principles, Linear, angular and graphical methods, Survey
+            stations, Survey lines- ranging, Bearing of survey lines, Local attraction, Declination,
+            Dip, Latitude and Departure, Methods of orientation, Principle of resection
+        </item>
+        <item>Levelling and Contouring</item>
+        <item>Levelling: Principles of levelling- Dumpy level- booking and reducing levels, Methods-
+            simple, differential, reciprocal leveling, profile levelling and cross sectioning.
+            Digital and Auto Level, Errors in levelling \nContouring: Characteristics, methods,
+            uses.
+        </item>
+        <item>Area and Volume, Theodolite survey and Mass diagram</item>
+        <item>Area and Volume: Various methods of computation. \nTheodolite survey: Instruments,
+            Measurement of horizontal and vertical angle. \nMass diagram: Construction,
+            Characteristics and Uses.
+        </item>
+        <item>Triangulation</item>
+        <item>Triangulation: Triangulation figures, Strength of figure, Triangulation stations,
+            Inter visibility of stations, Towers and signals – Satellite Stations and reduction to
+            centre.
+        </item>
+        <item>Theory of Errors</item>
+        <item>Theory of Errors – Types, theory of least squares, Weighting of observations, Most
+            probable value, Application of weighting, Computation of indirectly observed quantities
+            - method of normal equations.
+        </item>
+        <item>Electromagnetic distance measurement (EDM) and Total Station</item>
+        <item>Electromagnetic distance measurement (EDM) – Principle of EDM, Modulation, Types of
+            EDM instruments, Distomat Total Station – Parts of a Total Station – Accessories –
+            Advantages and Applications, Introduction to Astronomical terms, Field Procedure for
+            total station survey, Errors in Total Station Survey.
+        </item>
+    </array>
+    <array name="ce208">
+        <item>Geotechnical Eng. 1</item>
+        <item></item>
+        <item>Introduction to soil mechanics -Major soil deposits of India
+
+            \nBasic soil properties - Void ratio, porosity, degree of saturation, air content,
+            percentage air voids, moisture content, specific gravity, unit weight - Relationship
+            between basic soil properties – Sensitivity – Thixotropy - numerical problems
+        </item>
+        <item></item>
+        <item>Index properties - Sieve analysis – Well graded, poorly graded and gap graded soils -
+            Stoke’s law - Hydrometer analysis(no derivation required for percentage finer and
+            diameter) - numerical problems- – Relative density \nConsistency-Atterberg Limits -
+            Practical Applications - numerical problems I.S. classification of soils.
+        </item>
+        <item></item>
+        <item>Permeability of soils - Darcy’s law – Factors affecting permeability - Practical
+            Applications - Constant head and falling head permeability tests - Average permeability
+            of stratified deposits (no derivation required) - numerical problems. \nPrinciple of
+            effective stress - Total , neutral and effective stress variation diagrams - Quick sand
+            condition - Critical hydraulic gradient - - numerical problems– Definition of phreatic
+            line and exit gradient.
+        </item>
+        <item></item>
+        <item>Shear strength of soils- Practical Applications - Mohr-Coulomb failure criterion –
+            Mohr circle method for determination of principal planes and stresses- numerical
+            problems – relationship between shear parameters and principal stresses[no derivation
+            required} \nBrief discussion of direct shear test, tri-axial compression test, vane
+            shear test and unconfined compression test – Applicability - numerical problems -UU and
+            CD tests [Brief discussion only] - Liquefaction
+        </item>
+        <item></item>
+        <item>Compressibility and Consolidation - Void ratio versus pressure relationship -
+            Coefficient of compressibility and volume compressibility – Compression index Practical
+            Applications -
+
+            \nChange in void ratio method - Height of solids method -Normally consolidated, under
+            consolidated and over consolidated states - Estimation of pre consolidation pressure -
+            Practical Applications - Estimation of magnitude of settlement of normally consolidated
+            clays - Numerical problems
+
+            \nTerzaghi’s theory of one-dimensional consolidation(no derivation required) - average
+            degree of consolidation – Time factor - Coefficient of consolidation - Practical
+            Applications -Square root of time and logarithm of time fitting methods - Numerical
+            problems
+        </item>
+        <item></item>
+        <item>Stability of finite slopes - Toe failure, base failure, slip failure - Swedish Circle
+            Method- Friction circle method- Factor of safety with respect to cohesion and angle of
+            internal friction - Stability number - Stability charts - Methods to improve slope
+            stability. \nCompaction of soils - Standard Proctor, Modified Proctor, I.S. light and
+            Heavy Compaction Tests – OMC - Zero Air voids line - Control of compaction - numerical
+            problems
+        </item>
+    </array>
+
+
     <array name="ce301">
         <item>DOCS</item>
-        <item>Text Books/References:\n\n 1. Pillai S.U & Menon D – Reinforced Concrete Design, Tata McGraw Hill Publishing Co ., 2005 \n 2. Punmia, B. C, Jain A.K and, Jain A.K ,RCC Designs, Laxmi Publications Ltd., 10e, 2015 \n 3. Varghese P.C, Limit State Design of Reinforced Concrete, Prentice Hall of India Pvt Ltd,, 2008 \n 4. Relevant IS codes ( I.S 456, I.S 875, SP 34 ) \n </item>
-        <item>4</item>
-        <item>CE202 Structural Analysis I</item>
         <item></item>
         <item>Introduction- Plain and Reinforced concrete- Properties of concrete and reinforcing steel-Objectives of design-Different design philosophies- Working Stress and Limit State methods-Limit Statemethod of design-Introduction to BIS code- Types of limit states-characteristic and design values-partial safety factors-types of loads and their factors.
             Limit State of Collapse in Bending-assumptions-stress-strain relationship of steel and concrete- analysis of singly reinforced rectangular beams-balanced-under reinforced-over reinforced sections-moment of resistance codal provisions</item>
@@ -29,24 +402,6 @@
 
     <array name="ce303">
     <item>STRUCTURAL ANALYSIS 11</item>
-    <item>Three</item>
-    <item>Text Books:\n 1. Kenneth Leet, Chia M Uang &amp; Anne M Gilbert., Fundamentals of Structural Analysis, McGraw Hill, 4e, 2010
-        2. R. Vaidyanathan and P. Perumal, Structural Analysis Volume I &amp; II, Laxmi Publications (P) Ltd., 2017
-        3. Reddy . C.S., Basic Structural Analysis, Tata McGraw Hill, 3e, 2011
-    </item>
-
-    <item>References :\n 1. Daniel L Schodak, Structures, Pearson Education, 7e, 2014
-        2. Hibbeler, RC, Structural analysis, Pearson Education, 2012
-        3. Kinney J. S., Indeterminate Structural Analysis, Oxford &amp; IBH, 1966
-        4. Negi L. S. and Jangid R. S, Structural Analysis, Tata McGraw Hill, 1997
-        5. Rajasekaran S. and Sankarasubramanian G., Computational Structural Mechanics, PHI, 2008
-        6. S.S. Bhavikatti, Structural Analysis II, Vikas Publication Houses (P) Ltd, 2016
-        7. SP:6 (6): Application of Plastic Theory in Design of Steel Structures, Bureau of Indian Standards, 1972
-        8. Timoshenko S. P. and Young D. H., Theory of Structures, McGraw Hill, 2e, 1965
-        9. Utku S, Norris C. H &amp; Wilbur J. B, Elementary Structural Analysis, McGraw Hill, 1990
-        10. Wang C. K., Intermediate Structural Analysis, Tata McGraw Hill, 1989
-    </item>
-    <item>NONE</item>
     <item></item>
     <item>Clapeyrons Theorem (Three Moment Equation) :Derivation of threemoment equation - application of three moment equation for analysis of continuous beams under the effect of applied loads and uneven support settlement</item>
     <item></item>
@@ -66,18 +421,6 @@
 
     <array name="ce305">
     <item>GEOTECHNICAL ENGINEERING</item>
-    <item>Text Books :\n
-        1. Braja M. Das, “Principles of Foundation Engineering”, Cengage Learning India Pvt. Ltd., Delhi, 2011.
-        2. K. R. Arora, Soil Mechanics and Foundation Engineering, Standard Publishers, 2011
-        3. Murthy V N S., “Advanced Foundation Engineering”, CBS Publishers & Distributors Pvt. Ltd., New Delhi, 2007
-    \n\nReferences:\n
-        1. Alam Singh., “Soil Engineering in Theory and Practice”, Vol.1, CBS Publishers & Distributors Pvt. Ltd., New Delhi. 2002
-        2. Gopal Ranjan and and Rao A.S.R., “ Basic and Applied Soil Mechanics”, New Age International (P) Limited, New Delhi, 2002.
-        3. Purushothamaraj P., Soil Mechanics and Foundation Engineering, Dorling Kindersley(India) Pvt. Ltd., 2013
-        4. TengW.E., ”Foundation Design”, Prentice Hall , New Jersey, 1962.
-        5. Venkataramiah, “Geotechnical Engineering”, Universities Press (India) Limited, Hyderabad, 2000</item>
-        <item>3</item>
-        <item>NONE</item>
     <item></item>
     <item>Stresses in soil due to loaded areas - Boussinesq’s formula for point loads – assumptions [no derivation required] – Comments - numerical problems
         Vertical stress beneath loaded areas of strip, rectangular and circular shapes(no derivation required)- Newmark’s chart[construction procedure not required] - Isobars- Pressure bulbs- numerical problems
@@ -105,7 +448,57 @@
 </array>
 
 
+    <array name="ce307">
 
+        <item>GEOMATICS</item>
+
+
+        <item>Traverse Surveying</item>
+        <item>Methods of traversing, Checks in closed traverse,
+            Traverse computations, Balancing the traverse- methods
+        </item>
+
+        <item>Curve Surveying</item>
+        <item>Elements of simple and compound curves –
+            Method of setting out– Elements of Reverse curve (Introduction
+            only)– Transition curve – length of curve – Elements of transition
+            curve - Vertical curve (introduction only)
+        </item>
+
+        <item>Global Navigation Satellite System and Global Positioning
+            Systems
+        </item>
+        <item>Global Navigation Satellite System- Types, Global Positioning
+            Systems-Components and Principles, Satellite ranging-calculating
+            position, Satellite signal structure, code phase and carrier phase
+            measurements, GPS errors and biases, Application of GPS
+        </item>
+
+        <item>GPS Surveying methods</item>
+        <item>Static, Rapid static , Kinematic methods –
+            DGPS, Phases of GPS Survey -Planning and preparation, Field
+            operation-horizontal and vertical control, data sheet, visibility
+            diagram, Processing and report preparation,
+        </item>
+
+        <item>Remote Sensing</item>
+        <item>Definition- Electromagnetic spectrum-Energy
+            interactions with atmosphere and earth surface features-spectral
+            reflectance of vegetation, soil and water- Classification of sensors-
+            Active and Passive, Resolution-spatial, spectral radiometric and
+            Temporal resolution, Multi spectral scanning-Along track and across
+            track scanning
+        </item>
+
+        <item>Geographical Information System</item>
+        <item>Geographical Information System-components of GIS, GIS
+            operations, Map projections- methods, Coordinate systems-
+            Geographic and Projected coordinate systems, Data Types- Spatial
+            and attribute data, Raster and vector data representation-Data Input
+            methods-Geometric Transformation-RMS error, Vector data
+            Analysis-buffering, overlay.
+        </item>
+    </array>
 
 
 
@@ -113,23 +506,6 @@
 
     <array name="ce309">
         <item>WRE</item>
-        <item>Text Books:\n
-            1. Arora, K.R., “Irrigation, Water Power and Water Resources Engineering”, Standard Publishers Distributors, New Delhi, 2009.
-            2. Garg S.K, Irrigation Engineering and Hydraulic Structures Khanna Publishers New Delhi 2006.
-            3. Modi. P. N. Irrigation, Water Resources and Water Power Engineering, S.B.H Publishers and Distributors New Delhi 2009.
-            4. Punmia B.C. Ashok K Jain, Arun K Jain, B. B. L Pande, Irrigation and Water Power Engineering, Laxmi Publications (P) Ltd. 2010.
-            \n\nReferences :\n 1. Asawa. G.L. Irrigation and Water Resources Engineering, New Age International, 2000
-            2. Ojha.C.S.P., R.Berndtsson, P. Bhunya, Engineering Hydrology, Oxford university Press, 2015.
-            3. Patra. K.C., Hydrology and Water Resources Engineering, CRC Press, 2010. 4. Sahasrabudhe S.R., Irrigation Engineering &amp; Hydraulic Structures, S.K. Kataria &amp; Sons, 2013.
-            5. Subramanya. K., Engineering Hydrology, Tata Mc Graw Hill, 2011
-            6. Todd D. K., Ground Water Hydrology, Wiley, 2005.
-            7. Ven Te Chow, David R Maidment, L.W Mays., Applied Hydrology, McGraw Hill, 1988
-            8. Warren Viessman, G.L. Lewis, Introduction to Hydrology, Pearson Education, 2003.
-
-        </item>
-        <item>Three</item>
-
-        <item>NONE</item>
         <item></item>
         <item>Hydrologic cycle-precipitation-mechanism, types and forms. Measurement of rainfall using rain gauges-optimum number of rain gauges. Estimation of missing precipitation. Representation of rainfall data-mass curve and hyetograph. Computation of mean precipitation over a catchment. Design rainfall - probable maximum rainfall. Infiltration-measurement by double ring infiltrometer. Horton’s model. Evaporation-measurement by IMD land pan, control of evaporation</item>
         <item></item>
@@ -147,17 +523,6 @@
 
     <array name="ce363">
         <item>GI</item>
-        <item>Text Books:\n
-            1. Gopal Ranjan and Rao A.S.R., “ Basic and Applied Soil Mechanics”, New Age International (P) Limited, New Delhi, 2002.
-            2. Venkataramaiah, “Geotechnical Engineering”, Universities Press (India) Limited, Hyderabad, 2000.
-        </item>
-        <item>References:\n
-            1. Arora K.R., “ Geotechnical Engineering”, Standard Publishers Distributors, New Delhi, 2006.
-            2. Joseph E. Bowles, „Foundation Analysis and Design‟, Mc. Graw Hill Inc., New York, 1988.
-            3. Purushothamaraj P., Soil Mechanics and Foundation Engineering, Dorling Kindersley(India) Pvt. Ltd., 2013
-            4. Terzaghi K. and R. B. Peck, Soil Mechanics in Engineering Practice, John Wiley, 1967.</item>
-        <item>3</item>
-        <item>NONE</item>
         <item></item>
         <item>Introduction and practical importance - Objectives of soil exploration – Planning of a sub-surface exploration programme –Collection of existing information, reconnaissance, preliminary and detailed investigation - I.S. and other guidelines for deciding the number, size, spacing and depth of boreholes
         </item>
@@ -183,19 +548,6 @@
 
     <array name="ce361">
         <item>ACT</item>
-    <item>Text books:\n
-        1. Neville A.M.,‟Properties of Concrete‟, Trans-Atlantic Publications, Inc.; 5e, 2012
-        2. Job Thomas., “ Concrete Technology”, Cenage learning,
-        3. R. Santhakumar „ Concrete Technology‟, Oxford Universities Press, 2006
-        4. Shetty M. S., Concrete Technology‟, S. Chand & Co., 2006
-    \n\nReferences:\n
-        1. Mehta and Monteiro, „Concrete-Micro structure, Properties and Materials‟, McGraw Hill
-        Professional
-        2. Neville A. M. and Brooks J. J., Concrete Technology, Pearson Education, 2010
-        3. Lea, Chemistry of Cement and Concrete‟, Butterworth-Heinemann Ltd, 5e, 2017
-        4. Bungey, Millard, Grantham – Testing of Concrete in Structures- Taylor and Francis, 2006</item>
-        <item>3</item>
-        <item>NONE</item>
     <item></item>
     <item>Aggregates: Review of types; sampling and testing; effects on properties of concrete, production of artificial aggregates.
         Cements: Review of types of cements, chemical composition; properties and tests, chemical and physical process of hydration,blended cements
@@ -218,18 +570,7 @@
 </array>
 
     <array name="ce365">
-        <item>References :\n
-            1. Ajitha Simha.D, Building Environment, Tata McGraw Hill Publishing Co., New Delhi, 1985
-            2. Bureau of Indian standards, Handbook on Functional Requirement of Buildings – SP:41(S and T) – 1987
-            3. Givoni. B Man,. Climate and Architecture, Applied Science Publication, 1976
-            4. Knudsen V.O. and Harris C.M., Acoustical Design in Architecture, John Wiley, 1980
-            5. Koenigseberger, Manual of tropical Housing and Building Part I – Climatic design, Orient Longman, 2011
-            6. Krishnan, Climate responsive architecture, Tata McGraw Hill, 1999
-            7. M David Egan , Architectural Acoustics, J.Ross Publishing, 2007
-            8. Olgay Victor, Design with climate-A bioclimatic approach to architectural regionalism- Princeton University press-1963
-            For</item>
-        <item>Three</item>
-        <item>NONE</item>
+        <item>FDB</item>
         <item></item>
         <item>Acoustics, fundamentals: Physics of sound-Frequency, period amplitude. Intensity of sound- Watts/m2- Bel- Decibel scales- dBA- Phon. Addition of sound levels. Human Audibility range. Behavior of sound in free and reverberant fields. Noise- allowable limits-effect of noise on human-Air and structure born noises-equivalent noise levels-day and night equivalent.
         </item>
@@ -253,20 +594,6 @@
 
     <array name="ce367">
     <item>WCS</item>
-    <item>
-    Text Books :\n
-    1. Bhave P. R. and R. Gupta, Analysis of Flow in Water Distribution Networks, Narosa Publishing House, 2013
-    2. Rajesh Srivastava, Flow through Open Channels, Oxford University Press, 2007.
-    3. Subramanya.K. Flow in Open Channels, Tata McGraw Hill Publishing Co. 2009
- \n\nReferences :\n 1. Chow V. T., Open Channel Hydraulics, McGraw Hill Book Co. New York, 1990.
-        2. Hanif Chaudhry.M., Open Channel Flow, Springer, 2008. 3. Hubert Chanson, Hydraulics of Open channel flow, Elsevier Butterworth-Heinemann, 2004.
-        4. Lary W Mays, Water distribution system Hand book, Mc Graw Hill, 2000.
-        5. Modi P. N. and S. M. Seth, Hydraulics & Fluid Mechanics, S.B.H Publishers, New Delhi, 2002
-        6. Richard H French, Open Chanel Hydraulics, Mc Graw Hill, 2000
-        7. Walksi T M, Analysis of water distribution System, Van Nostrand Reinheld G, New York, 1984
-    </item>
-        <item>Three</item>
-        <item>NONE</item>
     <item></item>
     <item>Open channel flow- Pressure distribution in curvilinear flows. Application of specific energy principle to channel transitions with hump or change in width. Uniform flow-composite sections, Equivalent roughness, Hydraulic exponents N and M
     </item>
@@ -287,19 +614,6 @@
 
     <array name="ce369">
     <item>DM</item>
-
-    <item>References :\n
-        1. Andrew, S., “Environmental Modeling with GIS and Remote Sensing”, John Willey, 2002
-        2. Ariyabandu, M. and Sahni P. “Disaster Risk Reduction in South Asia”, Prentice-Hall (India), 2003.
-        3. Bell, F.G., “Geological Hazards: Their assessment, avoidance and mitigation”, E &amp; FN SPON Routledge, London. 1999
-        4. Bossler, J.D., “Manual of Geospatial Science and Technology”, Taylor and Francis, 2001
-        5. David Alexander, “Natural Disasters”, Research Press, New Delhi, 1993
-        6. Matthews, J.A., “Natural hazards and Environmental Change”, Bill McGuire, Ian Mason, 2002
-        7. Mitigating Natural Disasters, Phenomena, Effects and options, A Manual for policy makers and planners, United Nations. New York, 1991
-        8. Nick Carter. W., “Disaster Management - A Disaster Manager&apos;s Handbook”. Asian Development Bank, Philippines. 1991
-    </item>
-        <item>Three</item>
-        <item>NONE</item>
     <item></item>
     <item>Fundamental concepts of hazards and disasters: Relationship between disasters and development, implications. Introduction to key concepts and terminology of hazard, vulnerability, exposure, risk, crisis, emergencies, Disasters, Resilience</item>
     <item></item>
@@ -319,18 +633,6 @@
 
     <array name="ce371">
         <item>EAP</item>
-        <item>Text Books / References: \n
-            1. B.C.Bhartia, Environmental Pollution and Control in Chemical Process Industries, Khanna Publishers, Delhi, 2001.
-            2. Danny D Reible, Fundamentals of Environmental Engineering, CRC Press, 1998
-            3. Gilbert M Masters, Wendell P Ela, Introduction to Environmental Engineering and Science, Pearson Education, 2007
-            4. Howard S Peavy, Donald R Rowe, George Tchobanoglous, Environmental Engineering, McGrawHill Education , 1984
-            5. Kurian Joseph &amp; R.Nagendran, Essentials of Environmental Studies, Pearson Education (Singapore) Pvt.Ltd, New Delhi, 2004.
-            6. N.N Basak, Environmental Engineering, McGrawHill Education, Reprint 2015
-            7. P.AarneVesiland, Introduction to Environmental Engineering, PWS publishing company Boston, 1997.
-            8. Suresh K Dhameja, Environmental Engineering and Management, S.K.Kataria&amp; Sons, Delhi, 2010. </item>
-
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Environment-Introduction-Multidisciplinary Nature
             Components of Environment, Ecology, Ecosystem- Material Cycling- Carbon and Nitrogen cycles
@@ -353,17 +655,6 @@
 
     <array name="ce373">
     <item>AMM</item>
-    <item>Text Books :\n 1. R.D. Cook and W.C. Young, Advanced Mechanics of Materials, 2nd edition, Prentice Hall Intl,Inc.1999
-        2. Srinath L.S, Advanced Mechanics of Solids, Tata McGraw Hill, 3e, 2009</item>
-
-    <item>References:\n 1. A.P. Boresi and O.M.Sidebottom, Advanced Mechanics of Materials, 4th edition, John Wiley &amp; Sons,Inc.1985
-        2. Edward Tsudik, Analysis of structures on Elastic Foundations, Cengage Learning , J.Ross Publishing, 2012
-        3. S P Timoschenko, Strength of Materials Vol II ,CBS Publishers, 2002
-        4. Shames, E.H., Mechanics of Deformable solids, Prentice Hall Inc., 1964
-        5. Timoshenko S.P and Goodier J.N, Theory of elasticity, McGraw Hill, 3e, 1970
-    </item>
-        <item>Three</item>
-        <item>NONE</item>
     <item></item>
     <item>Stress, Principal stresses, Strain energy: Stress at a point – stress on an arbitrarily oriented plane-stress transformations- strain theory-principal stresses &amp; strains (2d &amp; 3d)- Generalized Hooke’s law-Equations of thermo-elasticity for isotropic materials-strain energy density- stress concentration
     </item>
@@ -380,7 +671,5 @@
     <item>Torsion :Torsion of a cylindrical bar of circular cross section- St. Venant’s semi inverse method-stress function approach-elliptical, equilateral triangle &amp; narrow rectangular cross sections - Prandtl’s membrane analogy-Hollow thin wall torsion members-multiply connected cross sections- thin wall torsion members with restrained ends</item>
 </array>
 
-
--->
 
 </resources>

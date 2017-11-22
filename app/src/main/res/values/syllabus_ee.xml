@@ -1,7 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--
+    <array name="ee201">
+        <item>CN</item>
+        <item></item>
+        <item>Network theorems – Superposition theorem – Thevenin’s theorem – Norton’s theorem –
+            Reciprocity Theorem – Maximum power transfer theorem – dc and ac steady state analysis –
+            dependent and independent sources
+        </item>
+        <item></item>
+        <item>Network topology – graph, tree, incidence matrix – properties of incidence matrix –
+            fundamental cut sets – cut set matrix – tie sets – fundamental tie sets – tie set matrix
+            – relationships among incidence matrix, cut set matrix and tie set matrix – Kirchoff’s
+            laws in terms of network topological matrices – formulation and solution of network
+            equations using topological methods
+        </item>
+        <item></item>
+        <item>Steady state and transient response – DC response and sinusoidal response of RL, RC
+            and RLC series circuits
+        </item>
+        <item></item>
+        <item>Application of Laplace transform in transient analysis – RL, RC and RLC circuits
+            (Series and Parallel circuits) – step and sinusoidal response
 
+            Transformed circuits – coupled circuits - dot convention - transform
+            impedance/admittance of RLC circuits with mutual coupling – mesh analysis and node
+            analysis of transformed circuits – solution of transformed circuits including mutually
+            coupled circuits in s-domain
+        </item>
+        <item></item>
+        <item>Two port networks – Z, Y , h, T parameters – relationship between parameter sets –
+            condition for symmetry and reciprocity – interconnections of two port networks – driving
+            point and transfer immittance – T-π transformation.
+        </item>
+        <item></item>
+        <item>Network functions–Network synthesis-positive real functions and Hurwitz
+            polynomial-synthesis of one port network with two kinds of elements-Foster form I and
+            II-Cauer form I and II.
+        </item>
+    </array>
+    <array name="ee202">
+        <item>SIM</item>
+        <item></item>
+        <item>Alternators - basic principle, constructional features of salient pole type and
+            cylindrical type alternators, advantages of stationary armature, turbo-alternator.
+            Armature winding – types of armature winding- single layer, double layer, full pitched
+            and short pitched winding,slot angle, pitch factor and distribution factor – numerical
+            problems. Effect of pitch factor on harmonics – advantages of short chorded winding, EMF
+            Equation – numerical problems. Harmonics in generated EMF – suppression of harmonics.
+        </item>
+        <item></item>
+        <item>Performance of an alternator – Causes for voltage drop in alternators – armature
+            resistance, armature leakage reactance – armature reaction, synchronous reactance,
+            synchronous impedance, experimental determination – phasor diagram of a loaded
+            alternator. Voltage regulation – EMF, MMF, ZPF and ASA methods – numerical problems.
+        </item>
+        <item></item>
+        <item>Theory of salient pole machine – Blondel’s two reaction theory – direct axis and
+            quadrature axis synchronous reactances – phasor diagram and determination of Xd and Xq
+            by slip test. Parallel operation of alternators – necessity of parallel operation of
+            alternators, methods of synchronisation– dark lamp method and bright lamp method,
+            synchroscope, Synchronising current, synchronising power, synchronising torque. Effects
+            of changing excitation of alternators, load sharing of two alternators in parallel
+            operation.
+        </item>
+        <item></item>
+        <item>Synchronous motor – construction and principle of synchronous motor, methods of
+            starting. Effects of excitation on armature current and power factor, v-curve and
+            inverter v-curve, load angle, torque and power relationship, phasor diagram, losses and
+            efficiency calculations. Three phase induction motor – constructional features, slip
+            ring and cage types. Theory of induction motor with constant mutual flux, slip, phasor
+            diagram, expression for mechanical power and torque, torque-slip characteristics,
+            starting torque, full load and pull out torque, equivalent circuit.
+        </item>
+        <item></item>
+        <item>Circle diagrams – tests on induction motors for determination of equivalent circuit
+            and circle diagram. Cogging, crawling and noise production in cage motors – remedial
+            measures. Double cage induction motor – principle, torque-slip curves. Starting of
+            induction motors – types of starters – DOL starter, autotransformer starter, star-delta
+            starter, rotor resistance starter – starting torque and starting currentnumerical
+            problems. Braking of induction motors – plugging, dynamic braking and regenerative
+            braking (no numerical problems). Speed control – stator voltage control, V/f control,
+            rotor resistance control.
+        </item>
+        <item></item>
+        <item>Induction generator – principle of operation, grid connected and self excited
+            operation, comparison of induction generator with synchronous generators. Synchronous
+            induction motor – principle of operation. Single-phase induction motor – double field
+            revolving theory, equivalent circuit, torque slip curve. Types of single phase induction
+            motor – split phase, capacitor start, capacitor start and run types. Principle of shaded
+            pole motor – applications.
+        </item>
+    </array>
+
+    <array name="ee203">
+        <item>AEC</item>
+        <item>Diode Circuits and Bipolar Junction Transistors</item>
+        <item>Diode Circuits: Diode clipping circuits - Single level and two level clippers -
+            Clamping circuits – Design of Zener Voltage Regulators.
+            Bipolar Junction Transistors : Review of BJT characteristics- Operating point of a BJT –
+            Factors affecting stability of Q point and DC Biasing – Biasing circuits: fixed bias,
+            collector to base bias, voltage division bias and self bias. (Derivation of stability
+            factors for Voltage Divider Biasing only) –Bias compensation using diode and thermistor.
+
+            Low frequency equivalent circuit of BJT. Common Emitter amplifier - AC Equivalent
+            Circuit – Role of coupling and emitter bypass capacitors – h parameter model of BJT
+            -Amplifier gains and impedances calculations using h equivalent circuit.
+        </item>
+        <item>Field Effect Transistors and Frequency response of Amplifiers</item>
+        <item>Field Effect Transistors : Review of JFET and MOSFET construction, working and
+            characteristics- Biasing a JFET and MOSFET using voltage divider bias–- CS and CD
+            amplifiers – small signal models-FET as switch and voltage controlled resistance.
+            Frequency response of Amplifiers : Miller’s Theorem- BJT Internal Capacitances at high
+            frequency operationsHigh frequency analysis of CE Amplifier using hybrid Pi Model -Low
+            Frequency Response of Common Emitter amplifier -– CE High frequency response-Gain
+            bandwidth product- –––Low and High Frequency response of FET amplifiers
+        </item>
+        <item>Multistage amplifiers,Power amplifiers using BJT and Feedback Amplifiers</item>
+        <item>Multistage amplifiers : Direct, RC, transformer coupled amplifiers – Power amplifiers
+            using BJT : Class A, Class B and Class AB and class C- Conversion efficiency and
+            distortion in power amplifiers. Feedback Amplifiers- Effect of positive and negative
+            feedbacks- Basic feedback topologies and their properties
+        </item>
+        <item>Oscillators and Operational Amplifiers</item>
+        <item>Oscillators : Bark Hausen’s criterion – RC oscillators (RC Phase shift oscillator and
+            Wein Bridge oscillator) –LC oscillators (Hartley and Colpitt’s)- Derivation of frequency
+            of oscillation for the above mentioned oscillators- Crystal oscillator. Operational
+            Amplifiers: Review of Operational Amplifier basics - Analysis of fundamental
+            differential amplifier- Properties of ideal and practical Op-Amp - Gain, CMRR and Slew
+            rate of IC 741 and LM 301– Drift and frequency compensation in OP Amps- Open loop and
+            Closed loop Configurations-Concept of virtual short and its relation to negative
+            feedback
+        </item>
+        <item>OP-AMP Circuits</item>
+        <item>OP-AMP Circuits : Review of inverting and noninverting amplifier circuits- Summing and
+            difference amplifiers, Differentiator and Integrator circuits- Logarithmic amplifier-
+            Half Wave Precision rectifier - Instrumentation amplifier.
+
+            Comparators: Zero crossing and voltage level detectors, Schmitt trigger.
+        </item>
+        <item>Wave form genereation using OP-Amps, Timer 555 IC and Oscillator Circuits using
+            OP-amps
+        </item>
+        <item>Wave form generation using Op-Amps: Square, triangular and ramp generator circuits
+            using Op-Amp - Effect of slew rate on waveform generation.
+            Timer 555 IC : Internal diagram of 555 IC– Astable and Monostable multivibrators using
+            555 IC.
+            Oscillator circuits using Op-amps : RC Phase shift oscillator, Wein Bridge oscillator,
+            LC Oscillators- (Derivation not required) - Crystal oscillator.
+        </item>
+    </array>
+
+
+    <array name="ee204">
+        <item>DELD</item>
+        <item></item>
+        <item>Number Systems and Codes : Binary, Octal and hexadecimal conversions- ASCII code,
+            Excess -3 code, Gray code, Error detection and correction - Parity generators and
+            checkers – Fixed point and floating point arithmetic. Binary addition and subtraction,
+            unsigned and signed numbers, 1&amp;apos;s complement and 2’s complement arithmetic
+        </item>
+        <item></item>
+        <item>TTL logic and CMOS logic - Logic gates, Universal gates - Boolean Laws and theorems,
+            Sum of Products method, Product of Sum method – K map representation and
+            simplification(upto four variables) - Pairs, Quads, Octets, Dont care conditions.
+        </item>
+        <item></item>
+        <item>Combinational circuits: Adders _ Full adder and half adder – Subtractors,
+            halfsubtractor and fullsubtractor – Carry Look ahead adders – ALU(block diagram only).
+            Multiplexers, Demultiplexers, Encoders, BCD to decimel decoders.
+        </item>
+        <item></item>
+        <item>Sequential circuits: Flip-Flops, SR, JK, D and T flip-flops, JK Master Slave
+            Flip-flop, Conversion of flip-flops, Registers -SISO,SIPO, PISO, PIPO. Counters :
+            Asynchronous Counters – Modulus of a counter – Mod N counters.
+        </item>
+        <item></item>
+        <item>Synchronous counters: Preset and clear modes, Counter Synthesis: Ring counter, Johnson
+            Counter, Mod N counter, Decade counter. State Machines: State transition diagram, Moore
+            and Mealy Machines – Design equation and circuit diagram.
+        </item>
+        <item></item>
+        <item>Digital to Analog conversion – R-2R ladder, weighted resistors. Analog to Digital
+            Conversion - Flash ADC, Successive approximation, Integrating ADC. Memory Basics, Read
+            and Write, Addressing, ROMs, PROMs and EPROMs, RAMs, Sequential Programmable Logic
+            Devices - PAL, PLA, FPGA (Introduction and basic concepts only) Introduction to VHDL,
+            Implementation of AND, OR, half adder and full adder.
+        </item>
+    </array>
     <array name="ee205">
     <item>DC MAT</item>
     <item>1. Bimbra P. S., Electrical Machinery, 7/e, Khanna Publishers, 2011.
@@ -20,7 +205,7 @@
     <item>DC generators – EMF equation – methods of excitation –
         separately and self excited – shunt, series, compound –
         armature reaction – effects of armature reaction –
-        demagnetizing & cross magnetizing ampere-turns –
+        demagnetizing &amp; cross magnetizing ampere-turns –
         compensating windings – interpoles – commutation – methods
         to improve commutation – voltage build-up – no loadcharacteristics – load characteristics – losses and efficiency –
         power flow diagram – parallel operation – applications of dc
@@ -34,15 +219,15 @@
         testing – Swinburne’s test – Hopkinson’s test – separation of
         losses – retardation test – applications of dc motors.</item>
     <item></item>
-    <item>Transformer losses and efficiency – voltage regulation – OC
-        & SC test – Sumpner’s test – all day efficiency
+    <item>Transformer losses and efficiency – voltage regulation – OC &amp; SC test – Sumpner’s test
+        – all day efficiency
         Autotransformer – saving of copper – current rating and kVA
         rating of autotransformers, parallel operation of single phase
         transformers, necessary and desirable conditions of parallel
         operation, on load and off load tap changers.</item>
     <item></item>
-    <item>Transformer losses and efficiency – voltage regulation – OC
-        & SC test – Sumpner’s test – all day efficiency
+    <item>Transformer losses and efficiency – voltage regulation – OC &amp; SC test – Sumpner’s test
+        – all day efficiency
         Autotransformer – saving of copper – current rating and kVA
         rating of autotransformers, parallel operation of single phase
         transformers, necessary and desirable conditions of parallel
@@ -54,19 +239,178 @@
         transformer – tertiary winding – percentage and per unit
         impedance – parallel operation of three phase transformers.</item>
 </array>
+    <array name="ee206">
+        <item>Material Science</item>
+        <item></item>
+        <item>Conducting Materials: Conductivity- dependence on temperature and composition –
+            Materials for electrical applications such as resistance, machines, solders etc.
+            Semiconductor Materials: Concept, materials and properties– Basic ideas of Compound
+            semiconductors, amorphous and organic semiconductors- applications. Dielectrics:
+            Introduction to Dielectric polarization and classification –Clausius Mosotti relation-
+            Behavior of dielectric in static and alternating fields
+        </item>
+        <item></item>
+        <item>Insulating materials and classification- properties- Common insulating materials used
+            in electrical apparatus-Inorganic, organic, liquid and gaseous insulators- capacitor
+            materials- Electro-negative gases- properties and application of SF6 gas and its
+            mixtures with nitrogen Ferro electricity.
+        </item>
+        <item></item>
+        <item>Dielectric Breakdown: Mechanism of breakdown in gases, liquids and solids –basic
+            theories including Townsend&amp;apos;s criterion, Streamer mechanism, suspended particle
+            theory,
+            intrinsic breakdown, electro-mechanical breakdown- Factors influencing Ageing of
+            insulatorsApplication of vacuum insulation- Breakdown in high vacuum-Basics of treatment
+            and testing of transformer oil
+        </item>
+        <item></item>
+        <item>Magnetic Materials: Origin of permanent magnetic dipoles- Classification of magnetic
+            materials -Curie-Weiss law- Properties and application of iron, alloys of iron- Hard and
+            soft magnetic materials– Ferrites- Magnetic materials used in electrical machines,
+            instruments and relays-
+        </item>
+        <item></item>
+        <item>Superconductor Materials:-Basic Concept- typescharacteristics-applications Solar
+            Energy Materials: Photo thermal conversion- Solar selective coatings for enhanced solar
+            thermal energy collection –Photovoltaic conversion – Solar cells -Silicon, Cadmium
+            sulphide and Gallium arsenic – Organic solar cells.
+        </item>
+        <item></item>
+        <item>Modern Techniques for materials studies: Optical microscopy – Electron microscopy –
+            Photo electron spectroscopy – Atomic absorption spectroscopy – Introduction to
+            Biomaterials and Nanomaterials.
+        </item>
+    </array>
+    <array name="ee207">
+        <item>CP</item>
+        <item>Intro to Programming and Basic Elements of C</item>
+        <item>Introduction to Programming: Machine language, assembly language, and high level
+            language. Compilers and assemblers. Flow chart and algorithm – Development of algorithms
+            for simple problems. Basic elements of C: Structure of C program –Keywords, Identifiers,
+            data types, Operators and expressions – Input and Output functions
+        </item>
+        <item>Control Statements</item>
+        <item>if, if-else, while, do-while and for statements, switch, break, continue, go to, and
+            labels. Programming examples.
+        </item>
+        <item>Arrays and Strings</item>
+        <item>Declaration, initialisation, processing arrays and strings– two dimensional and
+            multidimensional arrays –application of arrays. Example programs
+        </item>
+        <item>Functions and Storage Classes</item>
+        <item>Functions : Functions – declaring, defining, and accessing functions –parameter
+            passing methods – – passing arrays to functions , Recursion . Storage classes – extern,
+            auto, register and static. Example programs.
+        </item>
+        <item>Structures and Pointers</item>
+        <item>Structures – declaration, definition and initialization of structures, unions
+            Pointers: Concepts, declaration, initialization of pointer variables, Accessing a
+            Variable through its Pointer Chain of Pointers, Pointer Expressions, Pointer Increments
+            and Scale Factor, Pointers and Arrays, examples
+        </item>
+        <item>File management and Intro to Python</item>
+        <item>File Management – File operations, Input/Output Operations on Files, Random Access to
+            Files ,File pointer. Introduction to Python :Basic Syntax, Operators, control
+            statements, functions-examples.
+        </item>
+    </array>
+    <array name="ee208">
+        <item>MI</item>
+        <item></item>
+        <item>General principles of measurements – measurement system- measurement standards –
+            characteristics - errors in measurement- calibration of meters- significance of IS
+            standards of Instruments. Classification of meters - operating forces - essentials of
+            indicating instruments - deflecting, damping, controlling torques. Ammeters and
+            voltmeters - moving coil, moving iron, constructional details and operating, principles
+            shunts and multipliers – extension of range.
+        </item>
+        <item></item>
+        <item>Measurement of resistance: measurement of insulation resistance - loss of charge
+            method, measurement of earth resistance. Measurement of power and energy: Dynamometer
+            type wattmeter – 1-phase and 3-phase power measurement – 1-phase and 3-phase energy
+            meters (induction type) – electronic energy meter, TOD meter.
+        </item>
+        <item></item>
+        <item>Introduction to high voltage and high current measurements: Measurement of high DC
+            voltages - measurement of high AC voltages - electrostatic voltmeters – sphere gaps - DC
+            Hall effect sensors - high current measurements. Study of Phasor Measurement Units
+            (PMU). Current transformers and potential transformers – principle working, ratio and
+            phase angle errors – numerical problems, Clamp on meters.
+        </item>
+        <item></item>
+        <item>Magnetic Measurements: Measurement of flux and permeability - flux meter - hall effect
+            Gaussmeter - BH curve and permeability measurement - hysteresis measurement- ballistic
+            galvanometer – principle- determination of BH curve - hysteresis loop. Lloyd Fisher
+            square — measurement of iron losses Measurement of rotational speed using proximity
+            sensors and optical sensors.
+        </item>
+        <item></item>
+        <item>DC and AC potentiometers - General Principle - calibration of ammeter, voltmeter and
+            wattmeter using potentiometer. AC Bridges: Maxwell’s bridge- Schering bridge and Wien’s
+            bridge Oscilloscopes – Basic principle of signal display - Block diagram and principle
+            of operation of general purpose CRO - vertical deflecting system - horizontal deflection
+            system - basic sweep generator - XY mode and Lissajous patterns - applications of CRO -
+            dual trace oscilloscope. digital storage oscilloscope
+        </item>
+        <item></item>
+        <item>Transducers - Definition and classification - common transducers for measurement of
+            displacement, velocity, flow, liquid level, force, pressure, strain and temperature -
+            basic principles and working of LVDT, electromagnetic and ultrasonic flow meters,
+            piezoelectricforce transducer, load cell, strain gauge- bridge configuration for four
+            strain gauges, RTD, Thermistors, thermocouple, Need for instrumentation system, data
+            acquisition system.
+        </item>
+    </array>
 
-
-
+    <array name="ee216">
+        <item>EE</item>
+        <item>Transformers</item>
+        <item>Transformers- Principle of operation - emf equation - Phasor diagram - Equivalent
+            circuit - OC and SC tests – Basic principles of auto transformer and three phase
+            transformer
+        </item>
+        <item>DC Generator</item>
+        <item>DC Generator – E.M.F equation- Armature reaction – Commutation - interlopes – power
+            flow diagram – losses and efficiency – voltage regulation – parallel operation – load
+            sharing
+        </item>
+        <item>DC Motor</item>
+        <item>DC Motor- back E.M.F. – speed equation – torques – performance characteristics – power
+            flow diagram losses and efficiency – starter- two point and three point – swinburns test
+            – thyristor control of series and shunt motor.
+        </item>
+        <item></item>
+        <item>Alternator- Rotating field - Frequency effect of distribution of winding - emf
+            equation – Basic principles of synchronous motor – Losses and Efficiency - Torque
+            equation - Starting methods - induction motor - Constructional features - Principle of
+            operation of 3 phase induction motor – Vector diagram and equivalent circuits - Starting
+            and speed control of squirrel cage and wound rotor induction motor
+        </item>
+        <item></item>
+        <item>Three phase Induction motor- types – torque equations- torque slip and torque speed
+            characteristics- power flow diagram – efficiency – equivalent circuit- induction
+            generator Special machines – single phase FHP motor starting methods- double field
+            revolving theory-types and applications – stepper motor –classifications and
+            applications – servomotors – classifications and applications –shaded pole motors
+            –applications
+        </item>
+        <item></item>
+        <item>Principle of Indicating instruments- moving coil, moving iron and dynamometer type
+            instruments- Extension of range of voltmeter and ammeter - Measurement of 3 phase power
+            by two wattmeter method – Principle and working of Induction type energy meter- DC slide
+            wire, potentiometer
+        </item>
+    </array>
     <array name="ee311">
         <item>EDCA</item>
         <item>
             1. Kothari D. P. and I. J. Nagrath, Electrical Machines, Tata McGraw Hill, 2004.\n
-            2. Nagrath .I.J. & Kothari .D.P, Electrical Machines, Tata McGraw-Hill, 1998\n
+            2. Nagrath .I.J. &amp; Kothari .D.P, Electrical Machines, Tata McGraw-Hill, 1998\n
             3. Richard Crowder, Electrical Drives and Electromechanical systems, Elsevier, 2013\n
-            4. Mehta V. K. and R. Mehta, Principles of Electrical and Electronics, S. Chand &
+            4. Mehta V. K. and R. Mehta, Principles of Electrical and Electronics, S. Chand &amp;
             Company
             Ltd., 1996.\n
-            5. Theraja B. L. and A. K. Theraja, A Text Book of Electrical Technology, S. Chand &
+            5. Theraja B. L. and A. K. Theraja, A Text Book of Electrical Technology, S. Chand &amp;
             Company Ltd., 2008.\n
             6. Vedam Subrahmaniam, Electric Drives (concepts and applications), Tata McGraw- Hill,
             2001\n
@@ -110,5 +454,6 @@
             controllers, Programmable Logic Controllers
         </item>
     </array>
--->
+
+
 </resources>

@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.learnera.app.R;
+import com.learnera.app.SyllabusActivity;
 import com.learnera.app.data.Module;
 import com.learnera.app.data.ModuleAdapter;
 
@@ -34,16 +35,22 @@ public class ModulesFragment extends Fragment {
     ArrayList<Module> modulesList;
     StringBuffer share;
     ArrayList<String> modules;
+    String mTitle;
     private ModuleAdapter moduleAdapter;
 
     public ModulesFragment() {
         // Required empty public constructor
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((SyllabusActivity) getActivity()).getSupportActionBar().setTitle(mTitle);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mTitle = "Syllabus";
         view = inflater.inflate(R.layout.fragment_modules, container, false);
         mListView = (ListView) view.findViewById(R.id.modulesListView);
         getlist();
@@ -110,11 +117,12 @@ public class ModulesFragment extends Fragment {
     private void getlist() {
         Bundle modulesBundle = getArguments();
         modules = modulesBundle.getStringArrayList("modules");
-     //   getActivity().setTitle(modules.get(1));
+        mTitle = modules.get(1);
 
         modulesList = new ArrayList<Module>();
 
-        for (int i = 5, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
+        //use int i = 5 ater putting text books
+        for (int i = 2, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
             modulesList.add(new Module("Module " + moduleNumber, modules.get(i), modules.get(i + 1)));
         }
         moduleAdapter = new ModuleAdapter(getActivity(), modulesList);
@@ -124,7 +132,9 @@ public class ModulesFragment extends Fragment {
     private void shareFullSyllabus() {
         share = new StringBuffer();
         share.append("SYLLABUS OF : " + modules.get(0));
-        for (int i = 5, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
+
+        //use int i = 5 ater putting text books
+        for (int i = 2, moduleNumber = 1; i < modules.size(); i += 2, moduleNumber++) {
             share.append("\n\nMODULE " + moduleNumber + ":\n");
             if (modules.get(i).equals("")) {
                 share.append(modules.get(i + 1));

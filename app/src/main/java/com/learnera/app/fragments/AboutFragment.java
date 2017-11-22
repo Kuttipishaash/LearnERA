@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -31,15 +31,20 @@ public class AboutFragment extends Fragment {
     private Button mContact;
     private TextView mAppName;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_about, container, false);
         setHasOptionsMenu(true);
-
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         mContact = (Button) view.findViewById(R.id.button_contact_us);
 
-        getActivity().setTitle("About Us");
 
         mAppName = (TextView) view.findViewById(R.id.text_app_name);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
@@ -67,22 +72,28 @@ public class AboutFragment extends Fragment {
         super.onDestroyView();
 
         if(getActivity() instanceof AttendanceActivity) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Attendance");
         }
         else if(getActivity() instanceof MarksActivity) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Marks");
         }
         else if(getActivity() instanceof AnnouncementsActivity) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Announcements");
         }
         else {
+            /*
             FragmentManager fragmentManager = getFragmentManager();
             if(fragmentManager.getBackStackEntryCount() == 1) {
                 getActivity().setTitle("Syllabus");
             }
             else if(fragmentManager.getBackStackEntryCount() == 2) {
                 getActivity().setTitle("kopp");
-            }
+            }*/
+            ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
         }
     }
 
