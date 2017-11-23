@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.AttendanceActivity;
@@ -57,13 +56,13 @@ public class AboutFragment extends Fragment {
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                 sendIntent.setData(Uri.parse("mailto:"));
                 sendIntent.putExtra(Intent.EXTRA_SUBJECT, "");
-                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"test@gmail.com"});
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"learneraproject@gmail.com"});
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnEra");
                 startActivity(sendIntent);
             }
         });
 
-        Toast.makeText(getActivity(), "" + getFragmentManager().getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), "" + getFragmentManager().getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
         return view;
     }
 

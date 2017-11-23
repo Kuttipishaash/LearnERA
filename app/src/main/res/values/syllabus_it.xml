@@ -670,7 +670,7 @@
             \n ILP using multiple issue and static scheduling, ILP using dynamic scheduling,
             multiple issue and speculation.
         </item>
-        <item>MODULE 4</item>
+        <item></item>
         <item>Case study- Intel Core i7.
             \n Data level parallelism -Vector architecture-Vector instruction types, Vector-Access
             memory schemes , Graphic processing units.

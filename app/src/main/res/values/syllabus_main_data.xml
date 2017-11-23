@@ -356,6 +356,7 @@
         <item>it363</item>
         <item>it365</item>
         <item>it367</item>
+        <item>ma361</item>
     </string-array>
     <string-array name="its5subnames">
         <item>Software Architecture and Design Patterns</item>
@@ -367,6 +368,7 @@
         <item>Unix Shell Programming</item>
         <item>Computer Architecture and Parallel Processing</item>
         <item>Computer Graphics and Multimedia</item>
+        <item>Random Process and Queuing Theory</item>
     </string-array>
 
     <!-- SEMESTER 5 COMPUTER SCIENCE -->

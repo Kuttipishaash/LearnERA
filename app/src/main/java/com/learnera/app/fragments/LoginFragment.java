@@ -48,6 +48,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 
 /**
  * Created by Prejith on 7/4/2017.
@@ -193,6 +194,19 @@ public class LoginFragment extends Fragment {
         mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         mDepartment = (Spinner) view.findViewById(R.id.department_spinner);
+        //decreased spinner height due to issues in low res screens
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
+
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(mDepartment);
+
+            // Set popupWindow height to 500px
+            popupWindow.setHeight(300);
+        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            // silently fail...
+        }
     }
 
     private void initSpinner() {

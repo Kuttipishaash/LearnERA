@@ -2,6 +2,7 @@ package com.learnera.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.learnera.app.fragments.LoginFragment;
 
@@ -53,7 +54,9 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .fragment(new LoginFragment())
                 .canGoForward(false)
                 .build());
+
     }
+
 
     @Override
     public void onBackPressed() {

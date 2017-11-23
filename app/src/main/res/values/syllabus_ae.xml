@@ -351,7 +351,7 @@
             invertability, time invariance - Linearity - Causality - Memory - Time domain
             description - Convolution - Impulse response
         </item>
-        <item>2</item>
+        <item></item>
         <item>Representation of LTI systems - Differential equation and difference equation
             representations of LTI systems ,Continuous Time LTI systems and Convolution Integral,
             Discrete Time LTI systems and linear convolution
@@ -618,13 +618,7 @@
 
     <array name="ae365">
         <item>IFA</item>
-        <item>Text Books:\n 1. C D Johnson Process control and instrumentation technology, PHI 2.
-            Patranabis, Industrial instrumentation, TMH. 3. Wills B.A., “Mineral Processing
-            Technology”, 4th Ed.,Pergamon Press
-            \n\nReferences \n  B.G.Liptak , Instrumentation handbook-process control, Chilton
-        </item>
-        <item></item>
-        <item>NONE</item>
+
         <item></item>
         <item>Necessity of instrumentation &amp; control for agriculture, engineering properties of
             soil: fundamental definitions &amp; relationships, index properties of soil,
@@ -672,19 +666,7 @@
 
     <array name="ae366">
         <item>ESD</item>
-        <item>Text Books:\n 1. Shibu K.V, Introduction to Embedded Systems, Mc Graw Hill 2. Wayne
-            Wolf, Computers as Components: Principles of Embedded Computing System Design – Harcourt
-            India, Morgan Kaufman Publishers, First Indian Reprint 2001
-        </item>
 
-        <item>Reference Books \n 1. David E. Simon An Embedded Software Primer, Pearson Education.
-            2. Frank Vahid and Tony Givargis, Embedded System Design – A unified Hardware / Software
-            Introduction, John Wiley, 2002. 3. Lyla B Das, Embedded Systems An Integrated Approach,
-            Pearson, 2013 4. Rajkamal, Embedded Systems Architecture, Programming and Design, TATA
-            McGraw-Hill, First reprint Oct. 2003
-        </item>
-        <item></item>
-        <item>NONE</item>
         <item></item>
         <item>Introduction to Embedded Systems: Definition of Embedded System, Embedded Systems Vs
             General Computing Systems, History of Embedded Systems, Classification, Major
@@ -725,24 +707,7 @@
 
     <array name="ae368">
         <item>PE</item>
-        <item>Text Books:\n 1. Cyril Donaldson, George H.Lecain, V C Goold, Tool Design, TATA McGraw
-            Hill,1998. 2. Fred W. Billmeyer, Jr., Text Book of Polymer Science, John Wiley &amp;Sons,
-            Singapore,1994. 3. G.J.L. Griffin, Chemistry and Technology of Biodegradable Polymers,
-            Blackie Academic Professional, 1994
-            \n\nReference Books \n 1. Abraham J. Domb, Joseph Kost &amp; David M.Wiseman, Handbook
-            of Biodegradable polymers, CRC Press 2. Dominick V. Rosato, DonaldV. Rosato, Injection
-            Molding Hand Book, CBC Publishers&amp;Distributors,1987 3. Gerald Scott &amp; Dan Gilad,
-            Degradable Polymers-Principles &amp; Applications, Chapman &amp; Hall, 1995. 4. Gordon
-            L. Robertson, Food Packaging Principles and Practice, Marcel Dekker, Inc., New York
-            1993. 5. IrwinI Rubin, Injection Molding Theory and Practice, Wisely Inter science
-            Publication, 1972. 6. Louis T. Manzione, Plastic Packaging of Microelectronic Devices,
-            Van Nostrand Reinhold, New York, 1990. 7. Plastics Engineering Hand Book of the Society
-            of the Plastics Industry Inc.,Van Nostrand Reinhold Company, 1945. 8. Vishu Shah, Hand
-            Book of Plastics Testing Technology, John Wiley &amp; Sons Inc., New York, 1998
-        </item>
-        <item></item>
 
-        <item>NONE</item>
         <item></item>
         <item>Engineering Plastics : Sources and Manufacture of raw materials, Methods of
             Manufacture of Polymer, General Properties and applications of Acrylonitrile Butadiene

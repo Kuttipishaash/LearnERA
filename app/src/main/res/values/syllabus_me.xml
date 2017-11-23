@@ -482,7 +482,7 @@
             displacement diagrams, velocity and acceleration analysis of SHM, uniform velocity,
             uniform acceleration, cycloidal motion
         </item>
-        <item>Module 3</item>
+        <item></item>
         <item>Graphical cam profile synthesis, pressure angle Analysis of tangent cam with roller
             follower and circular cam with flat follower Introduction to polynomial cams.
         </item>
@@ -644,7 +644,7 @@
             between two parallel plates, potential flow in a sector. Introduction to conformal
             transformation, conformal mapping.
         </item>
-        <item>MODULE 4</item>
+        <item></item>
         <item>Incompressible viscous flow. Concepts of laminar and turbulent flows . Stokes
             viscosity law. Navier Stoke’s equation and significance (Derivation not
             necessary).Simplification of Havier stock equation for steady incompressible flows with
@@ -736,7 +736,6 @@
 
     <array name="me365">
 
-        <item>Advanced Metal Casting</item>
 
         <item>AMC</item>
 

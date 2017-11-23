@@ -43,7 +43,6 @@ import butterknife.BindView;
 public class MarksFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     public static int countSemesters;
-    public long startTime, stopTime, elapsedTime;
     protected ArrayList<String> semList;
     @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
@@ -180,8 +179,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(marksAdapter);
-        String x = elapsedTime + "";
-        Toast.makeText(getActivity(), x, Toast.LENGTH_LONG).show();
+
     }
 
     private void initProgressDialog() {
@@ -347,7 +345,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPostExecute(Void result) {
-            startTime = System.currentTimeMillis();
             Marks marks;
             String subjectHeader[] = new String[3];
             int rownum = 0, colnum;
@@ -421,8 +418,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 marks.setmSubMarks(subjectMarks.get(i));
                 marksList.add(marks);
             }
-            stopTime = System.currentTimeMillis();
-            elapsedTime = stopTime - startTime;
             createList();
             subjectLetters.clear();
             subjectCodes.clear();

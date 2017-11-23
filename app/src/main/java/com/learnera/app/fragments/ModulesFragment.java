@@ -14,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.SyllabusActivity;
@@ -62,7 +61,7 @@ public class ModulesFragment extends Fragment {
                                            final int index, long arg3) {
                 //Share with WhatsApp option only if module details are long pressed. It won't appear on long press of text books, credits or prerequisites
                 final AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
-                Toast.makeText(getActivity(), "" + index, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "" + index, Toast.LENGTH_SHORT).show();
                 final int tempIndex = index + 1;
                 build.setTitle("Share");
                 build.setMessage("Would you like to share the syllabus of Module " + tempIndex + "?");
