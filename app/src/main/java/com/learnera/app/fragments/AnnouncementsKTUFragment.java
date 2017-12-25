@@ -10,8 +10,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -39,6 +37,7 @@ import java.util.List;
 public class AnnouncementsKTUFragment extends Fragment {
 
     protected String ktuURL;
+
     private RecyclerView mRecyclerView;
     private boolean isLoaded = false, isVisibleToUser = false;
 

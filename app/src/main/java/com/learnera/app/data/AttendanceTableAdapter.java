@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Created by Shankar on 18-10-2017.
  */
 
-public class AttendenceTableAdapter extends ArrayAdapter<AttendenceTableRow> {
-    public AttendenceTableAdapter(Activity context, ArrayList<AttendenceTableRow> rows) {
+public class AttendanceTableAdapter extends ArrayAdapter<AttendanceTableRow> {
+    public AttendanceTableAdapter(Activity context, ArrayList<AttendanceTableRow> rows) {
         super(context, 0, rows);
     }
 
@@ -25,9 +25,9 @@ public class AttendenceTableAdapter extends ArrayAdapter<AttendenceTableRow> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_attendence_table, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_attendance_table, parent, false);
         }
-        AttendenceTableRow currentRow = getItem(position);
+        AttendanceTableRow currentRow = getItem(position);
 
         TextView absentDateTextView = (TextView) listItemView.findViewById(R.id.absentDate);
         TextView subject1TextView = (TextView) listItemView.findViewById(R.id.sub1);
@@ -40,7 +40,7 @@ public class AttendenceTableAdapter extends ArrayAdapter<AttendenceTableRow> {
 
         absentDateTextView.setText(currentRow.getDate());
 
-        ArrayList<AttendenceTableCells> temp = currentRow.getCells();
+        ArrayList<AttendanceTableCells> temp = currentRow.getCells();
 
         subject1TextView.setText((temp.get(0).getmSubject()));
         subject1TextView.setBackgroundColor(Color.parseColor(temp.get(0).getColor()));

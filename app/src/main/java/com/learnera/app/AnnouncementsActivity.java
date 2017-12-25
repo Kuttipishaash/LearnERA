@@ -96,11 +96,6 @@ public class AnnouncementsActivity extends AppCompatActivity {
                     return ktuFragment;
                 case 1:
                     return rsetFragment;
-                //case 2:
-                //    if (isNetworkAvailable())
-                //       return new AnnouncementOthersFragment();
-                //   else
-                //       return new NetworkNotAvailableFragment();
             }
             return null;
         }

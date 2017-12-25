@@ -28,13 +28,17 @@ import java.util.ArrayList;
  */
 public class ModulesFragment extends Fragment {
 
+    //views
     View view;
-
     ListView mListView;
+
+    //data handlers
     ArrayList<Module> modulesList;
     StringBuffer share;
     ArrayList<String> modules;
     String mTitle;
+
+    //adapters
     private ModuleAdapter moduleAdapter;
 
     public ModulesFragment() {
@@ -55,13 +59,13 @@ public class ModulesFragment extends Fragment {
         getlist();
         setHasOptionsMenu(true);
 
+        //To share just one module the user can long press on that module's details and the share dialog appears
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View v,
                                            final int index, long arg3) {
                 //Share with WhatsApp option only if module details are long pressed. It won't appear on long press of text books, credits or prerequisites
                 final AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
-                //Toast.makeText(getActivity(), "" + index, Toast.LENGTH_SHORT).show();
                 final int tempIndex = index + 1;
                 build.setTitle("Share");
                 build.setMessage("Would you like to share the syllabus of Module " + tempIndex + "?");
@@ -85,7 +89,7 @@ public class ModulesFragment extends Fragment {
                         dialog.dismiss();
                     }
                 });
-                build.show();
+                build.show();   //displays dialog
                 return true;
             }
 
@@ -106,6 +110,7 @@ public class ModulesFragment extends Fragment {
 
         switch (item.getItemId()) {
             case R.id.action_share:
+                //Call the function to share the entire syllabus of that subject
                 shareFullSyllabus();
                 return true;
             default:
@@ -113,7 +118,7 @@ public class ModulesFragment extends Fragment {
         }
     }
 
-    //populates the list view
+    //Populates the list view
     private void getlist() {
         Bundle modulesBundle = getArguments();
         modules = modulesBundle.getStringArrayList("modules");
@@ -129,6 +134,7 @@ public class ModulesFragment extends Fragment {
         mListView.setAdapter(moduleAdapter);
     }
 
+    //Function to share the entire syllabus of the subject in text format
     private void shareFullSyllabus() {
         share = new StringBuffer();
         share.append("Syllabus of : " + modules.get(0));

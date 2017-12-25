@@ -2,6 +2,7 @@ package com.learnera.app.fragments;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,18 +19,17 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
-import com.learnera.app.data.AttendenceTableAdapter;
-import com.learnera.app.data.AttendenceTableCells;
-import com.learnera.app.data.AttendenceTableRow;
+import com.learnera.app.data.AttendanceTableAdapter;
+import com.learnera.app.data.AttendanceTableCells;
+import com.learnera.app.data.AttendanceTableRow;
 import com.learnera.app.data.Constants;
-import com.learnera.app.data.RecyclerItemClickListener;
 import com.learnera.app.data.User;
 
 import org.jsoup.Connection;
@@ -53,7 +53,7 @@ import java.util.regex.Pattern;
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     final protected String sub = "Total Class";
-    public ArrayList<AttendenceTableRow> tableRows;
+    public ArrayList<AttendanceTableRow> tableRows;
     protected int pos;
     protected String code;
     protected Document doc;
@@ -61,10 +61,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected Pattern codePattern, singlePattern, threePattern;
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
-    //For Attendence Table
+    //For attendance Table
     protected FloatingActionButton fab;
-    protected AttendenceTableAdapter tableAdapter;
+    protected AttendanceTableAdapter tableAdapter;
     protected ListView tableList;
+    JSoupAttendanceTask jSoupAttendanceTask;
+    JSoupSpinnerTask jSoupSpinnerTask;
     //To remove
     private ProgressDialog mProgressDialog;
     private int count;
@@ -81,6 +83,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
+    //For setting cutoff percentage
+    private RadioGroup attendancePercentSelector;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     public AttendanceFragment() {
     }
@@ -91,6 +97,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         user = new User();
         user = user.getLoginInfo(getActivity());
     }
+
 
     @Nullable
     @Override
@@ -124,22 +131,25 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //initiate patterns for matching string
         initPatterns();
 
-        final JSoupSpinnerTask jSoupSpinnerTask = new JSoupSpinnerTask();
+        jSoupSpinnerTask = new JSoupSpinnerTask();
         jSoupSpinnerTask.execute();
 
         //check for internet connectivity
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
 
-        //For attendence details
+        //For attendance details
         fab = (FloatingActionButton) view.findViewById(R.id.attendance_fab);
         fab.setSize(FloatingActionButton.SIZE_NORMAL);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attendenceDetails();
+                attendanceDetails();
             }
         });
+
+        setRadioButtons();
+
         return view;
     }
 
@@ -150,7 +160,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         code = mSemesterList.get(pos);
 
         //Start populating recycler view
-        final JSoupAttendanceTask jSoupAttendanceTask = new JSoupAttendanceTask();
+        jSoupAttendanceTask = new JSoupAttendanceTask();
         jSoupAttendanceTask.execute();
 
         //check for internet connectivity
@@ -264,6 +274,40 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         }
     }
 
+    private void setRadioButtons() {
+        int attendanceCutoff = user.getattendanceCutoff(getActivity());
+
+        attendancePercentSelector = (RadioGroup) view.findViewById(R.id.attendance_cutoff_selector);
+
+
+        switch (attendanceCutoff) {
+            case 75:
+                attendancePercentSelector.check(R.id.attendance_cutoff_75);
+                break;
+            case 80:
+                attendancePercentSelector.check(R.id.attendance_cutoff_80);
+                break;
+        }
+
+
+        attendancePercentSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.attendance_cutoff_75:
+                        user.setAttendenceCutoff(getActivity(), 75);
+                        populateList();
+                        break;
+                    case R.id.attendance_cutoff_80:
+                        user.setAttendenceCutoff(getActivity(), 80);
+                        populateList();
+                        break;
+                }
+            }
+        });
+    }
+
+
     private void extractSemesterList() {
         mSemesters = new ArrayList<>();
         Elements elements = doc.select("form");
@@ -282,16 +326,16 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         count = 0;
     }
 
-    private void attendenceDetails() {
-        //To show table view of attendence of the days on which the student was absent
-        tableRows = new ArrayList<AttendenceTableRow>();
+    private void attendanceDetails() {
+        //To show table view of attendance of the days on which the student was absent
+        tableRows = new ArrayList<AttendanceTableRow>();
 
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_attendence_details);
-        tableList = (ListView) dialog.findViewById(R.id.list_view_attendence_table);
+        dialog.setContentView(R.layout.dialog_attendance_details);
+        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
 
-        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendence_dialog_dismiss);
+        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendance_dialog_dismiss);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -316,29 +360,34 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     continue;
                 }
                 colNumber = 0;
-                AttendenceTableRow attendenceTableRow = new AttendenceTableRow();
+                AttendanceTableRow AttendanceTableRow = new AttendanceTableRow();
                 Elements tds = row.select("td");
                 for (Element td : tds) {
                     if (colNumber == 0) {
-                        attendenceTableRow.setDate(td.text());
+                        AttendanceTableRow.setDate(td.text());
                     } else {
                         String subject = td.text();
                         String color = td.attr("bgcolor");
-                        attendenceTableRow.addCell(new AttendenceTableCells(subject, color));
+                        AttendanceTableRow.addCell(new AttendanceTableCells(subject, color));
                     }
                     colNumber++;
                 }
                 rowNumber++;
-                tableRows.add(attendenceTableRow);
+                tableRows.add(AttendanceTableRow);
             }
         }
-        tableAdapter = new AttendenceTableAdapter(getActivity(), tableRows);
+
+        tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
         tableList.setAdapter(tableAdapter);
 
 
         dialog.show();
     }
 
+    private void populateList() {
+        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()));
+        mRecyclerView.setAdapter(mRecyclerAdapter);
+    }
 
     //For populating spinner
     private class JSoupSpinnerTask extends AsyncTask<Void, Void, Void> {
@@ -429,7 +478,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             //Clear lists before populating recycler view by continuous spinner selections
             clearLists();
-            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList);
+            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()));
             setDefaultCountValue();
         }
 
@@ -457,4 +506,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             return null;
         }
     }
+
+
 }

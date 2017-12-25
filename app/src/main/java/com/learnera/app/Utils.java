@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
-import android.widget.Toast;
 
 import com.learnera.app.fragments.AboutFragment;
 import com.learnera.app.fragments.LoginFragment;
@@ -67,7 +66,6 @@ public class Utils {
         }
         fragmentTransaction.commit();
     }
-
 
     //Used to open network not available fragment whenever network is not present
     public static void doWhenNoNetwork(FragmentActivity fragmentActivity) {

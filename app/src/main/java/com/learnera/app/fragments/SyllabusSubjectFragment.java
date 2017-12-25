@@ -23,9 +23,15 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class SyllabusSubjectFragment extends Fragment {
-    int id, id2;
+
+    //views
     View view;
     ListView mListView;
+
+    //data
+    int id, id2;
+
+    //adapters
     private SyllabusSubjectAdapter syllabusSubjectAdapter;
 
     public SyllabusSubjectFragment() {
@@ -54,34 +60,40 @@ public class SyllabusSubjectFragment extends Fragment {
     }
 
     private void getlist() {
+        //Variables to store user and subject info
         User user = new User();
         user = user.getLoginInfo(getActivity());
         String sem = user.getSem();
         String dept = user.getDept();
         String arrnameSubjects;
         String arrnameCodes;
+
         //Getting subject names to display in list
         if (sem.equals("s1") || sem.equals("s2")) {
+            //if the student is currently studying semester 1 or 2 we need to display the common syllabus for first years
             arrnameSubjects = "s1" + "subnames";
             arrnameCodes = "s1" + "sub";
         } else {
+            //for other semesters we display the subjects for that semester and the student's department
             arrnameSubjects = dept + sem + "subnames";
             arrnameCodes = dept + sem + "sub";
         }
 
+        //Getting subject names
         id = getResources().getIdentifier(arrnameSubjects, "array", getActivity().getPackageName());
         List<String> subtemp = Arrays.asList(getResources().getStringArray(id));
         ArrayList<String> sub = new ArrayList<String>(subtemp);
 
         //Getting subject codes
-
         id2 = getResources().getIdentifier(arrnameCodes, "array", getActivity().getPackageName());
         List<String> subcodestemp = Arrays.asList(getResources().getStringArray(id2));
         final ArrayList<String> subcodes = new ArrayList<>(subcodestemp);
 
+        //Setting list view and adapters
         syllabusSubjectAdapter = new SyllabusSubjectAdapter(getActivity(), sub);
         mListView.setAdapter(syllabusSubjectAdapter);
 
+        //What happens on selecting a subject from the displayed list
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 String subjectName = (String) mListView.getItemAtPosition(position);

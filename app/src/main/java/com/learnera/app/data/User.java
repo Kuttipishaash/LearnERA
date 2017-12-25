@@ -25,6 +25,7 @@ public class User {
     }
 
     public static void eraseUserInfo(Activity activity) {
+        //removes all contents of sharedpreference file
         SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -34,12 +35,14 @@ public class User {
 
     public static void logout(final Activity activity) {
         if (isLoggedIn(activity)) {
+            //shows confirmation dialog for logout operation
             AlertDialog.Builder alert = new AlertDialog.Builder(activity);
             alert.setTitle("Logout")
                     .setMessage("Are you sure you want to logout")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            //if user confirms logout erases user data and shows logout success message
                             eraseUserInfo(activity);
                             Toast.makeText(activity, "Logged out successfully", Toast.LENGTH_SHORT).show();
                             activity.startActivity(new Intent(activity, WelcomeActivity.class));
@@ -48,13 +51,14 @@ public class User {
                     .setNegativeButton("No", null)
                     .show();
         } else {
+            //if not logged in alerts user about it
             Toast.makeText(activity, "You are not logged in", Toast.LENGTH_SHORT).show();
         }
     }
 
     public static boolean isLoggedIn(Activity activity) {
         User user = new User();
-
+        //checks whether username and password in sharedpreferences file is null. If null user is not logged in else he is logged in
         SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         user.setUserName(sharedPreferences.getString("username", null));
         user.setPassword(sharedPreferences.getInt("password", 0));
@@ -104,7 +108,7 @@ public class User {
     public User getLoginInfo(FragmentActivity fragmentActivity) {
 
         User result = new User();
-
+        //loads ALL contents of sharedpreferences file to a new User object and returns it.
         SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         result.setUser(sharedPreferences.getString("user", null));
         result.setUserName(sharedPreferences.getString("username", null));
@@ -112,5 +116,20 @@ public class User {
         result.setSem(sharedPreferences.getString("sem", null));
         result.setDept(sharedPreferences.getString("dept", null));
         return result;
+    }
+
+    public int getattendanceCutoff(FragmentActivity fragmentActivity) {
+        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        int attendanceCutoff = sharedPreferences.getInt("attendanceCutoff", 0);
+        return attendanceCutoff;
+    }
+
+    public void setAttendenceCutoff(FragmentActivity fragmentActivity, int attendanceCutoff) {
+        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("attendanceCutoff",
+                attendanceCutoff);
+        editor.commit();
+
     }
 }

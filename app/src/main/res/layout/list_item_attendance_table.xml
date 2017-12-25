@@ -20,22 +20,22 @@
 
         <TextView
             android:id="@+id/sub1"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
 
         <TextView
             android:id="@+id/sub2"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
 
         <TextView
             android:id="@+id/sub3"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
 
         <TextView
             android:id="@+id/sub4"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:layout_weight="1"
             android:text="DATE" />
     </LinearLayout>
@@ -47,17 +47,17 @@
 
         <TextView
             android:id="@+id/sub5"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
 
         <TextView
             android:id="@+id/sub6"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
 
         <TextView
             android:id="@+id/sub7"
-            style="@style/attendenceTableCells"
+            style="@style/attendanceTableCells"
             android:text="DATE" />
     </LinearLayout>
 </LinearLayout>

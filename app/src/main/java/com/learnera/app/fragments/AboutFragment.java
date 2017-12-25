@@ -49,7 +49,7 @@ public class AboutFragment extends Fragment {
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
         mAppName.setTypeface(typeface);
 
-        //open gmail
+        //To open gmail for sending feedback to the developer
         mContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

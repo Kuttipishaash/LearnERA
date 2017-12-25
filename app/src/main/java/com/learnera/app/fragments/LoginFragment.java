@@ -194,6 +194,7 @@ public class LoginFragment extends Fragment {
         mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         mDepartment = (Spinner) view.findViewById(R.id.department_spinner);
+
         //decreased spinner height due to issues in low res screens
         try {
             Field popup = Spinner.class.getDeclaredField("mPopup");
@@ -255,6 +256,8 @@ public class LoginFragment extends Fragment {
                 user.getUserName());
         editor.putInt("password",
                 user.getPassword());
+        editor.putInt("attendanceCutoff",
+                75);
         editor.commit();
 
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)

@@ -10,7 +10,7 @@
         android:padding="8dp">
 
         <TextView
-            android:id="@+id/attendence_dialog_header"
+            android:id="@+id/attendance_dialog_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -20,18 +20,18 @@
             android:textSize="20dp" />
 
         <ListView
-            android:id="@+id/list_view_attendence_table"
+            android:id="@+id/list_view_attendance_table"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:layout_below="@id/attendence_dialog_header" />
+            android:layout_below="@id/attendance_dialog_header" />
 
         <TextView
-            android:id="@+id/attendence_dialog_dismiss"
+            android:id="@+id/attendance_dialog_dismiss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/list_view_attendence_table"
+            android:layout_below="@+id/list_view_attendance_table"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="12dp"
             android:padding="8dp"
