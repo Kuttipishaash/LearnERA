@@ -3,8 +3,8 @@
     android:id="@+id/fragment_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/md_white_1000">
+    android:background="@color/md_white_1000"
+    android:orientation="vertical">
 
 
 
@@ -25,8 +25,8 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
                 android:padding="5dp"
-                android:textAlignment="center"
                 android:text="@string/app_name"
+                android:textAlignment="center"
                 android:textSize="30sp" />
 
             <ImageView
@@ -46,69 +46,92 @@
                 android:text="@string/app_version"
                 android:textSize="20sp"
                 android:textStyle="bold" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="13dp"
-                android:padding="5dp"
-                android:text="Developers:"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linear_layout_about_developers"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Prejith Premkumar" />
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/about_text_developer2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Prabhashankar Kannappan" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="13dp"
+                    android:padding="5dp"
+                    android:text="Developers:"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="14dp"
-                android:padding="5dp"
-                android:text="Design:"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Prejith Premkumar" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Mebin Johnson" />
+                <TextView
+                    android:id="@+id/about_text_developer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Prabhashankar Kannappan" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linear_layout_about_design"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="14dp"
-                android:padding="5dp"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:text="Data Entry:"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Naina Fathima Sayed" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="14dp"
+                    android:padding="5dp"
+                    android:text="Design:"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Sangeetha S R" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Mebin Johnson" />
+            </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:id="@+id/linear_layout_about_data_entry"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Razni Azees" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="14dp"
+                    android:padding="5dp"
+                    android:text="Data Entry:"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Naina Fathima Sayed" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Sangeetha S R" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Razni Azees" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/button_contact_us"
@@ -127,10 +150,10 @@
                 android:id="@+id/about_text_disclaimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:padding="16dp"
                 android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
-                android:textStyle="italic"
-                android:padding="16dp"/>
+                android:textAlignment="center"
+                android:textStyle="italic" />
 
         </LinearLayout>
 

@@ -7,10 +7,11 @@
         android:id="@+id/syllabusSubjectsTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/border"
         android:gravity="center"
         android:padding="30dp"
-        android:layout_margin="8dp"
         android:text="Subject"
         android:textSize="20sp"
-        android:background="@drawable/border" />
+        android:textStyle="italic" />
 </LinearLayout>

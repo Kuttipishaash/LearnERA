@@ -25,6 +25,7 @@
             android:name=".AttendanceActivity"
             android:label="Attendance"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".IntroActivity"
             android:label="Introduction"

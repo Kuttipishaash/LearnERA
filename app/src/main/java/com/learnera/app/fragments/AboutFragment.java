@@ -48,7 +48,6 @@ public class AboutFragment extends Fragment {
         mAppName = (TextView) view.findViewById(R.id.text_app_name);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
         mAppName.setTypeface(typeface);
-
         //To open gmail for sending feedback to the developer
         mContact.setOnClickListener(new View.OnClickListener() {
             @Override

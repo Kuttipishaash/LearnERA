@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -23,6 +25,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.learnera.app.Animations.MyBounceInterpolator;
 import com.learnera.app.R;
 import com.learnera.app.Utils;
 import com.learnera.app.data.AttendanceAdapter;
@@ -67,6 +70,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected ListView tableList;
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
+    //Animations
+    Animation fadeInAnimation;
+    Animation fadeOutAnimation;
     //To remove
     private ProgressDialog mProgressDialog;
     private int count;
@@ -88,6 +94,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
+
     public AttendanceFragment() {
     }
 
@@ -108,21 +115,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         spinner = (Spinner) view.findViewById(R.id.spinner_attendance);
         spinner.setOnItemSelectedListener(this);
 
+        fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
+        fadeOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadeout);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-    /*    mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                bunkCalculate(Integer.parseInt(mMissedList.get(position)), Integer.parseInt(mTotalList.get(position)), position);
-            }
-
-            @Override
-            public void onLongItemClick(View view, int position) {
-
-            }
-        }));
-    */    initProgressDialog();
+        initProgressDialog();
 
         //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
         mSemesterList = new ArrayList<>();
@@ -141,6 +140,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //For attendance details
         fab = (FloatingActionButton) view.findViewById(R.id.attendance_fab);
         fab.setSize(FloatingActionButton.SIZE_NORMAL);
+        final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        fab.startAnimation(myAnim);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -380,13 +384,16 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
         tableList.setAdapter(tableAdapter);
 
-
         dialog.show();
+
     }
 
     private void populateList() {
+        mRecyclerView.startAnimation(fadeOutAnimation);
         mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()));
         mRecyclerView.setAdapter(mRecyclerAdapter);
+        mRecyclerView.startAnimation(fadeInAnimation);
+
     }
 
     //For populating spinner
