@@ -28,7 +28,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.NothingSelectedSpinnerAdapter;
 import com.learnera.app.data.User;
+import com.learnera.app.data.UserDatabaseHandler;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -49,6 +52,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Prejith on 7/4/2017.
@@ -56,8 +61,13 @@ import java.lang.reflect.Field;
 
 public class LoginFragment extends Fragment {
 
+    UserDatabaseHandler userDatabaseHandler;
+    ArrayList<User> rememberedUsers;
+    ArrayList<String> listToDisplay;
+
     Spinner mDepartment;
-    EditText mUserName;
+    CheckBox mRememberMe;
+    AutoCompleteTextView mUserName;
     EditText mPassword;
     TextView mTitleRsms;
     TextView mTitleLogin;
@@ -78,7 +88,7 @@ public class LoginFragment extends Fragment {
     View view;
 
     String name;
-    String[] brancheslist;
+    ArrayList<String> brancheslist;
 
     int countSemesters = 0;
 
@@ -101,7 +111,13 @@ public class LoginFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_login, container, false);
         setHasOptionsMenu(true);
 
+        //Initialize database handler for users remembered
+        userDatabaseHandler = new UserDatabaseHandler(getContext());
+
+
         initView();
+        setupDropDownUsersList();
+
 
         initProgressDialog();
 
@@ -139,8 +155,8 @@ public class LoginFragment extends Fragment {
                     mPassInput.setError("Password cannot be empty");
                     mPassInput.requestFocus();
                     inputMethodManager.showSoftInput(mPassword, InputMethodManager.SHOW_IMPLICIT);
-                } else if(mDepartment.getSelectedItemPosition() == 0) {
-                    TextView errorText = (TextView)mDepartment.getSelectedView();
+                } else if (mDepartment.getSelectedItemPosition() == 0) {
+                    TextView errorText = (TextView) mDepartment.getSelectedView();
                     errorText.setError("No branch selected");
                     errorText.setTextColor(Color.RED);//just to highlight that this is an error
                     errorText.setText("Please select a branch");//changes the selected item text to this
@@ -165,6 +181,39 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+
+    //Login History Implementation//
+    private void setupDropDownUsersList() {
+        rememberedUsers = userDatabaseHandler.getAllUsers();
+        listToDisplay = new ArrayList<String>();
+        String tempUsersName;
+        int tempIndexOfSpaceInUserName;
+        if (rememberedUsers.size() != 0) {
+            for (int i = 0; i < rememberedUsers.size(); i++) {
+                tempUsersName = rememberedUsers.get(i).getUser();
+                tempIndexOfSpaceInUserName = tempUsersName.indexOf(" ");
+                tempUsersName = tempUsersName.substring(0, tempIndexOfSpaceInUserName);
+                listToDisplay.add(rememberedUsers.get(i).getUserName());
+            }
+            mUserName.setThreshold(0);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, listToDisplay);
+            mUserName.setAdapter(arrayAdapter);
+            mUserName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                    int position = listToDisplay.indexOf(adapterView.getItemAtPosition(i));
+                    //mUserName.setText(rememberedUsers.get(position).getUserName());
+                    mPassword.setText(Integer.toString(rememberedUsers.get(position).getPassword()));
+                    int indexOfSpinner = brancheslist.indexOf(rememberedUsers.get(position).getDept());
+                    mDepartment.setSelection(indexOfSpinner);
+
+                }
+            });
+        }
+    }
+
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
@@ -188,12 +237,14 @@ public class LoginFragment extends Fragment {
 
     private void initView() {
         mLogin = (Button) view.findViewById(R.id.button_login);
-        mUserName = (EditText) view.findViewById(R.id.et_uid);
+        mUserName = (AutoCompleteTextView) view.findViewById(R.id.et_uid);
         mPassword = (EditText) view.findViewById(R.id.et_password);
         mUserInput = (TextInputLayout) view.findViewById(R.id.text_input_username_field);
         mPassInput = (TextInputLayout) view.findViewById(R.id.text_input_password_field);
         inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         mDepartment = (Spinner) view.findViewById(R.id.department_spinner);
+        mRememberMe = (CheckBox) view.findViewById(R.id.checkbox_remember_me);
+
 
         //decreased spinner height due to issues in low res screens
         try {
@@ -203,7 +254,7 @@ public class LoginFragment extends Fragment {
             // Get private mPopup member variable and try cast to ListPopupWindow
             android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(mDepartment);
 
-            // Set popupWindow height to 500px
+            // Set popupWindow height to 300px
             popupWindow.setHeight(300);
         } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
             // silently fail...
@@ -211,7 +262,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void initSpinner() {
-        brancheslist = getResources().getStringArray(R.array.branches);
+        brancheslist = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.branches)));
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.branches_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mDepartment.setAdapter(new NothingSelectedSpinnerAdapter(
@@ -224,7 +275,7 @@ public class LoginFragment extends Fragment {
         mDepartment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                user.setDept(brancheslist[position]);
+                user.setDept(brancheslist.get(position));
             }
 
             @Override
@@ -259,6 +310,14 @@ public class LoginFragment extends Fragment {
         editor.putInt("attendanceCutoff",
                 75);
         editor.commit();
+        if (mRememberMe.isChecked()) {
+            int indexCheck = -1;
+            indexCheck = listToDisplay.indexOf(user.getUserName());
+            if (indexCheck != -1)       //Checks if user is in the remembered users list
+                userDatabaseHandler.updateUser(user);   //if the user is remembered user his current values are updated
+            else
+                userDatabaseHandler.addUser(user);  //if it is a new user then his
+        }
 
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
                 .show();

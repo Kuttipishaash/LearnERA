@@ -21,19 +21,21 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
     private List<String> mSubjectCodeList;
     private List<String> mMissedList;
     private List<String> mTotalList;
+    private List<String> mDutyAttendanceList;
 
 
-    //TODO: Attnedence cut off dynamic setup
+    //The cutoff percentage of attendance
     private int cutoffPercentage;
 
 
-    public AttendanceAdapter(List<String> mSubjectList, List<String> mPercentageList, List<String> mSubjectCodeList, List<String> mTotalList, List<String> mMissedList, int cutoffPercentage) {
+    public AttendanceAdapter(List<String> mSubjectList, List<String> mPercentageList, List<String> mSubjectCodeList, List<String> mTotalList, List<String> mMissedList, int cutoffPercentage, List<String> mDutyAttendanceList) {
         this.mSubjectList = mSubjectList;
         this.mPercentageList = mPercentageList;
         this.mSubjectCodeList = mSubjectCodeList;
         this.mMissedList = mMissedList;
         this.mTotalList = mTotalList;
         this.cutoffPercentage = cutoffPercentage;
+        this.mDutyAttendanceList = mDutyAttendanceList;
     }
 
     @Override
@@ -44,12 +46,31 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
+        int missed, total, onduty;
+        missed = Integer.parseInt(mMissedList.get(position));
+        total = Integer.parseInt(mTotalList.get(position));
+        onduty = Integer.parseInt(mDutyAttendanceList.get(position));
+
         holder.mSubjectField.setText(mSubjectList.get(position));
         holder.mPercentageField.setText(mPercentageList.get(position));
         holder.mSubjectCodeField.setText(mSubjectCodeList.get(position));
 
-        String classCut = bunkCalculate(Integer.parseInt(mMissedList.get(position)), Integer.parseInt(mTotalList.get(position)));
+        //to set number of classes bunkable
+        String classCut = bunkCalculate(missed, total);
         holder.mBunkField.setText(classCut);
+
+        //to set attendence percentage incl duty attendance
+        String percentInclDuty = calcAttendanceInclDuty(missed, onduty, total);
+        holder.mPercentInclDuty.setText(percentInclDuty);
+
+        holder.mOnDutyClasses.setText("On Duty : " + onduty + " classes");
+        holder.mTotalClasses.setText("Total : " + total + " classes");
+        holder.mMissedClasses.setText("Missed : " + missed + " classes");
+
+        //to calculate bunkable classes if duty attendance is also considered.
+        String classCutInclDuty = bunkCalculate((missed - onduty), total);
+        holder.mBunkInclDuty.setText(classCutInclDuty + " if duty attendance is considered");
     }
 
     @Override
@@ -57,16 +78,24 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         return mSubjectList.size();
     }
 
+
+    //Duty attendance percent calculator
+    public String calcAttendanceInclDuty(int missed, int duty, int total) {
+        int attended = total - missed;
+        double newPercent = (double) (attended + duty) / total * 100.0;
+
+        return "Attendance percent incl duty attendance : " + String.format("%.2f", newPercent);
+    }
+
+
+
+
+
     //to calculate classes bunkable
     private String bunkCalculate(int missedClasses, int totalClasses) {
         double percent;
         int bunkOrAttend;
         String predictedStatus;
-
-
-        //TODO: Attnedence cut off dynamic setup
-
-
         int attendedClasses = totalClasses - missedClasses;
         percent = (double) attendedClasses / totalClasses * 100.0;
         if (percent > cutoffPercentage) {
@@ -79,7 +108,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             bunkOrAttend = 0;
             predictedStatus = "You can bunk : ";
         }
-        return predictedStatus + String.valueOf(bunkOrAttend) + " classes for " + cutoffPercentage + "%";
+        return predictedStatus + String.valueOf(bunkOrAttend) + " classes";
     }
 
     private int canBunk(double attendencePercent, int attendedClasses, int totalClasses) {
@@ -110,6 +139,13 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         public TextView mPercentageField;
         public TextView mSubjectCodeField;
         public TextView mBunkField;
+        public TextView mPercentInclDuty;
+        public TextView mBunkInclDuty;
+        public TextView mTotalClasses;
+        public TextView mMissedClasses;
+        public TextView mOnDutyClasses;
+
+
 
         public ViewHolder(View v) {
             super(v);
@@ -117,6 +153,12 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             mPercentageField = (TextView) v.findViewById(R.id.list_attendance_percentage);
             mSubjectCodeField = (TextView) v.findViewById(R.id.list_attendance_subject_code);
             mBunkField = (TextView) v.findViewById(R.id.list_attendance_class_cut);
+            mPercentInclDuty = (TextView) v.findViewById(R.id.list_attendance_percent_incl_duty);
+            mBunkInclDuty = (TextView) v.findViewById(R.id.list_attendance_class_cut_incl_duty);
+            mTotalClasses = (TextView) v.findViewById(R.id.list_attendance_total_classes);
+            mMissedClasses = (TextView) v.findViewById(R.id.list_attendance_missed_classes);
+            mOnDutyClasses = (TextView) v.findViewById(R.id.list_attendance_duty_attendence);
+
         }
     }
 

@@ -2,60 +2,118 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp" >
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="vertical" >
-
-
-        <TextView
-            android:id="@+id/list_attendance_subject_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="GS201"
-            android:textAllCaps="true"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/list_attendance_subject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Computer Organisation and Architecture"
-            android:textSize="18sp" />
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="3"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/list_attendance_class_cut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="2dp"
-            android:paddingBottom="2dp"
-            android:text="Bunking text field"
-            android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/list_attendance_subject_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="GS201"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/list_attendance_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Computer Organisation and Architecture"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/list_attendance_class_cut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp"
+                    android:text="Bunking text field"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/list_attendance_percentage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|right"
+                android:text="100%"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
 
+
     <TextView
-        android:id="@+id/list_attendance_percentage"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.5"
-        android:gravity="center|right"
-        android:text="100%"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:id="@+id/list_attendance_total_classes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="total classes"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/list_attendance_missed_classes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="missed classes"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/list_attendance_duty_attendence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="Duty attendence included "
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/list_attendance_percent_incl_duty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="Duty attendence included percentage text field"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/list_attendance_class_cut_incl_duty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="Bunking with duty text field"
+        android:textStyle="italic" />
+
 
 </LinearLayout>

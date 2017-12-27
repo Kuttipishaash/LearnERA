@@ -70,6 +70,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected ListView tableList;
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
+    Dialog dialog;
+
     //Animations
     Animation fadeInAnimation;
     Animation fadeOutAnimation;
@@ -86,6 +88,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private List<String> mSubjectCodeList;
     private List<String> mMissedList;
     private List<String> mTotalList;
+
+    private List<String> mDutyAttendenceList;   //For duty attendence count for each subject
+
+
+
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
@@ -148,12 +155,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attendanceDetails();
+                showTable();
             }
         });
 
         setRadioButtons();
-
         return view;
     }
 
@@ -191,6 +197,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mMissedList = new ArrayList<>();
         mTotalList = new ArrayList<>();
         mSubjectCodeList = new ArrayList<>();
+        mDutyAttendenceList = new ArrayList<>();
     }
 
     private void clearLists() {
@@ -331,21 +338,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void attendanceDetails() {
+
         //To show table view of attendance of the days on which the student was absent
         tableRows = new ArrayList<AttendanceTableRow>();
 
-        final Dialog dialog = new Dialog(getActivity());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_attendance_details);
-        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
 
-        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendance_dialog_dismiss);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        //Making the mDutyAttendenceList values to 0 for each subject initially
+        for (int i = 0; i < mSubjectCodeList.size(); i++) {
+            mDutyAttendenceList.add(Integer.toString(0));
+        }
 
         Elements tables = doc.select("table [width=96%]");
         int count = 0;
@@ -373,6 +374,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         String subject = td.text();
                         String color = td.attr("bgcolor");
                         AttendanceTableRow.addCell(new AttendanceTableCells(subject, color));
+
+
+                        //Duty Attendence Counter
+                        //To increment the duty attendence count for a subject if a yellow color found in table
+                        if (color.equalsIgnoreCase("#ff9900")) {
+                            int n = mSubjectCodeList.indexOf(subject);
+                            mDutyAttendenceList.set(n, Integer.toString(Integer.parseInt(mDutyAttendenceList.get(n)) + 1));
+
+                        }
                     }
                     colNumber++;
                 }
@@ -381,16 +391,34 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             }
         }
 
+    }
+
+    //Attendance details table
+    public void showTable() {
+        dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_attendance_details);
+        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
+
+        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendance_dialog_dismiss);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
         tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
         tableList.setAdapter(tableAdapter);
 
         dialog.show();
 
+
     }
+
 
     private void populateList() {
         mRecyclerView.startAnimation(fadeOutAnimation);
-        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()));
+        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList);
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerView.startAnimation(fadeInAnimation);
 
@@ -485,7 +513,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             //Clear lists before populating recycler view by continuous spinner selections
             clearLists();
-            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()));
+            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList);
             setDefaultCountValue();
         }
 
@@ -496,6 +524,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             extractAttendanceData();
             mRecyclerView.setAdapter(mRecyclerAdapter);
             mProgressDialog.dismiss();
+            attendanceDetails();
         }
 
         @Override

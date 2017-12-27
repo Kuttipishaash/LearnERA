@@ -15,11 +15,11 @@ import com.learnera.app.WelcomeActivity;
  * Created by praji on 7/2/2017.
  */
 public class User {
-    static private String userName;
-    static private int password;
-    static private String user;
-    static private String sem;
-    static private String dept;
+    private String userName; //UID
+    private int password;
+    private String user; //Name of the user
+    private String sem;
+    private String dept;
 
     public User() {
     }
@@ -70,7 +70,7 @@ public class User {
     }
 
     public void setSem(String sem) {
-        User.sem = sem;
+        this.sem = sem;
     }
 
     public String getDept() {
@@ -78,7 +78,7 @@ public class User {
     }
 
     public void setDept(String dept) {
-        User.dept = dept;
+        this.dept = dept;
     }
 
     public String getUser() {
@@ -86,7 +86,7 @@ public class User {
     }
 
     public void setUser(String user) {
-        User.user = user;
+        this.user = user;
     }
 
     public String getUserName() {
@@ -94,7 +94,7 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        User.userName = userName;
+        this.userName = userName;
     }
 
     public int getPassword() {
@@ -102,7 +102,7 @@ public class User {
     }
 
     public void setPassword(int password) {
-        User.password = password;
+        this.password = password;
     }
 
     public User getLoginInfo(FragmentActivity fragmentActivity) {
