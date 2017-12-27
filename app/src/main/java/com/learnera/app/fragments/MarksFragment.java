@@ -1,11 +1,13 @@
 package com.learnera.app.fragments;
 
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,6 +46,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     public static int countSemesters;
     protected ArrayList<String> semList;
+    protected FloatingActionButton fab;
+    protected Dialog dialog;
     @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
     @BindView(R.id.spinner_marks_category)
@@ -64,7 +68,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     ProgressDialog mProgressDialog;
     private RecyclerView mRecyclerView;
     private MarksAdapter marksAdapter;
-
     private View view;
     private User user;
 

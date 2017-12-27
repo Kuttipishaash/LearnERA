@@ -195,7 +195,7 @@ public class LoginFragment extends Fragment {
                 tempUsersName = tempUsersName.substring(0, tempIndexOfSpaceInUserName);
                 listToDisplay.add(rememberedUsers.get(i).getUserName());
             }
-            mUserName.setThreshold(0);
+            mUserName.setThreshold(1);
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, listToDisplay);
             mUserName.setAdapter(arrayAdapter);
             mUserName.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -203,7 +203,6 @@ public class LoginFragment extends Fragment {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     int position = listToDisplay.indexOf(adapterView.getItemAtPosition(i));
-                    //mUserName.setText(rememberedUsers.get(position).getUserName());
                     mPassword.setText(Integer.toString(rememberedUsers.get(position).getPassword()));
                     int indexOfSpinner = brancheslist.indexOf(rememberedUsers.get(position).getDept());
                     mDepartment.setSelection(indexOfSpinner);
@@ -317,6 +316,11 @@ public class LoginFragment extends Fragment {
                 userDatabaseHandler.updateUser(user);   //if the user is remembered user his current values are updated
             else
                 userDatabaseHandler.addUser(user);  //if it is a new user then his
+        } else {
+            int indexCheck = -1;
+            indexCheck = listToDisplay.indexOf(user.getUserName());
+            if (indexCheck != -1)       //Checks if user is in the remembered users list
+                userDatabaseHandler.deleteUser(user);   //if the user is remembered user his current values are updated
         }
 
         Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
