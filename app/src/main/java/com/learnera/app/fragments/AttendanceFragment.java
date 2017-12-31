@@ -411,8 +411,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         tableList.setAdapter(tableAdapter);
 
         dialog.show();
-
-
     }
 
 

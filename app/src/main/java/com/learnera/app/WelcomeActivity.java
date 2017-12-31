@@ -23,6 +23,7 @@ public class WelcomeActivity extends AppCompatActivity {
     ImageView mLogout;
     ImageView mSyllabus;
     ImageView mMarks;
+    ImageView mSeating;
     TextView mLoginStatus;
     TextView mAppName;
 
@@ -34,6 +35,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
@@ -73,7 +76,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void setUserStatus() {
-        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+
         user = sharedPreferences.getString("user", null);
 
         String longText;
@@ -128,6 +131,21 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(WelcomeActivity.this, MarksActivity.class));
+            }
+        });
+
+        mSeating = (ImageView) findViewById(R.id.drawable_seating_plan);
+        mSeating.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                User user = User.getLoginInfo(WelcomeActivity.this);
+
+                String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1,3) + user.getDept().toUpperCase() +
+                        user.getUserName().substring(5) + ".pdf";
+                Intent extras = new Intent(WelcomeActivity.this, WebActivity.class);
+                extras.putExtra("url", completeUrl);
+                startActivity(extras);
             }
         });
     }

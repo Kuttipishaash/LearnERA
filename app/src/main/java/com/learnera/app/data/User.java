@@ -105,11 +105,24 @@ public class User {
         this.password = password;
     }
 
-    public User getLoginInfo(FragmentActivity fragmentActivity) {
+    public static User getLoginInfo(FragmentActivity fragmentActivity) {
 
         User result = new User();
         //loads ALL contents of sharedpreferences file to a new User object and returns it.
         SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        result.setUser(sharedPreferences.getString("user", null));
+        result.setUserName(sharedPreferences.getString("username", null));
+        result.setPassword(sharedPreferences.getInt("password", 0));
+        result.setSem(sharedPreferences.getString("sem", null));
+        result.setDept(sharedPreferences.getString("dept", null));
+        return result;
+    }
+
+    public static User getLoginInfo(Activity activity) {
+
+        User result = new User();
+        //loads ALL contents of sharedpreferences file to a new User object and returns it.
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         result.setUser(sharedPreferences.getString("user", null));
         result.setUserName(sharedPreferences.getString("username", null));
         result.setPassword(sharedPreferences.getInt("password", 0));

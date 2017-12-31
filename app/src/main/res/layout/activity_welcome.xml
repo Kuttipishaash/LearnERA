@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:layout_below="@+id/app_name"
                 android:background="@color/md_red_900"
                 android:paddingBottom="20dp"
@@ -59,6 +60,7 @@
                     android:layout_height="150dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:elevation="6dp"
@@ -91,6 +93,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
                     android:adjustViewBounds="true"
                     android:elevation="6dp"
                     android:src="@drawable/marks_custom" />
@@ -107,16 +110,41 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/drawable_logout"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_below="@+id/linear_row_2"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="true"
-                android:elevation="6dp"
-                android:src="@drawable/logout_custom" />
+            <LinearLayout
+                android:id="@+id/linear_row_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/linear_row_2">
+
+                <ImageView
+                    android:id="@+id/drawable_logout"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:elevation="6dp"
+                    android:src="@drawable/logout_custom" />
+
+                <ImageView
+                    android:id="@+id/drawable_seating_plan"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:elevation="6dp"
+                    android:src="@drawable/announcement_custom" />
+
+            </LinearLayout>
+
+
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </RelativeLayout>

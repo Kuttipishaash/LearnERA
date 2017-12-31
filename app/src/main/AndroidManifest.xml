@@ -54,6 +54,8 @@
         <activity
             android:name=".SyllabusActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".WebActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

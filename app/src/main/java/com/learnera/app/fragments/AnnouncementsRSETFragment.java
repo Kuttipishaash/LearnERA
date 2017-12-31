@@ -19,10 +19,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
 import com.learnera.app.Utils;
+import com.learnera.app.WebActivity;
 import com.learnera.app.data.AnnouncementRSET;
 import com.learnera.app.data.AnnouncementsRSETAdapter;
 import com.learnera.app.data.Constants;
@@ -42,7 +44,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-//// TODO: 8/13/2017 Implement internet check and about us for announcements
+
 public class AnnouncementsRSETFragment extends Fragment {
 
     public static String announcementRSETURL;
@@ -74,6 +76,7 @@ public class AnnouncementsRSETFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements__rset, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_rset);
+
         if (isVisibleToUser && (!isLoaded)) {
             setupPage();
             isLoaded = true;
@@ -81,14 +84,15 @@ public class AnnouncementsRSETFragment extends Fragment {
 
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
+            public void onItemClick(final View view, int position) {
                 mBrowserDialog = new AlertDialog.Builder(getActivity());
                 mBrowserDialog.setMessage("Want to view the detailed announcement?");
                 mBrowserDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.noticesURL));
-                        startActivity(browserIntent);
+                        Intent intent = new Intent(getActivity(), WebActivity.class);
+                        intent.putExtra("url", Constants.noticesURL);
+                        startActivity(intent);
                     }
                 });
                 mBrowserDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
