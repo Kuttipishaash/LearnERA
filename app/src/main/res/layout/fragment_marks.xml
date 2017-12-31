@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,6 +6,7 @@
     tools:context="com.learnera.app.fragments.MarksFragment">
 
     <LinearLayout
+        android:id="@+id/linear_layout_marks_spinner_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -27,15 +28,25 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="@drawable/border"
+            android:layout_marginBottom="4dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:background="@drawable/border" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_marks"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout_marks_spinner_group" />
+    <!--
+        <com.learnera.app.MovableFloatingActionButton
+            android:id="@+id/marks_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/ic_view_agenda" />
+    -->
+</RelativeLayout>

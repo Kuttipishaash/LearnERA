@@ -1,13 +1,11 @@
 package com.learnera.app.fragments;
 
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -46,8 +44,10 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     public static int countSemesters;
     protected ArrayList<String> semList;
-    protected FloatingActionButton fab;
-    protected Dialog dialog;
+
+    //protected FloatingActionButton fab;
+
+
     @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
     @BindView(R.id.spinner_marks_category)
@@ -107,10 +107,32 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_marks);
         spinner1 = (Spinner) view.findViewById(R.id.spinner_marks_semesters);
         spinner2 = (Spinner) view.findViewById(R.id.spinner_marks_category);
+        //setupFAB();
         return view;
     }
 
+    /*
+        public void setupFAB(){
+            fab  = (FloatingActionButton) view.findViewById(R.id.marks_fab);
+            fab.setSize(FloatingActionButton.SIZE_NORMAL);
+            final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
+            MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+            myAnim.setInterpolator(interpolator);
 
+            fab.startAnimation(myAnim);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new MarkCalculateFragment();
+                    FragmentActivity fragmentActivity = getActivity();
+                    FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.marks_fragment, fragment);
+                    fragmentTransaction.commit();
+                }
+            });
+        }
+    */
     //SPINNER SELECTION HANDLING
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position,
