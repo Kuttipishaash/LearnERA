@@ -11,8 +11,7 @@
     <Spinner
         android:id="@+id/spinner_attendance"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="4dp" />
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:id="@+id/linear_layout_attendence_radio_group"
@@ -22,14 +21,12 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="8dp">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_weight="2"
+            android:layout_weight="1.70"
             android:text="Cutoff Percentage : "
             android:textColor="@color/md_black_1000"
             android:textSize="16sp" />
@@ -57,11 +54,53 @@
         </RadioGroup>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linear_layout_attendance_duty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout_attendence_radio_group"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="8dp" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.70"
+            android:text="Duty Attendance : "
+            android:textColor="@color/md_black_1000"
+            android:textSize="16sp" />
+
+        <RadioGroup
+            android:id="@+id/attendance_duty_selector"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.70"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/attendance_duty_enable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enable" />
+
+            <RadioButton
+                android:id="@+id/attendance_duty_disable"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Disable" />
+        </RadioGroup>
+    </LinearLayout>
+
     <View
         android:id="@+id/divider_attendance_2"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/linear_layout_attendence_radio_group"
+        android:layout_below="@id/linear_layout_attendance_duty"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/border" />

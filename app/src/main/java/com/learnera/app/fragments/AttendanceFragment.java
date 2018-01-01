@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -91,16 +92,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private List<String> mDutyAttendenceList;   //For duty attendence count for each subject
 
-
-
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
     //For setting cutoff percentage
     private RadioGroup attendancePercentSelector;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-
+    private RadioGroup dutyEnablerSelector;
 
     public AttendanceFragment() {
     }
@@ -108,8 +105,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        user = new User();
-        user = user.getLoginInfo(getActivity());
+        user = User.getLoginInfo(getActivity());
     }
 
 
@@ -290,7 +286,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         attendancePercentSelector = (RadioGroup) view.findViewById(R.id.attendance_cutoff_selector);
 
+        //set default value as disabled
+        dutyEnablerSelector = (RadioGroup) view.findViewById(R.id.attendance_duty_selector);
+        dutyEnablerSelector.check(R.id.attendance_duty_disable);
 
+        //set value of cutoff from sharedpreferences which was loaded into attendanceCutOff
         switch (attendanceCutoff) {
             case 75:
                 attendancePercentSelector.check(R.id.attendance_cutoff_75);
@@ -300,18 +300,41 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 break;
         }
 
-
+        //listener for cutoff radio group
         attendancePercentSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.attendance_cutoff_75:
                         user.setAttendenceCutoff(getActivity(), 75);
-                        populateList();
+                        if(dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
+                            populateList(false);
+                        } else {
+                            populateList(true);
+                        }
                         break;
                     case R.id.attendance_cutoff_80:
                         user.setAttendenceCutoff(getActivity(), 80);
-                        populateList();
+                        if(dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
+                            populateList(false);
+                        } else {
+                            populateList(true);
+                        }
+                        break;
+                }
+            }
+        });
+
+        //listener for duty attendance enabling and disabling radio group
+        dutyEnablerSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (i) {
+                    case R.id.attendance_duty_disable:
+                        populateList(false);
+                        break;
+                    case R.id.attendance_duty_enable:
+                        populateList(true);
                         break;
                 }
             }
@@ -375,7 +398,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         String color = td.attr("bgcolor");
                         AttendanceTableRow.addCell(new AttendanceTableCells(subject, color));
 
-
                         //Duty Attendence Counter
                         //To increment the duty attendence count for a subject if a yellow color found in table
                         if (color.equalsIgnoreCase("#ff9900")) {
@@ -414,9 +436,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
 
-    private void populateList() {
+    private void populateList(boolean shouldEnableDuty) {
         mRecyclerView.startAnimation(fadeOutAnimation);
-        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList);
+        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerView.startAnimation(fadeInAnimation);
 
@@ -511,7 +533,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             //Clear lists before populating recycler view by continuous spinner selections
             clearLists();
-            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList);
+            mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList, false);
             setDefaultCountValue();
         }
 

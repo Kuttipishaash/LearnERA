@@ -22,13 +22,12 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
     private List<String> mMissedList;
     private List<String> mTotalList;
     private List<String> mDutyAttendanceList;
-
+    static boolean isDutyEnabled;
 
     //The cutoff percentage of attendance
     private int cutoffPercentage;
 
-
-    public AttendanceAdapter(List<String> mSubjectList, List<String> mPercentageList, List<String> mSubjectCodeList, List<String> mTotalList, List<String> mMissedList, int cutoffPercentage, List<String> mDutyAttendanceList) {
+    public AttendanceAdapter(List<String> mSubjectList, List<String> mPercentageList, List<String> mSubjectCodeList, List<String> mTotalList, List<String> mMissedList, int cutoffPercentage, List<String> mDutyAttendanceList, boolean isDutyEnabled) {
         this.mSubjectList = mSubjectList;
         this.mPercentageList = mPercentageList;
         this.mSubjectCodeList = mSubjectCodeList;
@@ -36,6 +35,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         this.mTotalList = mTotalList;
         this.cutoffPercentage = cutoffPercentage;
         this.mDutyAttendanceList = mDutyAttendanceList;
+        this.isDutyEnabled = isDutyEnabled;
     }
 
     @Override
@@ -78,7 +78,6 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         return mSubjectList.size();
     }
 
-
     //Duty attendance percent calculator
     public String calcAttendanceInclDuty(int missed, int duty, int total) {
         int attended = total - missed;
@@ -86,10 +85,6 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 
         return "Attendance percent incl duty attendance : " + String.format("%.2f", newPercent);
     }
-
-
-
-
 
     //to calculate classes bunkable
     private String bunkCalculate(int missedClasses, int totalClasses) {
@@ -145,8 +140,6 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         public TextView mMissedClasses;
         public TextView mOnDutyClasses;
 
-
-
         public ViewHolder(View v) {
             super(v);
             mSubjectField = (TextView) v.findViewById(R.id.list_attendance_subject);
@@ -159,6 +152,13 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             mMissedClasses = (TextView) v.findViewById(R.id.list_attendance_missed_classes);
             mOnDutyClasses = (TextView) v.findViewById(R.id.list_attendance_duty_attendence);
 
+            if(!isDutyEnabled) {
+                mOnDutyClasses.setVisibility(View.GONE);
+                mMissedClasses.setVisibility(View.GONE);
+                mTotalClasses.setVisibility(View.GONE);
+                mBunkInclDuty.setVisibility(View.GONE);
+                mPercentInclDuty.setVisibility(View.GONE);
+            }
         }
     }
 
