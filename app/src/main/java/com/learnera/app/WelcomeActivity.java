@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.GridView;
@@ -138,14 +140,19 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//todo: add toast to notify user of 404 error
                 User user = User.getLoginInfo(WelcomeActivity.this);
 
                 String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1,3) + user.getDept().toUpperCase() +
                         user.getUserName().substring(5) + ".pdf";
-                Intent extras = new Intent(WelcomeActivity.this, WebActivity.class);
-                extras.putExtra("url", completeUrl);
-                startActivity(extras);
+
+                //Launch chrome custom tab
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                CustomTabsIntent intent = builder.build();
+                builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
+                builder.setStartAnimations(WelcomeActivity.this, R.anim.slide_in_right, R.anim.slide_out_left);
+                builder.setExitAnimations(WelcomeActivity.this, R.anim.slide_in_left, R.anim.slide_out_right);
+                intent.launchUrl(WelcomeActivity.this, Uri.parse(completeUrl));
             }
         });
     }

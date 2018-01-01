@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -25,6 +26,7 @@ import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
 import com.learnera.app.Utils;
 import com.learnera.app.WebActivity;
+import com.learnera.app.WelcomeActivity;
 import com.learnera.app.data.AnnouncementRSET;
 import com.learnera.app.data.AnnouncementsRSETAdapter;
 import com.learnera.app.data.Constants;
@@ -90,9 +92,12 @@ public class AnnouncementsRSETFragment extends Fragment {
                 mBrowserDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(getActivity(), WebActivity.class);
-                        intent.putExtra("url", Constants.noticesURL);
-                        startActivity(intent);
+                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                        CustomTabsIntent intent = builder.build();
+                        builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
+                        builder.setStartAnimations(getActivity(), R.anim.slide_in_right, R.anim.slide_out_left);
+                        builder.setExitAnimations(getActivity(), R.anim.slide_in_left, R.anim.slide_out_right);
+                        intent.launchUrl(getActivity(), Uri.parse(Constants.noticesURL));
                     }
                 });
                 mBrowserDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

@@ -34,9 +34,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import butterknife.BindView;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -47,10 +44,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     //protected FloatingActionButton fab;
 
-
-    @BindView(R.id.spinner_marks_semesters)
     Spinner spinner1;
-    @BindView(R.id.spinner_marks_category)
     Spinner spinner2;
     ArrayList<String> semListCode;
     ArrayList<String> subjectNames;
