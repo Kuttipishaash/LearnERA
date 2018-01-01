@@ -129,7 +129,7 @@
                     android:adjustViewBounds="true"
                     android:elevation="6dp"
                     android:src="@drawable/logout_custom" />
-
+<!--
                 <ImageView
                     android:id="@+id/drawable_seating_plan"
                     android:layout_width="0dp"
@@ -141,7 +141,7 @@
                     android:adjustViewBounds="true"
                     android:elevation="6dp"
                     android:src="@drawable/announcement_custom" />
-
+-->
             </LinearLayout>
 
 

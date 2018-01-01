@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -17,6 +18,11 @@ import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -136,25 +142,43 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
+        //TODO: Hold for testing
+        /*
         mSeating = (ImageView) findViewById(R.id.drawable_seating_plan);
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//todo: add toast to notify user of 404 error
                 User user = User.getLoginInfo(WelcomeActivity.this);
 
                 String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1,3) + user.getDept().toUpperCase() +
                         user.getUserName().substring(5) + ".pdf";
 
-                //Launch chrome custom tab
-                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                CustomTabsIntent intent = builder.build();
-                builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
-                builder.setStartAnimations(WelcomeActivity.this, R.anim.slide_in_right, R.anim.slide_out_left);
-                builder.setExitAnimations(WelcomeActivity.this, R.anim.slide_in_left, R.anim.slide_out_right);
-                intent.launchUrl(WelcomeActivity.this, Uri.parse(completeUrl));
+                try {
+                    URL url = new URL(completeUrl);
+                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                    connection.setRequestMethod("GET");
+                    connection.connect();
+
+                    if(connection.getResponseCode() == 200) {
+                        //Launch chrome custom tab
+                        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                        CustomTabsIntent intent = builder.build();
+                        builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
+                        builder.setStartAnimations(WelcomeActivity.this, R.anim.slide_in_right, R.anim.slide_out_left);
+                        builder.setExitAnimations(WelcomeActivity.this, R.anim.slide_in_left, R.anim.slide_out_right);
+                        intent.launchUrl(WelcomeActivity.this, Uri.parse(completeUrl));
+                    } else {
+                        Toast.makeText(WelcomeActivity.this, "Seating plan not yet uploaded!", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    Log.e("ACTIVTY_WELCOME", e.toString());
+                    Toast.makeText(WelcomeActivity.this, "maire errors!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+
+        */
     }
 
 }
