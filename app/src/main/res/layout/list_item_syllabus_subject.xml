@@ -8,10 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/border"
         android:gravity="center"
-        android:padding="30dp"
+        android:padding="20dp"
         android:text="Subject"
-        android:textSize="20sp"
-        android:textStyle="italic" />
+        android:textSize="17sp" />
 </LinearLayout>
