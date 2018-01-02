@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -99,6 +100,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_marks, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_marks);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                DividerItemDecoration.VERTICAL));
         spinner1 = (Spinner) view.findViewById(R.id.spinner_marks_semesters);
         spinner2 = (Spinner) view.findViewById(R.id.spinner_marks_category);
         //setupFAB();

@@ -65,8 +65,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         holder.mPercentInclDuty.setText(percentInclDuty);
 
         holder.mOnDutyClasses.setText("On Duty : " + onduty + " classes");
-        holder.mTotalClasses.setText("Total : " + total + " classes");
-        holder.mMissedClasses.setText("Missed : " + missed + " classes");
+        holder.mAttendedClasses.setText("Classes missed : " + missed + "/" + total);
 
         //to calculate bunkable classes if duty attendance is also considered.
         String classCutInclDuty = bunkCalculate((missed - onduty), total);
@@ -136,8 +135,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         public TextView mBunkField;
         public TextView mPercentInclDuty;
         public TextView mBunkInclDuty;
-        public TextView mTotalClasses;
-        public TextView mMissedClasses;
+        public TextView mAttendedClasses;
         public TextView mOnDutyClasses;
 
         public ViewHolder(View v) {
@@ -148,14 +146,11 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             mBunkField = (TextView) v.findViewById(R.id.list_attendance_class_cut);
             mPercentInclDuty = (TextView) v.findViewById(R.id.list_attendance_percent_incl_duty);
             mBunkInclDuty = (TextView) v.findViewById(R.id.list_attendance_class_cut_incl_duty);
-            mTotalClasses = (TextView) v.findViewById(R.id.list_attendance_total_classes);
-            mMissedClasses = (TextView) v.findViewById(R.id.list_attendance_missed_classes);
+            mAttendedClasses = (TextView) v.findViewById(R.id.list_attendance_attended_classes);
             mOnDutyClasses = (TextView) v.findViewById(R.id.list_attendance_duty_attendence);
 
             if(!isDutyEnabled) {
                 mOnDutyClasses.setVisibility(View.GONE);
-                mMissedClasses.setVisibility(View.GONE);
-                mTotalClasses.setVisibility(View.GONE);
                 mBunkInclDuty.setVisibility(View.GONE);
                 mPercentInclDuty.setVisibility(View.GONE);
             }

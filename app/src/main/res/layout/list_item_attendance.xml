@@ -69,23 +69,13 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <TextView
-        android:id="@+id/list_attendance_total_classes"
+        android:id="@+id/list_attendance_attended_classes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="2dp"
         android:paddingTop="2dp"
-        android:text="total classes"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/list_attendance_missed_classes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        android:text="missed classes"
+        android:text="attended classes"
         android:textStyle="italic" />
 
     <TextView
