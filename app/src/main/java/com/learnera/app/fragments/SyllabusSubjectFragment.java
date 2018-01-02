@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.learnera.app.R;
 import com.learnera.app.SyllabusActivity;
@@ -22,15 +24,16 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SyllabusSubjectFragment extends Fragment {
+public class SyllabusSubjectFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    //views
-    View view;
-    ListView mListView;
-
+    User user = new User();
+    String sem;
     //data
     int id, id2;
-
+    //views
+    private View view;
+    private ListView mListView;
+    private Spinner spinner;
     //adapters
     private SyllabusSubjectAdapter syllabusSubjectAdapter;
 
@@ -54,16 +57,44 @@ public class SyllabusSubjectFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_syllabus_subject, container, false);
         mListView = (ListView) view.findViewById(R.id.syllabusSubjectsListView);
-        getlist();
+        spinner = (Spinner) view.findViewById(R.id.syllabus_semester_spinner);
+        user = user.getLoginInfo(getActivity());
+        sem = user.getSem();
+        setspinner();
 
         return view;
     }
 
+    private void setspinner() {
+        int currentSem = Integer.parseInt(sem.substring(1)) - 1;
+        ArrayList<String> semList = new ArrayList<>();
+        for (int i = 0; i <= currentSem; i++) {
+            semList.add(getResources().getStringArray(R.array.array_semesters)[i]);
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                view.getContext(),
+                android.R.layout.simple_spinner_item,
+                semList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(currentSem);
+        spinner.setOnItemSelectedListener(this);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        sem = "s" + String.valueOf(position);
+        getlist();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
     private void getlist() {
         //Variables to store user and subject info
-        User user = new User();
-        user = user.getLoginInfo(getActivity());
-        String sem = user.getSem();
+
         String dept = user.getDept();
         String arrnameSubjects;
         String arrnameCodes;

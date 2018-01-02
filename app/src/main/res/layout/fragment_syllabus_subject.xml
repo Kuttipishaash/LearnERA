@@ -1,13 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_white_1000"
+    android:orientation="vertical"
     tools:context="com.learnera.app.fragments.SyllabusSubjectFragment">
 
+    <Spinner
+        android:id="@+id/syllabus_semester_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></Spinner>
     <ListView
         android:id="@+id/syllabusSubjectsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/syllabus_semester_spinner"
         android:divider="@null"/>
-</FrameLayout>
+</RelativeLayout>
