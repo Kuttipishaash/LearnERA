@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:background="@drawable/border">
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/moduleNum"
@@ -13,6 +12,7 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:text="Large Text"
+        android:textColor="@color/leave"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -22,6 +22,7 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:text="Large Text"
+        android:textColor="@color/md_grey_900"
         android:textSize="18dp" />
 
     <TextView

@@ -546,6 +546,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mRecyclerView.setAdapter(mRecyclerAdapter);
             mProgressDialog.dismiss();
             attendanceDetails();
+        //    dutyEnablerSelector.check(R.id.attendance_duty_disable);
         }
 
         @Override
