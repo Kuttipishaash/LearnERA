@@ -247,6 +247,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                     }
                     count++;
                 }
+
                 for (Element td : tds) {
                     String data = td.select(":containsOwn(%)").text();
                     String data2 = td.getElementsByTag("strong").text();
@@ -368,8 +369,26 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
 
         //Making the mDutyAttendenceList values to 0 for each subject initially
-        for (int i = 0; i < mSubjectCodeList.size(); i++) {
-            mDutyAttendenceList.add(Integer.toString(0));
+        //Subjects whose subject codes doesnt end with a number i.e, V,SEP,LIB etc are removed as it will cause issues for duty attendance
+        int loopvar = mSubjectList.size();
+        for (int i = 0; i < loopvar; i++) {
+            String subCode = mSubjectCodeList.get(i);
+            subCode = subCode.substring(subCode.length() - 1); //taking last character of subject code
+            boolean testResult = true;
+            try {
+                Integer.parseInt(subCode);  //trying to convert it to a number
+            } catch (NumberFormatException e) {    //if it couldn't be converted to a number it is a subject to be removed so remove it from all other lists
+                testResult = false;
+                mSubjectList.remove(i);
+                mPercentageList.remove(i);
+                mMissedList.remove(i);
+                mTotalList.remove(i);
+                mSubjectCodeList.remove(i);
+                loopvar--;
+                i--;
+            }
+            if (testResult)  //if it is an acceptable subjects i.e, it is not V,SEP,LIB etc, a 0 entry is made for the subject in the mDutyAttendanceList
+                mDutyAttendenceList.add(Integer.toString(0));
         }
 
         Elements tables = doc.select("table [width=96%]");
@@ -401,10 +420,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
                         //Duty Attendence Counter
                         //To increment the duty attendence count for a subject if a yellow color found in table
-                        if (color.equalsIgnoreCase("#ff9900")) {
-                            int n = mSubjectCodeList.indexOf(subject);
-                            mDutyAttendenceList.set(n, Integer.toString(Integer.parseInt(mDutyAttendenceList.get(n)) + 1));
-
+                        if (color.equalsIgnoreCase("#ff9900") || color.equalsIgnoreCase("#cccc00")) {
+                            if (!(subject.equals("SEP") | subject.equals("V") | subject.equals("MENT") | subject.equals("LIB") | subject.equals("U"))) {
+                                subject = subject.substring(0, 5);
+                                int n = mSubjectCodeList.indexOf(subject);
+                                mDutyAttendenceList.set(n, Integer.toString(Integer.parseInt(mDutyAttendenceList.get(n)) + 1));
+                            }
                         }
                     }
                     colNumber++;
@@ -546,7 +567,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mRecyclerView.setAdapter(mRecyclerAdapter);
             mProgressDialog.dismiss();
             attendanceDetails();
-        //    dutyEnablerSelector.check(R.id.attendance_duty_disable);
+            dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
         }
 
         @Override

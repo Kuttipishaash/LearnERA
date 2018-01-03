@@ -685,6 +685,44 @@
             \nConcept of intelligent buildings.
         </item>
     </array>
+    <array name="cs100">
+
+        <item>Computer Programming</item>
+
+        <item></item>
+        <item>Introduction to C Language: Preprocessor directives, header
+            files, data types and qualifiers. Operators and expressions.
+            Data input and output, control statements.
+        </item>
+
+        <item></item>
+        <item>Arrays and strings- example programs. Two dimensional
+            arrays - matrix operations.
+            Structure, union and enumerated data type.
+        </item>
+
+        <item></item>
+        <item>Pointers: Array of pointers, structures and pointers.
+            Example programs using pointers and structures.
+        </item>
+
+        <item></item>
+        <item>Functions – function definition and function prototype.
+            Function call by value and call by reference. Pointer to a
+            function –. Recursive functions.
+        </item>
+
+        <item></item>
+        <item>Sorting and Searching : Bubble sort, Selection sort, Linear
+            Search and Binary search.\n
+            Scope rules Storage classes. Bit-wise operations
+        </item>
+
+        <item></item>
+        <item>Data files – formatted, unformatted and text files.
+            Command line arguments – examples.
+        </item>
+    </array>
     <array name="me100">
         <item>BME</item>
         <item></item>

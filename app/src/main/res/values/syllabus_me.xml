@@ -1052,4 +1052,728 @@
 
     </array>
 
+
+    <array name="me302">
+
+        <item>HMT</item>
+
+        <item></item>
+        <item>Modes of Heat Transfer: Conduction: Fourier law of heat conduction-Thermal
+            conductivity of solids, liquids and gases-Factors affecting thermal conductivity- Most
+            general heat conduction equation in Cartesian, cylindrical and spherical coordinates One
+            dimensional steady state conduction with and without heat generation conduction through
+            plane walls, cylinders and spheres-variable thermal conductivity conduction shape
+            factor- heat transfer through corners and edges. Critical radius of insulation.
+        </item>
+
+        <item></item>
+        <item>Elementary ideas of hydrodynamics and thermal boundary layers-Thickness of Boundary
+            layer-Displacement, Momentum and Energy thickness (description only).\n
+            Convection heat transfer: Newton’s law of cooling- Laminar and Turbulent flow, Reynolds
+            Number, Critical Reynolds Number, Prandtl Number, Nusselt Number, Grashoff Number and
+            Rayleigh’s Number.\n Dimensional analysis Buckingham’s Pi theorem- Application of
+            dimensional analysis to free and forced convection- empirical relations- problems using
+            empirical relations
+        </item>
+
+        <item></item>
+        <item>Transient heat conduction-lumped heat capacity method. Fins: Types of fins - Heat
+            transfer from fins of uniform cross sectional area- Fin efficiency and effectiveness.
+            Boiling and condensation heat transfer(elementary ideas only),Introduction to heat pipe.
+        </item>
+
+        <item></item>
+        <item>Combined conduction and convection heat transfer-Overall heat transfer coefficient -
+            Heat exchangers: Types of heat exchangers, AMTD, Fouling factor, Analysis of Heat
+            exchangers- LMTD method, Correction factor, Effectiveness- NTU method, Special type of
+            heat exchangers (condenser and evaporator, simple problems only)
+        </item>
+
+        <item></item>
+        <item>Radiation- Nature of thermal radiation-definitions and concepts- monochromatic and
+            total emissive power-Intensity of radiation- solid angle- absorptivity, reflectivity and
+            transmissivity-Concept of black body- Planck’ law- Kirchoff’s law- Wein’s displacement
+            law-Stefan Boltzmann’s law- black, gray and real surfaces-Configuration factor
+            (derivation for simple geometries only)- Electrical analogy- Heat exchange between
+            black/gray surfaces- infinite parallel plates, equal and parallel opposite
+            plates-perpendicular rectangles having common edge- parallel discs (simple problems
+            using charts and tables). Radiation shields(no derivation).
+        </item>
+
+        <item></item>
+        <item>Mass Transfer :Mass transfer by molecular diffusion- Fick’s law of diffusion-
+            diffusion coefficient Steady state diffusion of gases and liquids through solid-
+            equimolar diffusion, Isothermal evaporation of water through air- simple problems.
+            Convective mass transfer- Evaluation of mass transfer coefficient- empirical relations-
+            simple problems- analogy between heat and mass transfer.
+        </item>
+    </array>
+
+    <array name="me304">
+
+        <item>DOM</item>
+
+        <item></item>
+        <item>Introduction to force analysis in mechanisms - static force analysis
+            (four bar linkages only) - graphical methods\n\nMatrix methods - method of virtual work
+            - analysis with sliding and
+            pin friction
+        </item>
+
+        <item></item>
+        <item>Dynamic force analysis: Inertia force and inertia torque. D’Alemberts
+            principle, analysis of mechanisms (four bar linkages only),
+            equivalent dynamical systems\n\nForce Analysis of spur- helical - bevel and worm gearing
+        </item>
+
+        <item></item>
+        <item>Flywheel analysis - balancing - static and dynamic balancing -
+            balancing of masses rotating in several planes\n\nBalancing of reciprocating masses -
+            balancing of multi-cylinder in
+            line engines - V engines - balancing of machines
+        </item>
+
+        <item></item>
+        <item>Gyroscope – gyroscopic couples\n\nGyroscopic action on vehicles-two wheelers, four
+            wheelers, air planes
+            and ships. Stability of an automobile – stability of a two wheel vehicle
+            –Stabilization of sh
+        </item>
+
+        <item></item>
+        <item>Introduction to vibrations – free vibrations of single degree freedom
+            systems – energy Method\n\nUndamped and damped free vibrations – viscous damping –
+            critical
+            damping - logarithmic decrement - Coulomb damping – harmonically
+            excited vibrations\n\nResponse of an undamped and damped system – beat phenomenon -
+            transmissibility
+        </item>
+
+        <item></item>
+        <item>Whirling of shafts – critical speed - free torsional vibrations – self
+            excitation and stability analysis - vibration control - vibration isolation
+            – vibration absorbers\n\nIntroduction to multi-degree freedom systems - vibration
+            measurement - accelerometer – seismometer – vibration exciters
+        </item>
+    </array>
+
+    <array name="me306">
+
+        <item>AMT</item>
+
+        <item></item>
+        <item>Introduction: Need and comparison between traditional, nontraditional
+            and micro &amp; nano machining process.\nPowder Metallurgy: Need of P/M - Powder
+            Production methods:-
+            Atomization, electrolysıs, Reduction of oxides, Carbonyls
+            (Process parameters, characteristics of powder produced in each
+            method).\nPowder characteristics: properties of fine powder, size, size
+            distribution, shape, compressibility, purity etc.\n\nMixing – Compaction:- techniques,
+            pressure distribution, HIP &amp; CIP.\n\nMechanism of sintering, driving force for pore
+            shirking, solid and
+            liquid phase sintering - Impregnation and Infiltration Advantages,
+            disadvantages and specific applications of P/M.\n\nProgrammable Logic Controllers (PLC):
+            need – relays - logic
+            ladder program –timers, simple problems only.\n\nPoint to point, straight cut and
+            contouring positioning -
+            incremental and absolute systems – open loop and closed loop
+            systems - control loops in contouring systems: principle of
+            operation.
+        </item>
+
+        <item></item>
+        <item>DDA integrator:-Principle of operation, exponential deceleration
+            –liner, circular and complete interpolator.\nNC part programming: part programming
+            fundamentals - manual
+            programming – NC coordinate systems and axes –– sequence number, preparatory
+            functions, dimension words, speed word, feed world, tool world,
+            miscellaneous functions – Computer aided part programming:– CNC languages – APT
+            language structure: geometry commands, motion
+        </item>
+        commands, postprocessor commands, compilation control
+        commands \n\nProgramming exercises: simple problems on turning and drilling
+        etc - machining centers- 5 axis machining (At least one
+        programming exercise must be included in the end semester
+        University examination).
+        <item></item>
+        <item>Electric Discharge Machining (EDM):- Mechanism of metal removal, dielectric fluid,
+            spark generation, recast layer and attributes of process characteristics on MRR,
+            accuracy, HAZ etc, Wire EDM, applications and accessories. \n\nUltrasonic Machining
+            (USM):-mechanics of cutting, effects of parameters on amplitude, frequency of vibration,
+            grain diameter, slurry, tool material attributes and hardness of work material,
+            applications. \n\nElectro chemical machining (ECM):- Mechanism of metal removal
+            attributes of process characteristics on MRR, accuracy, surface roughness etc,
+            application and limitations.
+        </item>
+
+        <item></item>
+        <item>Laser Beam Machining (LBM), Electron Beam Machining (EBM), Plasma arc Machining (PAM),
+            Ion beam Machining(IBM) - Mechanism of metal removal, attributes of process
+            characteristics on MRR, accuracy etc and structure of HAZ compared with conventional
+            process; application, comparative study of advantages and limitations of each process.
+            \n\nAbrasive Jet Machining (AJM), Abrasive Water Jet Machining (AWJM) - Working
+            principle, Mechanism of metal removal, Influence of process parameters, Applications,
+            Advantages &amp; disadvantages.
+        </item>
+
+        <item></item>
+        <item>High velocity forming of metals:-effects of high speeds on the stress strain
+            relationship steel, aluminum, Copper – comparison of conventional and high velocity
+            forming methods- deformation velocity, material behavior, stain distribution.\n\nStress
+            waves and deformation in solids – types of elastic body waves- relation at free
+            boundaries- relative particle velocity.\n\nSheet metal forming: - explosive
+            forming:-process variable, properties of explosively formed parts, etc.\n\nElectro
+            hydraulic forming: - theory, process variables, etc, comparison with explosive forming.
+        </item>
+
+        <item></item>
+        <item>Micromachining: Diamond turn mechanism, material removal mechanism,
+            applications.\n\nAdvanced finishing processes: - Abrasive Flow Machining, Magnetic
+            Abrasive Finishing.\n\nagnetorheological Abrasive Flow Finishing, Magnetic Float
+            Polishing, Elastic Emission Machining.\n\nMaterial addition process:-
+            stereo-lithography, selective laser sintering, 3D Printing, fused deposition modeling,
+            laminated object manufacturing, , laser engineered net-shaping, laser welding, LIGA
+            process.
+        </item>
+    </array>
+
+    <array name="me308">
+
+        <item>CAD and Analysis</item>
+
+        <item></item>
+        <item>Introduction to CAD , Historical developments, Industrial look at CAD,
+            Comparison of CAD with traditional designing, Application of
+            computers in Design Basics of geometric and solid modeling, Packages for
+            CAD/CAM/CAE/CAPP
+            Hardware in CAD components, user interaction devices, design
+            database, graphic Standards, data Exchange Formats, virtual Reality.
+        </item>
+
+        <item></item>
+        <item>Transformation of points and line, 2-D rotation, reflection, scaling and
+            combined transformation, homogeneous coordinates, 3-D scaling.\n\n
+            Shearing,rotation, reflection and translation, combined transformations,
+            orthographic and perspective projections, reconstruction of 3-D objects.
+        </item>
+
+        <item></item>
+        <item>Algebraic and geometric forms, tangents and normal, blending functions,
+            reparametrization, straight lines, conics, cubic splines, Bezier curves and
+            B-spline curves.\n\n
+            Plane surface, ruled surface, surface of revolution, tabulated cylinder, bicubic
+            surface, bezier surface, B-spline surfaces and their modeling
+            techniques.
+        </item>
+
+        <item></item>
+        <item>Solid models and representation scheme, boundary representation,
+            constructive solid geometry.\n\nSweep representation, cell decomposition, spatial
+            occupancy
+            enumeration, coordinate systems for solid modeling
+        </item>
+
+        <item></item>
+        <item>Introduction to finite element analysis - steps involved in FEMPreprocessing
+            phase – discretisation - types of elements
+            Formulation of stiffness matrix (direct method, 1-D element) -
+            formulation of load vector - assembly of global equations -
+            implementation of boundary conditions - solution procedure - post
+            processing phase\n\n
+            Simple problems with axial bar element (structural problems only)
+        </item>
+
+        <item></item>
+        <item>Interpolation – selection of interpolation functions - CST element -
+            isoparametric formulation (using minimum PE theorem) – Gaussquadrature
+            Solution of 2D plane stress solid mechanics problems (linear static analysis)
+        </item>
+    </array>
+
+    <array name="me312">
+
+        <item>MI</item>
+
+        <item></item>
+        <item>Concept of measurement:-Introduction to Metrology; Need for high precision
+            measurements; Terminologies in Measurement- Precision, accuracy, sensitivity,
+            calibration. Errors in Measurement, types of errors, Abbe’s Principle.Basic standards of
+            length- Line standard, End standards, Wavelength standard; Various Shop floor standards.
+            Linear Measurement – Slip gauges, wringing, grades; Surface plate; Dial indicators;
+            Height gauges and Vernier calipers. Comparators- mechanical, electrical, optical and
+            pneumatic. Angular Measurement – Bevel protractor; Sine Bar, principle and use of sine
+            bar, sine centre; Angle gauges. Sprit level; Angle Dekkor; Clinometers.
+        </item>
+
+        <item></item>
+        <item>Limits and Limit gauges – Making to suit, selective assembly, systems of limits and
+            fits; Types of fits; Hole basis system and Shaft basis system.
+            Standard systems of limits and fits; Shaft and Hole system; Tolerance, allowance and
+            deviation (as per BIS).\n
+            Simple problems on tolerance and allowance, shaft and hole system.\n
+            Limit Gauges – GO and NO GO gauges; types of limit gauges.\n
+            Gauge design - Taylor’s principle of gauging; Gauge tolerance, disposition of gauge
+            tolerance, wear allowance.\n
+            Optical Measuring Instruments: - Benefits of using light waves as standards;
+            Monochromatic light; Principle of Interference.\n
+            Interference band using optical flat, application in surface measurement.\n
+            Interferometers – NPL flatness interferometer, Pitter-NPL gauge interferometer.
+        </item>
+
+        <item></item>
+        <item>Screw thread measurement – Screw thread terminology; Measurement of major diameter;
+            Measurement of minor or root diameter.
+            Measurement of pitch; Measurement of effective diameter with two wire method and three
+            wire method.
+            Measurement of flank angle and form by profile projector andmicroscope.
+            Measurement of surface texture – Meaning of surface texture, roughness and waviness;
+            Analysis of surface traces, peak to valley height, R.M.S. value, Centre Line Average and
+            Ra value, Rt, Rz etc.
+            Methods of measuring surface roughness – Stylus probe, Tomlinson surface meter,
+            Talysurf; Terms used in surface roughness measurement – assessment length, roughness
+            width cut-off, sampling length and evaluation length.
+            Interference method for measuring surface roughness – using optical flat and
+            interferometers.
+            Autocollimator, principle and use of autocollimator.
+        </item>
+
+        <item></item>
+        <item>Machine tool metrology – Alignment testing of machine tools like lathe, milling
+            machine, drilling machine.
+            Advanced measuring devices – Laser interferometers.
+            Coordinate Measuring Machine (CMM) – Introduction to CMM; Components and construction of
+            CMM.
+            Types of CMM; Advantages and application of CMM
+            CMM probes, types of probes – contact probes and non contact probes
+            Machine Vision – Introduction to machine vision, functions, applications and advantages
+            of machine vision.
+            Steps in machine vision
+        </item>
+
+        <item></item>
+        <item>Introduction to Mechanical Measurement – significance of mechanical measurement;
+            Fundamental methods of measurement; Classification of measuring instrument.
+            Stages in generalized measuring system – Sensor-Transducer stage, Signal-Conditioning
+            stage, Readout-Recording stage; Types of input quantities; Active and Passive
+            transducers.
+            Performance characteristic of measuring devices –
+            Static characteristics – Accuracy, Precision, Repeatability, Sensitivity,
+            Reproducibility, Drift, Resolution, Threshold, Hysteresis, Static calibration.
+            Dynamic characteristics- different order systems and their response-, Measuring lag,
+            Fidelity, Dynamic error; Types of errors in measurement.
+            Transducers – Working, Classification of transducers.
+            Motion and Dimension measurement – LVDT – Principle, applications, advantages and
+            limitations
+        </item>
+
+        <item></item>
+        <item>Strain and Stress Measurement - Electrical resistance strain gauge - Principle,
+            operation.
+            Measurement of Force and Torque – Strain-Gauge Load Cells, Hydraulic and Pneumatic load
+            cells – basic principle and three component force measurement using piezoelectric quartz
+            crystal.
+            Torque Measurement – Dynamometers – Mechanical, Hydraulic and Electrical.
+            Vibration measurement – Vibrometers and Accelerometers – Basic principles and operation.
+            Temperature Measurement – Use of Thermal Expansion – Liquid-in-glass thermometers,
+            Bimetallic strip thermometer, Pressure thermometers.
+            Thermocouples – Principle, application laws for Thermocouples, Thermocouple materials
+            and construction, measurement of Thermocouple EMF.
+            Resistance Temperature Detectors (RTD); Thermistors; Pyrometers (Basic Principles).
+        </item>
+    </array>
+
+    <array name="me362">
+
+        <item>CSE</item>
+
+        <item></item>
+        <item>Introduction to control systems. Elementary ideas on types of control systems- Open
+            loop and closed loop systems, Servo systems, Automatic regulating systems, Process
+            control systems, Adaptive control systems, Learning control systems, Discrete control
+            systems, Multivariable control systems, Linear and Non-linear systems. Elementary ideas
+            on types of controls- proportional, integral, proportional integral, proportional
+            integral derivative controls. Direct and indirect controls. Mathematical models of
+            physical systems – typical examples of mechanical, thermal, electrical, hydraulic and
+            pneumatic systems.
+        </item>
+
+        <item></item>
+        <item>Block diagram, transfer function, reduction of block diagrams, signal flow graphs
+            :Manson’s gain formula. Control system components – servomotors, stepper motor,
+            synchros, hydraulic pumps and motors, hydraulic valves, pneumatic bellows, pneumatic
+            valve, pneumatic relay, pneumatic actuator, gyroscopes ( elementary ideas only. No
+            derivations)
+        </item>
+
+        <item></item>
+        <item>System response- Time response of first and second order
+            systems, steady state errors and error constants, specifications in
+            time domain. Effect of pole locations, Concept of stability,
+            Routh’s stability criterion
+        </item>
+
+        <item></item>
+        <item>Root locus method of analysis and design. Lead and lag
+            compensation
+        </item>
+
+        <item></item>
+        <item>Frequency response analysis- relationship between time &amp; frequency response,
+            Bode’s plot, stability in frequency domain,
+            gain margin and Phase margin
+        </item>
+
+        <item></item>
+        <item>Polar plots, Nyquist stability criterion, Stability analysis,
+            Relative stability concepts, Gain margin and phase margin.
+        </item>
+    </array>
+
+    <array name="me364">
+
+        <item>Turbomachinery</item>
+
+        <item></item>
+        <item>Definition of turbomachine, parts of turbomachines, Comparison with positive
+            displacement machines, Classification, Dimensionless parameters and their significance,
+            Effect of Reynolds number, Unit and specific quantities, model studies.
+        </item>
+
+        <item></item>
+        <item>Application of first and second laws of thermodynamics to turbomachines, Efficiencies
+            of turbomachines. Stage velocity triangles, work and efficiency for compressors and
+            turbines
+        </item>
+
+        <item></item>
+        <item>Centrifugal fans and blowers : Types, stage and design
+            parameters, flow analysis in impeller blades, volute and
+            diffusers, losses, characteristics curves and selection, fan
+            drives and fan noise.
+        </item>
+
+        <item></item>
+        <item>Centrifugal Compressors: Construction details, types,
+            impeller flow losses, slip factor, diffuser analysis, losses
+            and performance curves.
+        </item>
+
+        <item></item>
+        <item>Axial flow compressors : Stage velocity triangles, enthalpyentropy
+            diagrams, stage losses and efficiency, work done
+            factor, simple stage design problems and performance
+            characteristics.
+        </item>
+
+        <item></item>
+        <item>Axial and radial flow turbines : Stage velocity diagrams,
+            reaction stages, losses and coefficients blade design
+            principles, testing and performance characteristics.
+        </item>
+    </array>
+
+    <array name="me366">
+
+        <item>AMJT</item>
+
+        <item></item>
+        <item>Radiant energy welding: Electron Beam Welding- Background of the Process, Guns, Weld
+            Environment, Welding in Different Degrees of Vacuum, Equipment and Safety, Joint Design,
+            Applications, Laser Beam Welding, Physics of Lasers, Types of Lasers, Process
+            Parameters, Applications and Limitations.
+        </item>
+
+        <item></item>
+        <item>Diffusion Welding- theory and Principle of Process, Key Variables, Intermediate
+            Materials, Deformation Welding, Equipment and Tooling, Joint Design, Economics,
+            Advantages and Limitations, Materials and Applications, Cold Pressure Welding- Process,
+            Equipment and Setup, Applications
+        </item>
+
+        <item></item>
+        <item>Explosive Welding- theory and Key Variables, Parameters, Weld Quality, Equipment and
+            Tooling, Advantages and Limitations, Joint Design, Materials and Applications, Adhesive
+            Bonding- theory and Key Parameters, Physical Characteristics, Metal Adhesive, Equipment,
+            Design, Economics of Process, Materials and Applications.
+        </item>
+
+        <item></item>
+        <item>Ultrasonic welding-Principles of operation, Process Characteristics and Applications,
+            Vacuum brazing- Theory, Mechanisms and Key Variables, Equipment and Tooling, Stop-Off
+            and Parting Agents, Advantages, Limitations, Economics Materials and Applications.
+        </item>
+
+        <item></item>
+        <item>Plasma arc welding: Plasma Arc Welding- theory and Principles, Transferred arc and
+            Non-Transferred arc Techniques, Equipment and Tooling, Joint Design Advantages,
+            Disadvantages, Economics, Materials and Applications, Needle Arc Micro Plasma Welding -
+            Characteristics of Process, Operating Characteristics, Fixturing and Joint Design,
+            Shielding, Weld Penetration and Shape, Applications, Magnetically impelled arc butt
+            (MIAB) welding, Under Water Welding- Wet and Dry Under Water Welding
+        </item>
+
+        <item></item>
+        <item>Friction Welding- Basic Principles, Process Variants, Different Stages of Friction
+            Welding, Mechanism of Bonding, Influence of Process Parameters, Weld Quality and Process
+            Control, Joining of Dissimilar Materials, Advantages, Limitations and Applications,
+            Friction Stir Welding-Metal flow phenomena, tools, process variables and applications,
+            Friction Stir Processing- Process, Application
+        </item>
+    </array>
+
+
+    <array name="me368">
+
+        <item>Marketing Management</item>
+
+        <item></item>
+        <item>Introduction to marketing - concept of market and marketing – marketing environment -
+            controllable factors - factors directed by top management - factors directed by
+            marketing - uncontrollable factors - demography, economic conditions, competition.
+        </item>
+
+        <item></item>
+        <item>Social and Marketing planning - marketing planning process - Boston consultancy group
+            model - marketing mix - marketing mix variables. Developing, testing and launching of
+            new products.
+        </item>
+
+        <item></item>
+        <item>Market segmentation and market targeting - introduction to
+            segmentation - targeting and product positioning. Marketing
+            research - need and scope - marketing research process –
+            research objectives, developing research plan, collecting
+            information, analysis, and findings.
+        </item>
+
+        <item></item>
+        <item>Consumer behaviour - factors influencing consumer behaviour -
+            perceived risks Product life cycle - marketing strategies for
+            different stages of product life cycle
+        </item>
+
+        <item></item>
+        <item>Marketing communication - marketing mix variables - steps in
+            developing effective communication - identification of target
+            audience - determination of communication objectives
+        </item>
+
+        <item></item>
+        <item>Designing the message - selecting the communication channels -
+            promotion mix evaluation - advertising and sales promotion -
+            factors in advertising - sales promotion tools. New trends in
+            marketing- Brand management - significance of branding to
+            consumers and firms
+        </item>
+    </array>
+
+    <array name="me372">
+
+        <item>Operations Research</item>
+
+        <item></item>
+        <item>Basics of operations research–OR models–applications.\n
+            Linear programming – problem formulation\n
+            Graphical method\n
+            Simplex method\n
+            Big-M method \n
+            Two–phase method \n
+            Duality in linear programming
+        </item>
+
+        <item></item>
+        <item>Transportation problem – formulation – balanced &amp; unbalanced
+            transportation problems\n
+            North west corner rule – least cost method
+            Vogel’s method –stepping stone method\n
+            MODI method\n
+            Assignment problem – formulation – optimal solution,\n
+            Hungarian algorithm\n
+            Variants of assignment problems\n
+            Traveling salesman problem.
+        </item>
+
+        <item></item>
+        <item>Sequencing problem– terminology and notations – assumptions –
+            problems with n jobs through two machines\n
+            Problems with n jobs through three machines\n
+            Problems with n jobs through m machines.\n
+            Network analysis – basic terms – network construction – time
+            analysis\n
+            Critical path method (CPM)\n
+            Programme evaluation and review technique (PERT)\n
+            Cost considerations in network analysis – crashing
+        </item>
+
+        <item></item>
+        <item>Introduction to queuing theory–terminologies– classification of
+            queuing models\n
+            Single server problems\n
+            Multi server problems\n
+            Inventory control – variables – deterministic inventory models –
+            purchasing model without shortages\n
+            Manufacturing model without shortages\n
+            Purchasing model with shortages\n
+            Manufacturing model with shortages
+        </item>
+
+        <item></item>
+        <item>Decision theory – steps in decision theory approach – decision
+            making conditions\n
+            Decisions under conditions of risk\n
+            Decisions under uncertainty conditions\n
+            Decision tree analysis\n
+            Game theory – games with saddle points\n
+            Games without saddle points – 2 x 2 games\n
+            Graphical method for m x 2 &amp; 2 x n games
+        </item>
+
+        <item></item>
+        <item>Simulation – types of simulation – phases of simulation –applications– advantages and
+            disadvantages\n
+            Design of simulation, models &amp; experiments, model validation\n
+            Generation of random numbers\n
+            Monte Carlo simulation\n
+            Queuing simulation model\n
+            Inventory simulation model\n
+            Simulation languages
+        </item>
+    </array>
+
+
+    <array name="me374">
+
+        <item>TOV</item>
+
+        <item></item>
+        <item>Introduction to mechanical vibrations- Simple harmonic motion- Natural frequency
+            -Equation of motion-- Energy method-Rayleigh method\n\n
+            Free vibration of single degree of freedom (DOF) systems with damping- Viscous damping-
+            Logarithmic decrement.
+            Coulomb damping-Energy dissipated by damping- Structural damping -Equivalent viscous
+            damping.
+        </item>
+
+        <item></item>
+        <item>Forced harmonic vibration- Magnification factor-Transmissibility-Vibration
+            isolation-Base excitation-Rotating unbalance- whirling of shafts- Resonance
+            \nVibration measuring instruments. Seismometer-Accelerometer
+        </item>
+
+        <item></item>
+        <item>Two degree of freedom systems-Normal mode vibration-Principal co-ordinates-Coordinate
+            coupling.\n
+            Beat phenomenon-Undamped vibration absorbers- Vibration dampers
+        </item>
+
+        <item></item>
+        <item>Multi degree of freedom systems- Matrix formulation- Influence
+            coefficients-Flexibility matrix-Stiffness matrix\n
+            Eigen Value problem:Eigen value and Eigen vectors-Frequency mode
+            shape -Modal analysis.
+        </item>
+
+        <item></item>
+        <item>Lagrange’s equation- Solution to problems using Lagrange’s equation.\n
+            Vibration of continous systems-Vibrating strings- Longitudinal vibration of
+            rods—Torsional vibration of rods
+        </item>
+
+        <item></item>
+        <item>Transient vibrations- Impulse excitation- Convolution integral.\nIntroduction to non
+            linear vibrations and random vibrations
+        </item>
+    </array>
+
+
+    <array name="me376">
+
+        <item>Maintenance Engineering</item>
+
+        <item></item>
+        <item>Maintenance – basic concepts, purpose, functions and
+            objectives of maintenance.
+            Principles, benefits and effects of maintenance
+            Inter-relationship between productivity, quality, reliability and
+            maintainability – maintenance productivity –
+            quality in maintenance.
+            Reliability – basic concepts – bathtub curve – failure rate –
+            mean time before failure.
+            System reliability – reliability of series and parallel systems.
+            Maintainability – mean time to failure – mean time to repair.
+            Availability – inherent, achieved and operational availability –
+            reliability, availability and maintainability (RAM).
+        </item>
+
+        <item></item>
+        <item>Maintenance strategies / systems – types – basis for selection.
+            Breakdown maintenance – corrective maintenance
+            Preventive maintenance – process flow – frequency in
+            preventive maintenance.
+            Predictive maintenance – components – advantages and
+            disadvantages.
+            Condition based maintenance and condition monitoring –
+            monitoring systems.
+            Performance monitoring – visual, tactile and aural monitoring –
+            leakage monitoring.
+            Temperature monitoring – thermography – advantages.
+            Thickness monitoring – acoustic monitoring –
+            smell/odour monitoring.
+        </item>
+
+        <item></item>
+        <item>Vibration monitoring – vibration fundamentals – vibration
+            analysis.
+            Vibration transducers – types.
+            Machinery vibration trouble shooting – machinery vibration
+            standard, severity chart and acceptable limits.
+            Lubricant monitoring – components and techniques – filter
+            debris analysis &amp; filtergrams.
+            Ferrography – spectroscopic oil analysis program.
+            Crack monitoring – techniques.
+            Corrosion monitoring – techniques.
+        </item>
+
+        <item></item>
+        <item>Reliability centered maintenance (RCM) – steps – flow diagram – basic guidelines.
+            Defect and failure – definitions – basics of failures – failure generation – failure
+            analysis.
+            Fault tree analysis (FTA)
+            Event tree analysis (ETA)
+            Root cause analysis (RCA)
+            Failure modes and effects analysis (FMEA)
+            Failure mode effect criticality analysis (FMECA)
+        </item>
+
+        <item></item>
+        <item>Terotechnology – definitions – terotechnology system – terotechnology process –
+            strategies.
+            Total productive maintenance (TPM) – features –methodology – basic systems of TPM – TPM
+            and terotechnology.
+            Six sigma maintenance.
+            Lean maintenance – 5-zero maintenance concept –
+            5-S maintenance concept.
+            Business centered maintenance (BCM) – six pillars – success factors.
+            Maintenance effectiveness – overall equipment effectiveness – key performance indicators
+            – maintenance performance measuring indices.
+            Quality assured maintenance – need – maintenance work quality – use of c-chart for
+            quality control in maintenance.
+        </item>
+
+        <item></item>
+        <item>Maintenance planning and scheduling.
+            Maintenance organization – objectives and characteristics – centralized and
+            decentralized maintenance.
+            Maintenance costs – classification of maintenance costs – maintenance cost analysis –
+            cost effectiveness analysis.
+            Maintenance budgeting – types of maintenance budget – preparation of maintenance budget.
+            Human factor in maintenance – manpower planning for maintenance – objectives and stages
+            of manpower planning – training for maintenance personnel.
+            Computer-aided maintenance management system (CMMS) – functions, applications and
+            advantages of CMMS.
+            Maintenance integration – various steps in integration – scheme of integration of
+            maintenance function with other functions.
+        </item>
+    </array>
+
 </resources>

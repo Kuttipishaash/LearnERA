@@ -671,5 +671,451 @@
     <item>Torsion :Torsion of a cylindrical bar of circular cross section- St. Venant’s semi inverse method-stress function approach-elliptical, equilateral triangle &amp; narrow rectangular cross sections - Prandtl’s membrane analogy-Hollow thin wall torsion members-multiply connected cross sections- thin wall torsion members with restrained ends</item>
 </array>
 
+    <array name="ce302">
 
+        <item>DHS</item>
+
+        <item></item>
+        <item>Diversion head works- layout and functions of components, Weir and barrage- Causes of
+            failure of weirs on permeable soils - Bligh’s theory. Design of vertical drop weir.
+            Khosla’s theory of independent variables- Khosla’s corrections-Use of Khosla’s charts
+        </item>
+
+        <item></item>
+        <item>Irrigation canals, canal alignment- cross section of unlined canals-Design of canals
+            through alluvial soils-Kennedy’s theory and Lacey’s theory.\n
+            Cross drainage works-Types, selection of suitable type, Type of aqueducts.\n
+            Regulation Works - Canal falls-necessity, classification.\n
+            Canal regulators- Regulator cum road bridge- Head regulators and cross regulators.
+        </item>
+
+        <item></item>
+        <item>Design and Drawing of the following hydraulic structures:\n
+            1. Aqueduct (Type III)\n
+            2. Syphon Aqueduct (Type III)\n
+            3. Canal Fall (Trapezoidal Notch type)\n
+            4. Siphon Well Drop\n
+            5. Sarda Type Fall (High Discharge only)\n
+            6. Cross Regulator (Using Khoslas Theory)
+        </item>
+
+        <item></item>
+        <item>Dams-Types, Gravity dam – selection of site- forces acting - stability analysis and
+            modes of failure – Principal and shear stresses- Problems - Elementary profile –limiting
+            height of gravity dams- high and low dams- Practical profiles, Functions of various
+            components shafts, keys, water stops, and different types of gallery, Grouting.
+            Instrumentation in dams (Concept only).
+        </item>
+
+        <item></item>
+        <item>Arch dams-types, methods for design (list only)-Thin cylinder theory. Earth
+            dams-types, causes for failure and design criteria.
+            Spillways-Types. Effective length of spillway- Ogee type spillway-profile. Energy
+            dissipation below spillways - Stilling basins- Indian standard Type I and Type II
+            (design not necessary).
+        </item>
+
+    </array>
+
+    <array name="ce304">
+
+        <item>DCS - II</item>
+
+        <item></item>
+        <item>Analysis and design of short columns under eccentric loading-Columns subjected to
+            compression and uniaxial bending- design using SP16 charts for limit state
+            Columns subjected to combined axial load and biaxial bending moments-code procedure for
+            design- design using SP16 charts for limit state
+            Slender columns- behavior of slender columns-braced and unbraced columns-design
+            procedure- design using SP16 charts for limit state
+        </item>
+
+        <item></item>
+        <item>Foundations- classification-IS code provisions for design of isolated footings- design
+            principles of rectangular footings- Design of rectangular footings-uniform thickness and
+            sloped- eccentrically loaded rectangular footing of uniform thickness-detailing.
+            Combined footings (design principles only)- analysis of combined footings-rectangular
+            and trapezoidal.
+        </item>
+
+        <item></item>
+        <item>Retaining walls-Types- Cantilever retaining wall- earth pressure and forces
+            acting-stability-proportioning-structural behavior of components -design example of
+            cantilever retaining wall without surcharge-detailing Counterfort retaining wall- design
+            principles of components and detailing (design not required)
+        </item>
+
+        <item></item>
+        <item>Circular slabs- stresses- reinforcements- simply supported, fixed and partially fixed
+            subjected to uniformly distributed loads
+            Design and detailing of spherical and conical domes
+        </item>
+
+        <item></item>
+        <item>Introduction to design of water tanks-design philosophy and requirements-joints- IS
+            code recommendations Design of rectangular water tanks using IS code coefficients (IS
+            3370).
+            Design of circular water tanks using- IS code coefficients (IS 3370)
+        </item>
+
+        <item></item>
+        <item>Introduction to Pre-stressed concrete: Concept of pre-stressing- Materials-High
+            strength concrete and high tensile steel.
+            Analysis of pre-stressed beams (Rectangular and I-sections) at stages of transfer and
+            service. Losses in Prestress
+        </item>
+    </array>
+
+    <array name="ce306">
+
+        <item>CPCT</item>
+
+        <item></item>
+        <item>Introduction to C++: Structure of C++ program; Character set; Keywords; Identifiers;
+            Data types – integer, real, character, string, Boolean, Enumerated data types, Constants
+            and Variables; Operators – assignment, arithmetic, relational, logical, increment,
+            decrement and conditional operators; Statements – simple &amp; compound, declaration
+            statements. Input and output streams.\n
+            Selection statements: if, if-else, switch statements
+        </item>
+
+        <item></item>
+        <item>Looping statements - for, while, do-while statements, Jump statements – break,
+            continue, goto, exit (). Arrays - single and multi-dimensional arrays, initializing
+            array elements, pointers &amp; arrays, Character arrays, string functions, Unformatted
+            console I/O functions, Unformatted Stream I/O functions.\n
+            Preparation of programs for evaluation of factorial of a number, Infinite series,
+            Sorting, Searching and Matrix manipulations.
+        </item>
+
+        <item></item>
+        <item>User defined functions – Arguments, return values, call by value, call by reference,
+            functions calling functions, functions and arrays - Global variables, automatic, static
+            and register variables, recursive functions.
+        </item>
+
+        <item></item>
+        <item>Structures - functions and structures - Arrays of structures - structures within
+            structures, Structures containing arrays. Files - Input &amp; Output, sequential &amp;
+            random access.
+            Basic concepts of object oriented programming - class, objects, constructors and
+            destructors, inheritance (Programs not required)
+        </item>
+
+        <item></item>
+        <item>Roots of Transcendental equations - Successive approximations, Regula - Falsi, Newton
+            Raphson Methods, Interpolation-Lagrange interpolation method.
+        </item>
+
+        <item></item>
+        <item>Functional approximation - Fitting straight line &amp; parabola, Numerical Integration
+            - Trapezoidal, Simpson’s rule &amp; Gauss quadrature Method. Solution of simultaneous
+            linear algebraic equations – Gauss elimination method. Solution of Partial differential
+            Equation - Finite Difference Method
+        </item>
+    </array>
+
+    <array name="ce308">
+
+        <item>TE - I</item>
+
+        <item></item>
+        <item>Introduction to Transportation Engineering, Classification of roads, Typical cross
+            sections of roads in urban and rural area, Requirements and factors controlling
+            alignment of roads, Engineering surveys for highway location- Introduction to geometric
+            design of highways, Design controls and criteria, Design of highway cross section
+            elements.
+        </item>
+
+        <item></item>
+        <item>Sight distance, Stopping sight distance, Overtaking sight distance, Design of
+            horizontal alignment and Vertical alignment
+        </item>
+
+        <item></item>
+        <item>Introduction to highway materials, design and construction, Desirable properties and
+            testing of road aggregates, bituminous materials and sub grade soil.
+            Flexible and rigid pavements, Factors influencing the design of pavements, CBR method
+            and IRC guidelines for flexible pavements
+        </item>
+
+        <item></item>
+        <item>Introduction to performance grading and superpave, Construction of bituminous
+            pavements, Types and causes of failures in flexible and rigid pavements, Highway
+            drainage.
+            Introduction to Traffic Engineering, Traffic characteristics, Traffic studies and their
+            applications.
+        </item>
+
+        <item></item>
+        <item>Types of road intersections, Traffic control devices, Traffic signs, Road markings and
+            Traffic signals, Design of isolated signals by Webster’s method.
+            Introduction to Airport Engineering, Aircraft characteristics and their influence on
+            planning of airports, Components of airport, Selection of site for airport
+        </item>
+
+        <item></item>
+        <item>Runway orientation, basic runway length and corrections required, Geometric design of
+            runways, Design of taxiways and aprons, Terminal area planning, Airport markings,
+            Lighting of runway approaches, taxiways and aprons, Air traffic control
+        </item>
+    </array>
+
+    <array name="ce362">
+
+        <item>GIT</item>
+
+        <item></item>
+        <item>Introduction to Engineering Ground Modification- Classification of Ground Modification
+            Techniques- Soil distribution in India- Reclaimed soils- Ground Improvement Potential.
+        </item>
+
+        <item></item>
+        <item>Grouting – Aspects – Groutability, Grouting materials, Suspension grouts and solution
+            grouts, Compaction grouting. Procedure and applications of grouting.
+        </item>
+
+        <item></item>
+        <item>Chemical stabilization – Granular admixtures, Cement, Lime, Calcium Chloride, Fly Ash,
+            Bitumen, Chemical admixtures. Construction Methods.
+        </item>
+
+        <item></item>
+        <item>Ground Anchors – Applications, types and components, Anchor tests. Rock bolts –
+            Applications and types- Rock bolt action around an excavation. Soil Nailing –
+            construction sequence – analysis of nailed soil
+        </item>
+
+        <item></item>
+        <item>Compaction- Moisture Density relationship. Shallow surface compaction-Rollers –
+            operational aspects. Deep Compaction – Explosion- heavy tamping- vibro-compaction and
+            vibro-replacement. Properties of compacted soil, Compaction control tests.
+        </item>
+
+        <item></item>
+        <item>Hydraulic modification- Methods of dewatering- open sumps and ditches, Well point
+            systems, deep well drainage, Vacuum dewatering, Electro osmosis. Design of dewatering
+            for excavations.
+        </item>
+    </array>
+
+    <array name="ce364">
+
+        <item>AFE</item>
+
+        <item></item>
+        <item>Shallow foundations- estimating bearing capacity- Meyerhof’s, Hansen’s and I.S code
+            methods- Effect of water table, eccentricity, and inclination of load on Bearing
+            Capacity – Numerical problems using IS method\n
+            Elastic settlement –Effect of size of footing on settlement. Steinbrenner’s method of
+            calculating settlement– Numerical problems.
+        </item>
+
+        <item></item>
+        <item>Allowable bearing pressure from penetration test data – Meyerhoff’s and Teng’s
+            expressions. Consolidation settlement of footings - Combined footings and raft
+            foundations (only concepts)– brief discussions on methods of analysis of raft, concept
+            of floating raft, excavations.
+        </item>
+
+        <item></item>
+        <item>Deep foundations –need. Types. Classification of piles. static equation – Single piles
+            -– Critical depth concept. Pile capacity in clay and sand by the I.S. code method .
+            Piles in layered soils. Piles with enlarged base in clays (under reamed piles).
+            Problems. Pile capacity from SPT and CPT values. problems
+        </item>
+
+        <item></item>
+        <item>Piles for resisting uplift – straight shaft and under reamed piles in clays and sands
+            – Dynamic formulae – Engineering News formula –Modified Hiley formula – Different types
+            of pile load tests –initial and routine tests maintained load test, CRP test, pullout
+            test, lateral load test and cyclic pile load test. Separation of skin friction and end
+            bearing. – ultimate load from pile load tests.
+        </item>
+
+        <item></item>
+        <item>Pile groups – Efficiency of pile groups- Group capacity in clays–Minimum spacing of
+            piles in a group – Negative skin friction of single piles and pile groups –Settlement of
+            pile groups in clays –Equivalent raft approach – Settlement of pile groups in sands -
+            Skempton’s and Meyerhof’s methods- Drilled piers with enlarged base.
+        </item>
+
+        <item></item>
+        <item>Well foundations– Components of a well foundation–Procedure for construction and
+            sinking of wells–Thickness of well steining for sinking under self weight - Grip length-
+            Problems encountered in well sinking–Tilts and Shifts– Causes – Permissible tilts and
+            shifts - Methods to rectify tilts and shifts – Forces acting on a well foundation
+            –Allowable bearing pressure – Lateral stability of well foundations - Terzaghi’s
+            analysis
+        </item>
+    </array>
+
+    <array name="ce366">
+
+        <item>TEAM</item>
+
+        <item></item>
+        <item>Traffic management – scope of traffic management measures – restrictions to turning
+            movements – one way streets – tidal flow operations-Traffic segregation –Traffic
+            calming- Exclusive bus lanes, Introduction to ITS
+        </item>
+
+        <item></item>
+        <item>Regulation of traffic – Need and scope of traffic regulations- Motor Vehicle Act –
+            Speed limit at different locations- regulation of the vehicle – regulations concerning
+            the driver rules of the road enforcement
+        </item>
+
+        <item></item>
+        <item>Highway capacity: Its importance in transportation studies – basic, possible and
+            practical capacity – determination of theoretical maximum capacity -passenger car units
+            – level of service – concept in HC manual – factors affecting level of service.
+        </item>
+
+        <item></item>
+        <item>Design of Intersection: Design of at grade &amp; grade separated intersection – rotary
+            intersection – capacity of rotary intersection – traffic signals – warrants of traffic
+            signals,-types of signals, signal coordination, design of fixed time signal –Websters
+            approach
+        </item>
+
+        <item></item>
+        <item>Traffic Safety: causes of road accidents – collection of accident data – influence of
+            road, the vehicle .the driver, the weather and other factors on road accident –
+            preventive measures
+        </item>
+
+        <item></item>
+        <item>Traffic Flow: theory of traffic flow – scope – definition and basic diagrams of
+            traffic flow- basic concepts of light hill – Whitham’s theory – Introduction to Car
+            ‘following theory and queuing’
+        </item>
+    </array>
+
+    <array name="ce368">
+
+        <item>PRESTRESSED CONCRETE</item>
+
+        <item></item>
+        <item>Review- Basic concept and principles of pre-stressed concrete, materials, prestressing
+            systems – Analysis of prestress and bending stresses loss of pre-stress Stresses at
+            transfer and service loads.
+        </item>
+
+        <item></item>
+        <item>Limit state design criteria: Inadequacy of elastic and ultimate load method, criteria
+            for limit states, strength and serviceability. Design of sections for flexure codal
+            provisions- ultimate strength in flexure
+        </item>
+
+        <item></item>
+        <item>Shear and torsional resistance: design of shear reinforcement, design of reinforcement
+            for torsion, shear and bending.
+        </item>
+
+        <item></item>
+        <item>Deflections of prestressed concrete members: Importance, factors, short term and long
+            term deflection. Codal provisions
+        </item>
+
+        <item></item>
+        <item>Anchorage Zone stresses in post tensioned members: Stress distribution in end block,
+            anchorage zone reinforcement. Prestressed concrete poles and sleepers: Design of
+            sections for compression and bending\n
+            Partial pre-stressing- Definitions, principles and design approaches and applications
+        </item>
+
+        <item></item>
+        <item>Composite beams –Analysis and design – Ultimate strength – applications, Elementary
+            idea of composite construction for tee beams in bridges.\n
+            Statically Indeterminate structures: advantages of continuous member(Concepts and steps
+            for analysis)
+        </item>
+    </array>
+
+    <array name="ce372">
+
+        <item>ENGINEERING HYDROLOGY</item>
+
+        <item></item>
+        <item>Basic concept of Hydrology and Hydrologic cycle -Test for consistency of rainfall
+            records - Analysis of rainfall data - correlation between intensity and duration –
+            intensity, duration and frequency - depth area duration (DAD) curve. Hydrologic
+            abstractions- infiltration- - Green Ampt method-Evapotranspiration – different methods -
+            Blaney Criddle method - penman method.
+        </item>
+
+        <item></item>
+        <item>Catchment characteristics - classification of streams - stream pattern-stream order –
+            stream gauging – rating of current meter - Extension of stage discharge curve -
+            Adjustment of stage discharge curve-selection of site for stream gauging stations.
+        </item>
+
+        <item></item>
+        <item>Runoff - Computation of runoff– Hydrograph analysis-Rational method –- S-hydrograph -
+            unit hydrograph from complex storm - synthetic unit hydrograph- Instantaneous unit
+            hydrograph (Brief description only) – linear reservoir model.
+        </item>
+
+        <item></item>
+        <item>Partial differential equation governing unsteady groundwater flow- Evaluation of
+            aquifer parameters - Theis method -Jacob’s approximation method. Well flow near aquifer
+            boundaries - Method of images - surface investigation of groundwater - Electrical
+            resistivity method. Graphical representation of hydrochemical data - Pollution of
+            groundwater, sources. Seawater intrusion- Ghyben-Herzberg relationship –Method of
+            control of seawater intrusion- Artificial recharge of groundwater.
+        </item>
+
+        <item></item>
+        <item>Rainfall- runoff correlation using linear regression and multiple linear regression
+            analysis. Design flood and their Estimation - Different methods - Flood frequency
+            studies -Gumbel’s method.
+        </item>
+
+        <item></item>
+        <item>Flood routing through reservoirs - ISD method- Modified Pulse method. Flood routing
+            through channels by Muskingum method. Flood control methods - Flood forecasting and
+            warning (Brief descriptions only)
+        </item>
+    </array>
+
+    <array name="ce374">
+
+        <item>AQM</item>
+
+        <item></item>
+        <item>Introduction- Components of Environment- Definition –Air Pollution- History of air
+            pollution episodes-Various Sources of Air pollution – Air Pollutants- Types of Air
+            Pollutants
+        </item>
+
+        <item></item>
+        <item>Effect of air pollutants on health, vegetation, animals and materials and environment,
+            Green house effect - Indoor Air Pollution, sources of indoor air pollutants
+        </item>
+
+        <item></item>
+        <item>Meteorological aspects of Air Pollutant Dispersion - Temperature and Pressure
+            relationships-Atmospheric Stability- Temperature Lapse Rate- Inversions- Types, Plume
+            behavior
+        </item>
+
+        <item></item>
+        <item>Dispersion of Air pollutants-Plume dispersion theory- Gaussian plume model (Derivation
+            not required)- Assumptions-Advantages and Disadvantages- Pasquill&apos;s stability
+            curves , Dispersion problems involving point source and line source - Estimation of
+            plume rise.
+        </item>
+
+        <item></item>
+        <item>Air Quality monitoring - Ambient air sampling - Collection of gaseous air
+            pollutants-Collection of particulate Pollutants- Ambient Air Quality standards
+        </item>
+
+        <item></item>
+        <item>Control of Air Pollutants- Particulate emission control-methods, Scrubbing-Cyclones-
+            Filtration- Electrostatic Precipitation-Gaseous emission control- adsorption,
+            absorption, thermal methods
+        </item>
+    </array>
 </resources>

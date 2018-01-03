@@ -401,99 +401,70 @@
 
     <array name="ee301">
 
-        <item>PGTP</item>
+        <item>PTP</item>
 
-        <item></item>
-        <item>Introduction: Typical layout of Power system Network
-            Generation of Electric Power:
-            Overview of conventional (Hydro, Thermal and Nuclear) and
-            Nonconventional Sources (Solar and Wind) (Block Diagram
-            and Brief Description Only)
-            \n\nEconomics of Generation: Load factor, diversity factor, Load
-            curve (Brief description only) Numerical Problems.\n
-            Methods of power factor improvement using capacitors
+        <item>Introduction</item>
+        <item>Typical layout of Power system Network Generation of Electric Power:\n Overview of
+            conventional (Hydro, Thermal and Nuclear) and Nonconventional Sources (Solar and Wind)
+            (Block Diagram and Brief Description Only)\nEconomics of Generation: Load factor,
+            diversity factor, Load curve (Brief description only) Numerical Problems. Methods of
+            power factor improvement using capacitors
         </item>
 
-        <item></item>
-        <item>Power Transmission
-            Transmission Line Parameters: Resistance, inductance and
-            capacitance of 1-Φ, 2 wire lines-composite conductors(Derivation Required).
-            Inductance and capacitance of 3-Φ lines. Symmetrical and
-            unsymmetrical spacing-transposition-double circuit lines-
-            bundled conductors (Derivation Required) .Numerical
-            Problems\n\n
-            Modelling of Transmission Lines: Classification of lines-short
-            lines-voltage regulation and efficiency-medium lines-nominal
-            T and Π configurations-ABCD constants- long lines- rigorous
-            solution- interpretation of long line equation-Ferranti effect.
-            Tuned power lines-power flow through lines-Basics only
+        <item>Power Transmission</item>
+        <item>Transmission Line Parameters: Resistance, inductance and capacitance of 1-Φ, 2 wire
+            lines-composite conductors(Derivation Required).\nInductance and capacitance of 3-Φ
+            lines. Symmetrical and unsymmetrical spacing-transposition-double circuit linesbundled
+            conductors (Derivation Required) .Numerical Problems\nModelling of Transmission Lines:
+            Classification of lines-short lines-voltage regulation and efficiency-medium
+            lines-nominal T and Π configurations-ABCD constants- long lines- rigorous solution-
+            interpretation of long line equation-Ferranti effect. Tuned power lines-power flow
+            through lines-Basics only
         </item>
 
-        <item></item>
-        <item>Introduction of Overhead transmission and underground
-            transmission
-            Conductors -types of conductors -copper, Aluminium and
-            ACSR conductors -Volume of conductor required for various
-            systems of transmission-Choice of transmission voltage,
-            conductor size -Kelvin\'s law.
-            Mechanical Characteristics of transmission lines –
-            configuration-Types of Towers. Calculation of sag and tension-
-            supports at equal and unequal heights -effect of wind and ice-
-            sag template\n\nInsulators -Different types -Voltage distribution, grading and
-            string efficiency of suspension insulators. Corona -disruptive
-            critical voltage -visual critical voltage -power loss due to
-            corona -Factors affecting corona - interference on
-            communication lines.\n\nUnderground Cables -types of cables -insulation resistance -
-            voltage stress -grading of cables -capacitance of single core and
-            3 -core cables -current rating.
+        <item>Introduction of Overhead transmission and underground transmission</item>
+        <item>Conductors -types of conductors -copper, Aluminium and ACSR conductors -Volume of
+            conductor required for various systems of transmission-Choice of transmission voltage,
+            conductor size -Kelvin's law. \nMechanical Characteristics of transmission lines –
+            configuration-Types of Towers. Calculation of sag and tension- supports at equal and
+            unequal heights -effect of wind and ice- sag template \nInsulators -Different types
+            -Voltage distribution, grading and string efficiency of suspension insulators. Corona
+            -disruptive critical voltage -visual critical voltage -power loss due to corona -Factors
+            affecting corona - interference on communication lines. \nUnderground Cables -types of
+            cables -insulation resistance voltage stress -grading of cables -capacitance of single
+            core and 3 -core cables -current rating
         </item>
 
-        <item></item>
-        <item>HVDC Transmission: Comparison between AC &amp;DC
-            Transmission ,Power flow equations and control, Types of DC
-            links
-            \n\nFlexible AC Transmission systems: Need and Benefits, SCV,
-            Configuration of FC + TCR, Series compensation,
-            Configuration of TCSC
-            \n\nPower distribution systems –Radial and Ring Main Systems -
-            DC and AC distribution: Types of distributors- bus bar
-            arrangement -Concentrated and Uniform loading -Methods of
-            solving distribution problems.
+        <item>Systems</item>
+        <item>HVDC Transmission: Comparison between AC&amp;DC Transmission ,Power flow equations and
+            control, Types of DC links\nFlexible AC Transmission systems: Need and Benefits, SCV,
+            Configuration of FC + TCR, Series compensation, Configuration of TCSC \nPower
+            distribution systems –Radial and Ring Main Systems DC and AC distribution: Types of
+            distributors- bus bar arrangement -Concentrated and Uniform loading -Methods of solving
+            distribution problems.
         </item>
 
-        <item></item>
-        <item>Need for power system protection.
-            Circuit breakers – principle of operation- formation of arc-
-            Arc quenching theory- Restriking Voltage-Recovery voltage,
-            RRRV (Derivation Required).
-            Interruption of Capacitive
-            currents and current chopping (Brief Description Only).
-            Types of Circuit Breakers: Air blast CB – Oil CB – SF6 CB –
-            Vacuum CB – CB ratings.\n\n
-            Protective Relays- Zones of Protection, Essential Qualities-
-            Classification of Relays -Electro mechanical, Static Relays,
-            Microprocessor Based Relay.
-            Electromechanical Relays-Attracted Armature, Balanced Beam,
-            Induction disc, Thermal Relays (Brief Description only)
-            Static Relays-Merits and Demerits, Basic components,
-            Comparison and duality of Amplitude and Phase comparators.
-            Static overcurrent, Differential, Distance Relays, Directional
-            Relay-(principle and Block diagram only)
-            Microprocessor Based Relay-Block diagram and flow chart of
-            Over current Relay, Numerical Relay(Basics Only)
+        <item>Need for power system protection</item>
+        <item>Circuit breakers – principle of operation- formation of arcArc quenching theory-
+            Restriking Voltage-Recovery voltage, RRRV (Derivation Required). Interruption of
+            Capacitive currents and current chopping (Brief Description Only). \nTypes of Circuit
+            Breakers: Air blast CB – Oil CB – SF6 CB – Vacuum CB – CB ratings.\nProtective Relays-
+            Zones of Protection, Essential QualitiesClassification of Relays -Electro mechanical,
+            Static Relays, Microprocessor Based Relay.\nElectromechanical Relays-Attracted Armature,
+            Balanced Beam, Induction disc, Thermal Relays (Brief Description only) \nStatic
+            Relays-Merits and Demerits, Basic components, Comparison and duality of Amplitude and
+            Phase comparators. Static overcurrent, Differential, Distance Relays, Directional
+            Relay-(principle and Block diagram only) \nMicroprocessor Based Relay-Block diagram and
+            flow chart of Over current Relay, Numerical Relay(Basics Only)
         </item>
 
-        <item></item>
-        <item>Protection of alternator: Stator inter turn, Earth fault
-            Protection and Differential protection
-            \nProtection of transformers- Percentage Differential
-            Protection-Buchholz Relay
-            \nProtection of transmission lines-Differential Protection-
-            carrier current protection
-            \nCauses of over voltages – surges and traveling waves –
-            voltage waves on loss less transmission lines, Bewley Lattice
-            diagram. Protection against over voltages - Surge diverters -
-            Insulation co-ordination
+        <item>Protection &amp; Causes</item>
+        <item>Protection of alternator: Stator inter turn, Earth fault Protection and Differential
+            protection\nProtection of transformers- Percentage Differential Protection-Buchholz
+            Relay\nProtection of transmission lines-Differential Protectioncarrier current
+            protection\nCauses of over voltages – surges and traveling waves – voltage waves on loss
+            less transmission lines, Bewley Lattice diagram. Protection against over voltages -
+            Surge diverters - Insulation co-ordination
         </item>
     </array>
     <array name="ee302">
@@ -876,54 +847,45 @@
     </array>
     <array name="ee309">
 
-        <item>MPES</item>
+        <item>MES</item>
 
         <item></item>
-        <item>Internal architecture of 8085 microprocessor –Instruction set -
-            Addressing modes – Classification of instructions. Assembly
-            language programming –standard programs in assembly
-            language – code conversion, sorting – binary and BCD
-            arithmetic.
+        <item>Internal architecture of 8085 microprocessor –Instruction set - Addressing modes –
+            Classification of instructions. Assembly language programming –standard programs in
+            assembly language – code conversion, sorting – binary and BCD arithmetic
         </item>
 
         <item></item>
-        <item>Stack and Subroutines – CALL and RETURN instructions –
-            Delay subroutines. Timing and control – Machine cycles,
-            instruction cycle and T states – fetch and execute cycles –
-            Timing diagram for instructions.
+        <item>Stack and Subroutines – CALL and RETURN instructions – Delay subroutines. Timing and
+            control – Machine cycles, instruction cycle and T states – fetch and execute cycles –
+            Timing diagram for instructions
         </item>
 
         <item></item>
-        <item>IO and memory interfacing – Address decoding– interrupt
-            structure of 8085. I/O ports- Programmable peripheral
-            interface PPI 8255 - Modes of operation. Interfacing of LEDs,
+        <item>IO and memory interfacing – Address decoding– interrupt structure of 8085. I/O ports-
+            Programmable peripheral interface PPI 8255 - Modes of operation. Interfacing of LEDs,
             ADC and DAC with 8085
         </item>
 
         <item></item>
-        <item>Internal Architecture of 8086 – Segment Registers -
-            Instruction Pointer – Flag Register – Index Registers - Stack
-            Pointer Register. Segmentation and Pipe lining, Minimum and
-            maximum modes of operation of 8086. Addressing modes
+        <item>Introduction to Embedded Systems-Application domain of embedded systems, features and
+            characteristics, System model, Microprocessor Vs Microcontroller, current trends and
+            challenges, hard and soft real time systems, Embedded product development, Life Cycle
+            Management (water fall model), Tool Chain System, Assemblers, Compilers, linkers,
+            Loaders, Debuggers Profilers &amp; Test Coverage Tools
         </item>
 
         <item></item>
-        <item>Assembler and assembler directives –Instruction set of 8086,
-            Assembly language programming, Simple programs- Addition
-            of 8 bit binary and decimal numbers, Subtraction of 2 decimal
-            numbers, Addition and subtraction of two 16 bit numbers,
-            Multiplication and division of 8 bit numbers, Sorting of a
-            series of 8 bit numbers, Code conversion-BCD to Binary,
-            Binary to BCD.
+        <item>8051- Microcontrollers Hardware: Microcontroller Architecture: IO Port structure,
+            Register organization, general purpose RAM, Bit Addressable RAM, Special Function
+            Registers (SFRs). Instruction Set, addressing modes Instruction Types.
         </item>
 
         <item></item>
-        <item>Intel 8051 Microcontroller, Internal Architecture - I/O port
-            structure, memory organisation, general purpose RAM, Bit
-            addressable RAM, register banks, special function registers;
-            Instruction set summary-addressing modes, instruction types,
-            Introduction to 8051 C programming-pulse wave generation,
-            buzzer interface.
+        <item>8051- assembly language programming, data types and directives, Time delay and I/O
+            port programming, Embedded Programming in C, data type and time delay in C, I/O port
+            programming, Timer / counter programming, serial port programming, Interfacing – LCD,
+            ADC, Stepper motor, and DAC
         </item>
     </array>
 
@@ -1455,4 +1417,6 @@
             &amp; M type - ZVS resonant converter – comparison of ZCS &amp; ZVS Resonant Converters
         </item>
     </array>
+
+
 </resources>

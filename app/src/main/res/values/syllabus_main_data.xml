@@ -29,6 +29,7 @@
         <item>be100</item>
         <item>be110</item>
         <item>ec100</item>
+        <item>cs100</item>
         <item>be10101</item>
         <item>be10102</item>
         <item>be10103</item>
@@ -49,6 +50,7 @@
         <item>Engineering Mechanics</item>
         <item>Engineering Graphics</item>
         <item>Basics of Electronics Engineering</item>
+        <item>Computer Programming</item>
         <item>Introduction to Civil Engineering</item>
         <item>Introduction to Mechanical Engineering Sciences</item>
         <item>Introduction to Electrical Engineering</item>
@@ -533,28 +535,192 @@
     </string-array>
 
 
-    <!-- TODO: SIXTH SEMESTER SYLLABUS
-        <string-array name="its6sub"></string-array>
-        <string-array name="its6subnames"></string-array>
+    <string-array name="its6sub">
+        <item>it302</item>
+        <item>cs304</item>
+        <item>it304</item>
+        <item>it306</item>
+        <item>hs300</item>
+        <item>it362</item>
+        <item>it364</item>
+        <item>it366</item>
+        <item>it368</item>
 
-        <string-array name="css6sub"></string-array>
-        <string-array name="css6subnames"></string-array>
+        <!--TO ADD
+        <item>ma362</item>
+        -->
+    </string-array>
+    <string-array name="its6subnames">
+        <item>Internet Technology </item>
+        <item>Compiler Design</item>
+        <item>Data Warehousing and Mining</item>
+        <item>Distributed Systems</item>
+        <item>Principles of Management</item>
+        <item>Information Retrieval</item>
+        <item>Software Project Management </item>
+        <item>Advanced DBMS</item>
+        <item>Information Theory and Coding </item>
 
-        <string-array name="ecs6sub"></string-array>
-        <string-array name="ecs6subnames"></string-array>
+        <!--TO ADD
+       <item>Abstract Algebra and Number Theory </item>
+       -->
+    </string-array>
 
-        <string-array name="aes6sub"></string-array>
-        <string-array name="aes6subnames"></string-array>
+    <string-array name="css6sub">
+        <item>cs302</item>
+        <item>cs304</item>
+        <item>cs306</item>
+        <item>cs308</item>
+        <item>hs300</item>
+        <item>cs362</item>
+        <item>cs364</item>
+        <item>cs366</item>
+        <item>cs368</item>
+        <item>cs372</item>
+    </string-array>
+    <string-array name="css6subnames">
+        <item>Design and Analysis of Algorithms</item>
+        <item>Compiler Design</item>
+        <item>Computer Networks </item>
+        <item>Software Engineering and Project Management </item>
+        <item>Principles of Management </item>
+        <item>Computer Vision</item>
+        <item>Mobile Computing</item>
+        <item>Natural Language Processing</item>
+        <item>Web Technologies</item>
+        <item>High Performance Computing</item>
+    </string-array>
 
-        <string-array name="ces6sub"></string-array>
-        <string-array name="ces6subnames"></string-array>
+    <string-array name="ecs6sub">
+        <item>ec302</item>
+        <item>ec304</item>
+        <item>ec306</item>
+        <item>ec308</item>
+        <item>ec312</item>
+        <item>ec362</item>
+        <item>ec364</item>
+        <item>ec366</item>
+        <item>ec368</item>
+        <item>ec370</item>
+    </string-array>
+    <string-array name="ecs6subnames">
+        <item>Digital Communication </item>
+        <item>VLSI</item>
+        <item>Antenna and Wave Propagation</item>
+        <item>Embedded System </item>
+        <item>Object Oriented Programming </item>
+        <item>Modelling and Simulation of Communication Systems </item>
+        <item>Computer Vision </item>
+        <item>Real Time Operating Systems</item>
+        <item>Robotics</item>
+        <item>Digital Image Processing </item>
+    </string-array>
 
-        <string-array name="ees6sub"></string-array>
-        <string-array name="ees6subnames"></string-array>
+    <string-array name="aes6sub">
+        <item>ae302</item>
+        <item>ae304</item>
+        <item>ae306</item>
+        <item>ae308</item>
+        <item>ae312</item>
+        <item>ec360</item>
+        <item>ae362</item>
+        <item>ae364</item>
+        <item>ae366</item>
+        <item>ae368</item>
+    </string-array>
+    <string-array name="aes6subnames">
+        <item>Process Control </item>
+        <item>Industrial Instrumentation</item>
+        <item>Digital Signal Processing </item>
+        <item>Power Electronics</item>
+        <item>Advanced Microprocessors </item>
+        <item>Soft Computing</item>
+        <item>Industrial Psychology </item>
+        <item>MEMS/NEMS</item>
+        <item>Embedded System Design </item>
+        <item>Plastic Engineering </item>
+    </string-array>
 
-        <string-array name="mes6sub"></string-array>
-        <string-array name="mes6subnames"></string-array>
-     -->
+    <string-array name="ces6sub">
+        <item>ce302</item>
+        <item>ce304</item>
+        <item>ce306</item>
+        <item>ce308</item>
+        <item>hs300</item>
+        <item>ce362</item>
+        <item>ce364</item>
+        <item>ce366</item>
+        <item>ce368</item>
+        <item>ce372</item>
+        <item>ce374</item>
+    </string-array>
+    <string-array name="ces6subnames">
+        <item>Design of Hydraulic Structures</item>
+        <item>Design of Concrete Structures II </item>
+        <item>Computer Programming and Computational Techniques </item>
+        <item>Transportation Engineering- I </item>
+        <item>Principles of Management </item>
+        <item>Ground Improvement Techniques</item>
+        <item>Advanced Foundation Engineering</item>
+        <item>Traffic Engineering and Management </item>
+        <item>Prestressed Concrete</item>
+        <item>Engineering Hydrology </item>
+        <item>Air Quality Management</item>
+    </string-array>
+
+    <string-array name="ees6sub">
+        <item>ee302</item>
+        <item>ee304</item>
+        <item>ee306</item>
+        <item>ee308</item>
+        <item>hs300</item>
+        <item>ee362</item>
+        <item>ee364</item>
+        <item>ee366</item>
+        <item>ee368</item>
+        <item>ee372</item>
+    </string-array>
+    <string-array name="ees6subnames">
+        <item>Electromagnetics</item>
+        <item>Advanced Control Theory </item>
+        <item>Power System Analysis</item>
+        <item>Electric Drives </item>
+        <item>Principles of Management </item>
+        <item>Data Structures and Algorithms</item>
+        <item>Switched Mode Power Converters</item>
+        <item>Illumination Technology</item>
+        <item>Soft Computing </item>
+        <item>Biomedical Instrumentation</item>
+    </string-array>
+
+    <string-array name="mes6sub">
+        <item>me302</item>
+        <item>me304</item>
+        <item>me306</item>
+        <item>me308</item>
+        <item>me312</item>
+        <item>me362</item>
+        <item>me364</item>
+        <item>me366</item>
+        <item>me368</item>
+        <item>me372</item>
+        <item>me374</item>
+        <item>me376</item>
+    </string-array>
+    <string-array name="mes6subnames">
+        <item>Heat and Mass Transfer</item>
+        <item>Dynamics of Machinery</item>
+        <item>Advanced Manufacturing Technology</item>
+        <item>Computer Aided Design and Analysis</item>
+        <item>Metrology and Instrumentation</item>
+        <item>Control System Engineering</item>
+        <item>Turbo Machinery</item>
+        <item>Advanced Metal Joining Technology</item>
+        <item>Marketing Management</item>
+        <item>Operations Research</item>
+        <item>Theory of Vibration</item>
+        <item>Maintenance Engineering</item>
+    </string-array>
 
 
 </resources>

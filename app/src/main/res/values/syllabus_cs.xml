@@ -1116,4 +1116,184 @@
             (Reading: Singh, Chapter 6.1-6.3)
         </item>
     </array>
+
+    <array name="cs308">
+
+        <item>SEPM</item>
+
+        <item></item>
+        <item>Introduction to software engineering- scope of software engineering – historical
+            aspects, economic aspects, maintenance aspects, specification and design aspects, team
+            programming aspects. Software engineering a layered technology – processes, methods and
+            tools. Software process models – prototyping models, incremental models, spiral model,
+            waterfall model.
+        </item>
+
+        <item></item>
+        <item>Process Framework Models: Capability maturity model (CMM), ISO 9000. Phases in
+            Software development – requirement analysis- requirements elicitation for software,
+            analysis principles, software prototyping, specification.
+        </item>
+
+        <item></item>
+        <item>Planning phase – project planning objective, software scope, empirical estimation
+            models- COCOMO, single variable model, staffing and personal planning. Design phase –
+            design process, principles, concepts, effective modular design, top down, bottom up
+            strategies, stepwise refinement.
+        </item>
+
+        <item></item>
+        <item>Coding – programming practice, verification, size measures, complexity analysis,
+            coding standards. Testing – fundamentals, white box testing, control structure testing,
+            black box testing, basis path testing, code walk-throughs and inspection, testing
+            strategies-Issues, Unit testing, integration testing, Validation testing, System
+            testing.
+        </item>
+
+        <item></item>
+        <item>Maintenance-Overview of maintenance process, types of maintenance. Risk management:
+            software risks - risk identification-risk monitoring and management. Project Management
+            concept: People – Product-Process-Project.
+        </item>
+
+        <item></item>
+        <item>Project scheduling and tracking: Basic concepts-relation between people and
+            effort-defining task set for the software project-selecting software engineering task
+            Software configuration management: Basics and standards User interface design - rules.
+            Computer aided software engineering tools - CASE building blocks, taxonomy of CASE
+            tools, integrated CASE environment.
+        </item>
+    </array>
+
+    <array name="cs366">
+
+        <item>NLP</item>
+
+        <item></item>
+        <item>Introduction to Natural Language Understanding- Levels of language analysis- Syntax,
+            Semantics, Pragmatics.
+            Linguistic Background- An Outline of English Syntax.
+        </item>
+
+        <item></item>
+        <item>Lexicons, POS Tagging, Word Senses.
+            Grammars and Parsing- Features, Agreement and Augmented Grammars.
+        </item>
+
+        <item></item>
+        <item>Grammars for Natural Language, Parsing methods and Efficient Parsing.
+            Ambiguity Resolution- Statistical Methods. Probabilistic Context Free Grammar.
+        </item>
+
+        <item></item>
+        <item>Semantics and Logical Form: Linking Syntax and Semantics-Ambiguity Resolution- other
+            Strategies for Semantic Interpretation- Scoping and the Interpretation of Noun Phrases.
+        </item>
+
+        <item></item>
+        <item>Knowledge Representation and Reasoning- Local Discourse Context and Reference- Using
+            World Knowledge- Discourse Structure- Defining a Conversational Agent.
+        </item>
+
+        <item></item>
+        <item>Applications- Machine Translation, Information Retrieval and Extraction, Text
+            Categorization and Summarization.
+        </item>
+    </array>
+
+    <array name="cs368">
+
+        <item>WT</item>
+
+        <item>Introduction to the Internet</item>
+        <item>The World Wide Web, Web Browsers, Web Servers, Uniform Resource Locators, Multipurpose
+            Internet Mail Extensions, The Hypertext Transfer Protocol. Common Gateway
+            Interface(CGI), Content Management System – Basics
+            Case Study: Apache Server, WordPress.
+        </item>
+
+        <item>Introduction to HTML/XHTML</item>
+        <item>Origins and Evolution of HTML and XHTML, Basic Syntax of HTML, Standard HTML Document
+            Structure, Basic Text Markup, Images, Hypertext Links, Lists, Tables, Forms, HTML5,
+            Syntactic Differences between HTML and XHTML.
+        </item>
+
+        <item>Introduction to Styles sheets and Frameworks</item>
+        <item>Cascading Style Sheets: Levels of Style Sheets - Style Specification Formats, Selector
+            Forms, Property-Value Forms, Font Properties, List Properties, Alignment of Text, Color,
+            The Box Model, Background Images, The span and div Tags.\n\n
+            Frameworks: Overview and Basics of Responsive CSS Frameworks - Bootstrap.
+        </item>
+
+        <item>Introduction to JavaScript and jQuery</item>
+        <item>The Basics of JavaScript: Overview of JavaScript, Object Orientation and JavaScript,
+            General Syntactic Characteristics- Primitives, Operations, and Expressions, Screen
+            Output and Keyboard Input, Control Statements, Object Creation and Modification,Arrays,
+            Functions. Callback Functions, Java Script HTML DOM.
+            \n\nIntroduction to jQuery: Overview and Basics.
+        </item>
+
+        <item>Introduction to Data Interchange Formats</item>
+        <item>XML: The Syntax of XML, XML Document Structure, Namespaces, XML Schemas, Displaying
+            Raw XML Documents, Displaying XML Documents with CSS, XSLT Style Sheets, XML
+            Applications.
+            \n\nJSON(Basics Only): Overview, Syntax, Datatypes, Objects, Schema, Comparison with
+            XML.
+        </item>
+
+        <item>Introduction to PHP</item>
+        <item>Origins and Uses of PHP, Overview of PHP - General Syntactic Characteristics -
+            Primitives, Operations, and Expressions - Control Statements, Arrays, Functions, Pattern
+            Matching, Form Handling, Cookies, Session Tracking.
+        </item>
+    </array>
+
+    <array name="cs364">
+
+        <item>MC</item>
+
+        <item></item>
+        <item>Introduction to mobile computing, Middleware and Gateways, Application and services,
+            Internet-Ubiquitous networks, Architecture and three-tier architecture for Mobile
+            Computing, Design consideration for Mobile Computing.
+        </item>
+
+        <item></item>
+        <item>Spread spectrum – Direct sequence, Frequency hoping. Medium Access Control - SDMA,
+            FDMA, TDMA, CDMA, Cellular concepts- channel assignment strategy- hand off strategy
+            interface and system capacity- improving coverage and capacity in cellular system,
+            Satellite Systems-GEO, LEO, MEO. Wireless Communication Systems- Telecommunication
+            Systems- GSM- GSM services &amp; features, architecture -DECT features &amp;
+            characteristics, architecture.
+        </item>
+
+        <item></item>
+        <item>Wireless LANS: Wireless LAN Standards – IEEE 802 Protocol Architecture, IEEE 802.11
+            System Architecture, Protocol Architecture &amp; Services, Cellular Networks: Channel
+            allocation, multiple access, location management, Handoffs.
+            MAC Layer &amp; Management, Routing - Classification of Routing Algorithms, Algorithms
+            such as DSR, AODV, DSDV, Mobile Agents, Service Discovery.
+        </item>
+
+        <item></item>
+        <item>Mobile internet-mobile network layer-mobile IP-dynamic host configuration protocol-,
+            mobile transport layer-implications of TCP on mobility-indirect TCP-snooping TCP- mobile
+            TCP transmission-selective retransmission, Transaction oriented TCP- Support for
+            mobility-file systems-WAP.
+        </item>
+
+        <item></item>
+        <item>Mobile Transport Layer - Conventional TCP/IP Protocols, Indirect TCP, Snooping TCP,
+            Mobile TCP, Other Transport Layer Protocols for Mobile Networks.
+            Protocols and Platforms for Mobile Computing - WAP, Bluetooth, XML, J2ME, JavaCard,
+            PalmOS, Linux for Mobile Devices, Android.
+        </item>
+
+        <item></item>
+        <item>Security issues in mobile computing, Information Security, Components of Information
+            Security, Next Generation Networks- LTE – Architecture &amp; Interface – LTE radio
+            planning and tools, 5G architecture, MIMO, Super core concept, Features and Application
+            Case Study – Setting up anadhoc network system, LiFi.
+        </item>
+    </array>
 </resources>
