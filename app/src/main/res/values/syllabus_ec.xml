@@ -714,4 +714,470 @@
             Fittest - Fitness Computation\nOperators - Cross over, Mutation
         </item>
     </array>
+
+
+    <array name="ec306">
+
+        <item>AWP</item>
+
+        <item></item>
+        <item>Basic antenna parameters - gain, directivity, beam solid angle,
+            beam width and effective aperture calculations. Effective height
+            - wave polarization - antenna temperature - radiation resistance
+            - radiation efficiency - antenna field zones - principles of
+            reciprocity. Duality of antennas.
+        </item>
+
+        <item></item>
+        <item>Concept of retarded potential. Field, directivity and radiation
+            resistance of a short dipole and half wave dipole. Measurement
+            of radiation pattern, gain, directivity and impedance of antenna
+        </item>
+
+        <item></item>
+        <item>Arrays of point sources - field of two isotropic point sources -
+            principle of pattern multiplication - linear arrays of ‘n’ isotropic
+            point sources. Grating lobes.
+            \n Design of Broadside, Endfire &amp; Binomial arrays. Design of
+            DolphChebyshev arrays
+        </item>
+
+        <item></item>
+        <item>Basic principle of beam steering. Travelling wave antennas.
+            Principle and applications of V and rhombic antennas.
+            Principles of Horn, Parabolic dish antenna, Cassegrain antenna
+            (expression for E, H andGain without derivation).
+        </item>
+
+        <item></item>
+        <item>Principle of Log periodic antenna array and Helical antenna.
+            Antennas for mobile base station and handsets.
+            \n Design of rectangular Patch antennas. Principle of smart
+            antenna.
+        </item>
+
+        <item></item>
+        <item>Radio wave propagation , Modes , structure of atmosphere, sky
+            wave propagation , effect of earth‘s magnetic field, Ionospheric
+            abnormalities and absorption, space wave propagation, LOS
+            distance
+            \n Field strength of space wave, duct propagation, VHF and UHF
+            Mobile radio propagation, tropospheric scatter propagation,
+            fading and diversity techniques.
+        </item>
+    </array>
+    <array name="ec308">
+
+        <item>ES</item>
+
+        <item></item>
+        <item>Introduction to Embedded Systems– Components of embedded
+            system hardware–Software embedded into the system –
+            Embedded Processors - CPU architecture of ARM processor
+            (ARM9) – CPU Bus Organization and Protocol.
+            \n Design and Development life cycle model - Embedded system
+            design process – Challenges in Embedded system design
+        </item>
+
+        <item></item>
+        <item>Serial Communication Standards and Devices - UART, HDLC,
+            SCI and SPI.
+            \n Serial Bus Protocols - I2C Bus, CAN Bus and USB Bus.
+            Parallel communication standards ISA, PCI and PCI-X Bus.
+        </item>
+
+        <item></item>
+        <item>Memory devices and systems - memory map – DMA - I/O
+            Devices – Interrupts - ISR – Device drivers for handling ISR –
+            Memory Device Drivers – Device Drivers for on-board bus.
+        </item>
+
+        <item></item>
+        <item>Programming concepts of Embedded programming – Features
+            of Embedded C++ and Embedded Java (basics only). Software
+            Implementation, Testing, Validation and debugging, system-onchip
+            \n Design Examples: Mobile phones, ATM machine, Set top box
+        </item>
+
+        <item></item>
+        <item>Inter Process Communication and Synchronization -Process,
+            tasks and threads –Shared data– Inter process communication -
+            Signals – Semaphore – Message Queues – Mailboxes – Pipes –
+            Sockets – Remote Procedure Calls (RPCs).
+        </item>
+
+        <item></item>
+        <item>Real time operating systems - Services- Goals – Structures -
+            Kernel - Process Management – Memory Management –
+            Device Management – File System Organization.
+            Micro C/OS-II RTOS - System Level Functions – Task Service
+            Functions – Memory Allocation Related Functions –
+            Semaphore Related Functions.
+            Study of other popular Real Time Operating Systems.
+        </item>
+    </array>
+
+
+    <array name="ec312">
+
+        <item>OOP</item>
+
+        <item></item>
+        <item>Concepts of OOP – Introduction to OOP, Procedural Vs. Object
+            Oriented Programming, Principles of OOP, Benefits and
+            applications of OOP.
+            \n Beginning with C++: Overview and Structure of C++ Program,
+            Classes and Objects, Constructors and Destructors.
+        </item>
+
+        <item></item>
+        <item>Operator Overloading and Inheritance – Overloading Unary
+            Operators, Overloading Binary Operators, Overloading Binary
+            Operators using Friends, Manipulation of Strings Using
+            Operators.
+            \n Inheritance – Multilevel Inheritance, Multiple Inheritance,
+            Hierarchical Inheritance, Hybrid Inheritance. Virtual Base
+            Classes, Abstract Classes, Constructors in Derived Classes,
+            Member Classes: Nesting of Classes
+        </item>
+
+        <item></item>
+        <item>Virtual Functions and Polymorphism – Pointers to objects, this
+            pointer, Pointers to derived classes, Virtual functions, Virtual
+            Constructors and Destructors.
+        </item>
+
+        <item></item>
+        <item>Programming with JAVA – Overview of Java Language,
+            Classes Objects and Methods, Method Overloading and
+            Inheritance, Overriding Methods, Final Variables and Methods.
+            Interfaces, Packages, Multithreaded programming, Managing
+            Errors and Exceptions
+        </item>
+
+        <item></item>
+        <item>Introduction to Android : Setting up Development
+            Environment, Basic Building blocks – Activities, Services,
+            Broadcast Receivers &amp; Content providers, UI Components –
+            Views &amp; notifications, Components for communication –
+            Intents &amp; Intent Filters,
+        </item>
+
+        <item></item>
+        <item>Application Structure-Android Manifest.xml, uses-permission &amp; uses-sdk, Layouts
+            &amp; Drawable Resources, First sample
+            Application, Emulator-Android Virtual Device, Basic UI
+            design, Styles &amp; Themes, Content Providers-SQLite
+            Programming, Case study –Develop an App to demonstrate
+            database usage.
+        </item>
+    </array>
+
+
+    <array name="ec362">
+
+        <item>MSCS</item>
+
+        <item></item>
+        <item>Simulation and Modelling Methodology: Review of Random
+            Processes, Univariate and multivariate models, Transformation
+            of random variables
+            \n Bounds and approximations, Random process models, Markov 15
+            and ARMA Sequences, Poisson Process, Gaussian Process
+            \n Random Number Generation, Generation of Random sequences
+            \n Testing Random Number Generators
+        </item>
+
+        <item></item>
+        <item>Modelling of Transmitter and Receiver subsystems:
+            Information sources
+            \n Channel coding, Radio frequency and optical modulation
+            \n Demodulation and detection, Filtering
+            \n Multiple Access : Issues in the simulation of Multiple Access
+        </item>
+
+        <item></item>
+        <item>Communication channels and models: Fading and multipath
+            channels, The Almost Free space channel
+            \n Conducting and Guided wave media
+            \n Finite state channel models, Methodology for simulating
+            Communication systems operating over Fading Channels.
+        </item>
+
+        <item></item>
+        <item>Estimation of parameters in simulation: Quality of an estimator,
+            Estimating the average level of a waveform,
+            \n Estimating the average power of a waveform, Estimating the
+            power spectral density of a process
+            \n Estimating Delay and Phase
+        </item>
+
+        <item></item>
+        <item>Estimation of performance measures from simulation:
+            Estimation of SNR
+            \n Estimating Performance measures for digital systems-The
+            Monte Carlo Method
+            \n Importance sampling method
+        </item>
+
+        <item></item>
+        <item>Analysis of simulation results: Model Verification Techniques,
+            Model Validation Techniques
+            \n Transient Removal, Terminating Simulations
+            \n Stopping Criteria, Variance Reduction
+        </item>
+    </array>
+
+
+    <array name="ec366">
+
+        <item>RTOS</item>
+
+
+        <item></item>
+        <item>Operating system objectives and functions, Virtual Computers,
+            Interaction of O. S. &amp; hardware architecture, Evolution of
+            systems
+            \n Architecture of OS (Monolithic, Microkernel, Layered, Exo- 15
+            kernel and Hybrid kernel structures)
+            \n Batch, Multi programming, Multitasking, Multiuser, parallel,
+            distributed &amp; real ľtime O.S.
+        </item>
+
+        <item></item>
+        <item>Uniprocessor Scheduling: Types of scheduling
+            \n Scheduling algorithms: FCFS, SJF, Priority, Round Robin
+            \n UNIX Multi-level feedback queue scheduling, Thread
+            Scheduling, Multiprocessor Scheduling concept
+        </item>
+
+        <item></item>
+        <item>Concurrency: Principles of Concurrency, Mutual Exclusion
+            H/W Support, software approaches, Semaphores and Mutex,
+            Message Passing techniques
+            \n Classical Problems of Synchronization: Readers-Writers
+            Problem, Producer Consumer Problem, Dining Philosopher
+            problem.
+            \n Deadlock: Principles of deadlock, Deadlock Prevention,
+            Deadlock Avoidance, Deadlock Detection, An Integrated
+            Deadlock Strategies
+        </item>
+
+        <item></item>
+        <item>Memory Management requirements, Memory partitioning:
+            Fixed, dynamic, partitioning
+            \n Memory allocation Strategies (First Fit, Best Fit, Worst Fit,
+            Next Fit), Fragmentation, Swapping, Segmentation, Paging,
+            Virtual Memory, Demand paging
+            \n Page Replacement Policies (FIFO, LRU, Optimal, clock),
+            Thrashing, Working Set Model
+        </item>
+
+        <item></item>
+        <item>I/O Management and Disk Scheduling: I/O Devices,
+            Organization of I/O functions
+            \n Operating System Design issues, I/O Buffering, Disk
+            Scheduling (FCFS, SCAN, C-SCAN, SSTF), Disk Caches
+        </item>
+
+        <item></item>
+        <item>Comparison and study of RTOS: Vxworks and ÁCOS
+            \n Case studies: RTOS for Control Systems.
+        </item>
+    </array>
+
+    <array name="ec302">
+
+        <item>DC</item>
+
+        <item></item>
+        <item>Overview of Random variables and Random process: Random variables–continuous and
+            Discrete, random process- Stationarity, Autocorrelation and power spectral density,
+            Transmission of Random Process through LTI systems, PSD, AWGN\nPulse Code Modulation
+            (PCM): Pulse Modulation, Sampling process, Performance comparison of various sampling
+            techniques Aliasing, Reconstruction, PAM, Quantization, Noise in PCM
+            system\nModifications of PCM: Delta modulation, DPCM, ADPCM, ADM, Performance comparison
+            of various pulse modulation schemes, Line codes, PSD of various Line codes
+        </item>
+
+        <item></item>
+        <item>Transmission over baseband channel: Matched filter, Inter Symbol Interference (ISI),
+            Nyquist Criteria for zero ISI, Ideal solution, Raised cosine spectrum, Eye
+            Pattern\nCorrelative Level Coding - Duobinary coding, precoding, Modified duobinary
+            coding, Generalized Partial response signalling.
+        </item>
+
+        <item></item>
+        <item>Signal Space Analysis: Geometric representation of signals, Gram Schmidt
+            orthogonization procedure.\nTransmission Over AWGN Channel : Conversion of the
+            continuous AWGN channel into a vector channel, Likelihood function, Maximum Likelihood
+            Decoding, Correlation Receiver
+        </item>
+
+        <item></item>
+        <item>Digital Modulation Schemes: Pass band transmission model, Coherent Modulation Schemes-
+            BPSK, QPSK, BFSK. NonCoherent orthogonal modulation schemes, Differential Phase Shift
+            Keying (DPSK)\nDetection of Binary modulation schemes in the presence of noise, BER for
+            BPSK, QPSK, BFSK
+        </item>
+
+        <item></item>
+        <item>Pseudo–noise sequences: Properties of PN sequences. Generation of PN Sequences,
+            generator polynomials, Maximal length codes and Gold Codes.\nImportance of
+            synchronization: Carrier, frame and symbol/chip synchronization techniques\nSpread
+            spectrum communication: Direct sequence spread spectrum with coherent binary phase shift
+            keying, Processing gain, Probability of error, Anti-jam Characteristics, Frequency Hop
+            spread spectrum with MFSK, Slow and Fast frequency hopping
+        </item>
+
+        <item></item>
+        <item>Multipath channels: classification, Coherence time, Coherence bandwidth, Statistical
+            characterization of multi path channels, Binary signalling over a Rayleigh fading
+            channel.\nDiversity techniques : Diversity in time, frequency and space. \nMultiple
+            Access Techniques: TDMA, FDMA, CDMA and SDMA – RAKE receiver, Introduction to
+            Multicarrier communication- OFDM
+        </item>
+    </array>
+
+
+    <array name="ec370">
+
+        <item>DIP</item>
+
+        <item></item>
+        <item>Digital Image Fundamentals: Image representation, basic relationship between pixels,
+            elements of DIP system, elements of visual perception-simple image formation
+            model\nVidicon and Digital Camera working principles\nBrightness, contrast, hue,
+            saturation, mach band effect\nColour image fundamentals-RGB, CMY, HIS models\n2D
+            sampling, quantization.
+        </item>
+
+        <item></item>
+        <item>Review of matrix theory: row and column ordering- Toeplitz, Circulant and block
+            matrix\n2D Image transforms : DFT, its properties, Walsh transform, Hadamard transform,
+            Haar transform\nDCT, KL transform and Singular Value Decomposition
+        </item>
+
+        <item></item>
+        <item>Image Enhancement: Spatial domain methods: point processing- intensity
+            transformations, histogram processing, image subtraction, image averaging\nSpatial
+            filtering - smoothing filters, sharpening filters\nFrequency domain methods: low pass
+            filtering, high pass filtering, homomorphic filter.
+        </item>
+
+        <item></item>
+        <item>Image Restoration: Degradation model, Unconstraint restoration- Lagrange multiplier
+            and constraint restoration\nInverse filtering - removal of blur caused by uniform linear
+            motion, Weiner filtering\nGeometric transformations-spatial transformations
+        </item>
+
+        <item></item>
+        <item>Image segmentation: Classification of Image segmentation techniques, region approach,
+            clustering techniques\nSegmentation based on thresholding, edge based
+            segmentation\nClassification of edges, edge detection, Hough transform, active contour
+        </item>
+
+        <item></item>
+        <item>Image Compression: Need for compression, redundancy, classification of image
+            compression schemes, Huffman coding, arithmetic coding, dictionary based compression,
+            transform based compression\nImage compression standards- JPEG&amp;amp; MPEG, vector
+            quantization, wavelet based image compression.
+        </item>
+    </array>
+
+
+    <array name="ec368">
+
+        <item>Robotics</item>
+
+        <item></item>
+        <item>Introduction – Definition and origin of robotics, Robot Anatomy, Robot specifications,
+            Robot characteristics – accuracy, precision, and repeatability, Areas of application,
+            classification of robots.\nRobotic arm – Components and structure, Types of joints and
+            workspace, Common kinematic arrangements, Wrists, End effectors.
+        </item>
+
+        <item></item>
+        <item>Sensors: Types and applications of sensors in Robotics, position and displacement
+            sensors, Strain gauge based forcetorque sensors, Tachometers.\nRobotic drive systems and
+            actuators: Hydraulic, Pneumatic and Electric drives. Specification, principle of
+            operation and areas of application of: Stepper motor, Servo motor and brushless DC
+            motor. Microprocessor control of electric motors, speed control using PWM and direction
+            control using H- Bridge
+        </item>
+
+        <item></item>
+        <item>Robotic vision systems: Imaging, Sensing and Digitization, Image processing
+            techniques, Areas of application in robotics.\nIntroduction to kinematics: Position and
+            orientation of objects, Rotation, Euler angles, Rigid motion representation using
+            Homogenous Transformation matrix.
+        </item>
+
+        <item></item>
+        <item>Forward kinematics: Link coordinates, Denavit-Hartenberg Representation, Application
+            of DH convention to different serial kinematic arrangements fitted with spherical
+            wrist.\nInverse kinematics – General properties of solutions, Kinematic Decoupling,
+            Inverse kinematic solutions for all basic types of three-link robotic arms fitted with a
+            spherical wrist.
+        </item>
+
+        <item></item>
+        <item>Velocity kinematics – Derivation of the Jacobian, Application of velocity kinematics
+            for serial manipulators, importance of Singularities.\nManipulator Dynamics.
+            Introduction to Legrangian mechanics and Dynamic equation for 2 DOF robots, Introduction
+            to position control and force control of robotic manipulators, Robot actuation and
+            control using PID controllers.
+        </item>
+
+        <item></item>
+        <item>Robot Programming – Programming methods, Robot language classification, Robot language
+            structure, elements and its functions. Motion, End-effecter and Sensor commands in VAL
+            programming language. Simple programs.\nIndustrial applications of Robots in material
+            handling and assembly. Mobile robots, Recent developments in Robotics
+        </item>
+    </array>
+
+
+    <array name="ec304">
+
+        <item>VLSI</item>
+
+        <item></item>
+        <item>Material Preparation- Purification, Crystal growth (CZ and FZ process), wafer
+            preparation \nThermal Oxidation- Growth mechanisms, Dry and Wet oxidation, Deal Grove
+            model.\nDiffusion- Fick‘s Laws, Diffusion with constant surface concentration and from a
+            constant source, diffusion techniques.\nIon implantation-Technique, Range Theory,
+            annealing
+        </item>
+
+        <item></item>
+        <item>Epitaxy : Vapour phase epitaxy and molecular beam epitaxy\nLithography- Photo
+            lithographic sequence, Electron Beam Lithography, Etching and metal deposition\nMethods
+            of isolation Circuit component fabrication: transistor, diodes, resistors, capacitors,
+            N-well CMOS IC Fabrication Sequence
+        </item>
+
+        <item></item>
+        <item>CMOS inverters- DC characteristics, switching characteristics, power
+            dissipation\nLayout Design rules, Stick Diagram and layout of CMOS Inverter, two input
+            NAND and NOR gates
+        </item>
+
+        <item></item>
+        <item>MOSFET Logic Design -Pass transistor logic, Complementary pass transistor logic and
+            transmission gate logic , realization of functions
+        </item>
+
+        <item></item>
+        <item>Read Only Memory-4x4 MOS ROM Cell Arrays(OR,NOR,NAND)\nRandom Access Memory –SRAM-Six
+            transistor CMOS SRAM cell, DRAM –Three transistor and One transistor Dynamic Memory
+            Cell\nSense amplifiers –Differential Voltage Sensing Amplifiers Introduction to PLDs and
+            FPGAs, Design of PLAs.
+        </item>
+
+        <item></item>
+        <item>Adders- Static adder, Carry-By pass adder, Linear Carry- Select adder, Square- root
+            carry- select adder\nMultipliers-Array multiplier
+        </item>
+    </array>
 </resources>
