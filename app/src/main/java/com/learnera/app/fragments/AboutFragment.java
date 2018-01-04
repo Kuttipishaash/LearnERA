@@ -61,7 +61,6 @@ public class AboutFragment extends Fragment {
             }
         });
 
-        //Toast.makeText(getActivity(), "" + getFragmentManager().getBackStackEntryCount(), Toast.LENGTH_SHORT).show();
         return view;
     }
 
