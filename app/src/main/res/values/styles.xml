@@ -8,6 +8,8 @@
         <item name="colorAccent">@color/md_red_900</item>
         <item name="colorButtonNormal">@color/md_red_900</item>
         <item name="android:navigationBarColor">@color/md_grey_800</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="fontFamily">@font/abel_regular</item>
     </style>
 
     <style name="WelcomeTheme" parent="AppTheme">
