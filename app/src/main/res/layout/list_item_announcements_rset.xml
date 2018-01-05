@@ -10,7 +10,7 @@
         android:id="@+id/announcement_rset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/announcement_date_rset"

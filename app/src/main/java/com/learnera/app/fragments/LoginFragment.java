@@ -385,7 +385,7 @@ public class LoginFragment extends Fragment {
                         .cookies(res.cookies())
                         .get();
                 u = doc.select("strong");
-                Document doc2 = Jsoup.connect(Constants.markURL)
+                Document doc2 = Jsoup.connect(Constants.attendanceURL)
                         .cookies(res.cookies())
                         .get();
                 list = doc2.select("select[name=code]");

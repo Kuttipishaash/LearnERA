@@ -25,7 +25,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
                 android:padding="5dp"
-                android:text="@string/app_name"
+                android:text="LEARNERA"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -88,7 +88,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
-                    android:text="Design:"
+                    android:text="Designer:"
                     android:textStyle="bold" />
 
                 <TextView

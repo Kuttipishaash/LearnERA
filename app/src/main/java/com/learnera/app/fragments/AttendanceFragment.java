@@ -2,6 +2,8 @@ package com.learnera.app.fragments;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -502,6 +504,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             spinner.setAdapter(mSpinnerAdapter);
             spinner.setSelection(count);
             mProgressDialog.dismiss();
+
+            //to save users current semesters in case of any changes in the RSMS
+            String x = "s" + (count + 1);
+            user.setSem(x);
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("sem",
+                    user.getSem());
+            editor.commit();
 
         }
 

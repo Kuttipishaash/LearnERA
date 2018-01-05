@@ -68,11 +68,9 @@ public class SyllabusSubjectFragment extends Fragment implements AdapterView.OnI
     private void setspinner() {
         int currentSem = Integer.parseInt(sem.substring(1)) - 1;
 
-        //TODO:REMOVE AFTER TESTING
-        currentSem++;
 
         ArrayList<String> semList = new ArrayList<>();
-        for (int i = 0; i <= currentSem; i++) {
+        for (int i = 0; i <= 5; i++) {
             semList.add(getResources().getStringArray(R.array.array_semesters)[i]);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
