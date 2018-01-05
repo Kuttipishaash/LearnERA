@@ -11,5 +11,6 @@
         android:gravity="center"
         android:padding="20dp"
         android:text="Subject"
+        android:textAllCaps="true"
         android:textSize="17sp" />
 </LinearLayout>
