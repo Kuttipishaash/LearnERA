@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="0dp"
     tools:context="com.learnera.app.fragments.MarksFragment">
 
     <LinearLayout
         android:id="@+id/linear_layout_marks_spinner_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <Spinner
             android:id="@+id/spinner_marks_semesters"
@@ -25,19 +27,21 @@
             android:layout_margin="5dp"
             android:layout_weight="2" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/border" />
+
     </LinearLayout>
 
+    <View
+        android:id="@+id/marks_header_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/linear_layout_marks_spinner_group"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/border" />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_marks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout_marks_spinner_group" />
+        android:layout_below="@+id/marks_header_divider" />
     <!--
         <com.learnera.app.MovableFloatingActionButton
             android:id="@+id/marks_fab"
