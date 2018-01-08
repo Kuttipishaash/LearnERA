@@ -26,6 +26,16 @@
             android:layout_below="@id/attendance_dialog_header" />
 
         <TextView
+            android:id="@+id/no_data_attendance_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/attendance_dialog_header"
+            android:gravity="center_horizontal"
+            android:paddingTop="40dp"
+            android:text="You have not taken any leaves yet or your leaves are not entered."
+            android:textSize="16dp" />
+
+        <TextView
             android:id="@+id/attendance_dialog_dismiss"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

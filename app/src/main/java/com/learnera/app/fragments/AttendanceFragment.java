@@ -70,6 +70,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected FloatingActionButton fab;
     protected AttendanceTableAdapter tableAdapter;
     protected ListView tableList;
+    protected TextView noDataAttendanceTableTextView;
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
     Dialog dialog;
@@ -444,8 +445,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_attendance_details);
-        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
 
+        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
+        noDataAttendanceTableTextView = (TextView) dialog.findViewById(R.id.no_data_attendance_text_view);
         TextView dialogButton = (TextView) dialog.findViewById(R.id.attendance_dialog_dismiss);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -454,7 +456,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             }
         });
         tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
-        tableList.setAdapter(tableAdapter);
+        if (tableAdapter.isEmpty()) {
+            noDataAttendanceTableTextView.setVisibility(View.VISIBLE);
+            tableList.setVisibility(View.GONE);
+        } else {
+            noDataAttendanceTableTextView.setVisibility(View.GONE);
+            tableList.setVisibility(View.VISIBLE);
+            tableList.setAdapter(tableAdapter);
+        }
 
         dialog.show();
     }
