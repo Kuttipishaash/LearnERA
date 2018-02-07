@@ -119,6 +119,17 @@
                 android:layout_below="@+id/linear_row_2">
 
                 <ImageView
+                    android:id="@+id/drawable_seating_plan"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:elevation="6dp"
+                    android:src="@drawable/seatingplan_custom" />
+
+                <ImageView
                     android:id="@+id/drawable_logout"
                     android:layout_width="0dp"
                     android:layout_height="150dp"
@@ -129,19 +140,9 @@
                     android:adjustViewBounds="true"
                     android:elevation="6dp"
                     android:src="@drawable/logout_custom" />
-<!--
-                <ImageView
-                    android:id="@+id/drawable_seating_plan"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/announcement_custom" />
--->
+
+
+
             </LinearLayout>
 
 
