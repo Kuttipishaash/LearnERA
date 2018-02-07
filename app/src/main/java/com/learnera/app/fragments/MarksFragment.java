@@ -188,6 +188,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         if (spinner2.getCount() == 0) {
             spinner2.setEnabled(false);
             Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();
+            mRecyclerView.setAdapter(null);
         } else {
             spinner2.setEnabled(true);
         }
