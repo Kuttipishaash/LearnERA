@@ -1,6 +1,7 @@
 package com.learnera.app;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +36,7 @@ public class WelcomeActivity extends AppCompatActivity {
     ImageView mSeating;
     TextView mLoginStatus;
     TextView mAppName;
+    AlertDialog.Builder mSeatingDialogAlert;
 
     SharedPreferences sharedPreferences;
 
@@ -146,6 +149,17 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mSeatingDialogAlert.show();
+            }
+        });
+
+        mSeatingDialogAlert = new AlertDialog.Builder(this);
+        mSeatingDialogAlert.setTitle("Attention");
+        mSeatingDialogAlert.setMessage("If you receive a message that the 'PDF cannot be opened', then it implies that the seating plan has not been uploaded." +
+                " This is caused by the improper implementation used by RSMS to display the file");
+        mSeatingDialogAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 User user = User.getLoginInfo(WelcomeActivity.this);
 
                 String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1, 3) + user.getDept().toUpperCase() +
