@@ -39,6 +39,7 @@ public class WelcomeActivity extends AppCompatActivity {
     AlertDialog.Builder mSeatingDialogAlert;
 
     SharedPreferences sharedPreferences;
+    SharedPreferences preferences;
 
     String user;
 
@@ -49,7 +50,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
 
         if (!previouslyStarted) {
@@ -149,7 +150,17 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSeatingDialogAlert.show();
+                boolean alertFlag = preferences.getBoolean("alert_dialog_enabled", true);
+
+                if (alertFlag) {
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("alert_dialog_enabled", false);
+                    editor.apply();
+                    mSeatingDialogAlert.show();
+                } else {
+                    openSeatingPdf();
+                }
+
             }
         });
 
@@ -160,20 +171,24 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeatingDialogAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                User user = User.getLoginInfo(WelcomeActivity.this);
-
-                String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1, 3) + user.getDept().toUpperCase() +
-                        user.getUserName().substring(5) + ".pdf";
-
-                //Launch chrome custom tab
-                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
-                CustomTabsIntent intent = builder.build();
-                builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
-                builder.setStartAnimations(WelcomeActivity.this, R.anim.slide_in_right, R.anim.slide_out_left);
-                builder.setExitAnimations(WelcomeActivity.this, R.anim.slide_in_left, R.anim.slide_out_right);
-                intent.launchUrl(WelcomeActivity.this, Uri.parse(completeUrl));
+                openSeatingPdf();
             }
         });
+    }
+
+    public void openSeatingPdf() {
+        User user = User.getLoginInfo(WelcomeActivity.this);
+
+        String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1, 3) + user.getDept().toUpperCase() +
+                user.getUserName().substring(5) + ".pdf";
+
+        //Launch chrome custom tab
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent intent = builder.build();
+        builder.setToolbarColor(getResources().getColor(R.color.md_red_700));
+        builder.setStartAnimations(WelcomeActivity.this, R.anim.slide_in_right, R.anim.slide_out_left);
+        builder.setExitAnimations(WelcomeActivity.this, R.anim.slide_in_left, R.anim.slide_out_right);
+        intent.launchUrl(WelcomeActivity.this, Uri.parse(completeUrl));
     }
 
 }
