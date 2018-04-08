@@ -117,13 +117,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
-        spinner = (Spinner) view.findViewById(R.id.spinner_attendance);
+        spinner = view.findViewById(R.id.spinner_attendance);
         spinner.setOnItemSelectedListener(this);
 
         fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
         fadeOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadeout);
 
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_attendance);
+        mRecyclerView = view.findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
@@ -145,7 +145,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
 
         //For attendance details
-        fab = (FloatingActionButton) view.findViewById(R.id.attendance_fab);
+        fab = view.findViewById(R.id.attendance_fab);
         fab.setSize(FloatingActionButton.SIZE_NORMAL);
         final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
@@ -289,10 +289,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private void setRadioButtons() {
         int attendanceCutoff = user.getattendanceCutoff(getActivity());
 
-        attendancePercentSelector = (RadioGroup) view.findViewById(R.id.attendance_cutoff_selector);
+        attendancePercentSelector = view.findViewById(R.id.attendance_cutoff_selector);
 
         //set default value as disabled
-        dutyEnablerSelector = (RadioGroup) view.findViewById(R.id.attendance_duty_selector);
+        dutyEnablerSelector = view.findViewById(R.id.attendance_duty_selector);
         dutyEnablerSelector.check(R.id.attendance_duty_disable);
 
         //set value of cutoff from sharedpreferences which was loaded into attendanceCutOff
@@ -367,6 +367,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private void attendanceDetails() {
 
+
         //To show table view of attendance of the days on which the student was absent
         tableRows = new ArrayList<AttendanceTableRow>();
 
@@ -393,6 +394,31 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             if (testResult)  //if it is an acceptable subjects i.e, it is not V,SEP,LIB etc, a 0 entry is made for the subject in the mDutyAttendanceList
                 mDutyAttendenceList.add(Integer.toString(0));
         }
+
+
+        //DEBUG SECTION 1:
+        for (int i = 0; i < mSubjectList.size(); i++) {
+            String message = mSubjectList.get(i) + " percent : " + mPercentageList.get(i) + " missed : " + mMissedList.get(i) + " out of " + mTotalList.get(i) + "classes.";
+            Log.d("Subject" + i, message);
+        }
+        Log.d("subcode size", mSubjectCodeList.size() + "");
+        Log.d("sub size", mSubjectList.size() + "");
+        Log.d("percent size", mPercentageList.size() + "");
+        Log.d("missed size", mMissedList.size() + "");
+        Log.d("total size", mTotalList.size() + "");
+
+        mSubjectCodeList.subList(mSubjectList.size(), mSubjectCodeList.size()).clear();
+        Log.d("cleared", "Sub code list unnecessary removed");
+        Log.d("subcode size", mSubjectCodeList.size() + "");
+        Log.d("sub size", mSubjectList.size() + "");
+        Log.d("percent size", mPercentageList.size() + "");
+        Log.d("missed size", mMissedList.size() + "");
+        Log.d("total size", mTotalList.size() + "");
+
+        for (int i = 0; i < mSubjectCodeList.size(); i++) {
+            Log.d("SubCode" + i, mSubjectCodeList.get(i));
+        }
+        //DEBUG SECTION 1 ENDS
 
         Elements tables = doc.select("table [width=96%]");
         int count = 0;
@@ -425,9 +451,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         //To increment the duty attendence count for a subject if a yellow color found in table
                         if (color.equalsIgnoreCase("#ff9900") || color.equalsIgnoreCase("#cccc00")) {
                             if (!(subject.equals("SEP") | subject.equals("V") | subject.equals("MENT") | subject.equals("LIB") | subject.equals("U"))) {
-                                subject = subject.substring(0, 5);
-                                int n = mSubjectCodeList.indexOf(subject);
-                                mDutyAttendenceList.set(n, Integer.toString(Integer.parseInt(mDutyAttendenceList.get(n)) + 1));
+
+                                for (int i = 0; i < mSubjectCodeList.size(); i++) {
+                                    if (subject.contains(mSubjectCodeList.get(i))) {
+                                        int n = i;
+                                        mDutyAttendenceList.set(n, Integer.toString(Integer.parseInt(mDutyAttendenceList.get(n)) + 1));
+                                        break;
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -446,9 +478,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_attendance_details);
 
-        tableList = (ListView) dialog.findViewById(R.id.list_view_attendance_table);
-        noDataAttendanceTableTextView = (TextView) dialog.findViewById(R.id.no_data_attendance_text_view);
-        TextView dialogButton = (TextView) dialog.findViewById(R.id.attendance_dialog_dismiss);
+        tableList = dialog.findViewById(R.id.list_view_attendance_table);
+        noDataAttendanceTableTextView = dialog.findViewById(R.id.no_data_attendance_text_view);
+        TextView dialogButton = dialog.findViewById(R.id.attendance_dialog_dismiss);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
