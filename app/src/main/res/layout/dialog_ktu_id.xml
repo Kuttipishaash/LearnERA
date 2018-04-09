@@ -12,7 +12,7 @@
         android:id="@+id/et_ktu_id_dki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="true" />
+        android:maxLines="1" />
 
     <CheckBox
         android:id="@+id/cb_remember_ktu_id_dki"

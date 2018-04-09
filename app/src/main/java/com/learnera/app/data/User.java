@@ -28,8 +28,6 @@ public class User {
         //removes all contents of sharedpreference file
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("ret_id", "");
-//        editor.commit();
         editor.clear();
         editor.commit();
     }
