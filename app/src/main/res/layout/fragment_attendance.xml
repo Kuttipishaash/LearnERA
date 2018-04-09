@@ -73,9 +73,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.70"
-                android:text="Duty Attendance : "
+                android:text="Include Duty : "
                 android:textColor="@color/md_black_1000"
                 android:textSize="16sp" />
+
 
             <RadioGroup
                 android:id="@+id/attendance_duty_selector"

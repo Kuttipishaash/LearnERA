@@ -11,20 +11,16 @@ import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.GridView;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -42,6 +38,10 @@ public class WelcomeActivity extends AppCompatActivity {
     SharedPreferences preferences;
 
     String user;
+
+    User userInfo;
+
+    String retID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,10 +103,10 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void initViews() {
 
-        mLoginStatus = (TextView) findViewById(R.id.login_status);
-        mAppName = (TextView) findViewById(R.id.app_name);
+        mLoginStatus = findViewById(R.id.login_status);
+        mAppName = findViewById(R.id.app_name);
 
-        mAnnouncement = (ImageView) findViewById(R.id.drawable_announcement);
+        mAnnouncement = findViewById(R.id.drawable_announcement);
         mAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,7 +114,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mAttendance = (ImageView) findViewById(R.id.drawable_attendance);
+        mAttendance = findViewById(R.id.drawable_attendance);
         mAttendance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,15 +122,17 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mLogout = (ImageView) findViewById(R.id.drawable_logout);
+        mLogout = findViewById(R.id.drawable_logout);
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sharedPreferences = WelcomeActivity.this.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 User.logout(WelcomeActivity.this);
             }
         });
 
-        mSyllabus = (ImageView) findViewById(R.id.drawable_syllabus);
+        mSyllabus = findViewById(R.id.drawable_syllabus);
         mSyllabus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +140,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mMarks = (ImageView) findViewById(R.id.drawable_marks);
+        mMarks = findViewById(R.id.drawable_marks);
         mMarks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +148,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mSeating = (ImageView) findViewById(R.id.drawable_seating_plan);
+        mSeating = findViewById(R.id.drawable_seating_plan);
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,17 +173,62 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeatingDialogAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
                 openSeatingPdf();
             }
         });
     }
 
     public void openSeatingPdf() {
-        User user = User.getLoginInfo(WelcomeActivity.this);
+        userInfo = User.getLoginInfo(WelcomeActivity.this);
 
-        String completeUrl = Constants.seatPlanURL + user.getUserName().substring(1, 3) + user.getDept().toUpperCase() +
-                user.getUserName().substring(5) + ".pdf";
 
+        retID = "RET" + userInfo.getUserName().substring(1, 3) + userInfo.getDept().toUpperCase() +
+                userInfo.getUserName().substring(5);
+
+        LayoutInflater inflater = getLayoutInflater();
+        View dialoglayout = inflater.inflate(R.layout.dialog_ktu_id, null);
+        AlertDialog.Builder ktuIdDialog = new AlertDialog.Builder(this);
+        ktuIdDialog.setView(dialoglayout);
+        final EditText input = dialoglayout.findViewById(R.id.et_ktu_id_dki);
+        final CheckBox checkBox = dialoglayout.findViewById(R.id.cb_remember_ktu_id_dki);
+        ktuIdDialog.setTitle("Confirm KTU ID");
+        setIDField(input);
+        ktuIdDialog.setPositiveButton("CONFIRM",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        retID = input.getText().toString().toUpperCase();
+                        if (checkBox.isChecked()) {
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("ktu_id", retID);
+                            editor.apply();
+                        }
+                        launchChromeCustomTab();
+                    }
+                });
+
+        ktuIdDialog.setNegativeButton("CANCEL",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        ktuIdDialog.show();
+    }
+
+    private void setIDField(EditText input) {
+        String rememberedKTUId = sharedPreferences.getString("ktu_id", "");
+        if (rememberedKTUId.equals("")) {
+            input.setText(retID);
+        } else {
+            input.setText(rememberedKTUId);
+        }
+    }
+
+    private void launchChromeCustomTab() {
+
+        String completeUrl = Constants.seatPlanURL + retID + ".pdf";
         //Launch chrome custom tab
         CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
         CustomTabsIntent intent = builder.build();

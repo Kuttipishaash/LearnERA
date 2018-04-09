@@ -11,8 +11,6 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.learnera.app.data.Constants;
-
 /**
  * Created by praji on 12/31/2017.
  */
@@ -21,18 +19,23 @@ public class WebActivity extends AppCompatActivity {
     private WebView webView;
     private TextView txtview;
     private ProgressBar pbar;
+    private Intent extras;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_announcement_rset_web);
 
-        txtview = (TextView)findViewById(R.id.text_web_load);
-        pbar = (ProgressBar) findViewById(R.id.progress_bar_web);;
-        webView = (WebView) findViewById(R.id.layout_web_view);
+        txtview = findViewById(R.id.text_web_load);
+        pbar = findViewById(R.id.progress_bar_web);
+        webView = findViewById(R.id.layout_web_view);
 
-        Intent extras = getIntent();
+        extras = getIntent();
 
+        showWebView();
+    }
+
+    private void showWebView() {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
@@ -71,4 +74,6 @@ public class WebActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
+
 }

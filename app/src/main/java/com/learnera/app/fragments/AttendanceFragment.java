@@ -99,6 +99,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private ArrayList<String> mSemesterList;
     //For setting cutoff percentage
     private RadioGroup attendancePercentSelector;
+    //For enabling/disabling on duty
     private RadioGroup dutyEnablerSelector;
 
     public AttendanceFragment() {
@@ -304,6 +305,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 attendancePercentSelector.check(R.id.attendance_cutoff_80);
                 break;
         }
+
 
         //listener for cutoff radio group
         attendancePercentSelector.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

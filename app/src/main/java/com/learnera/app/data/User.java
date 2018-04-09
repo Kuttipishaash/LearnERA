@@ -24,13 +24,14 @@ public class User {
     public User() {
     }
 
-    public static void eraseUserInfo(Activity activity) {
+    public static void eraseUserInfo(Context context) {
         //removes all contents of sharedpreference file
-        SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-
+        SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString("ret_id", "");
+//        editor.commit();
         editor.clear();
-        editor.apply();
+        editor.commit();
     }
 
     public static void logout(final Activity activity) {
@@ -43,7 +44,7 @@ public class User {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //if user confirms logout erases user data and shows logout success message
-                            eraseUserInfo(activity);
+                            eraseUserInfo(activity.getBaseContext());
                             Toast.makeText(activity, "Logged out successfully", Toast.LENGTH_SHORT).show();
                             activity.startActivity(new Intent(activity, WelcomeActivity.class));
                         }
