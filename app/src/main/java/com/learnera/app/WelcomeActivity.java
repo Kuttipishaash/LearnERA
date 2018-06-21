@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +25,12 @@ import com.learnera.app.data.User;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    ImageView mAnnouncement;
-    ImageView mAttendance;
-    ImageView mLogout;
-    ImageView mSyllabus;
-    ImageView mMarks;
-    ImageView mSeating;
+    LinearLayout mAnnouncement;
+    LinearLayout mAttendance;
+    LinearLayout mLogout;
+    LinearLayout mSyllabus;
+    LinearLayout mMarks;
+    LinearLayout mSeating;
     TextView mLoginStatus;
     TextView mAppName;
     AlertDialog.Builder mSeatingDialogAlert;

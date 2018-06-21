@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/md_white_1000"
     tools:context="com.learnera.app.WelcomeActivity">
+
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -36,8 +36,8 @@
                 android:id="@+id/login_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_below="@+id/app_name"
                 android:background="@color/md_red_900"
                 android:paddingBottom="20dp"
@@ -46,104 +46,193 @@
                 android:textColor="@color/md_white_1000"
                 android:textSize="16sp" />
 
-            <LinearLayout
-                android:id="@+id/linear_row_1"
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/cardview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/login_status"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                card_view:cardCornerRadius="5dp">
 
-                <ImageView
-                    android:id="@+id/drawable_announcement"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/announcement_custom" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/drawable_attendance"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/attendance_custom" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/linear_row_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
-            <LinearLayout
-                android:id="@+id/linear_row_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp"
-                android:layout_below="@+id/linear_row_1">
+                        <LinearLayout
+                            android:id="@+id/drawable_announcement"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
 
-                <ImageView
-                    android:id="@+id/drawable_marks"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/marks_custom" />
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+                                app:srcCompat="@drawable/ic_announcements" />
 
-                <ImageView
-                    android:id="@+id/drawable_syllabus"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/syllabus_custom" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear_row_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_margin="10dp"
-                android:layout_below="@+id/linear_row_2">
-
-                <ImageView
-                    android:id="@+id/drawable_seating_plan"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    android:elevation="6dp"
-                    android:src="@drawable/seatingplan_custom" />
-
-                <ImageView
-                    android:id="@+id/drawable_logout"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    android:adjustViewBounds="true"
-                    android:elevation="6dp"
-                    android:src="@drawable/logout_custom" />
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Annoucements" />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="35dp"
+                            android:background="@color/md_grey_100"/>
 
 
+                        <LinearLayout
+                            android:id="@+id/drawable_attendance"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
 
-            </LinearLayout>
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+                                app:srcCompat="@drawable/ic_attendance" />
+
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Attendance" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="25dp"
+                        android:background="@color/md_grey_100"/>
+
+                    <LinearLayout
+                        android:id="@+id/linear_row_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linear_row_1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/drawable_marks"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+
+                                app:srcCompat="@drawable/ic_marks" />
+
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Marks" />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="35dp"
+                            android:background="@color/md_grey_100"/>
+
+                        <LinearLayout
+                            android:id="@+id/drawable_syllabus"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+                                app:srcCompat="@drawable/ic_syllabus" />
+
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Syllabus" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="35dp"
+                        android:background="@color/md_grey_100"/>
+
+                    <LinearLayout
+                        android:id="@+id/linear_row_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/linear_row_2"
+                        android:orientation="horizontal">
+
+
+                        <LinearLayout
+                            android:id="@+id/drawable_seating_plan"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+                                app:srcCompat="@drawable/ic_seating_plan" />
+
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Seating Plan" />
+                        </LinearLayout>
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginVertical="35dp"
+                            android:background="@color/md_grey_100"/>
+
+                        <LinearLayout
+                            android:id="@+id/drawable_logout"
+                            style="@style/home_icon_ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                style="@style/home_icon_image_view"
+                                android:layout_width="fill_parent"
+                                app:srcCompat="@drawable/ic_logout" />
+
+                            <TextView
+                                style="@style/home_icon_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Log Out" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
         </RelativeLayout>

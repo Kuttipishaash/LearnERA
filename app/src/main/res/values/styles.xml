@@ -50,4 +50,29 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="home_icon_ll">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="home_icon_text_view">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:textColor">@color/md_red_900</item>
+    </style>
+
+    <style name="home_icon_image_view">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_height">90dp</item>
+        <item name="android:tint">@color/md_red_900</item>
+    </style>
 </resources>
