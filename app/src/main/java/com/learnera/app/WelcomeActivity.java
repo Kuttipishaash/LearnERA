@@ -11,17 +11,26 @@ import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+
+import com.yalantis.guillotine.animation.GuillotineAnimation;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -38,6 +47,18 @@ public class WelcomeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences preferences;
 
+    private static final long RIPPLE_DURATION = 250;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.welcome_root)
+    FrameLayout welcome_root;
+//    FrameLayout welcome_root = findViewById(R.id.welcome_root);
+
+
+    @BindView(R.id.content_hamburger)
+    View contentHamburger;
+
     String user;
 
     User userInfo;
@@ -48,6 +69,30 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        initViews();
+
+
+        ButterKnife.bind(this);
+
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle(null);
+            ;
+        }
+
+
+//        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null  );
+
+        View guillotineMenu = getLayoutInflater().inflate(R.layout.guillotine, null);
+
+        welcome_root.addView(guillotineMenu);
+
+        new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
+                .setStartDelay(RIPPLE_DURATION)
+                .setActionBarViewForAnimation(toolbar)
+                .setClosedOnStart(true)
+                .build();
 
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
@@ -64,13 +109,14 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
         }
 
-        initViews();
 
         //Set font
         Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
         Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
         mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
+
+
     }
 
     @Override

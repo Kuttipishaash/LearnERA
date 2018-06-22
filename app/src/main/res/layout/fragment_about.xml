@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_about"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_white_1000"
+    android:background="@color/md_red_800"
     android:orientation="vertical">
 
 
@@ -26,6 +27,8 @@
                 android:layout_marginTop="30dp"
                 android:padding="5dp"
                 android:text="LEARNERA"
+                android:fontFamily="@font/pasajero"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:textAlignment="center"
                 android:textSize="30sp" />
 
@@ -34,7 +37,8 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/intro_icon" />
+                android:tint="@color/md_white_1000"
+                app:srcCompat="@drawable/ic_le" />
 
             <TextView
                 android:id="@+id/text_about_version"
@@ -43,6 +47,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:padding="2dp"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:text="@string/app_version"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -60,12 +65,14 @@
                     android:layout_marginTop="13dp"
                     android:padding="5dp"
                     android:text="Developers:"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Prejith Premkumar" />
 
                 <TextView
@@ -73,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Prabhashankar Kannappan" />
             </LinearLayout>
 
@@ -80,6 +88,7 @@
                 android:id="@+id/linear_layout_about_design"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:orientation="vertical">
 
                 <TextView
@@ -89,12 +98,14 @@
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
                     android:text="Designer:"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Mebin Johnson" />
             </LinearLayout>
 
@@ -112,24 +123,28 @@
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
                     android:text="Data Entry:"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Naina Fathima Sayed" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Sangeetha S R" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:textColor="@color/mi_text_color_primary_dark"
                     android:text="Razni Azees" />
             </LinearLayout>
 
@@ -140,17 +155,22 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:padding="15dp"
+                android:background="@drawable/button_background"
                 android:text="Contact Us" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/mi_text_color_primary_dark"/>
 
             <TextView
                 android:id="@+id/about_text_disclaimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
                 android:textAlignment="center"
                 android:textStyle="italic" />

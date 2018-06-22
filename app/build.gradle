@@ -4,7 +4,7 @@ android {
     signingConfigs {
     }
     compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId 'com.learnera.app'
         minSdkVersion 16
@@ -44,4 +44,5 @@ dependencies {
     compile 'com.android.support:customtabs:26.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.github.Yalantis:GuillotineMenu-Android:1.2'
+    implementation 'com.jakewharton:butterknife:8.8.1'
 }
