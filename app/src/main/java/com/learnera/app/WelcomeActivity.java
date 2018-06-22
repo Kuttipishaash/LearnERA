@@ -14,23 +14,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
-
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -51,12 +47,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
-    @BindView(R.id.welcome_root)
+
+    //TODO: implement bindview
+    //@BindView(R.id.welcome_root)
     FrameLayout welcome_root;
-//    FrameLayout welcome_root = findViewById(R.id.welcome_root);
 
-
-    @BindView(R.id.content_hamburger)
+    //TODO: implement bindview
+    //@BindView(R.id.content_hamburger)
     View contentHamburger;
 
     String user;
@@ -78,13 +75,14 @@ public class WelcomeActivity extends AppCompatActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle(null);
-            ;
+
         }
-
-
+        welcome_root = findViewById(R.id.welcome_root);
+        contentHamburger = findViewById(R.id.content_hamburger);
 //        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null  );
 
         View guillotineMenu = getLayoutInflater().inflate(R.layout.guillotine, null);
+
 
         welcome_root.addView(guillotineMenu);
 
