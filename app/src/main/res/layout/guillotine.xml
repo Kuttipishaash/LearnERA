@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/guil_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_red_900"
@@ -28,7 +29,8 @@
 
         <TextView
             style="@style/TextView.GuillotineItem"
-            android:text="profile" />
+            android:id="@+id/guil_logged_user"
+            android:text="Logged In User" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,11 +39,11 @@
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            app:srcCompat="@drawable/ic_person_black" />
+            app:srcCompat="@drawable/ic_send_black_24dp" />
 
         <TextView
             style="@style/TextView.GuillotineItem"
-            android:text="feed" />
+            android:text="Contact Us" />
     </LinearLayout>
 
     <LinearLayout
@@ -50,11 +52,11 @@
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            app:srcCompat="@drawable/ic_person_black" />
+            app:srcCompat="@drawable/ic_info_outline_black_24dp" />
 
         <TextView
             style="@style/TextView.GuillotineItem.Selected"
-            android:text="activity" />
+            android:text="About Us" />
     </LinearLayout>
 
     <View
@@ -62,15 +64,15 @@
         android:layout_height="@dimen/guillotine_divider_height" />
 
     <LinearLayout
-        android:id="@+id/settings_group"
+        android:id="@+id/guil_logout"
         style="@style/LinearLayout.GuillotineItem">
 
         <ImageView
             style="@style/ImageView.GuillotineItem"
-            app:srcCompat="@drawable/ic_person_black" />
+            app:srcCompat="@drawable/ic_exit_to_app_black_24dp" />
 
         <TextView
             style="@style/TextView.GuillotineItem"
-            android:text="settings" />
+            android:text="Log Out" />
     </LinearLayout>
 </LinearLayout>

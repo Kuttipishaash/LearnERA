@@ -77,10 +77,9 @@
     </style>
 
 
-
-
     <!-- Guillotine screen styles-->
     <style name="LinearLayout" />
+
     <style name="LinearLayout.GuillotineItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -135,6 +134,19 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:tint">@color/md_white_1000</item>
         <item name="android:layout_marginLeft">@dimen/guillotine_large_margin</item>
     </style>
+
+
+    <style name="AlertDialogCustom" parent="@android:style/Animation.Dialog">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:actionMenuTextColor">@color/md_white_1000</item>
+        <item name="android:background">@color/md_red_800</item>
+        <item name="android:tint">@color/md_white_1000</item>
+        <item name="android:titleTextColor">@color/md_white_1000</item>
+        <item name="android:editTextColor">@color/md_white_1000</item>
+        <item name="android:checkMarkTint">@color/md_white_1000</item>
+    </style>
+
 </resources>

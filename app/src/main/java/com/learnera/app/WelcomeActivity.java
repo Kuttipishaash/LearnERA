@@ -12,6 +12,7 @@ import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -37,6 +38,7 @@ public class WelcomeActivity extends AppCompatActivity {
     LinearLayout mMarks;
     LinearLayout mSeating;
     TextView mLoginStatus;
+
     TextView mAppName;
     AlertDialog.Builder mSeatingDialogAlert;
 
@@ -55,6 +57,7 @@ public class WelcomeActivity extends AppCompatActivity {
     //TODO: implement bindview
     //@BindView(R.id.content_hamburger)
     View contentHamburger;
+    private boolean isOpened = true;
 
     String user;
 
@@ -79,18 +82,46 @@ public class WelcomeActivity extends AppCompatActivity {
         }
         welcome_root = findViewById(R.id.welcome_root);
         contentHamburger = findViewById(R.id.content_hamburger);
-//        View guillotineMenu = LayoutInflater.from(this).inflate(R.layout.guillotine, null  );
 
         View guillotineMenu = getLayoutInflater().inflate(R.layout.guillotine, null);
-
-
-        welcome_root.addView(guillotineMenu);
-
-        new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
+        final GuillotineAnimation gmenu = new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
                 .setStartDelay(RIPPLE_DURATION)
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
                 .build();
+
+//        @Override
+//        public void onBackPressed () {
+//            if (!isOpened) {
+//                super.onBackPressed();
+//            }
+//            gmenu.close();
+//        }
+
+
+        welcome_root.addView(guillotineMenu);
+        LinearLayout glogout = (LinearLayout) findViewById(R.id.guil_logout);
+        glogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gmenu.close();
+                SharedPreferences sharedPreferences = WelcomeActivity.this.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                User.logout(WelcomeActivity.this);
+            }
+        });
+
+        LinearLayout groot = (LinearLayout) findViewById(R.id.guil_root);
+        groot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
+//        TextView gloggedin = (TextView) findViewById(R.id.guil_logged_user);
+//        user = sharedPreferences.getString("user", null);
+//        gloggedin.setText(user);
+
 
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
@@ -149,6 +180,8 @@ public class WelcomeActivity extends AppCompatActivity {
     public void initViews() {
 
         mLoginStatus = findViewById(R.id.login_status);
+//        mGuilLoginStatus = findViewById(R.id.guil_logged_user);
+
         mAppName = findViewById(R.id.app_name);
 
         mAnnouncement = findViewById(R.id.drawable_announcement);
@@ -211,7 +244,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mSeatingDialogAlert = new AlertDialog.Builder(this);
+        mSeatingDialogAlert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         mSeatingDialogAlert.setTitle("Attention");
         mSeatingDialogAlert.setMessage("If you receive a message that the 'PDF cannot be opened', then it implies that the seating plan has not been uploaded." +
                 " This is caused by the improper implementation used by RSMS to display the file");
@@ -233,7 +266,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         LayoutInflater inflater = getLayoutInflater();
         View dialoglayout = inflater.inflate(R.layout.dialog_ktu_id, null);
-        AlertDialog.Builder ktuIdDialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder ktuIdDialog = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         ktuIdDialog.setView(dialoglayout);
         final EditText input = dialoglayout.findViewById(R.id.et_ktu_id_dki);
         final CheckBox checkBox = dialoglayout.findViewById(R.id.cb_remember_ktu_id_dki);
