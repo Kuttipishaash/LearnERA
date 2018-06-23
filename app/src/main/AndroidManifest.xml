@@ -30,7 +30,7 @@
             android:name=".IntroActivity"
             android:label="Introduction"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Intro" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MarksActivity"
             android:label="Marks"

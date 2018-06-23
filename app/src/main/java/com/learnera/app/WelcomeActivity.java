@@ -9,9 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +27,7 @@ import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+import com.learnera.app.fragments.AboutFragment;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
 
 import butterknife.BindView;
@@ -110,8 +114,18 @@ public class WelcomeActivity extends AppCompatActivity {
                 User.logout(WelcomeActivity.this);
             }
         });
-        LinearLayout gaboutus = (LinearLayout) findViewById(R.id.guil_contact_us);
+        LinearLayout gaboutus = (LinearLayout) findViewById(R.id.guil_about_us);
         gaboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//TODO: Implement About
+            }
+        });
+
+
+//        On Click for Log Out
+        LinearLayout glogut = (LinearLayout) findViewById(R.id.guil_contact_us);
+        glogut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gmenu.close();

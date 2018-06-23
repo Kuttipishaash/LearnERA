@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:text="TEST"
+                android:textColor="@color/md_red_900"
                 android:textAllCaps="true"
                 android:textSize="14sp"
                 android:textStyle="bold" />
@@ -46,6 +47,24 @@
                 android:text="Bunking text field"
                 android:textStyle="italic" />
 
+            <TextView
+                android:id="@+id/list_attendance_attended_classes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="attended classes"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/list_attendance_duty_attendence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="Duty attendence included "
+                android:textStyle="italic" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -64,24 +83,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/list_attendance_attended_classes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        android:text="attended classes"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/list_attendance_duty_attendence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        android:text="Duty attendence included "
-        android:textStyle="italic" />
 
 
 </LinearLayout>
