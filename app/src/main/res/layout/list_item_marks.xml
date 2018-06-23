@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="XX123"
-            android:textColor="@color/md_grey_700"
+            android:textColor="@color/md_red_800"
             android:textAlignment="center"
             android:textSize="13sp" />
 
@@ -67,16 +67,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Max Marks : "
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
+                    android:textSize="14sp"/>
 
                 <TextView
                     android:id="@+id/max_marks_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -91,6 +89,7 @@
             android:textAlignment="center"
             android:gravity="center_vertical"
             android:textSize="30sp"
+            android:textColor="@color/md_grey_600"
             android:textStyle="bold" />
 
     </LinearLayout>
