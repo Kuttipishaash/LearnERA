@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/feed_group"
+        android:id="@+id/guil_contact_us"
         style="@style/LinearLayout.GuillotineItem">
 
         <ImageView
@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/activity_group"
+        android:id="@+id/guil_about_us"
         style="@style/LinearLayout.GuillotineItem">
 
         <ImageView

@@ -110,11 +110,25 @@ public class WelcomeActivity extends AppCompatActivity {
                 User.logout(WelcomeActivity.this);
             }
         });
+        LinearLayout gaboutus = (LinearLayout) findViewById(R.id.guil_contact_us);
+        gaboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gmenu.close();
+                Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+                sendIntent.setData(Uri.parse("mailto:"));
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"learneraproject@gmail.com"});
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnEra");
+                startActivity(sendIntent);
+            }
+        });
 
         LinearLayout groot = (LinearLayout) findViewById(R.id.guil_root);
         groot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                gmenu.close();
             }
         });
 

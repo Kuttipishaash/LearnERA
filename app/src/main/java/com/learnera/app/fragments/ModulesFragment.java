@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -65,7 +66,7 @@ public class ModulesFragment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> arg0, View v,
                                            final int index, long arg3) {
                 //Share with WhatsApp option only if module details are long pressed. It won't appear on long press of text books, credits or prerequisites
-                final AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
+                final AlertDialog.Builder build = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
                 final int tempIndex = index + 1;
                 build.setTitle("Share");
                 build.setMessage("Would you like to share the syllabus of Module " + tempIndex + "?");

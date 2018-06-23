@@ -127,7 +127,9 @@
     <style name="ImageView.Hamburger" parent="Widget.AppCompat.ActionButton">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_marginBottom">@dimen/abc_action_bar_overflow_padding_start_material</item>
+        <item name="android:layout_marginBottom">
+            @dimen/abc_action_bar_overflow_padding_start_material
+        </item>
     </style>
 
     <style name="ImageView.GuillotineItem">
@@ -139,11 +141,16 @@
     </style>
 
 
-    <style name="AlertDialogCustom" parent="@android:style/Animation.Dialog">
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Dialog">
         <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textColorPrimary">@color/md_white_1000</item>
+        <item name="actionBarWidgetTheme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
         <item name="android:actionMenuTextColor">@color/md_white_1000</item>
-        <item name="android:background">@color/md_red_800</item>
+        <item name="android:background">@color/md_red_700</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="colorAccent">@color/md_white_1000</item>
         <item name="android:tint">@color/md_white_1000</item>
+        <item name="android:buttonTint">@color/md_white_1000</item>
         <item name="android:titleTextColor">@color/md_white_1000</item>
         <item name="android:editTextColor">@color/md_white_1000</item>
         <item name="android:checkMarkTint">@color/md_white_1000</item>
