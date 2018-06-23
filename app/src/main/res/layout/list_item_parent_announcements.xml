@@ -37,5 +37,5 @@
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"
         android:paddingTop="16dp"
-        android:src="@drawable/divider" />
+        app:srcCompat="@drawable/divider" />
 </LinearLayout>

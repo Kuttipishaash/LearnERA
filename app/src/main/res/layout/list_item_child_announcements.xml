@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingTop="4dp" >
+    android:paddingTop="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,5 +33,5 @@
         android:layout_height="wrap_content"
         android:paddingBottom="8dp"
         android:paddingTop="16dp"
-        android:src="@drawable/divider" />
+        app:srcCompat="@drawable/divider" />
 </LinearLayout>
