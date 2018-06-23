@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_grey_100"
+        android:background="@color/md_grey_200"
         android:orientation="vertical">
 
         <TextView
@@ -23,8 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:padding="2dp"
-            android:textStyle="italic" />
+            android:padding="2dp" />
 
     </LinearLayout>
 
