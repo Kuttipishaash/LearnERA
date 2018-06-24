@@ -2,8 +2,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/md_red_800"
     tools:context="com.learnera.app.fragments.NetworkNotAvailableFragment">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/no_network_error_text_view"
+        android:tint="@color/md_white_1000"
+        app:srcCompat="@drawable/ic_le" />
 
 
     <TextView
@@ -12,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
+        android:textColor="@color/md_white_1000"
         android:text="NO INTERNET CONNECTION!\nPlease reconnect and try again..."
         android:textAlignment="center" />
 
@@ -23,6 +35,8 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         style="@style/Widget.AppCompat.Button.Colored"
+        android:textColor="@color/md_grey_900"
+        android:background="@color/md_white_1000"
         android:text="RETRY" />
 
 

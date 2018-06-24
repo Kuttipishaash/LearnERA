@@ -206,7 +206,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     }
 
     private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(getActivity());
+        mProgressDialog = new ProgressDialog(getActivity(),R.style.ProgressDialogCustom);
         mProgressDialog.setMessage("Loading Data...");
         mProgressDialog.setCancelable(false);
     }

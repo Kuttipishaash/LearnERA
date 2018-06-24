@@ -185,7 +185,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(view.getContext());
+        mProgressDialog = new ProgressDialog(view.getContext(),R.style.ProgressDialogCustom);
         mProgressDialog.setMessage("Loading data from RSMS...");
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
