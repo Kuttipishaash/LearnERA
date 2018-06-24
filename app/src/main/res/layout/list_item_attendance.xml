@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingLeft="16dp"
@@ -37,8 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test Subject"
-                android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/list_attendance_attended_classes"
@@ -55,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
-                android:text="Duty attendence included "/>
+                android:text="Duty attendence included " />
 
 
             <TextView
@@ -64,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
-                android:text="Bunking text field"/>
+                android:text="Bunking text field" />
 
         </LinearLayout>
 

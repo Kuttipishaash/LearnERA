@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ktu_announcement_expand"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
     android:orientation="vertical"
-    android:id="@+id/ktu_announcement_expand"
-    android:paddingTop="8dp">
+    android:paddingTop="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-    <TextView
-        android:id="@+id/announcement_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="5"
-        android:textSize="17sp"
-        android:textStyle="normal" />
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
-    <ImageView
-        android:id="@+id/expansion_arrow_announcements"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:tint="@color/md_grey_600"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_keyboard_arrow_down_black"/>
+        <TextView
+            android:id="@+id/announcement_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:textSize="17sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/expansion_arrow_announcements"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:tint="@color/md_grey_600"
+            app:srcCompat="@drawable/ic_keyboard_arrow_down_black" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/divider_ktu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
         android:paddingTop="16dp"
         app:srcCompat="@drawable/divider" />
 </LinearLayout>

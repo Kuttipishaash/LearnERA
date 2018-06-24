@@ -2,16 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:gravity="center"
     android:orientation="horizontal"
     android:paddingBottom="10dp"
-    android:gravity="center"
     android:paddingTop="10dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1.5"
         android:layout_gravity="center_vertical"
+        android:layout_weight="1.5"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -29,8 +31,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="XX123"
-            android:textColor="@color/md_red_800"
             android:textAlignment="center"
+            android:textColor="@color/md_red_800"
             android:textSize="13sp" />
 
     </LinearLayout>
@@ -45,9 +47,9 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="5"
             android:gravity="center_vertical"
-            android:layout_gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -67,14 +69,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Max Marks : "
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/max_marks_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -85,11 +87,11 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="2"
+            android:gravity="center_vertical"
             android:text="888"
             android:textAlignment="center"
-            android:gravity="center_vertical"
-            android:textSize="30sp"
             android:textColor="@color/md_grey_600"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
     </LinearLayout>
