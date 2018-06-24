@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/md_grey_100"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -11,14 +12,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_grey_200"
+        android:background="@drawable/rounded_button_white"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/announcement_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Long text Long textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong text"
             android:textSize="14sp" />
 
         <TextView
@@ -26,14 +30,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:padding="2dp" />
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="25dp"
+            android:text="xx-xx-xxxx" />
 
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
         android:paddingTop="16dp"
         app:srcCompat="@drawable/divider" />
 </LinearLayout>
