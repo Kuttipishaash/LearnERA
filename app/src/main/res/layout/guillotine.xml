@@ -28,8 +28,8 @@
             app:srcCompat="@drawable/ic_person_black" />
 
         <TextView
-            style="@style/TextView.GuillotineItem"
             android:id="@+id/guil_logged_user"
+            style="@style/TextView.GuillotineItem"
             android:text="Logged In User" />
     </LinearLayout>
 

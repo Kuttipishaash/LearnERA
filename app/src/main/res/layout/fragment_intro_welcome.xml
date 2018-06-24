@@ -5,7 +5,7 @@
     android:layout_weight="10"
     android:orientation="vertical">
 
-<!-- TODO: Add parallax effects -->
+    <!-- TODO: Add parallax effects -->
 
     <Space
         android:layout_width="fill_parent"

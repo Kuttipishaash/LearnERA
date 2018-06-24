@@ -75,12 +75,12 @@
                     android:id="@+id/login_status"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/md_red_900"
-                    android:text="NOT LOGGED IN"
-                    android:textAlignment="center"
                     android:gravity="center"
                     android:paddingBottom="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:text="NOT LOGGED IN"
+                    android:textAlignment="center"
                     android:textColor="@color/md_white_1000"
                     android:textSize="16sp" />
 

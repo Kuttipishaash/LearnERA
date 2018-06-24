@@ -10,7 +10,6 @@
     android:orientation="vertical">
 
 
-
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/about_scroll"
         android:layout_width="match_parent"
@@ -21,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/text_app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/pasajero"
                 android:padding="5dp"
                 android:text="LEARNERA"
-                android:fontFamily="@font/pasajero"
-                android:textColor="@color/mi_text_color_primary_dark"
                 android:textAlignment="center"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:textSize="30sp" />
 
             <ImageView
@@ -49,8 +49,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:padding="2dp"
-                android:textColor="@color/mi_text_color_primary_dark"
                 android:text="@string/app_version"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -74,16 +74,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Prejith Premkumar" />
+                    android:text="Prejith Premkumar"
+                    android:textColor="@color/mi_text_color_primary_dark" />
 
                 <TextView
                     android:id="@+id/about_text_developer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Prabhashankar Kannappan" />
+                    android:text="Prabhashankar Kannappan"
+                    android:textColor="@color/mi_text_color_primary_dark" />
             </LinearLayout>
 
             <LinearLayout
@@ -107,8 +107,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Mebin Johnson" />
+                    android:text="Mebin Johnson"
+                    android:textColor="@color/mi_text_color_primary_dark" />
             </LinearLayout>
 
 
@@ -132,22 +132,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Naina Fathima Sayed" />
+                    android:text="Naina Fathima Sayed"
+                    android:textColor="@color/mi_text_color_primary_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Sangeetha S R" />
+                    android:text="Sangeetha S R"
+                    android:textColor="@color/mi_text_color_primary_dark" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:textColor="@color/mi_text_color_primary_dark"
-                    android:text="Razni Azees" />
+                    android:text="Razni Azees"
+                    android:textColor="@color/mi_text_color_primary_dark" />
             </LinearLayout>
 
             <Button
@@ -156,27 +156,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="18dp"
                 android:layout_marginBottom="18dp"
-                android:paddingHorizontal="50dp"
-                android:clickable="true"
-                android:textColor="@color/mi_text_color_primary_light"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/rounded_button_white"
-                android:text="Contact Us" />
+                android:clickable="true"
+                android:paddingHorizontal="50dp"
+                android:text="Contact Us"
+                android:textColor="@color/mi_text_color_primary_light" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/mi_text_color_primary_dark"/>
+                android:background="@color/mi_text_color_primary_dark" />
 
             <TextView
                 android:id="@+id/about_text_disclaimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:textColor="@color/mi_text_color_primary_dark"
                 android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
                 android:textAlignment="center"
+                android:textColor="@color/mi_text_color_primary_dark"
                 android:textStyle="italic" />
 
         </LinearLayout>

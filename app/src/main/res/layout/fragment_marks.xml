@@ -37,6 +37,7 @@
         android:layout_below="@+id/linear_layout_marks_spinner_group"
         android:layout_marginTop="4dp"
         android:background="@drawable/border" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_marks"
         android:layout_width="match_parent"

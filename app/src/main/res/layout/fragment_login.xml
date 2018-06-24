@@ -129,10 +129,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:paddingHorizontal="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="9"
                     android:background="@drawable/rounded_button"
+                    android:paddingHorizontal="50dp"
                     android:text="LOGIN" />
 
             </LinearLayout>
