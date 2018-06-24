@@ -74,14 +74,12 @@
                 <TextView
                     android:id="@+id/login_status"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/app_name"
+                    android:layout_height="55dp"
                     android:background="@color/md_red_900"
-                    android:paddingBottom="20dp"
                     android:text="NOT LOGGED IN"
                     android:textAlignment="center"
+                    android:gravity="center"
+                    android:paddingBottom="5dp"
                     android:layout_marginBottom="10dp"
                     android:textColor="@color/md_white_1000"
                     android:textSize="16sp" />
@@ -92,7 +90,6 @@
                     android:id="@+id/card_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/login_status"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="@dimen/activity_horizontal_margin"
                     card_view:cardCornerRadius="5dp">
