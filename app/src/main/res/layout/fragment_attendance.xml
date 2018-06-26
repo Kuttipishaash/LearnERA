@@ -48,8 +48,7 @@
                 android:paddingTop="16dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0"
-                app:layout_scrollFlags="enterAlways|scroll">
+                app:layout_collapseParallaxMultiplier="0">
 
                 <Spinner
                     android:id="@+id/spinner_attendance"
@@ -154,10 +153,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
-                android:scrollbars="vertical"
                 android:visibility="visible"
                 app:layout_anchor="@+id/attendance_options_header"
                 app:layout_anchorGravity="bottom|center"
+                android:nestedScrollingEnabled="false"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
