@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,7 +107,14 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         spinner1 = (Spinner) view.findViewById(R.id.spinner_marks_semesters);
         spinner2 = (Spinner) view.findViewById(R.id.spinner_marks_category);
         //setupFAB();
+        initToolbar();
+
         return view;
+    }
+    private void initToolbar() {
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Attendance");
     }
 
     /*

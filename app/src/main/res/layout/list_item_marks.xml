@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:selectableItemBackground"
     android:clickable="true"
     android:gravity="center"
     android:orientation="horizontal"
-    android:paddingBottom="10dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="13dp"
+    android:paddingTop="13dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -91,7 +92,7 @@
             android:text="888"
             android:textAlignment="center"
             android:textColor="@color/md_grey_600"
-            android:textSize="30sp"
+            android:textSize="32sp"
             android:textStyle="bold" />
 
     </LinearLayout>

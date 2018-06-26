@@ -139,13 +139,14 @@
                 </LinearLayout>
 
 
+            </LinearLayout>
 
-            </LinearLayout>             <View
-            android:id="@+id/header_divider"
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="4dp"
-            android:background="@color/md_grey_300" />
+            <View
+                android:id="@+id/header_divider"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/md_grey_300" />
 
 
             <android.support.v7.widget.RecyclerView
@@ -153,10 +154,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:nestedScrollingEnabled="false"
+                android:scrollbars="vertical"
                 android:visibility="visible"
                 app:layout_anchor="@+id/attendance_options_header"
                 app:layout_anchorGravity="bottom|center"
-                android:nestedScrollingEnabled="false"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
