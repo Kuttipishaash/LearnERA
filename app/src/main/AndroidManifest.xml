@@ -24,6 +24,7 @@
         <activity
             android:name=".AttendanceActivity"
             android:label="Attendance"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
         <activity
