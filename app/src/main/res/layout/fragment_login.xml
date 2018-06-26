@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
@@ -49,7 +50,7 @@
             android:id="@+id/card_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="7dp"
+            app:cardCornerRadius="10dp"
             app:cardElevation="7dp">
 
             <LinearLayout
@@ -123,10 +124,10 @@
                     android:checked="true"
                     android:text="Remember Me" />
 
-                <Button
+                <android.support.v7.widget.AppCompatButton
                     android:id="@+id/button_login"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"

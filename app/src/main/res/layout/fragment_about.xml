@@ -99,7 +99,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
-                    android:text="Designer:"
+                    android:text="Frontend Developer:"
                     android:textColor="@color/mi_text_color_primary_dark"
                     android:textStyle="bold" />
 
@@ -153,14 +153,13 @@
             <Button
                 android:id="@+id/button_contact_us"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="18dp"
                 android:layout_marginTop="18dp"
                 android:background="@drawable/rounded_button_white"
                 android:clickable="true"
-                android:paddingHorizontal="50dp"
                 android:text="Contact Us"
                 android:textColor="@color/mi_text_color_primary_light" />
 
@@ -173,7 +172,7 @@
                 android:id="@+id/about_text_disclaimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:padding="17dp"
                 android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
                 android:textAlignment="center"
                 android:textColor="@color/mi_text_color_primary_dark"

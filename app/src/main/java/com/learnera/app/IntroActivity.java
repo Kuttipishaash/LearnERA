@@ -2,6 +2,7 @@ package com.learnera.app;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.RelativeLayout;
 
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
 import com.learnera.app.fragments.LoginFragment;
@@ -13,6 +14,9 @@ import com.learnera.app.fragments.LoginFragment;
 public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.IntroActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+//        RelativeLayout loginrl = (RelativeLayout) findViewById(R.id.login_root_layout);
+//        loginrl.setBackground(getResources().getDrawable(R.color.md_red_700));
 
         setFullscreen(true);
         super.onCreate(savedInstanceState);
@@ -52,6 +56,7 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .background(R.color.md_red_600)
                 .backgroundDark(R.color.md_red_900)
                 .fragment(new LoginFragment())
+
                 .canGoForward(false)
                 .build());
 
