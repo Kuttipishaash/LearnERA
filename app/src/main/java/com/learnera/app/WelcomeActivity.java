@@ -1,5 +1,6 @@
 package com.learnera.app;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,9 +8,11 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +25,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +46,9 @@ public class WelcomeActivity extends AppCompatActivity {
     LinearLayout mMarks;
     LinearLayout mSeating;
     TextView mLoginStatus;
+    TextView mGuilLoginStatus;
+
+    boolean doubleBackToExitPressedOnce = false;
 
     TextView mAppName;
     AlertDialog.Builder mSeatingDialogAlert;
@@ -73,11 +80,13 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        final FragmentActivity current_frag = (FragmentActivity) this;
 
         initViews();
 
 
         ButterKnife.bind(this);
+
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -114,18 +123,19 @@ public class WelcomeActivity extends AppCompatActivity {
                 User.logout(WelcomeActivity.this);
             }
         });
-        LinearLayout gaboutus = (LinearLayout) findViewById(R.id.guil_about_us);
-        gaboutus.setOnClickListener(new View.OnClickListener() {
+        LinearLayout gabout_us = (LinearLayout) findViewById(R.id.guil_about_us);
+        gabout_us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//TODO: Implement About
+
+                Utils.showAbout(current_frag);
             }
         });
 
 
 //        On Click for Log Out
-        LinearLayout glogut = (LinearLayout) findViewById(R.id.guil_contact_us);
-        glogut.setOnClickListener(new View.OnClickListener() {
+        LinearLayout gcont_us = (LinearLayout) findViewById(R.id.guil_contact_us);
+        gcont_us.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 gmenu.close();
@@ -138,7 +148,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout groot = (LinearLayout) findViewById(R.id.guil_root);
+        RelativeLayout groot = (RelativeLayout) findViewById(R.id.guil_root);
         groot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,7 +156,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-//        TextView gloggedin = (TextView) findViewById(R.id.guil_logged_user);
+        mGuilLoginStatus = findViewById(R.id.guil_logged_user);
 //        user = sharedPreferences.getString("user", null);
 //        gloggedin.setText(user);
 
@@ -186,9 +196,24 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            finishAffinity();
+            return;
+        }
 
-        finishAffinity();
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce = false;
+            }
+        }, 2000);
+
+
     }
 
     public void setUserStatus() {
@@ -199,6 +224,10 @@ public class WelcomeActivity extends AppCompatActivity {
         if (user != null) {
             longText = "Logged in as : " + user;
             mLoginStatus.setText(longText);
+            String[] fname = user.split(" ", 2);
+
+            mGuilLoginStatus.setText("Hey, " + fname[0] + "!");
+
         } else {
             longText = "Not logged into RSMS";
             mLoginStatus.setText(longText);

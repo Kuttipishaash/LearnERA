@@ -60,6 +60,10 @@ public class Utils {
             fragmentTransaction.addToBackStack("announcement");
             fragmentTransaction.add(R.id.announcement_network, fragment);
         }
+        else if(fragmentActivity instanceof WelcomeActivity){
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.add(R.id.welcome_root, fragment);
+        }
         else if(fragmentActivity instanceof SyllabusActivity) {
             fragmentTransaction.addToBackStack("syllabus");
             fragmentTransaction.add(R.id.fragment_syllabus, fragment);
