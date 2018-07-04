@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button_white"
+        android:background="@drawable/rounded_white"
         android:orientation="vertical">
 
         <TextView
@@ -32,6 +32,7 @@
             android:layout_gravity="end"
             android:layout_marginBottom="15dp"
             android:layout_marginEnd="25dp"
+            android:textColor="@color/md_red_900"
             android:text="xx-xx-xxxx" />
 
     </LinearLayout>
@@ -39,6 +40,8 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:paddingTop="4dp"
         app:srcCompat="@drawable/divider" />
 </LinearLayout>
+
+
