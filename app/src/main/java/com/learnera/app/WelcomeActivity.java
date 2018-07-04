@@ -48,6 +48,8 @@ public class WelcomeActivity extends AppCompatActivity {
     TextView mLoginStatus;
     TextView mGuilLoginStatus;
 
+    GuillotineAnimation gmenu;
+
     boolean doubleBackToExitPressedOnce = false;
 
     TextView mAppName;
@@ -103,7 +105,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 .setClosedOnStart(true)
                 .build();
 
-//        @Override
 //        public void onBackPressed () {
 //            if (!isOpened) {
 //                super.onBackPressed();
@@ -133,7 +134,7 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
 
-//        On Click for Log Out
+//        On Click for Contact Us
         LinearLayout gcont_us = (LinearLayout) findViewById(R.id.guil_contact_us);
         gcont_us.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,8 +158,6 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         mGuilLoginStatus = findViewById(R.id.guil_logged_user);
-//        user = sharedPreferences.getString("user", null);
-//        gloggedin.setText(user);
 
 
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);

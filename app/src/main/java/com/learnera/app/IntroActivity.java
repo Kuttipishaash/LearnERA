@@ -1,7 +1,9 @@
 package com.learnera.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.heinrichreimersoftware.materialintro.slide.FragmentSlide;
@@ -22,8 +24,8 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
         super.onCreate(savedInstanceState);
 
         addSlide(new FragmentSlide.Builder()
-                .background(R.color.md_teal_500)
-                .backgroundDark(R.color.md_teal_800)
+                .background(R.color.md_grey_800)
+                .backgroundDark(R.color.md_grey_900)
                 .fragment(R.layout.fragment_intro_welcome, R.style.Theme_Intro)
                 .canGoBackward(false)
                 .build());
@@ -52,21 +54,34 @@ public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.
                 .fragment(R.layout.fragment_intro_attendance, R.style.Theme_Intro)
                 .build());
 
+//        addSlide(new FragmentSlide.Builder()
+//                .background(R.color.md_red_600)
+//                .backgroundDark(R.color.md_red_900)
+//                .fragment(new LoginFragment())
+//
+//                .canGoForward(false)
+//                .build());
+
         addSlide(new FragmentSlide.Builder()
                 .background(R.color.md_red_600)
-                .backgroundDark(R.color.md_red_900)
-                .fragment(new LoginFragment())
-
-                .canGoForward(false)
+                .backgroundDark(R.color.md_red_800)
+                .fragment(R.layout.fragment_intro_seating_plan, R.style.Theme_Intro)
                 .build());
 
+    }
+
+    @Override
+    public void finish() {
+        startActivity(new Intent(this, LoginActivity.class));
+        super.finish();
     }
 
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-
-        finishAffinity();
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory(Intent.CATEGORY_HOME);
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(homeIntent);
     }
 }
