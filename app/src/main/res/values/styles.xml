@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/md_red_900</item>
         <item name="colorAccent">@color/md_red_900</item>
         <item name="colorButtonNormal">@color/md_red_900</item>
-        <item name="android:navigationBarColor">@color/md_grey_800</item>
+        <item name="android:navigationBarColor">@color/md_red_900</item>
         <item name="android:fontFamily">@font/abel_regular</item>
         <item name="fontFamily">@font/abel_regular</item>
     </style>
@@ -62,10 +62,10 @@
 
     <style name="home_icon_text_view">
         <item name="android:gravity">center</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:layout_margin">8dp</item>
-        <item name="android:layout_marginBottom">15dp</item>
-        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:textColor">@color/md_red_800</item>
     </style>
 
     <style name="home_icon_image_view">
@@ -73,6 +73,101 @@
         <item name="android:layout_margin">10dp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_height">90dp</item>
-        <item name="android:tint">@color/md_red_900</item>
+        <item name="android:tint">@color/md_red_800</item>
     </style>
+
+
+    <!-- Guillotine screen styles-->
+    <style name="LinearLayout" />
+
+    <style name="LinearLayout.GuillotineItem">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/guillotine_x_small_margin</item>
+        <item name="android:paddingBottom">@dimen/guillotine_x_small_margin</item>
+    </style>
+
+    <style name="TextView" />
+
+    <style name="TextView.ToolbarTitle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextView.GuillotineItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/guillotine_small_margin</item>
+        <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextView.GuillotineItem.Selected">
+        <item name="android:textColor">@color/md_white_1000</item>
+    </style>
+
+    <style name="Toolbar">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/md_red_900</item>
+    </style>
+
+    <style name="ImageView" />
+
+    <style name="ImageView.ContentItem">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ImageView.Hamburger" parent="Widget.AppCompat.ActionButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginBottom">
+            @dimen/abc_action_bar_overflow_padding_start_material
+        </item>
+    </style>
+
+    <style name="ImageView.GuillotineItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:tint">@color/md_white_1000</item>
+        <item name="android:layout_marginLeft">@dimen/guillotine_custom_margin</item>
+    </style>
+
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textColorPrimary">@color/md_white_1000</item>
+        <item name="actionBarWidgetTheme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:actionMenuTextColor">@color/md_white_1000</item>
+        <item name="android:background">@color/md_red_800</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="colorAccent">@color/md_white_1000</item>
+        <item name="android:tint">@color/md_white_1000</item>
+        <item name="android:buttonTint">@color/md_white_1000</item>
+        <item name="android:titleTextColor">@color/md_white_1000</item>
+        <item name="android:editTextColor">@color/md_white_1000</item>
+        <item name="android:checkMarkTint">@color/md_white_1000</item>
+    </style>
+
+    <style name="ProgressDialogCustom" parent="Theme.AppCompat.Dialog">
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textColorPrimary">@color/md_white_1000</item>
+        <item name="actionBarWidgetTheme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:actionMenuTextColor">@color/md_white_1000</item>
+        <item name="android:background">@color/md_red_800</item>
+        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="colorAccent">@color/md_white_1000</item>
+        <item name="android:tint">@color/md_white_1000</item>
+        <item name="android:buttonTint">@color/md_white_1000</item>
+        <item name="android:titleTextColor">@color/md_white_1000</item>
+    </style>
+
 </resources>

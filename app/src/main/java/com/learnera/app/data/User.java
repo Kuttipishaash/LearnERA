@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
+import android.view.ContextThemeWrapper;
 import android.widget.Toast;
 
+import com.learnera.app.R;
 import com.learnera.app.WelcomeActivity;
 
 /**
@@ -35,7 +37,7 @@ public class User {
     public static void logout(final Activity activity) {
         if (isLoggedIn(activity)) {
             //shows confirmation dialog for logout operation
-            AlertDialog.Builder alert = new AlertDialog.Builder(activity);
+            AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.AlertDialogCustom));
             alert.setTitle("Logout")
                     .setMessage("Are you sure you want to logout")
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

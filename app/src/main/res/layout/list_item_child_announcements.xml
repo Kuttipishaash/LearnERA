@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/md_grey_100"
     android:orientation="vertical"
-    android:paddingTop="4dp" >
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/md_grey_100"
+        android:background="@drawable/rounded_white"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/announcement_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="Long text Long textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong text"
             android:textSize="14sp" />
 
         <TextView
@@ -23,15 +30,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:padding="2dp"
-            android:textStyle="italic" />
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="25dp"
+            android:textColor="@color/md_red_900"
+            android:text="xx-xx-xxxx" />
 
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
-        android:paddingTop="16dp"
-        android:src="@drawable/divider" />
+        android:paddingTop="4dp"
+        app:srcCompat="@drawable/divider" />
 </LinearLayout>
+
+

@@ -19,6 +19,7 @@ import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.AttendanceActivity;
 import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
+import com.learnera.app.WelcomeActivity;
 
 /**
  * Created by praji on 8/8/2017.
@@ -41,7 +42,9 @@ public class AboutFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_about, container, false);
         setHasOptionsMenu(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        }
         mContact = (Button) view.findViewById(R.id.button_contact_us);
 
 
@@ -68,19 +71,18 @@ public class AboutFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
-        if(getActivity() instanceof AttendanceActivity) {
+        if (getActivity() instanceof AttendanceActivity) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Attendance");
-        }
-        else if(getActivity() instanceof MarksActivity) {
+        } else if (getActivity() instanceof MarksActivity) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Marks");
-        }
-        else if(getActivity() instanceof AnnouncementsActivity) {
+        } else if (getActivity() instanceof AnnouncementsActivity) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Announcements");
-        }
-        else {
+        } else if (getActivity() instanceof WelcomeActivity) {
+            startActivity(new Intent(getActivity(),WelcomeActivity.class));
+        } else {
             /*
             FragmentManager fragmentManager = getFragmentManager();
             if(fragmentManager.getBackStackEntryCount() == 1) {

@@ -2,14 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
     android:orientation="vertical"
     android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:paddingTop="10dp">
 
     <TextView
         android:id="@+id/announcement_rset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Long text Long textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong text"
         android:textSize="18sp" />
 
     <TextView
@@ -17,7 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:padding="4dp"
-        android:textStyle="italic" />
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="xx-xx-xxxx"
+        android:textColor="@color/md_red_900" />
 
 </LinearLayout>

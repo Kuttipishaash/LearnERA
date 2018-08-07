@@ -15,6 +15,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -87,7 +88,7 @@ public class AnnouncementsRSETFragment extends Fragment {
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override
             public void onItemClick(final View view, int position) {
-                mBrowserDialog = new AlertDialog.Builder(getActivity());
+                mBrowserDialog = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
                 mBrowserDialog.setMessage("Want to view the detailed announcement?");
                 mBrowserDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
@@ -177,7 +178,7 @@ public class AnnouncementsRSETFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            mLoading = new ProgressDialog(getActivity());
+            mLoading = new ProgressDialog(getActivity(),R.style.ProgressDialogCustom);
             mLoading.setMessage("Loading  RSET Data...");
             mLoading.setCancelable(false);
             mLoading.show();

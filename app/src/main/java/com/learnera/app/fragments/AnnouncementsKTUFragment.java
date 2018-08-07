@@ -107,7 +107,7 @@ public class AnnouncementsKTUFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            mLoading = new ProgressDialog(getActivity());
+            mLoading = new ProgressDialog(getActivity(), R.style.ProgressDialogCustom);
             mLoading.setMessage("Loading KTU Data...");
             mLoading.setCancelable(false);
             mLoading.show();

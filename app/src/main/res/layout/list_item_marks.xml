@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/AppTheme.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:gravity="center"
     android:orientation="horizontal"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp">
+    android:paddingBottom="13dp"
+    android:paddingTop="13dp">
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="1.5"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.5"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -18,59 +24,60 @@
             android:layout_height="wrap_content"
             android:text="XX"
             android:textAlignment="center"
-            android:textColor="@color/md_black_1000"
+            android:textColor="@color/md_grey_800"
             android:textSize="30sp" />
 
         <TextView
             android:id="@+id/subject_code_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
             android:text="XX123"
+            android:textAlignment="center"
+            android:textColor="@color/md_red_800"
             android:textSize="13sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_weight="6"
         android:layout_height="wrap_content"
+        android:layout_weight="6"
         android:orientation="horizontal"
         android:padding="4dp">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
             android:layout_weight="5"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/subject_name_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="Subject Name Here :: Subject Name Here :: Subject Name Here"
-                android:textSize="16sp" />
+                android:text="Subject Name Here"
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="bottom"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Max Marks : "
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
+                    android:textSize="14sp" />
+
                 <TextView
                     android:id="@+id/max_marks_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="888"
-                    android:textSize="14sp"
-                    android:textStyle="italic" />
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -78,12 +85,15 @@
         <TextView
             android:id="@+id/obtained_marks_text_view"
             android:layout_width="0dp"
-            android:layout_weight="2"
             android:layout_height="match_parent"
-            android:textAlignment="center"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
             android:text="888"
-            android:textStyle="bold"
-            android:textSize="30sp" />
+            android:textAlignment="center"
+            android:textColor="@color/md_grey_600"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

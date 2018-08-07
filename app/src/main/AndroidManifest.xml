@@ -14,7 +14,7 @@
         <activity
             android:name=".WelcomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/WelcomeTheme">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,16 +24,18 @@
         <activity
             android:name=".AttendanceActivity"
             android:label="Attendance"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".IntroActivity"
             android:label="Introduction"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.Intro" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MarksActivity"
             android:label="Marks"
+            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ContactsActivity"

@@ -1,5 +1,6 @@
 package com.learnera.app;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,21 +8,34 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.customtabs.CustomTabsIntent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+import com.learnera.app.fragments.AboutFragment;
+import com.yalantis.guillotine.animation.GuillotineAnimation;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -32,11 +46,31 @@ public class WelcomeActivity extends AppCompatActivity {
     LinearLayout mMarks;
     LinearLayout mSeating;
     TextView mLoginStatus;
+    TextView mGuilLoginStatus;
+
+    boolean about_us_open = false;
+
+    boolean doubleBackToExitPressedOnce = false;
+
     TextView mAppName;
     AlertDialog.Builder mSeatingDialogAlert;
 
     SharedPreferences sharedPreferences;
     SharedPreferences preferences;
+
+    private static final long RIPPLE_DURATION = 250;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    //TODO: implement bindview
+    //@BindView(R.id.welcome_root)
+    FrameLayout welcome_root;
+
+    //TODO: implement bindview
+    //@BindView(R.id.content_hamburger)
+    View contentHamburger;
+    private boolean isOpened = true;
 
     String user;
 
@@ -48,6 +82,84 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        final FragmentActivity current_frag = (FragmentActivity) this;
+
+        initViews();
+
+
+        ButterKnife.bind(this);
+
+
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setTitle(null);
+
+        }
+        welcome_root = findViewById(R.id.welcome_root);
+        contentHamburger = findViewById(R.id.content_hamburger);
+
+        View guillotineMenu = getLayoutInflater().inflate(R.layout.guillotine, null);
+        final GuillotineAnimation gmenu = new GuillotineAnimation.GuillotineBuilder(guillotineMenu, guillotineMenu.findViewById(R.id.guillotine_hamburger), contentHamburger)
+                .setStartDelay(RIPPLE_DURATION)
+                .setActionBarViewForAnimation(toolbar)
+                .setClosedOnStart(true)
+                .build();
+
+//        public void onBackPressed () {
+//            if (!isOpened) {
+//                super.onBackPressed();
+//            }
+//            gmenu.close();
+//        }
+
+
+        welcome_root.addView(guillotineMenu);
+        LinearLayout glogout = (LinearLayout) findViewById(R.id.guil_logout);
+        glogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gmenu.close();
+                SharedPreferences sharedPreferences = WelcomeActivity.this.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                User.logout(WelcomeActivity.this);
+            }
+        });
+        LinearLayout gabout_us = (LinearLayout) findViewById(R.id.guil_about_us);
+        gabout_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                about_us_open = true;
+
+                Utils.showAbout(current_frag);
+            }
+        });
+
+
+//        On Click for Contact Us
+        LinearLayout gcont_us = (LinearLayout) findViewById(R.id.guil_contact_us);
+        gcont_us.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gmenu.close();
+                Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+                sendIntent.setData(Uri.parse("mailto:"));
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "");
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"learneraproject@gmail.com"});
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnEra");
+                startActivity(sendIntent);
+            }
+        });
+
+        RelativeLayout groot = (RelativeLayout) findViewById(R.id.guil_root);
+        groot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gmenu.close();
+            }
+        });
+
+        mGuilLoginStatus = findViewById(R.id.guil_logged_user);
+
 
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
@@ -64,13 +176,14 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
         }
 
-        initViews();
 
         //Set font
         Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
         Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
         mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
+
+
     }
 
     @Override
@@ -83,9 +196,29 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        if (!about_us_open) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                finishAffinity();
+                return;
+            }
 
-        finishAffinity();
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+
     }
 
     public void setUserStatus() {
@@ -96,6 +229,10 @@ public class WelcomeActivity extends AppCompatActivity {
         if (user != null) {
             longText = "Logged in as : " + user;
             mLoginStatus.setText(longText);
+            String[] fname = user.split(" ", 2);
+
+            mGuilLoginStatus.setText("Hey, " + fname[0] + "!");
+
         } else {
             longText = "Not logged into RSMS";
             mLoginStatus.setText(longText);
@@ -105,6 +242,8 @@ public class WelcomeActivity extends AppCompatActivity {
     public void initViews() {
 
         mLoginStatus = findViewById(R.id.login_status);
+//        mGuilLoginStatus = findViewById(R.id.guil_logged_user);
+
         mAppName = findViewById(R.id.app_name);
 
         mAnnouncement = findViewById(R.id.drawable_announcement);
@@ -167,7 +306,7 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         });
 
-        mSeatingDialogAlert = new AlertDialog.Builder(this);
+        mSeatingDialogAlert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         mSeatingDialogAlert.setTitle("Attention");
         mSeatingDialogAlert.setMessage("If you receive a message that the 'PDF cannot be opened', then it implies that the seating plan has not been uploaded." +
                 " This is caused by the improper implementation used by RSMS to display the file");
@@ -189,7 +328,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         LayoutInflater inflater = getLayoutInflater();
         View dialoglayout = inflater.inflate(R.layout.dialog_ktu_id, null);
-        AlertDialog.Builder ktuIdDialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder ktuIdDialog = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
         ktuIdDialog.setView(dialoglayout);
         final EditText input = dialoglayout.findViewById(R.id.et_ktu_id_dki);
         final CheckBox checkBox = dialoglayout.findViewById(R.id.cb_remember_ktu_id_dki);

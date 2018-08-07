@@ -8,11 +8,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +30,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 
 import com.learnera.app.Animations.MyBounceInterpolator;
 import com.learnera.app.R;
@@ -101,6 +106,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private RadioGroup attendancePercentSelector;
     //For enabling/disabling on duty
     private RadioGroup dutyEnablerSelector;
+    boolean isFabHide = false;
 
     public AttendanceFragment() {
     }
@@ -109,7 +115,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = User.getLoginInfo(getActivity());
+
+
     }
+
+
 
 
     @Nullable
@@ -147,7 +157,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         //For attendance details
         fab = view.findViewById(R.id.attendance_fab);
-        fab.setSize(FloatingActionButton.SIZE_NORMAL);
         final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
         MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
         myAnim.setInterpolator(interpolator);
@@ -161,7 +170,39 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         });
 
         setRadioButtons();
+
+        initToolbar();
+        initComponent();
+
         return view;
+    }
+    private void initToolbar() {
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Attendance");
+    }
+
+    private void initComponent() {
+        NestedScrollView nested_content = view.findViewById(R.id.nested_scroll_view);
+        nested_content.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY < oldScrollY) { // up
+                    animateFab(false);
+                }
+                if (scrollY > oldScrollY) { // down
+                    animateFab(true);
+                }
+            }
+        });
+    }
+
+    private void animateFab(final boolean hide) {
+        FloatingActionButton fab_add = view.findViewById(R.id.attendance_fab);
+        if (isFabHide && hide || !isFabHide && !hide) return;
+        isFabHide = hide;
+        int moveY = hide ? (2 * fab_add.getHeight()) : 0;
+        fab_add.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
     }
 
     @Override
@@ -185,7 +226,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(view.getContext());
+        mProgressDialog = new ProgressDialog(view.getContext(), R.style.ProgressDialogCustom);
         mProgressDialog.setMessage("Loading data from RSMS...");
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
@@ -314,7 +355,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 switch (i) {
                     case R.id.attendance_cutoff_75:
                         user.setAttendenceCutoff(getActivity(), 75);
-                        if(dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
+                        if (dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
                             populateList(false);
                         } else {
                             populateList(true);
@@ -322,7 +363,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         break;
                     case R.id.attendance_cutoff_80:
                         user.setAttendenceCutoff(getActivity(), 80);
-                        if(dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
+                        if (dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
                             populateList(false);
                         } else {
                             populateList(true);
@@ -639,6 +680,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             return null;
         }
     }
+
 
 
 }
