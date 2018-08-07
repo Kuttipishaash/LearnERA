@@ -1,5 +1,7 @@
 package com.learnera.app.data;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,12 +60,22 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
         holder.mSubjectCodeField.setText(mSubjectCodeList.get(position));
         holder.mAttendedClasses.setText("Classes missed : " + missed + "/" + total);
 
-        if(!isDutyEnabled) {
+        if (!isDutyEnabled) {
             //to set number of classes bunkable
             String classCut = bunkCalculate(missed, total);
 
             holder.mBunkField.setText(classCut);
             holder.mPercentageField.setText(mPercentageList.get(position));
+
+//            Float percent=Float.valueOf(mPercentageList.get(position));
+
+            if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) <= 75.0) {
+                holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
+            } else if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) <= 80.0) {
+                holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
+            } else {
+                holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
+            }
 
         } else {
             //to set attendence percentage incl duty attendance
@@ -71,6 +83,16 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             String classCutInclDuty = bunkCalculate((missed - onduty), total);
 
             holder.mPercentageField.setText(percentInclDuty + "%");
+
+            if (Float.valueOf(percentInclDuty) <= 75.0) {
+                holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
+            } else if (Float.valueOf(percentInclDuty) <= 80.0) {
+                holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
+            } else {
+                holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
+            }
+
+
             holder.mBunkField.setText(classCutInclDuty);
             holder.mOnDutyClasses.setText("On Duty : " + onduty + " classes");
         }
@@ -151,7 +173,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             mAttendedClasses = (TextView) v.findViewById(R.id.list_attendance_attended_classes);
             mOnDutyClasses = (TextView) v.findViewById(R.id.list_attendance_duty_attendence);
 
-            if(!isDutyEnabled) {
+            if (!isDutyEnabled) {
                 mOnDutyClasses.setVisibility(View.GONE);
             }
         }

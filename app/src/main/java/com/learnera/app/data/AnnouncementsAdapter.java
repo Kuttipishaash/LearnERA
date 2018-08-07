@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
@@ -70,12 +71,14 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
 
         public TextView listHeader;
         public ImageView expansionArrow;
+        public LinearLayout layoutexpand;
         public ImageView divider;
         public MyParentViewHolder(View itemView) {
             super(itemView);
             listHeader = (TextView) itemView.findViewById(R.id.announcement_title);
             divider = (ImageView) itemView.findViewById(R.id.divider_ktu);
             expansionArrow = (ImageView) itemView.findViewById(R.id.expansion_arrow_announcements);
+            layoutexpand = (LinearLayout) itemView.findViewById(R.id.ktu_announcement_expand);
 
             final RotateAnimation rotateAnimation = new RotateAnimation(180.0f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
             rotateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -83,6 +86,22 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
             rotateAnimation.setDuration(600);
             rotateAnimation.setFillAfter(true);
 
+            layoutexpand.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (isExpanded()) {
+                        expansionArrow.startAnimation(rotateAnimation);
+                        divider.setVisibility(View.VISIBLE);
+                        expansionArrow.setImageResource(R.drawable.ic_keyboard_arrow_down_black);
+                        collapseView();
+                    } else {
+                        expansionArrow.startAnimation(rotateAnimation);
+                        divider.setVisibility(View.GONE);
+                        expansionArrow.setImageResource(R.drawable.ic_keyboard_arrow_up_black);
+                        expandView();
+                    }
+                }
+            });
             expansionArrow.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

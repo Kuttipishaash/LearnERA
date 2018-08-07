@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LearnERA</string>
-    <string name="app_version">Version: 2.0</string>
+    <string name="app_version">Version: 3.0</string>
 
     <!-- Strings for intro screens -->
     <string name="intro_welcome_desc">Everything a student needs in RSET</string>
@@ -15,6 +15,8 @@
     <string name="intro_syllabus_desc">Learn what you have to learn about</string>
     <string name="intro_announcement_title">Announcements</string>
     <string name="intro_announcement_desc">Stay updated with what\'s going on</string>
+    <string name="intro_seating_title">Seating Plan</string>
+    <string name="intro_seating_desc">Get you\'re seating plan on the go.</string>
 
     <!-- Navigation strings -->
     <string name="navigate_back_home">Take Me Back Home!</string>

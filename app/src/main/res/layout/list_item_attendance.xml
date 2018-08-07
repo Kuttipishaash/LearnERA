@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingLeft="16dp"
@@ -11,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="true"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -27,6 +30,7 @@
                 android:padding="2dp"
                 android:text="TEST"
                 android:textAllCaps="true"
+                android:textColor="@color/md_red_900"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -35,7 +39,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test Subject"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/list_attendance_attended_classes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="Classes Missed" />
+
+
+            <TextView
+                android:id="@+id/list_attendance_duty_attendence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp"
+                android:text="Duty attendence included " />
+
 
             <TextView
                 android:id="@+id/list_attendance_class_cut"
@@ -43,8 +66,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
-                android:text="Bunking text field"
-                android:textStyle="italic" />
+                android:text="Bunking text field" />
 
         </LinearLayout>
 
@@ -57,31 +79,12 @@
                 android:id="@+id/list_attendance_percentage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|right"
+                android:gravity="center|end"
                 android:text="100%"
-                android:textAlignment="center"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/list_attendance_attended_classes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        android:text="attended classes"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/list_attendance_duty_attendence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="2dp"
-        android:paddingTop="2dp"
-        android:text="Duty attendence included "
-        android:textStyle="italic" />
 
 
 </LinearLayout>

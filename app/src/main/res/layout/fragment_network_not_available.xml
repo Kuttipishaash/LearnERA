@@ -1,9 +1,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context="com.learnera.app.fragments.NetworkNotAvailableFragment">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/no_network_error_text"
+        android:layout_centerInParent="true"
+        android:tint="@color/md_white_1000"
+        app:srcCompat="@drawable/ic_signal_wifi_off_black_24dp" />
+
+    <TextView
+        android:id="@+id/no_network_error_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/no_network_error_text_view"
+        android:text="Whoops!"
+        android:textAlignment="center"
+        android:textColor="@color/md_white_1000"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
 
     <TextView
@@ -12,18 +34,31 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="16dp"
-        android:text="NO INTERNET CONNECTION!\nPlease reconnect and try again..."
-        android:textAlignment="center" />
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="No internet connections found. Check your connection or try again."
+        android:textAlignment="center"
+        android:textColor="@color/md_white_1000" />
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_retry_connection"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/no_network_error_text_view"
         android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:text="RETRY" />
+        android:background="@drawable/rounded_button_white"
+        android:text="RETRY"
+        android:textColor="@color/mi_text_color_primary_light" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:alpha="0.2"
+        android:tint="@color/md_black_1000"
+        app:srcCompat="@drawable/ic_le" />
 
 
 </RelativeLayout>

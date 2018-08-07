@@ -12,12 +12,17 @@
         android:id="@+id/et_ktu_id_dki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxLines="1" />
+        android:maxLines="1"
+        android:textColor="@color/md_white_1000"
+        android:textColorHint="@color/md_white_1000" />
 
     <CheckBox
         android:id="@+id/cb_remember_ktu_id_dki"
+        style="@style/AlertDialogCustom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:buttonTint="@color/md_white_1000"
         android:checked="true"
         android:text="Remember ID" />
 
