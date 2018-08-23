@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
@@ -31,16 +30,15 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-
-import com.learnera.app.Animations.MyBounceInterpolator;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
-import com.learnera.app.data.AttendanceAdapter;
-import com.learnera.app.data.AttendanceTableAdapter;
+import com.learnera.app.adapters.AttendanceAdapter;
+import com.learnera.app.adapters.AttendanceTableAdapter;
+import com.learnera.app.anim.MyBounceInterpolator;
 import com.learnera.app.data.AttendanceTableCells;
 import com.learnera.app.data.AttendanceTableRow;
 import com.learnera.app.data.Constants;
 import com.learnera.app.data.User;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -58,7 +56,7 @@ import java.util.regex.Pattern;
  * Created by Prejith on 6/30/2017.
  */
 
-//// TODO: 7/31/2017 Code to be optimized and minor bugs to be fixed.
+// TODO: 7/31/2017 Code to be optimized and minor bugs to be fixed.
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -80,7 +78,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     JSoupSpinnerTask jSoupSpinnerTask;
     Dialog dialog;
 
-    //Animations
+    //anim
     Animation fadeInAnimation;
     Animation fadeOutAnimation;
     //To remove
@@ -590,13 +588,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mProgressDialog.dismiss();
 
             //to save users current semesters in case of any changes in the RSMS
-            String x = "s" + (count + 1);
+            int x = count + 1;
             user.setSem(x);
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("sem",
+            editor.putInt("sem",
                     user.getSem());
-            editor.commit();
+            editor.apply();
 
         }
 

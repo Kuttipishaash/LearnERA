@@ -2,27 +2,33 @@
 
 buildscript {
     repositories {
-        jcenter()
-        mavenCentral()
         google()
+        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
+        classpath 'com.android.tools.build:gradle:3.1.4'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath 'com.google.gms:google-services:3.2.1'
     }
 }
 
 allprojects {
     repositories {
+        google()
         jcenter()
         maven { url 'https://jitpack.io' }
         maven { url 'https://maven.fabric.io/public' }
-        google()
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    roomVersion = '1.1.1'
+    archLifecycleVersion = '1.1.1'
 }

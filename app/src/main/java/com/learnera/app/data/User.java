@@ -11,7 +11,7 @@ import android.view.ContextThemeWrapper;
 import android.widget.Toast;
 
 import com.learnera.app.R;
-import com.learnera.app.WelcomeActivity;
+import com.learnera.app.activities.WelcomeActivity;
 
 /**
  * Created by praji on 7/2/2017.
@@ -20,7 +20,7 @@ public class User {
     private String userName; //UID
     private int password;
     private String user; //Name of the user
-    private String sem;
+    private int sem;
     private String dept;
 
     public User() {
@@ -66,12 +66,30 @@ public class User {
         return user.getPassword() != 0 && user.getUserName() != null;
     }
 
-    public String getSem() {
-        return sem;
+    public static User getLoginInfo(FragmentActivity fragmentActivity) {
+
+        User result = new User();
+        //loads ALL contents of sharedpreferences file to a new User object and returns it.
+        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        result.setUser(sharedPreferences.getString("user", null));
+        result.setUserName(sharedPreferences.getString("username", null));
+        result.setPassword(sharedPreferences.getInt("password", 0));
+        result.setSem(sharedPreferences.getInt("sem", 0));
+        result.setDept(sharedPreferences.getString("dept", null));
+        return result;
     }
 
-    public void setSem(String sem) {
-        this.sem = sem;
+    public static User getLoginInfo(Activity activity) {
+
+        User result = new User();
+        //loads ALL contents of sharedpreferences file to a new User object and returns it.
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        result.setUser(sharedPreferences.getString("user", null));
+        result.setUserName(sharedPreferences.getString("username", null));
+        result.setPassword(sharedPreferences.getInt("password", 0));
+        result.setSem(sharedPreferences.getInt("sem", 0));
+        result.setDept(sharedPreferences.getString("dept", null));
+        return result;
     }
 
     public String getDept() {
@@ -106,36 +124,17 @@ public class User {
         this.password = password;
     }
 
-    public static User getLoginInfo(FragmentActivity fragmentActivity) {
-
-        User result = new User();
-        //loads ALL contents of sharedpreferences file to a new User object and returns it.
-        SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        result.setUser(sharedPreferences.getString("user", null));
-        result.setUserName(sharedPreferences.getString("username", null));
-        result.setPassword(sharedPreferences.getInt("password", 0));
-        result.setSem(sharedPreferences.getString("sem", null));
-        result.setDept(sharedPreferences.getString("dept", null));
-        return result;
+    public int getSem() {
+        return sem;
     }
 
-    public static User getLoginInfo(Activity activity) {
-
-        User result = new User();
-        //loads ALL contents of sharedpreferences file to a new User object and returns it.
-        SharedPreferences sharedPreferences = activity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        result.setUser(sharedPreferences.getString("user", null));
-        result.setUserName(sharedPreferences.getString("username", null));
-        result.setPassword(sharedPreferences.getInt("password", 0));
-        result.setSem(sharedPreferences.getString("sem", null));
-        result.setDept(sharedPreferences.getString("dept", null));
-        return result;
+    public void setSem(int sem) {
+        this.sem = sem;
     }
 
     public int getattendanceCutoff(FragmentActivity fragmentActivity) {
         SharedPreferences sharedPreferences = fragmentActivity.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        int attendanceCutoff = sharedPreferences.getInt("attendanceCutoff", 0);
-        return attendanceCutoff;
+        return sharedPreferences.getInt("attendanceCutoff", 0);
     }
 
     public void setAttendenceCutoff(FragmentActivity fragmentActivity, int attendanceCutoff) {
@@ -143,7 +142,7 @@ public class User {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("attendanceCutoff",
                 attendanceCutoff);
-        editor.commit();
+        editor.apply();
 
     }
 }

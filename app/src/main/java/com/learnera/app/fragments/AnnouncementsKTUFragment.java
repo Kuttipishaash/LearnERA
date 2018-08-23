@@ -14,12 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
-import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
+import com.learnera.app.activities.AnnouncementsActivity;
+import com.learnera.app.adapters.AnnouncementsAdapter;
 import com.learnera.app.data.AnnouncementKTUChild;
 import com.learnera.app.data.AnnouncementKTUParent;
-import com.learnera.app.data.AnnouncementsAdapter;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -62,7 +62,7 @@ public class AnnouncementsKTUFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_ktu);
+        mRecyclerView = view.findViewById(R.id.recycler_view_announcements_ktu);
         setupPage();
         setHasOptionsMenu(true);
         return view;

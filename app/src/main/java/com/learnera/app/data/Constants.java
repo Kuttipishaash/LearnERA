@@ -17,20 +17,7 @@ public class Constants {
     //SharedPreferences file to store login details
     public static final String PREFERENCE_FILE="user_preferences";
 
-    // Database constants
-    // Database Version
-    public final static int DATABASE_VERSION = 1;
 
-    // Database Name
-    public final static String DATABASE_NAME = "userManager";
 
-    // Contacts table name
-    public final static String TABLE_NAME = "users";
 
-    // Contacts Table Columns names
-    public final static String KEY_USER_ID = "uID";
-    public final static String KEY_USER_NAME = "uName";
-    public final static String KEY_PASSWORD = "password";
-    public final static String KEY_DEPARTMENT = "department";
-    public final static String TAG = "UserDatabaseHandler";
 }

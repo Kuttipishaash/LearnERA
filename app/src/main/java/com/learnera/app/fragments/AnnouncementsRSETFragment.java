@@ -3,7 +3,6 @@ package com.learnera.app.fragments;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,22 +16,17 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 
-import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
-import com.learnera.app.WebActivity;
-import com.learnera.app.WelcomeActivity;
+import com.learnera.app.activities.AnnouncementsActivity;
+import com.learnera.app.adapters.AnnouncementsRSETAdapter;
 import com.learnera.app.data.AnnouncementRSET;
-import com.learnera.app.data.AnnouncementsRSETAdapter;
 import com.learnera.app.data.Constants;
-import com.learnera.app.data.RecyclerItemClickListener;
 import com.learnera.app.data.User;
+import com.learnera.app.utils.RecyclerItemClickListener;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -70,7 +64,7 @@ public class AnnouncementsRSETFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = new User();
-        user = user.getLoginInfo(getActivity());
+        user = User.getLoginInfo(getActivity());
     }
 
 
@@ -78,7 +72,7 @@ public class AnnouncementsRSETFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements__rset, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_rset);
+        mRecyclerView = view.findViewById(R.id.recycler_view_announcements_rset);
 
         if (isVisibleToUser && (!isLoaded)) {
             setupPage();

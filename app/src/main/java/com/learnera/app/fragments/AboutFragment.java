@@ -15,11 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.learnera.app.AnnouncementsActivity;
-import com.learnera.app.AttendanceActivity;
-import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
-import com.learnera.app.WelcomeActivity;
+import com.learnera.app.activities.AnnouncementsActivity;
+import com.learnera.app.activities.AttendanceActivity;
+import com.learnera.app.activities.MarksActivity;
+import com.learnera.app.activities.WelcomeActivity;
 
 /**
  * Created by praji on 8/8/2017.
@@ -45,10 +45,10 @@ public class AboutFragment extends Fragment {
         if (((AppCompatActivity) getActivity()).getSupportActionBar() != null) {
             ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
         }
-        mContact = (Button) view.findViewById(R.id.button_contact_us);
+        mContact = view.findViewById(R.id.button_contact_us);
 
 
-        mAppName = (TextView) view.findViewById(R.id.text_app_name);
+        mAppName = view.findViewById(R.id.text_app_name);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
         mAppName.setTypeface(typeface);
         //To open gmail for sending feedback to the developer

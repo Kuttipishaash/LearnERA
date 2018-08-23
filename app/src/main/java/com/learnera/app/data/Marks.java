@@ -8,14 +8,12 @@ public class Marks {
     private String mOutOf;
     private String mSubName;
     private String mSubCode;
-    private String mSubLetter;
     private String mSubMarks;
 
-    public Marks(String mOutOf, String mSubName, String mSubCode, String mSubLetter, String mSubMarks) {
+    public Marks(String mOutOf, String mSubName, String mSubCode, String mSubMarks) {
         this.mOutOf = mOutOf;
         this.mSubName = mSubName;
         this.mSubCode = mSubCode;
-        this.mSubLetter = mSubLetter;
         this.mSubMarks = mSubMarks;
     }
 
@@ -47,13 +45,6 @@ public class Marks {
         this.mSubCode = mSubCode;
     }
 
-    public String getmSubLetter() {
-        return mSubLetter;
-    }
-
-    public void setmSubLetter(String mSubLetter) {
-        this.mSubLetter = mSubLetter;
-    }
 
     public String getmSubMarks() {
         return mSubMarks;
