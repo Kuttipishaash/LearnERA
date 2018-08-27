@@ -1,4 +1,4 @@
-package com.learnera.app.data;
+package com.learnera.app.models;
 
 import java.util.ArrayList;
 

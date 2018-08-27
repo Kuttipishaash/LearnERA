@@ -1,4 +1,4 @@
-package com.learnera.app.database;
+package com.learnera.app.database.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -7,30 +7,25 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.learnera.app.data.User;
+import com.learnera.app.database.DatabaseConstants;
+import com.learnera.app.models.User;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Dao
-public interface UsersDAO {
+public interface UserDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertUser(User user);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertUsers(ArrayList<User> subjects);
-
     @Update
     void updateUser(User user);
-
-    @Update
-    void updateUsers(ArrayList<User> subjects);
 
     @Delete
     void deleteUser(User user);
 
     @Query(DatabaseConstants.UsersTable.SELECT_ALL_USERS)
-    ArrayList<User> getUsers();
+    List<User> getUsers();
 
 }

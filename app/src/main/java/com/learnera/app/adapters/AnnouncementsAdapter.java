@@ -16,8 +16,8 @@ import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ChildViewHolder;
 import com.bignerdranch.expandablerecyclerview.ViewHolder.ParentViewHolder;
 import com.learnera.app.R;
-import com.learnera.app.data.AnnouncementKTUChild;
-import com.learnera.app.data.AnnouncementKTUParent;
+import com.learnera.app.models.AnnouncementKTUChild;
+import com.learnera.app.models.AnnouncementKTUParent;
 
 import java.util.List;
 
@@ -61,8 +61,10 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
         AnnouncementKTUChild subcategoryChildListItem = (AnnouncementKTUChild) childListItem;
         if (subcategoryChildListItem.getmAnnouncementDescription().equals("")) {
             childViewHolder.listDescription.setVisibility(View.GONE);
+
+        } else {
+            childViewHolder.listDescription.setText(subcategoryChildListItem.getmAnnouncementDescription());
         }
-        childViewHolder.listDescription.setText(subcategoryChildListItem.getmAnnouncementDescription());
         childViewHolder.listDate.setText(subcategoryChildListItem.getmAnnouncementDate());
 
     }

@@ -1,4 +1,4 @@
-package com.learnera.app.data;
+package com.learnera.app.models;
 
 /**
  * Created by Shankar on 18-10-2017.

@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.learnera.app.R;
-import com.learnera.app.data.AttendanceTableCells;
-import com.learnera.app.data.AttendanceTableRow;
+import com.learnera.app.models.AttendanceTableCells;
+import com.learnera.app.models.AttendanceTableRow;
 
 import java.util.ArrayList;
 

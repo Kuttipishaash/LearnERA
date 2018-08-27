@@ -13,10 +13,10 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.learnera.app.R;
-import com.learnera.app.data.User;
 import com.learnera.app.fragments.AnnouncementsKTUFragment;
 import com.learnera.app.fragments.AnnouncementsRSETFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 public class AnnouncementsActivity extends AppCompatActivity {
@@ -92,7 +92,7 @@ public class AnnouncementsActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-        public SectionsPagerAdapter(FragmentManager fm) {
+        SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

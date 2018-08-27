@@ -5,13 +5,12 @@
     android:layout_height="wrap_content"
     android:background="@color/md_grey_100"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="4dp">
+    android:padding="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="8dp"
         android:background="@drawable/rounded_white"
         android:orientation="vertical">
 
@@ -19,9 +18,6 @@
             android:id="@+id/announcement_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
             android:text="Long text Long textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong text"
             android:textSize="14sp" />
 
@@ -30,8 +26,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginBottom="15dp"
-            android:layout_marginEnd="25dp"
             android:textColor="@color/md_red_900"
             android:text="xx-xx-xxxx" />
 

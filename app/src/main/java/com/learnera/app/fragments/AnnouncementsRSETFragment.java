@@ -22,9 +22,9 @@ import android.view.ViewGroup;
 import com.learnera.app.R;
 import com.learnera.app.activities.AnnouncementsActivity;
 import com.learnera.app.adapters.AnnouncementsRSETAdapter;
-import com.learnera.app.data.AnnouncementRSET;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.User;
+import com.learnera.app.models.AnnouncementRSET;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.RecyclerItemClickListener;
 import com.learnera.app.utils.Utils;
 

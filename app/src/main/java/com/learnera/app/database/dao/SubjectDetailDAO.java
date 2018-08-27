@@ -1,4 +1,4 @@
-package com.learnera.app.database;
+package com.learnera.app.database.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -7,34 +7,38 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.learnera.app.data.Subjects;
+import com.learnera.app.database.DatabaseConstants;
+import com.learnera.app.models.SubjectDetail;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.security.auth.Subject;
 
 @Dao
-public interface SubjectsDAO {
+public interface SubjectDetailDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertSubject(Subject subject);
+    void insertSubject(SubjectDetail subject);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertSubjects(ArrayList<Subject> subjects);
+    void insertSubjects(ArrayList<SubjectDetail> subjects);
 
     @Update
-    void updateSubject(Subject subject);
+    void updateSubject(SubjectDetail subject);
 
     @Update
-    void updateSubjects(ArrayList<Subject> subjects);
+    void updateSubjects(ArrayList<SubjectDetail> subjects);
 
     @Delete
-    void deleteSubject(Subject subject);
+    void deleteSubject(SubjectDetail subject);
 
     @Query(DatabaseConstants.SubjectsTable.DELETE_ALL_QUERY)
     void deleteAll();
 
     @Query(DatabaseConstants.SubjectsTable.SELECT_QUERY + DatabaseConstants.SubjectsTable.SEMESTER + " = :sem AND " + DatabaseConstants.SubjectsTable.BRANCH + " = :branch")
-    ArrayList<Subjects> getSubjects(int sem, String branch);
+    List<SubjectDetail> getSubjects(int sem, String branch);
+
+    @Query(DatabaseConstants.SubjectsTable.SELECT_ALL_QUERY)
+    List<SubjectDetail> getAllSubjects();
 
 }

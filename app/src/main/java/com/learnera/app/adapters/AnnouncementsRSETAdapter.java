@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.learnera.app.R;
-import com.learnera.app.data.AnnouncementRSET;
+import com.learnera.app.models.AnnouncementRSET;
 
 import java.util.List;
 

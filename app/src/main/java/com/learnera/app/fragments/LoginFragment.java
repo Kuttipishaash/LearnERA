@@ -10,7 +10,6 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -40,9 +39,10 @@ import android.widget.Toast;
 import com.learnera.app.R;
 import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.adapters.NothingSelectedSpinnerAdapter;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.User;
-import com.learnera.app.database.UserDatabaseHandler;
+import com.learnera.app.database.LearnEraRoomDatabase;
+import com.learnera.app.database.dao.UserDAO;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
@@ -55,43 +55,44 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Prejith on 7/4/2017.
  */
 
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements View.OnClickListener {
+    // Constants
+    private static final String TAG = "LoginFragment";
 
-    UserDatabaseHandler userDatabaseHandler;
-    ArrayList<User> rememberedUsers;
-    ArrayList<String> listToDisplay;
+    // Data
+    private List<User> rememberedUsers;
+    private ArrayList<String> listToDisplay;
+    private ArrayList<String> brancheslist;
+    private User user;
 
-    Spinner mDepartmentSpinner;
-    CheckBox mRememberMe;
-    AutoCompleteTextView mUserNameAutoCompleteTextView;
-    EditText mPasswordEdtTxt;
-    TextView mTitleRsms;
-    TextView mTitleLogin;
-    TextView mCreators;
-    TextInputLayout mUserInput;
-    TextInputLayout mPassInput;
-    Button mLogin;
-    ProgressDialog mProgressDialog;
-    InputMethodManager inputMethodManager;
+    // Views
+    private View parentView;
+    private Spinner departmentSpinner;
+    private CheckBox rememberMeCheckbox;
+    private AutoCompleteTextView userNameAutoCompTextView;
+    private EditText passwordEditText;
+    private TextView rsmsTitleTextView;
+    private TextView loginTitleTextView;
+    private TextView creatorsTextView;
+    private TextInputLayout mUserInput;
+    private TextInputLayout mPassInput;
+    private Button loginButton;
+    private ProgressDialog mProgressDialog;
+    private InputMethodManager inputMethodManager;
 
-    User user;
+    // Jsoup handling variables
+    private Connection.Response res;
+    private String userName;
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-
-    Connection.Response res;
-    Elements u;
-    View view;
-
-    String name;
-    ArrayList<String> branchCodesList;
-
-    int countSemesters = 0;
+    // Database objects
+    private UserDAO userDAO;
 
     public LoginFragment() {
 
@@ -101,91 +102,66 @@ public class LoginFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
         user = new User();
     }
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.fragment_login, container, false);
+        parentView = inflater.inflate(R.layout.fragment_login, container, false);
         setHasOptionsMenu(true);
 
-        //Initialize database handler for users remembered
-        userDatabaseHandler = new UserDatabaseHandler(getContext());
+        //Initialize database access object(DAO) for users remembered
+        userDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).usersDAO();
 
-
-        initView();
+        initViews();
+        setSpinnerHeight();
         setupDropDownUsersList();
-
-
         initProgressDialog();
+        setupDepartmentSpinnerContents();
+        setFonts();
 
-        initSpinner();
+        loginButton.setOnClickListener(this);
+        return parentView;
+    }
 
+
+    private void setFonts() {
+        //Setting app title with custom font
         SpannableString s = new SpannableString("LEARNERA");
         s.setSpan(new TypefaceSpan(getActivity(), "Pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getActivity().setTitle(s);
 
         //set fonts to rsmslogin
-        mTitleRsms = view.findViewById(R.id.text_title_rsms);
-        mTitleLogin = view.findViewById(R.id.text_title_login);
-        mCreators = view.findViewById(R.id.text_creators);
         Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-Bold.ttf");
         Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
-        mTitleRsms.setTypeface(boldSans);
-        mTitleLogin.setTypeface(exLightSans);
-        mCreators.setTypeface(boldSans);
+        rsmsTitleTextView.setTypeface(boldSans);
+        loginTitleTextView.setTypeface(exLightSans);
+        creatorsTextView.setTypeface(boldSans);
+    }
 
-        mLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String userName = mUserNameAutoCompleteTextView.getText().toString();
-                String password = mPasswordEdtTxt.getText().toString();
-                if (TextUtils.isEmpty(userName)) {
-                    //set error on username field
-                    mUserInput.setError("Username cannot be empty");
+    // function to decrease spinner height due to issues in low res screens
+    //TODO: Make the decrease only for low res screens
+    private void setSpinnerHeight() {
+        try {
+            Field popup = Spinner.class.getDeclaredField("mPopup");
+            popup.setAccessible(true);
 
-                    //request focus for username field
-                    mUserInput.requestFocus();
+            // Get private mPopup member variable and try cast to ListPopupWindow
+            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(departmentSpinner);
 
-                    //show keyboard on emtpy username entered
-                    inputMethodManager.showSoftInput(mUserNameAutoCompleteTextView, InputMethodManager.SHOW_IMPLICIT);
-                } else if (TextUtils.isEmpty(password)) {
-                    mPassInput.setError("Password cannot be empty");
-                    mPassInput.requestFocus();
-                    inputMethodManager.showSoftInput(mPasswordEdtTxt, InputMethodManager.SHOW_IMPLICIT);
-                } else if (mDepartmentSpinner.getSelectedItemPosition() == 0) {
-                    TextView errorText = (TextView) mDepartmentSpinner.getSelectedView();
-                    errorText.setError("No branch selected");
-                    errorText.setTextColor(Color.RED);//just to highlight that this is an error
-                    errorText.setText("Please select a branch");//changes the selected item text to this
-                } else {
-                    if (Utils.isNetworkAvailable(getActivity())) {
-
-                        JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
-                        jSoupLoginTask.execute();
-
-                        Handler handler = new Handler();
-                        Utils.testInternetConnectivity(jSoupLoginTask, handler);
-
-                        user.setUserName(userName);
-                        user.setPassword(Integer.parseInt(password));
-                    } else {
-                        Utils.doWhenNoNetwork(getActivity());
-                    }
-                }
-            }
-        });
-
-        return view;
+            // Set popupWindow height to 300px
+            popupWindow.setHeight(300);
+        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
 
     //Login History Implementation//
     private void setupDropDownUsersList() {
-        rememberedUsers = userDatabaseHandler.getAllUsers();
+        rememberedUsers = userDAO.getUsers();
         listToDisplay = new ArrayList<String>();
         String tempUsersName;
         int tempIndexOfSpaceInUserName;
@@ -196,17 +172,17 @@ public class LoginFragment extends Fragment {
                 tempUsersName = tempUsersName.substring(0, tempIndexOfSpaceInUserName);
                 listToDisplay.add(rememberedUsers.get(i).getUserName());
             }
-            mUserNameAutoCompleteTextView.setThreshold(1);
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, listToDisplay);
-            mUserNameAutoCompleteTextView.setAdapter(arrayAdapter);
-            mUserNameAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            userNameAutoCompTextView.setThreshold(1);
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Objects.requireNonNull(getActivity()), android.R.layout.simple_list_item_1, listToDisplay);
+            userNameAutoCompTextView.setAdapter(arrayAdapter);
+            userNameAutoCompTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     int position = listToDisplay.indexOf(adapterView.getItemAtPosition(i));
-                    mPasswordEdtTxt.setText(Integer.toString(rememberedUsers.get(position).getPassword()));
-                    int indexOfSpinner = branchCodesList.indexOf(rememberedUsers.get(position).getDept());
-                    mDepartmentSpinner.setSelection(indexOfSpinner);
+                    passwordEditText.setText(Integer.toString(rememberedUsers.get(position).getPassword()));
+                    int indexOfSpinner = brancheslist.indexOf(rememberedUsers.get(position).getDept());
+                    departmentSpinner.setSelection(indexOfSpinner);
 
                 }
             });
@@ -230,52 +206,41 @@ public class LoginFragment extends Fragment {
         if (res.url().toString().equals(Constants.homeURL))
             return true;
         else {
-            Toast.makeText(view.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(parentView.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
-    private void initView() {
-        mLogin = view.findViewById(R.id.button_login);
-        mUserNameAutoCompleteTextView = view.findViewById(R.id.et_uid);
-        mPasswordEdtTxt = view.findViewById(R.id.et_password);
-        mUserInput = view.findViewById(R.id.text_input_username_field);
-        mPassInput = view.findViewById(R.id.text_input_password_field);
-        inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        mDepartmentSpinner = view.findViewById(R.id.department_spinner);
-        mRememberMe = view.findViewById(R.id.checkbox_remember_me);
-
-
-        //decreased spinner height due to issues in low res screens
-        try {
-            Field popup = Spinner.class.getDeclaredField("mPopup");
-            popup.setAccessible(true);
-
-            // Get private mPopup member variable and try cast to ListPopupWindow
-            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(mDepartmentSpinner);
-
-            // Set popupWindow height to 300px
-            popupWindow.setHeight(300);
-        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
-            // silently fail...
-        }
+    private void initViews() {
+        loginButton = parentView.findViewById(R.id.button_login);
+        userNameAutoCompTextView = parentView.findViewById(R.id.et_uid);
+        passwordEditText = parentView.findViewById(R.id.et_password);
+        mUserInput = parentView.findViewById(R.id.text_input_username_field);
+        mPassInput = parentView.findViewById(R.id.text_input_password_field);
+        inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+        departmentSpinner = parentView.findViewById(R.id.department_spinner);
+        rememberMeCheckbox = parentView.findViewById(R.id.checkbox_remember_me);
+        rsmsTitleTextView = parentView.findViewById(R.id.text_title_rsms);
+        loginTitleTextView = parentView.findViewById(R.id.text_title_login);
+        creatorsTextView = parentView.findViewById(R.id.text_creators);
     }
 
-    private void initSpinner() {
-        branchCodesList = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.branches_code_array)));
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(), R.array.branches_name_array, android.R.layout.simple_spinner_item);
+
+    private void setupDepartmentSpinnerContents() {
+        brancheslist = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.branches_code_array)));
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()), R.array.branches_name_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mDepartmentSpinner.setAdapter(new NothingSelectedSpinnerAdapter(
+        departmentSpinner.setAdapter(new NothingSelectedSpinnerAdapter(
                 adapter,
                 R.layout.contact_spinner_row_nothing_selected,
                 getActivity()
         ));
 
         //item selection handling
-        mDepartmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                user.setDept(branchCodesList.get(position));
+                user.setDept(brancheslist.get(position));
             }
 
             @Override
@@ -286,7 +251,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(view.getContext(),R.style.ProgressDialogCustom);
+        mProgressDialog = new ProgressDialog(parentView.getContext(), R.style.ProgressDialogCustom);
         mProgressDialog.setMessage("Checking login information...");
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
@@ -295,8 +260,8 @@ public class LoginFragment extends Fragment {
 
     private void login() {
         //write username and password to sharedpreference file
-        sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("user",
                 user.getUser());
         editor.putInt("sem",
@@ -309,25 +274,62 @@ public class LoginFragment extends Fragment {
                 user.getPassword());
         editor.putInt("attendanceCutoff",
                 75);
-        editor.commit();
-        if (mRememberMe.isChecked()) {
-            int indexCheck = -1;
-            indexCheck = listToDisplay.indexOf(user.getUserName());
+        editor.apply();
+        if (rememberMeCheckbox.isChecked()) {
+            int indexCheck = listToDisplay.indexOf(user.getUserName());
             if (indexCheck != -1)       //Checks if user is in the remembered users list
-                userDatabaseHandler.updateUser(user);   //if the user is remembered user his current values are updated
+                userDAO.updateUser(user);   //if the user is remembered user his current values are updated
             else
-                userDatabaseHandler.addUser(user);  //if it is a new user then his
+                userDAO.insertUser(user);  //if it is a new user then his
         } else {
-            int indexCheck = -1;
-            indexCheck = listToDisplay.indexOf(user.getUserName());
+            int indexCheck = listToDisplay.indexOf(user.getUserName());
             if (indexCheck != -1)       //Checks if user is in the remembered users list
-                userDatabaseHandler.deleteUser(user);   //if the user is remembered user his current values are updated
+                userDAO.deleteUser(user);   //if the user is remembered user his current values are updated
         }
 
-        Toast.makeText(view.getContext(), "Logged in as: \n" + user.getUser(), Toast.LENGTH_SHORT)
-                .show();
-
         startActivity(new Intent(getActivity(), WelcomeActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.button_login) {
+            String userName = userNameAutoCompTextView.getText().toString();
+            String password = passwordEditText.getText().toString();
+            if (TextUtils.isEmpty(userName)) {
+                //set error on username field
+                mUserInput.setError("Username cannot be empty");
+
+                //request focus for username field
+                mUserInput.requestFocus();
+
+                //show keyboard on emtpy username entered
+                inputMethodManager.showSoftInput(userNameAutoCompTextView, InputMethodManager.SHOW_IMPLICIT);
+            } else if (TextUtils.isEmpty(password)) {
+                mPassInput.setError("Password cannot be empty");
+                mPassInput.requestFocus();
+                inputMethodManager.showSoftInput(passwordEditText, InputMethodManager.SHOW_IMPLICIT);
+            } else if (departmentSpinner.getSelectedItemPosition() == 0) {
+                TextView errorText = (TextView) departmentSpinner.getSelectedView();
+                errorText.setError("No branch selected");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Please select a branch");//changes the selected item text to this
+            } else {
+                if (Utils.isNetworkAvailable(getActivity())) {
+
+                    JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
+                    jSoupLoginTask.execute();
+
+                    Handler handler = new Handler();
+                    Utils.testInternetConnectivity(jSoupLoginTask, handler);
+
+                    user.setUserName(userName);
+                    user.setPassword(Integer.parseInt(password));
+                } else {
+                    Utils.doWhenNoNetwork(getActivity());
+                }
+            }
+        }
+
     }
 
     private class JSoupLoginTask extends AsyncTask<Void, Void, Void> {
@@ -346,23 +348,19 @@ public class LoginFragment extends Fragment {
 
             if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
-                Utils.doWhenNoNetwork(getActivity());
+                Utils.doWhenNoNetwork(Objects.requireNonNull(getActivity()));
             }
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
+            user.setSem(0);
 
-            for (Element ls : list) {
-                for (Element opt : ls.select("option")) {
-                    countSemesters += 1;
-                }
-            }
-            user.setSem(countSemesters);
+            Element ls = list.first();
+            user.setSem(ls.select("option").size());
 
-            name = u.text();
-            user.setUser(name);
+            user.setUser(userName);
 
             mProgressDialog.dismiss();
 
@@ -384,7 +382,7 @@ public class LoginFragment extends Fragment {
                 Document doc = Jsoup.connect(Constants.homeURL)
                         .cookies(res.cookies())
                         .get();
-                u = doc.select("strong");
+                userName = doc.select("strong").text();
                 Document doc2 = Jsoup.connect(Constants.attendanceURL)
                         .cookies(res.cookies())
                         .get();
@@ -406,14 +404,14 @@ public class LoginFragment extends Fragment {
          * An <code>LruCache</code> for previously loaded typefaces.
          */
         private LruCache<String, Typeface> sTypefaceCache =
-                new LruCache<String, Typeface>(12);
+                new LruCache<>(12);
 
         private Typeface mTypeface;
 
         /**
          * Load the {@link Typeface} and apply to a {@link Spannable}.
          */
-        public TypefaceSpan(Context context, String typefaceName) {
+        private TypefaceSpan(Context context, String typefaceName) {
             mTypeface = sTypefaceCache.get(typefaceName);
 
             if (mTypeface == null) {

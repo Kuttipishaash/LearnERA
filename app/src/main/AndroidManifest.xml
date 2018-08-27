@@ -24,9 +24,8 @@
         <activity
             android:name=".activities.AttendanceActivity"
             android:label="Attendance"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.IntroActivity"
             android:label="Introduction"
@@ -35,8 +34,8 @@
         <activity
             android:name=".activities.MarksActivity"
             android:label="Marks"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.ContactsActivity"
             android:label="Contacts"
@@ -56,10 +55,8 @@
         <activity
             android:name=".activities.SyllabusActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".activities.WebActivity"
-            android:screenOrientation="portrait" />
-
+        <activity android:name=".activities.SyllabusSubjectsListActivity" />
+        <activity android:name=".activities.SubjectPDFViewActivity"></activity>
     </application>
 
 </manifest>

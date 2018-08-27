@@ -25,7 +25,6 @@ import com.learnera.app.fragments.NetworkNotAvailableFragment;
 /**
  * Created by praji on 7/4/2017.
  */
-
 public class Utils {
 
     //To check network connection
@@ -103,28 +102,4 @@ public class Utils {
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
         fragmentTransaction.commit();
     }
-
-    /*public static void fetchRemoteConfig(Context context) {
-        final FirebaseRemoteConfig firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
-                .build();
-        firebaseRemoteConfig.setConfigSettings(configSettings);
-        firebaseRemoteConfig.setDefaults(R.xml.firebase_remote_config_defaults);
-        firebaseRemoteConfig.fetch(cacheExpiration)
-                .addOnCompleteListener(context, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                           //TODO: Do something if successful
-                            // After config data is successfully fetched, it must be activated before newly fetched
-                            // values are returned.
-                            firebaseRemoteConfig.activateFetched();
-                        } else {
-
-                        }
-                        displayWelcomeMessage();
-                    }
-                });
-    }*/
 }

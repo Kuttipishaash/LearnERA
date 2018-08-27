@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.learnera.app.R;
-import com.learnera.app.data.Marks;
+import com.learnera.app.models.Marks;
 
 import java.util.List;
 

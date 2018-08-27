@@ -26,70 +26,96 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.R;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.User;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity {
 
-    LinearLayout mAnnouncement;
-    LinearLayout mAttendance;
-    LinearLayout mLogout;
-    LinearLayout mSyllabus;
-    LinearLayout mMarks;
-    LinearLayout mSeating;
-    TextView mLoginStatus;
-    TextView mGuilLoginStatus;
+    private LinearLayout mAnnouncement;
+    private LinearLayout mAttendance;
+    private LinearLayout mLogout;
+    private LinearLayout mSyllabus;
+    private LinearLayout mMarks;
+    private LinearLayout mSeating;
+    private TextView mLoginStatus;
+    private TextView mGuilLoginStatus;
 
-    boolean about_us_open = false;
+    private boolean about_us_open = false;
 
-    boolean doubleBackToExitPressedOnce = false;
+    private boolean doubleBackToExitPressedOnce = false;
 
-    TextView mAppName;
-    AlertDialog.Builder mSeatingDialogAlert;
+    private TextView mAppName;
+    private AlertDialog.Builder mSeatingDialogAlert;
 
-    SharedPreferences sharedPreferences;
-    SharedPreferences preferences;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences preferences;
 
     private static final long RIPPLE_DURATION = 250;
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
     //TODO: implement bindview
     //@BindView(R.id.welcome_root)
-    FrameLayout welcome_root;
+    private FrameLayout welcome_root;
 
     //TODO: implement bindview
     //@BindView(R.id.content_hamburger)
-    View contentHamburger;
+    private View contentHamburger;
     private boolean isOpened = true;
 
-    String user;
+    private String user;
 
-    User userInfo;
+    private User userInfo;
 
-    String retID;
+    private String retID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        checkLogin();
+    }
+
+    private void checkLogin() {
+        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
+
+        if (!previouslyStarted) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(getString(R.string.pref_previously_started), true);
+            editor.apply();
+            startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
+        } else if (!User.isLoggedIn(this)) {
+
+            startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+            finish();
+        } else {
+            doWhenLoggedIn();
+        }
+    }
+
+    private void doWhenLoggedIn() {
         setContentView(R.layout.activity_welcome);
         final FragmentActivity current_frag = this;
 
         initViews();
-
+        setFonts();
 
         ButterKnife.bind(this);
 
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            getSupportActionBar().setTitle(null);
+            Objects.requireNonNull(getSupportActionBar()).setTitle(null);
 
         }
         welcome_root = findViewById(R.id.welcome_root);
@@ -116,8 +142,6 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 gmenu.close();
-                SharedPreferences sharedPreferences = WelcomeActivity.this.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 User.logout(WelcomeActivity.this);
             }
         });
@@ -156,30 +180,7 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         mGuilLoginStatus = findViewById(R.id.guil_logged_user);
-
-
-        sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-
-        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
-
-        if (!previouslyStarted) {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean(getString(R.string.pref_previously_started), true);
-            editor.apply();
-            startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
-        } else if (!User.isLoggedIn(this)) {
-            Toast.makeText(this, "Please login to continue", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
-        }
-
-
-        //Set font
-        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
-        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
-        mLoginStatus.setTypeface(loginName);
-        mAppName.setTypeface(appName);
-
+        setUserStatus();
 
     }
 
@@ -187,8 +188,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        //Set logged in user status
-        setUserStatus();
+        //Set login status
+        checkLogin();
     }
 
     @Override
@@ -216,6 +217,14 @@ public class WelcomeActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void setFonts() {
+        //Set font
+        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
+        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
+        mLoginStatus.setTypeface(loginName);
+        mAppName.setTypeface(appName);
     }
 
     public void setUserStatus() {

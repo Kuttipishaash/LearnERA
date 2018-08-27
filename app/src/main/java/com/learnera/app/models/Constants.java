@@ -1,4 +1,4 @@
-package com.learnera.app.data;
+package com.learnera.app.models;
 
 /**
  * Created by Prejith on 7/4/2017.
@@ -16,6 +16,10 @@ public class Constants {
 
     //SharedPreferences file to store login details
     public static final String PREFERENCE_FILE="user_preferences";
+
+    public class Firebase {
+        public static final String REMOTE_CONFIG_SYLLABUS_VERSION = "syllabus_version";
+    }
 
 
 

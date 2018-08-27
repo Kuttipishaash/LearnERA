@@ -34,10 +34,10 @@ import com.learnera.app.R;
 import com.learnera.app.adapters.AttendanceAdapter;
 import com.learnera.app.adapters.AttendanceTableAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
-import com.learnera.app.data.AttendanceTableCells;
-import com.learnera.app.data.AttendanceTableRow;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.User;
+import com.learnera.app.models.AttendanceTableCells;
+import com.learnera.app.models.AttendanceTableRow;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
@@ -414,7 +414,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
 
         //Making the mDutyAttendenceList values to 0 for each subject initially
-        //Subjects whose subject codes doesnt end with a number i.e, V,SEP,LIB etc are removed as it will cause issues for duty attendance
+        //SubjectDetail whose subject codes doesnt end with a number i.e, V,SEP,LIB etc are removed as it will cause issues for duty attendance
         int loopvar = mSubjectList.size();
         for (int i = 0; i < loopvar; i++) {
             String subCode = mSubjectCodeList.get(i);

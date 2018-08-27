@@ -1,7 +1,8 @@
-package com.learnera.app.data;
+package com.learnera.app.models;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.support.annotation.NonNull;
 
 import com.learnera.app.database.DatabaseConstants;
 
@@ -11,41 +12,45 @@ import com.learnera.app.database.DatabaseConstants;
                 DatabaseConstants.SubjectsTable.BRANCH,
                 DatabaseConstants.SubjectsTable.SEMESTER
         })
-public class Subjects {
+public class SubjectDetail {
+    @NonNull
     @ColumnInfo(name = DatabaseConstants.SubjectsTable.SUBJECT_CODE)
     private String subjectCode;
+    @NonNull
     @ColumnInfo(name = DatabaseConstants.SubjectsTable.BRANCH)
     private String branch;
+    @NonNull
     @ColumnInfo(name = DatabaseConstants.SubjectsTable.SEMESTER)
     private int semester;
     @ColumnInfo(name = DatabaseConstants.SubjectsTable.SUBJECT_NAME)
     private String subjectName;
     @ColumnInfo(name = DatabaseConstants.SubjectsTable.URL)
     private String subjectDownloadURL;
-    @ColumnInfo(name = DatabaseConstants.SubjectsTable.URL)
-    private String downloadedStatus;
+    /*@ColumnInfo(name = DatabaseConstants.SubjectsTable.URL)
+    private String downloadedStatus;*/
 
-    public String getCode() {
+    @NonNull
+    public String getSubjectCode() {
         return subjectCode;
     }
 
-    public void setCode(String subjectCode) {
+    public void setSubjectCode(@NonNull String subjectCode) {
         this.subjectCode = subjectCode;
     }
 
-    public String getName() {
+    public String getSubjectName() {
         return subjectName;
     }
 
-    public void setName(String subjectName) {
+    public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
     }
 
-    public String getUrl() {
+    public String getSubjectDownloadURL() {
         return subjectDownloadURL;
     }
 
-    public void setUrl(String subjectDownloadURL) {
+    public void setSubjectDownloadURL(String subjectDownloadURL) {
         this.subjectDownloadURL = subjectDownloadURL;
     }
 
@@ -65,11 +70,11 @@ public class Subjects {
         this.semester = semester;
     }
 
-    public String getDownloadedStatus() {
+   /* public String getDownloadedStatus() {
         return downloadedStatus;
     }
 
     public void setDownloadedStatus(String downloadedStatus) {
         this.downloadedStatus = downloadedStatus;
-    }
+    }*/
 }

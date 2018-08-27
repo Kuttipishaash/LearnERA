@@ -23,9 +23,9 @@ import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.MarksAdapter;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.Marks;
-import com.learnera.app.data.User;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.Marks;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;

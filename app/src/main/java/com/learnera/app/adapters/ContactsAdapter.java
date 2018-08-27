@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.learnera.app.R;
-import com.learnera.app.data.Contacts;
+import com.learnera.app.models.Contacts;
 
 import java.util.List;
 

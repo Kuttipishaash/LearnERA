@@ -17,8 +17,8 @@ import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.learnera.app.R;
 import com.learnera.app.activities.AnnouncementsActivity;
 import com.learnera.app.adapters.AnnouncementsAdapter;
-import com.learnera.app.data.AnnouncementKTUChild;
-import com.learnera.app.data.AnnouncementKTUParent;
+import com.learnera.app.models.AnnouncementKTUChild;
+import com.learnera.app.models.AnnouncementKTUParent;
 import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
@@ -147,15 +147,31 @@ public class AnnouncementsKTUFragment extends Fragment {
 
             for (Element table : tables) {
                 Elements rows = table.getElementsByTag("tr");
-                for (Element row : rows) {
+                for (int i = 0; i < 30; i++) {
+                    Element row = rows.get(i);
                     Elements cells = row.getElementsByTag("td");
                     newAnnouncements = new AnnouncementKTUParent();
                     newAnnouncementKTUChild = new AnnouncementKTUChild();
                     count = 0;
                     for (Element cell : cells) {
                         if (count == 0) {
-                            Elements element = cell.getElementsByTag("b");
-                            date = element.text().substring(0, 10);
+                            Elements element = cell.getAllElements();
+                            Element dateElement = element.get(2);
+                            String timeStampString = dateElement.text();
+                            if (timeStampString.length() == 28) {
+                                String monthString = timeStampString.substring(4, 7);
+                                String dateString = timeStampString.substring(8, 10);
+                                String yearString = timeStampString.substring(24, 28);
+                                date = dateString + "-"
+                                        + monthString + "-"
+                                        + yearString;
+                            } else {
+                                Element monthElement = element.get(1);
+                                Element yearElement = element.get(3);
+                                date = timeStampString + "-"
+                                        + monthElement.text() + "-"
+                                        + yearElement.text();
+                            }
 
                         } else {
                             Elements elementdesc = cell.getElementsByTag("li");

@@ -10,8 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.learnera.app.R;
-import com.learnera.app.data.User;
 import com.learnera.app.fragments.AttendanceFragment;
+import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 /**
@@ -42,7 +42,7 @@ public class AttendanceActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_attendance, menu);
+        menuInflater.inflate(R.menu.menu_options, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

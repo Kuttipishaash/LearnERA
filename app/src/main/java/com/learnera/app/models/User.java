@@ -1,10 +1,14 @@
-package com.learnera.app.data;
+package com.learnera.app.models;
 
 import android.app.Activity;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.view.ContextThemeWrapper;
@@ -12,15 +16,24 @@ import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.activities.WelcomeActivity;
+import com.learnera.app.database.DatabaseConstants;
 
 /**
  * Created by praji on 7/2/2017.
  */
+@Entity(tableName = DatabaseConstants.UsersTable.TABLE_NAME)
 public class User {
+    @PrimaryKey
+    @NonNull
+    @ColumnInfo(name = DatabaseConstants.UsersTable.USER_ID)
     private String userName; //UID
+    @ColumnInfo(name = DatabaseConstants.UsersTable.PASSWORD)
     private int password;
+    @ColumnInfo(name = DatabaseConstants.UsersTable.USER_NAME)
     private String user; //Name of the user
+    @ColumnInfo(name = DatabaseConstants.UsersTable.SEMESTER)
     private int sem;
+    @ColumnInfo(name = DatabaseConstants.UsersTable.DEPARTMENT)
     private String dept;
 
     public User() {
@@ -31,7 +44,7 @@ public class User {
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
     }
 
     public static void logout(final Activity activity) {

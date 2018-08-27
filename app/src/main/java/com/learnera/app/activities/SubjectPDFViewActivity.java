@@ -1,5 +1,6 @@
 package com.learnera.app.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,11 +14,8 @@ import android.widget.TextView;
 
 import com.learnera.app.R;
 
-/**
- * Created by praji on 12/31/2017.
- */
+public class SubjectPDFViewActivity extends AppCompatActivity {
 
-public class WebActivity extends AppCompatActivity {
     private WebView webView;
     private TextView txtview;
     private ProgressBar pbar;
@@ -26,28 +24,29 @@ public class WebActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_announcement_rset_web);
+        setContentView(R.layout.activity_subject_pdfview);
 
-        txtview = findViewById(R.id.text_web_load);
-        pbar = findViewById(R.id.progress_bar_web);
-        webView = findViewById(R.id.layout_web_view);
+        txtview = findViewById(R.id.syllabus_loading_text_view);
+        pbar = findViewById(R.id.syllabus_progress_bar);
+        webView = findViewById(R.id.syllabus_web_view);
 
         extras = getIntent();
 
         showWebView();
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void showWebView() {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int progress) {
-                if(progress < 100 && pbar.getVisibility() == ProgressBar.GONE){
+                if (progress < 100 && pbar.getVisibility() == ProgressBar.GONE) {
                     pbar.setVisibility(ProgressBar.VISIBLE);
                     txtview.setVisibility(View.VISIBLE);
                 }
 
                 pbar.setProgress(progress);
-                if(progress == 100) {
+                if (progress == 100) {
                     pbar.setVisibility(ProgressBar.GONE);
                     txtview.setVisibility(View.GONE);
                 }
@@ -61,7 +60,7 @@ public class WebActivity extends AppCompatActivity {
             }
         });
 
-        if(extras.hasExtra("url")) {
+        if (extras.hasExtra("url")) {
             webView.loadUrl(extras.getStringExtra("url"));
         }
 
@@ -69,13 +68,12 @@ public class WebActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(webView.canGoBack()) {
+        if (webView.canGoBack()) {
             webView.goBack();
             return;
         }
 
         super.onBackPressed();
     }
-
 
 }
