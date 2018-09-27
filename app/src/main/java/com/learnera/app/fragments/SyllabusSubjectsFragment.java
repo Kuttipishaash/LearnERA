@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,28 +13,20 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
-import com.learnera.app.BuildConfig;
 import com.learnera.app.R;
 import com.learnera.app.adapters.SyllabusSubjectAdapter;
-import com.learnera.app.database.LearnEraRoomDatabase;
-import com.learnera.app.database.dao.SubjectDetailDAO;
 import com.learnera.app.models.SubjectDetail;
 import com.learnera.app.models.User;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import static com.learnera.app.models.Constants.Firebase.REMOTE_CONFIG_SYLLABUS_VERSION;
 
 public class SyllabusSubjectsFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
@@ -49,14 +40,19 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private View mParentView;
     private RecyclerView mSubjectsRecyclerView;
     private Spinner mSemesterSelectSpinner;
+    private SyllabusSubjectAdapter syllabusSubjectAdapter;
+
+    //Data
+    private ArrayList<SubjectDetail> subjectDetailArrayList;
 
     // Firebase
     private FirebaseRemoteConfig mRemoteConfig = FirebaseRemoteConfig.getInstance();
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
-    private SubjectDetailDAO subjectDetailDAO;
+    private DatabaseReference databaseReference;
+//    private SubjectDetailDAO subjectDetailDAO;
 
-    private long localSyllabusVersion;
-    private long fetchedSyllabusVersion;
+//    private long localSyllabusVersion;
+//    private long fetchedSyllabusVersion;
 
     public SyllabusSubjectsFragment() {
         // Required empty public constructor
@@ -71,11 +67,55 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        checkSyllabusUpdates();
     }
 
-    private void checkSyllabusUpdates() {
-//        updateSubjects();
+    //Function to fetch the subjects from the Firebase RealtimeDatabase
+    //TODO: To be removed when implementing offline functionality
+    /**
+     * Semesters are represented in the firebase database as follows:
+     * First year that is semesters 1 and 2 are represented as 0
+     * Third semester as 1, Fourth semester as 2 and so on.
+     * nth semester is represented as n-2 in the database.
+     */
+    private void getSubjects(int currentSemester) {
+        subjectDetailArrayList.clear();
+        syllabusSubjectAdapter.notifyDataSetChanged();
+        if (currentSemester == 1 || currentSemester == 2) {
+            currentSemester = 0;
+
+        } else {
+            currentSemester = currentSemester - 2;
+        }
+        String semester = String.valueOf(currentSemester);
+        String department = mCurrentUser.getDept();
+        databaseReference = mFirebaseDatabase.getReference("branches").child(department).child(semester);
+
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot subjectDetailsSnapshot : dataSnapshot.getChildren()) {
+                    SubjectDetail subject = subjectDetailsSnapshot.getValue(SubjectDetail.class);
+                    assert subject != null;
+                    subject.setBranch(mCurrentUser.getDept());
+                    subject.setSemester(Integer.parseInt(databaseReference.getKey()));
+                    subjectDetailArrayList.add(subject);
+                    syllabusSubjectAdapter.notifyDataSetChanged();
+
+                }
+                setRecyclerViewContents(mCurrentUser.getSem());
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    /*private void checkSyllabusUpdates() {
+        updateSubjects();
 
         //TODO: Uncomment the block
         // Firebase RemoteConfig setup
@@ -108,16 +148,16 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                 }
             }
         });
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mParentView = inflater.inflate(R.layout.fragment_syllabus_subjects, container, false);
+        //TODO: Uncomment for offline version
+//        subjectDetailDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).subjectDetailDAO();
 
-        subjectDetailDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).subjectDetailDAO();
-
-        initViews();
+        initObjects();
 
         // Getting current user info
         mCurrentUser = User.getLoginInfo(getActivity());
@@ -128,13 +168,17 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     }
 
     //Initializing views
-    private void initViews() {
+    private void initObjects() {
         mSubjectsRecyclerView = mParentView.findViewById(R.id.subjects_rec_view_frg_syl);
         mSemesterSelectSpinner = mParentView.findViewById(R.id.spin_semester_frg_syl);
+
+        subjectDetailArrayList = new ArrayList<SubjectDetail>();
+        syllabusSubjectAdapter = new SyllabusSubjectAdapter();
+        syllabusSubjectAdapter.setmSubjectDetailsList(subjectDetailArrayList);
     }
 
     //TODO: Fetch new syllabus data from realtime db and update it in local db.
-    private void updateSubjects() {
+   /* private void updateSubjects() {
         subjectDetailDAO.deleteAll();
 
         // Fetching data from FirebaseRealtime Database and storing it to the local RoomDatabase
@@ -164,7 +208,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
 
             }
         });
-    }
+    }*/
 
     /**
      * Function to setup spinner to select semester
@@ -188,7 +232,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //Getting subject names to display in list
-        setRecyclerViewContents(position + 1);
+        getSubjects(position + 1);
     }
 
     @Override
@@ -197,21 +241,21 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     }
 
     private void setRecyclerViewContents(int currentSemester) {
-        //Getting subject names
-        List<SubjectDetail> subjectsList;
-        String currentDept = mCurrentUser.getDept();
-        if (currentSemester == 1 || currentSemester == 2) {
-            List<SubjectDetail> commonFirstYearSubjectsList = subjectDetailDAO.getSubjects(0, currentDept);
-            subjectsList = subjectDetailDAO.getSubjects(currentSemester, currentDept);
-            subjectsList.addAll(commonFirstYearSubjectsList);
-
-        } else {
-            subjectsList = subjectDetailDAO.getSubjects(currentSemester, currentDept);
-
-        }
+//        //Getting subject names
+//        List<SubjectDetail> subjectsList;
+//        String currentDept = mCurrentUser.getDept();
+//        if (currentSemester == 1 || currentSemester == 2) {
+//            //TODO: Uncomment for offline version
+//            List<SubjectDetail> commonFirstYearSubjectsList = subjectDetailDAO.getSubjects(0, currentDept);
+//            subjectsList = subjectDetailDAO.getSubjects(currentSemester, currentDept);
+//            subjectsList.addAll(commonFirstYearSubjectsList);
+//
+//        } else {
+//
+//            subjectsList = subjectDetailDAO.getSubjects(currentSemester, currentDept);
+//
+//        }
         //Setting list view and adapters
-        SyllabusSubjectAdapter syllabusSubjectAdapter = new SyllabusSubjectAdapter();
-        syllabusSubjectAdapter.setmSubjectDetailsList(subjectsList);
         mSubjectsRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mSubjectsRecyclerView.setAdapter(syllabusSubjectAdapter);
     }

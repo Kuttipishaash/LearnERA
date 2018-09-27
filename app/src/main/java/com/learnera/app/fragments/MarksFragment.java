@@ -115,7 +115,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         //TODO: Handled null pointer exception
         ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
-        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Attendance");
+        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Marks");
 
     }
 
