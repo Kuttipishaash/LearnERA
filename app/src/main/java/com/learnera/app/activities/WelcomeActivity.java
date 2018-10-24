@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -80,7 +81,37 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        checkLogin();
+        runUpdatesIfNecessary();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Set login status
+        checkLogin();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!about_us_open) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                finishAffinity();
+                return;
+            }
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+            finishAffinity();
+        }
     }
 
     private void checkLogin() {
@@ -98,10 +129,41 @@ public class WelcomeActivity extends AppCompatActivity {
 
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
             finish();
+            //TODO: REMOVE AFTER TEST
+//            doWhenLoggedIn();
+
         } else {
             doWhenLoggedIn();
         }
     }
+
+    void runUpdatesIfNecessary() {
+        int versionCode = 0;
+        try {
+            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (preferences == null)
+            preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        else {
+            if (preferences.getInt(getString(R.string.pref_update_version), 0) != versionCode) {
+                try {
+                    //TODO : Preferences updates for this version here
+                    boolean firstStart = preferences.getBoolean(getString(R.string.pref_previously_started), false);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.clear();
+                    editor.putInt(getString(R.string.pref_update_version), versionCode);
+                    editor.putBoolean(getString(R.string.pref_previously_started), firstStart);
+                    editor.apply();
+                } catch (Throwable t) {
+                    // update failed, or cancelled
+                    t.printStackTrace();
+                }
+            }
+        }
+    }
+
 
     private void doWhenLoggedIn() {
         setContentView(R.layout.activity_welcome);
@@ -166,7 +228,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 sendIntent.setData(Uri.parse("mailto:"));
                 sendIntent.putExtra(Intent.EXTRA_SUBJECT, "");
                 sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"learneraproject@gmail.com"});
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnEra");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnERA");
                 startActivity(sendIntent);
             }
         });
@@ -184,40 +246,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        //Set login status
-        checkLogin();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!about_us_open) {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                finishAffinity();
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
-        } else {
-            super.onBackPressed();
-            finishAffinity();
-        }
-
-
-    }
 
     public void setFonts() {
         //Set font

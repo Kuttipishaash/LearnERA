@@ -36,10 +36,7 @@
             android:label="Marks"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.ContactsActivity"
-            android:label="Contacts"
-            android:screenOrientation="portrait" />
+
 
         <!-- Set exported to true to accress the provider with external apps -->
 
@@ -55,7 +52,6 @@
         <activity
             android:name=".activities.SyllabusActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.SyllabusSubjectsListActivity" />
         <activity android:name=".activities.SubjectPDFViewActivity"></activity>
     </application>
 
