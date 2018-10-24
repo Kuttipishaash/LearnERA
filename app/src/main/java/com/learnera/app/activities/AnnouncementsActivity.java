@@ -100,9 +100,9 @@ public class AnnouncementsActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return ktuAnnouncementsFragment;
-                case 1:
                     return rsetAnnouncementsFragment;
+                case 1:
+                    return ktuAnnouncementsFragment;
             }
             return null;
         }
@@ -117,9 +117,9 @@ public class AnnouncementsActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "KTU";
-                case 1:
                     return "RSET";
+                case 1:
+                    return "KTU";
             }
             return null;
         }

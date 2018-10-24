@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.learnera.app.WelcomeActivity">
+    tools:context="com.learnera.app.activities.WelcomeActivity">
 
     <View
         android:layout_width="match_parent"
@@ -123,7 +123,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Annoucements" />
+                                    android:text="@string/title_activity_announcements" />
                             </LinearLayout>
 
                             <View
@@ -149,7 +149,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Attendance" />
+                                    android:text="@string/title_activity_attendance" />
                             </LinearLayout>
 
 
@@ -185,7 +185,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Marks" />
+                                    android:text="@string/title_activity_marks" />
                             </LinearLayout>
 
                             <View
@@ -210,7 +210,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Syllabus" />
+                                    android:text="@string/title_activity_syllabus" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -245,7 +245,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Seating Plan" />
+                                    android:text="@string/title_activity_seating" />
                             </LinearLayout>
 
                             <View
@@ -270,7 +270,7 @@
                                     style="@style/home_icon_text_view"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Log Out" />
+                                    android:text="@string/action_logout" />
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>

@@ -11,7 +11,7 @@ import com.learnera.app.R;
  * Created by Prejith on 7/13/2016.
  */
 
-public class IntroActivity extends com.heinrichreimersoftware.materialintro.app.IntroActivity {
+public class IntroScreensActivity extends com.heinrichreimersoftware.materialintro.app.IntroActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 

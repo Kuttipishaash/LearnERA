@@ -17,7 +17,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -27,19 +27,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.IntroActivity"
+            android:name=".activities.IntroScreensActivity"
             android:label="Introduction"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/Theme.Intro" />
         <activity
             android:name=".activities.MarksActivity"
             android:label="Marks"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activities.ContactsActivity"
-            android:label="Contacts"
-            android:screenOrientation="portrait" />
+
 
         <!-- Set exported to true to accress the provider with external apps -->
 
@@ -55,8 +52,7 @@
         <activity
             android:name=".activities.SyllabusActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.SyllabusSubjectsListActivity" />
-        <activity android:name=".activities.SubjectPDFViewActivity"></activity>
+        <activity android:name=".activities.SubjectPDFViewActivity" />
     </application>
 
 </manifest>

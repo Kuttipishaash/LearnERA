@@ -206,7 +206,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (res.url().toString().equals(Constants.homeURL))
             return true;
         else {
-            Toast.makeText(parentView.getContext(), "Incorrect username and password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(parentView.getContext(), getString(R.string.toast_login_incorrect_cred), Toast.LENGTH_SHORT).show();
             return false;
         }
     }
@@ -217,7 +217,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         passwordEditText = parentView.findViewById(R.id.et_password);
         mUserInput = parentView.findViewById(R.id.text_input_username_field);
         mPassInput = parentView.findViewById(R.id.text_input_password_field);
-        inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity())
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
         departmentSpinner = parentView.findViewById(R.id.department_spinner);
         rememberMeCheckbox = parentView.findViewById(R.id.checkbox_remember_me);
         rsmsTitleTextView = parentView.findViewById(R.id.text_title_rsms);
@@ -228,7 +229,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void setupDepartmentSpinnerContents() {
         brancheslist = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.branches_code_array)));
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()), R.array.branches_name_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()),
+                R.array.branches_name_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         departmentSpinner.setAdapter(new NothingSelectedSpinnerAdapter(
                 adapter,
@@ -260,19 +262,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void login() {
         //write username and password to sharedpreference file
-        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity()).getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity())
+                .getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("user",
+        editor.putString(getString(R.string.pref_user),
                 user.getUser());
-        editor.putInt("sem",
+        editor.putInt(getString(R.string.pref_sem),
                 user.getSem());
-        editor.putString("dept",
+        editor.putString(getString(R.string.pref_department),
                 user.getDept());
-        editor.putString("username",
+        editor.putString(getString(R.string.pref_username),
                 user.getUserName());
-        editor.putInt("password",
+        editor.putInt(getString(R.string.pref_password),
                 user.getPassword());
-        editor.putInt("attendanceCutoff",
+        editor.putInt(getString(R.string.pref_attendance_cutoff),
                 75);
         editor.apply();
         if (rememberMeCheckbox.isChecked()) {

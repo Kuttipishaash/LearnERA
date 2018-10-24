@@ -23,7 +23,7 @@ public class SyllabusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_syllabus);
-
+        setTitle(getString(R.string.title_activity_syllabus));
         fragment = new SyllabusSubjectsFragment();
         fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_syllabus, fragment);

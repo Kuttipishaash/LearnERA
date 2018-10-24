@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -80,7 +81,37 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        checkLogin();
+        runUpdatesIfNecessary();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //Set login status
+        checkLogin();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!about_us_open) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                finishAffinity();
+                return;
+            }
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
+        } else {
+            super.onBackPressed();
+            finishAffinity();
+        }
     }
 
     private void checkLogin() {
@@ -93,15 +124,46 @@ public class WelcomeActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean(getString(R.string.pref_previously_started), true);
             editor.apply();
-            startActivity(new Intent(WelcomeActivity.this, IntroActivity.class));
+            startActivity(new Intent(WelcomeActivity.this, IntroScreensActivity.class));
         } else if (!User.isLoggedIn(this)) {
 
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
             finish();
+            //TODO: REMOVE AFTER TEST
+//            doWhenLoggedIn();
+
         } else {
             doWhenLoggedIn();
         }
     }
+
+    void runUpdatesIfNecessary() {
+        int versionCode = 0;
+        try {
+            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (preferences == null)
+            preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        else {
+            if (preferences.getInt(getString(R.string.pref_update_version), 0) != versionCode) {
+                try {
+                    //TODO : Preferences updates for this version here
+                    boolean firstStart = preferences.getBoolean(getString(R.string.pref_previously_started), false);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.clear();
+                    editor.putInt(getString(R.string.pref_update_version), versionCode);
+                    editor.putBoolean(getString(R.string.pref_previously_started), firstStart);
+                    editor.apply();
+                } catch (Throwable t) {
+                    // update failed, or cancelled
+                    t.printStackTrace();
+                }
+            }
+        }
+    }
+
 
     private void doWhenLoggedIn() {
         setContentView(R.layout.activity_welcome);
@@ -164,9 +226,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 gmenu.close();
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                 sendIntent.setData(Uri.parse("mailto:"));
-                sendIntent.putExtra(Intent.EXTRA_SUBJECT, "");
-                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"learneraproject@gmail.com"});
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Feedback for LearnEra");
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_mail_title));
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.feedback_mail_address)});
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "");
                 startActivity(sendIntent);
             }
         });
@@ -184,40 +246,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        //Set login status
-        checkLogin();
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!about_us_open) {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                finishAffinity();
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
-        } else {
-            super.onBackPressed();
-            finishAffinity();
-        }
-
-
-    }
 
     public void setFonts() {
         //Set font
@@ -229,7 +257,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void setUserStatus() {
 
-        user = sharedPreferences.getString("user", null);
+        user = sharedPreferences.getString(getString(R.string.pref_user), null);
 
         String longText;
         if (user != null) {
@@ -240,7 +268,7 @@ public class WelcomeActivity extends AppCompatActivity {
             mGuilLoginStatus.setText("Hey, " + fname[0] + "!");
 
         } else {
-            longText = "Not logged into RSMS";
+            longText = getString(R.string.status_not_logged_in);
             mLoginStatus.setText(longText);
         }
     }
@@ -272,8 +300,6 @@ public class WelcomeActivity extends AppCompatActivity {
         mLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = WelcomeActivity.this.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
                 User.logout(WelcomeActivity.this);
             }
         });
@@ -298,11 +324,11 @@ public class WelcomeActivity extends AppCompatActivity {
         mSeating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean alertFlag = preferences.getBoolean("alert_dialog_enabled", true);
+                boolean alertFlag = preferences.getBoolean(getString(R.string.pref_seating_dialog_enabled), true);
 
                 if (alertFlag) {
                     SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("alert_dialog_enabled", false);
+                    editor.putBoolean(getString(R.string.pref_seating_dialog_enabled), false);
                     editor.apply();
                     mSeatingDialogAlert.show();
                 } else {
@@ -313,10 +339,9 @@ public class WelcomeActivity extends AppCompatActivity {
         });
 
         mSeatingDialogAlert = new AlertDialog.Builder(new ContextThemeWrapper(this, R.style.AlertDialogCustom));
-        mSeatingDialogAlert.setTitle("Attention");
-        mSeatingDialogAlert.setMessage("If you receive a message that the 'PDF cannot be opened', then it implies that the seating plan has not been uploaded." +
-                " This is caused by the improper implementation used by RSMS to display the file");
-        mSeatingDialogAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        mSeatingDialogAlert.setTitle(getString(R.string.dialog_warn_seating_title));
+        mSeatingDialogAlert.setMessage(getString(R.string.dialog_warn_seating_description));
+        mSeatingDialogAlert.setPositiveButton(getString(R.string.btn_ok), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -338,22 +363,22 @@ public class WelcomeActivity extends AppCompatActivity {
         ktuIdDialog.setView(dialoglayout);
         final EditText input = dialoglayout.findViewById(R.id.et_ktu_id_dki);
         final CheckBox checkBox = dialoglayout.findViewById(R.id.cb_remember_ktu_id_dki);
-        ktuIdDialog.setTitle("Confirm KTU ID");
+        ktuIdDialog.setTitle(getString(R.string.dialog_seating_ktu_id_confirm));
         setIDField(input);
-        ktuIdDialog.setPositiveButton("CONFIRM",
+        ktuIdDialog.setPositiveButton(getString(R.string.btn_confirm),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         retID = input.getText().toString().toUpperCase();
                         if (checkBox.isChecked()) {
                             SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("ktu_id", retID);
+                            editor.putString(getString(R.string.pref_ktu_id), retID);
                             editor.apply();
                         }
                         launchChromeCustomTab();
                     }
                 });
 
-        ktuIdDialog.setNegativeButton("CANCEL",
+        ktuIdDialog.setNegativeButton(getString(R.string.btn_cancel),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -364,7 +389,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void setIDField(EditText input) {
-        String rememberedKTUId = sharedPreferences.getString("ktu_id", "");
+        String rememberedKTUId = sharedPreferences.getString(getString(R.string.pref_ktu_id), "");
         if (rememberedKTUId.equals("")) {
             input.setText(retID);
         } else {

@@ -8,7 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.models.SubjectDetail;
@@ -50,20 +52,28 @@ public class SyllabusSubjectAdapter extends RecyclerView.Adapter<SyllabusSubject
     class SyllabusSubjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
         TextView syllabusSubjectsTextView;
+        ImageView syllabusSubjectsShareImageView;
 
         SyllabusSubjectViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
             syllabusSubjectsTextView = itemView.findViewById(R.id.syllabusSubjectsTextView);
-            this.itemView.setOnClickListener(this);
+            syllabusSubjectsShareImageView = itemView.findViewById(R.id.syllabusSubjectsShareImageView);
+            syllabusSubjectsTextView.setOnClickListener(this);
+            syllabusSubjectsShareImageView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == this.itemView.getId()) {
-                int position = getAdapterPosition();
-                SubjectDetail clickedSubjectDetails = mSubjectDetailsList.get(position);
+            if (v.getId() == R.id.syllabusSubjectsTextView) {
+                int itemPosition = getAdapterPosition();
+                SubjectDetail clickedSubjectDetails = mSubjectDetailsList.get(itemPosition);
                 launchChromeCustomTab(clickedSubjectDetails.getSubjectDownloadURL(), itemView.getContext());
+            } else if (v.getId() == R.id.syllabusSubjectsShareImageView) {
+                int itemPosition = getAdapterPosition();
+                SubjectDetail clickedSubjectDetails = mSubjectDetailsList.get(itemPosition);
+                //TODO: Implement the sharing code here
+                Toast.makeText(itemView.getContext(), "Share clicked", Toast.LENGTH_SHORT).show();
             }
         }
 

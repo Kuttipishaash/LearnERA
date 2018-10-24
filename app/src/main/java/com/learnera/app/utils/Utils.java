@@ -31,6 +31,7 @@ public class Utils {
     public static boolean isNetworkAvailable(FragmentActivity fragmentActivity) {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) fragmentActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert connectivityManager != null;
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
@@ -55,19 +56,19 @@ public class Utils {
                 R.anim.slide_out_right, R.anim.slide_in_right);
 
         if (fragmentActivity instanceof AttendanceActivity) {
-            fragmentTransaction.addToBackStack("attendance");
+            fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_attendance));
             fragmentTransaction.add(R.id.fragment_attendance, fragment);
         } else if (fragmentActivity instanceof MarksActivity) {
-            fragmentTransaction.addToBackStack("marks");
+            fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_marks));
             fragmentTransaction.add(R.id.marks_fragment, fragment);
         } else if (fragmentActivity instanceof AnnouncementsActivity) {
-            fragmentTransaction.addToBackStack("announcement");
+            fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_announcements));
             fragmentTransaction.add(R.id.announcement_network, fragment);
         } else if (fragmentActivity instanceof WelcomeActivity) {
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.add(R.id.welcome_root, fragment);
         } else if (fragmentActivity instanceof SyllabusActivity) {
-            fragmentTransaction.addToBackStack("syllabus");
+            fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_syllabus));
             fragmentTransaction.add(R.id.fragment_syllabus, fragment);
         }
         fragmentTransaction.commit();
