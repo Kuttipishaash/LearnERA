@@ -119,15 +119,15 @@ public class AnnouncementsRSETFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 */
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        this.isVisibleToUser = isVisibleToUser;
-        if (this.isVisibleToUser && !isLoaded) {
-            setupPage();
-            isLoaded = true;
-        }
-    }
+//    @Override
+//    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        super.setUserVisibleHint(isVisibleToUser);
+//        this.isVisibleToUser = isVisibleToUser;
+//        if (this.isVisibleToUser && !isLoaded) {
+//            setupPage();
+//            isLoaded = true;
+//        }
+//    }
 
     private void setupPage() {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());

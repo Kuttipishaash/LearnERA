@@ -1,6 +1,7 @@
 <resources>
     <!-- App Core Strings -->
     <string name="app_name">LearnERA</string>
+    <string name="app_name_all_caps">LEARNERA</string>
     <string name="app_version">Version: 3.0</string>
 
 
@@ -76,6 +77,14 @@
     <string name="dialog_warn_seating_title">Attention</string>
     <string name="dialog_logout_description">Are you sure you want to logout</string>
     <string name="dialog_seating_ktu_id_confirm">Confirm KTU ID</string>
+
+
+    <!-- Messages -->
+    <string name="msg_checking_login">Checking login information...</string>
+    <string name="msg_err_incorrect_uid">Username cannot be empty</string>
+    <string name="msg_err_no_branch">No branch selected</string>
+    <string name="msg_err_empty_password">Password cannot be empty</string>
+    <string name="msg_err_select_branch">Please select a branch</string>
 
 
     <!-- Toast Strings -->

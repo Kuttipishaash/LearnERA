@@ -46,6 +46,16 @@ public class AnnouncementsKTUFragment extends Fragment {
     }
 
     @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        this.isVisibleToUser = isVisibleToUser;
+        if (this.isVisibleToUser && !isLoaded) {
+            setupPage();
+            isLoaded = true;
+        }
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ktuURL = "https://ktu.edu.in/eu/core/announcements.htm";

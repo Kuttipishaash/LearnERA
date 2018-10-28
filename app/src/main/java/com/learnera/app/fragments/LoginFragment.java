@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
@@ -107,7 +108,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         parentView = inflater.inflate(R.layout.fragment_login, container, false);
         setHasOptionsMenu(true);
@@ -129,7 +130,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void setFonts() {
         //Setting app title with custom font
-        SpannableString s = new SpannableString("LEARNERA");
+        SpannableString s = new SpannableString(getString(R.string.app_name_all_caps));
         s.setSpan(new TypefaceSpan(getActivity(), "Pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getActivity().setTitle(s);
 
@@ -254,7 +255,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(parentView.getContext(), R.style.ProgressDialogCustom);
-        mProgressDialog.setMessage("Checking login information...");
+        mProgressDialog.setMessage(getString(R.string.msg_checking_login));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(false);
@@ -300,7 +301,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             String password = passwordEditText.getText().toString();
             if (TextUtils.isEmpty(userName)) {
                 //set error on username field
-                mUserInput.setError("Username cannot be empty");
+                mUserInput.setError(getString(R.string.msg_err_incorrect_uid));
 
                 //request focus for username field
                 mUserInput.requestFocus();
@@ -308,14 +309,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 //show keyboard on emtpy username entered
                 inputMethodManager.showSoftInput(userNameAutoCompTextView, InputMethodManager.SHOW_IMPLICIT);
             } else if (TextUtils.isEmpty(password)) {
-                mPassInput.setError("Password cannot be empty");
+                mPassInput.setError(getString(R.string.msg_err_empty_password));
                 mPassInput.requestFocus();
                 inputMethodManager.showSoftInput(passwordEditText, InputMethodManager.SHOW_IMPLICIT);
             } else if (departmentSpinner.getSelectedItemPosition() == 0) {
                 TextView errorText = (TextView) departmentSpinner.getSelectedView();
-                errorText.setError("No branch selected");
+                errorText.setError(getString(R.string.msg_err_no_branch));
                 errorText.setTextColor(Color.RED);//just to highlight that this is an error
-                errorText.setText("Please select a branch");//changes the selected item text to this
+                errorText.setText(getString(R.string.msg_err_select_branch));//changes the selected item text to this
             } else {
                 if (Utils.isNetworkAvailable(getActivity())) {
 
