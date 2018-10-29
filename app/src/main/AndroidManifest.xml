@@ -12,53 +12,47 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".AttendanceActivity"
+            android:name=".activities.AttendanceActivity"
             android:label="Attendance"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".IntroActivity"
-            android:label="Introduction"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MarksActivity"
-            android:label="Marks"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:name=".activities.IntroScreensActivity"
+            android:label="Introduction"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Intro" />
         <activity
-            android:name=".ContactsActivity"
-            android:label="Contacts"
-            android:screenOrientation="portrait" />
+            android:name=".activities.MarksActivity"
+            android:label="Marks"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
         <!-- Set exported to true to accress the provider with external apps -->
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:label="RSMS Login"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AnnouncementsActivity"
+            android:name=".activities.AnnouncementsActivity"
             android:label="@string/title_activity_announcements"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SyllabusActivity"
+            android:name=".activities.SyllabusActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".WebActivity"
-            android:screenOrientation="portrait" />
-
+        <activity android:name=".activities.SubjectPDFViewActivity" />
     </application>
 
 </manifest>

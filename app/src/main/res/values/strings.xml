@@ -1,8 +1,12 @@
 <resources>
+    <!-- App Core Strings -->
     <string name="app_name">LearnERA</string>
+    <string name="app_name_all_caps">LEARNERA</string>
     <string name="app_version">Version: 3.0</string>
+    <string name="app_link">https://goo.gl/NGMUvw</string>
 
-    <!-- Strings for intro screens -->
+
+    <!-- App Intro Strings -->
     <string name="intro_welcome_desc">Everything a student needs in RSET</string>
     <string name="intro_attendance_title">Attendance</string>
     <string name="intro_attendance_desc">Check the amount of classes that you have attended, in a glance</string>
@@ -16,49 +20,81 @@
     <string name="intro_announcement_title">Announcements</string>
     <string name="intro_announcement_desc">Stay updated with what\'s going on</string>
     <string name="intro_seating_title">Seating Plan</string>
-    <string name="intro_seating_desc">Get you\'re seating plan on the go.</string>
+    <string name="intro_seating_desc">Get your seating plan on the go.</string>
 
-    <!-- Navigation strings -->
-    <string name="navigate_back_home">Take Me Back Home!</string>
-    <string name="navigate_back_home_not">Nah! Not Anymore</string>
-    <string name="next">Yo! Proceed</string>
-    <string name="previous">Oops! Let Me Go Back</string>
-
-
-    <!-- Login and related strings -->
-    <string name="login_ask_username">Knock! Knock! \n Who is this???</string>
-    <string name="login_ask_password">and do you have your key???</string>
-    <string name="signup">Begin My ERA of Learning</string>
-    <string name="login">Login to Continue</string>
-    <string name="signup_title">Sign Up</string>
-    <string name="password_field">Password</string>
-    <string name="login_field">ERA ID</string>
-    <string name="logout">Lock Up My ERA&#8230; Got to go&#8230;</string>
-    <string name="googlesignin">GOOGLE\nSIGN IN</string>
 
     <!-- Action Bar strings -->
     <string name="action_announcement_help">Help</string>
+    <string name="action_logout">Log Out</string>
+    <string name="action_about">About</string>
+    <string name="action_share_app">Share App</string>
+    <string name="action_contact_us">Contact Us</string>
+    <string name="status_not_logged_in">Not logged into RSMS</string>
+    <string name="subtitle_logged_in_user">Logged in as : </string>
+    <string name="guil_logged_in_user_dummy">Hey, User!</string>
 
-    <!-- Dialog Boxes -->
-    <string name="help_attendance_message">If you have below 75% attendance, contact your class teacher immediately</string>
-    <string name="help_activity_points_message">You need at least 100 points to pass this degree</string>
-    <string name="help_marks_message">You need a minimum of 45% in internals as well as end semester examination to get the required
-    credits to pass that subject</string>
-    <string name="help_contacts_message">Feel free to contact faculties with the below given contact details</string>
 
     <!-- Others -->
-    <string name="announcement_title">Hey you! Have a peek over here...</string>
-    <string name="announcement_main">Whats up</string>
-    <string name="pref_previously_started">first_start</string>
     <string name="signed_in">signed_out</string>
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
     <string name="attendance">Attendance</string>
-    <string name="ok">Ok</string>
-    <string name="activity_points">Activity Points</string>
+    <string name="ok">OK</string>
     <string name="marks">Marks</string>
-    <string name="total_activity_points">Points earned: </string>
-    <string name="Contacts">Contacts</string>
+
+    <!-- Shared Preference Variables -->
+
+    <string name="pref_update_version">pref_version</string>
+
+    <string name="pref_previously_started">first_start</string>.
+    <string name="pref_seating_dialog_enabled">alert_dialog_enabled</string>
+
+    <string name="pref_user">user</string>
+    <string name="pref_username">username</string>
+    <string name="pref_password">password</string>
+    <string name="pref_sem">sem</string>
+    <string name="pref_department">dept</string>
+    <string name="pref_ktu_id">ktu_id</string>
+    <string name="pref_attendance_cutoff">attendanceCutoff</string>
+
+
+    <!-- Button Text -->
+    <string name="btn_yes">YES</string>
+    <string name="btn_no">NO</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_login">Log In</string>
+    <string name="btn_share">Share</string>
+
+
+    <!-- Menu items -->
+    <string name="menu_share">Share</string>
+    <string name="menu_logout">Log Out</string>
+    <string name="menu_about">About</string>
+
+
+    <!-- Dialog Text -->
+    <string name="dialog_warn_seating_description">If you receive a message that the \'PDF cannot be opened\', then it implies that the seating plan has not been uploaded. This is caused by the improper implementation used by RSMS to display the file</string>
+    <string name="dialog_warn_seating_title">Attention</string>
+    <string name="dialog_logout_description">Are you sure you want to logout</string>
+    <string name="dialog_seating_ktu_id_confirm">Confirm KTU ID</string>
+
+
+    <!-- Messages -->
+    <string name="msg_checking_login">Checking login information&#8230;</string>
+    <string name="msg_loading_rsms_data">Loading data from RSMS&#8230;</string>
+    <string name="msg_err_incorrect_uid">Username cannot be empty</string>
+    <string name="msg_err_no_branch">No branch selected</string>
+    <string name="msg_err_empty_password">Password cannot be empty</string>
+    <string name="msg_err_select_branch">Please select a branch</string>
+
+
+    <!-- Toast Strings -->
+    <string name="toast_logout_success">Logged out successfully</string>
+    <string name="toast_login_incorrect_cred">Incorrect username and password</string>
+    <string name="toast_not_logged_in">You are not logged in</string>
+
 
     <!-- String arrays -->
     <string-array name="array_semesters">
@@ -72,91 +108,30 @@
         <item name="sem8">Semester 8</item>
     </string-array>
 
-    <string-array name="array_categories">
-        <item name="internal1">First Internals</item>
-        <item name="internal2">Second Internals</item>
-        <item name="assignment">Assignment</item>
-        <item name="semester_exam">Semester Exam</item>
-    </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Activity Titles -->
     <string name="title_activity_announcements">Announcements</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_attendance">Attendance</string>
+    <string name="title_activity_marks">Marks</string>
+    <string name="title_activity_syllabus">Syllabus</string>
+    <string name="title_activity_seating">Seating Plan</string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <!-- Fragment Labels -->
+    <string name="label_fragment_announcements">announcement</string>
+    <string name="label_fragment_attendance">attendance</string>
+    <string name="label_fragment_marks">marks</string>
+    <string name="label_fragment_syllabus">syllabus</string>
+    <string name="label_fragment_settings">settings</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
 
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
+    <!-- Feedback Strings -->
+    <string name="feedback_mail_title">Feedback for LearnERA</string>
+    <string name="feedback_mail_address">learneraproject@gmail.com</string>
 
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
 
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <!-- Firebase Strings -->
+    <string name="firebase_syllabus_fetch_path">branches</string>
 
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-    <string name="title_activity_main">MainActivity</string>
 
 </resources>

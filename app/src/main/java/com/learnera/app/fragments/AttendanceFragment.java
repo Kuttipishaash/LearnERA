@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
@@ -31,16 +30,15 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-
-import com.learnera.app.Animations.MyBounceInterpolator;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
-import com.learnera.app.data.AttendanceAdapter;
-import com.learnera.app.data.AttendanceTableAdapter;
-import com.learnera.app.data.AttendanceTableCells;
-import com.learnera.app.data.AttendanceTableRow;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.User;
+import com.learnera.app.adapters.AttendanceAdapter;
+import com.learnera.app.adapters.AttendanceTableAdapter;
+import com.learnera.app.anim.MyBounceInterpolator;
+import com.learnera.app.models.AttendanceTableCells;
+import com.learnera.app.models.AttendanceTableRow;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.User;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -51,6 +49,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,10 +57,11 @@ import java.util.regex.Pattern;
  * Created by Prejith on 6/30/2017.
  */
 
-//// TODO: 7/31/2017 Code to be optimized and minor bugs to be fixed.
+// TODO: 7/31/2017 Code to be optimized and minor bugs to be fixed.
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    private static final String TAG = "ATTENDANCE_ACTIVITY";
     final protected String sub = "Total Class";
     public ArrayList<AttendanceTableRow> tableRows;
     protected int pos;
@@ -80,7 +80,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     JSoupSpinnerTask jSoupSpinnerTask;
     Dialog dialog;
 
-    //Animations
+    //anim
     Animation fadeInAnimation;
     Animation fadeOutAnimation;
     //To remove
@@ -115,8 +115,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = User.getLoginInfo(getActivity());
-
-
     }
 
 
@@ -179,7 +177,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Attendance");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_activity_attendance));
     }
 
     private void initComponent() {
@@ -221,13 +219,39 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     }
 
+    public void cancelAsyncTasks() {
+        if (jSoupAttendanceTask != null) {
+            jSoupAttendanceTask.cancel(true);
+            try {
+                jSoupAttendanceTask.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            jSoupAttendanceTask = null;
+        } else if (jSoupSpinnerTask != null) {
+            jSoupSpinnerTask.cancel(true);
+            try {
+                jSoupSpinnerTask.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            jSoupSpinnerTask = null;
+        }
+    }
+
+
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(view.getContext(), R.style.ProgressDialogCustom);
-        mProgressDialog.setMessage("Loading data from RSMS...");
+        mProgressDialog.setMessage(getString(R.string.msg_loading_rsms_data));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(false);
@@ -416,7 +440,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
 
         //Making the mDutyAttendenceList values to 0 for each subject initially
-        //Subjects whose subject codes doesnt end with a number i.e, V,SEP,LIB etc are removed as it will cause issues for duty attendance
+        //SubjectDetail whose subject codes doesnt end with a number i.e, V,SEP,LIB etc are removed as it will cause issues for duty attendance
         int loopvar = mSubjectList.size();
         for (int i = 0; i < loopvar; i++) {
             String subCode = mSubjectCodeList.get(i);
@@ -546,10 +570,20 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private void populateList(boolean shouldEnableDuty) {
         mRecyclerView.startAnimation(fadeOutAnimation);
-        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
+        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList,
+                user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerView.startAnimation(fadeInAnimation);
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        cancelAsyncTasks();
+        super.onDestroyView();
+        {
+
+        }
     }
 
     //For populating spinner
@@ -590,13 +624,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mProgressDialog.dismiss();
 
             //to save users current semesters in case of any changes in the RSMS
-            String x = "s" + (count + 1);
+            int x = count + 1;
             user.setSem(x);
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("sem",
+            editor.putInt("sem",
                     user.getSem());
-            editor.commit();
+            editor.apply();
 
         }
 
@@ -618,7 +652,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 extractSemesterList();
 
             } catch (IOException e) {
-                Log.e("ACTIVITY_ATTENDANCE", "Error initialising spinner");
+                Log.e(TAG, "Error initialising spinner");
             }
             return null;
         }
@@ -674,7 +708,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         .get();
 
             } catch (IOException e) {
-                Log.e("ATTENDANCE_ACTIVITY", "Error retrieving data");
+                Log.e(TAG, "Error retrieving data");
             }
 
             return null;

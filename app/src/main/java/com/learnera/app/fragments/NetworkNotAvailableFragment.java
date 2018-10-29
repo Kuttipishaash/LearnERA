@@ -11,12 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.learnera.app.AnnouncementsActivity;
-import com.learnera.app.AttendanceActivity;
-import com.learnera.app.LoginActivity;
-import com.learnera.app.MarksActivity;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
+import com.learnera.app.activities.AnnouncementsActivity;
+import com.learnera.app.activities.AttendanceActivity;
+import com.learnera.app.activities.LoginActivity;
+import com.learnera.app.activities.MarksActivity;
+import com.learnera.app.utils.Utils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,7 +40,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
         // Inflate the layout for this fragment
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_network_not_available, container, false);
-        retryButton = (Button) view.findViewById(R.id.button_retry_connection);
+        retryButton = view.findViewById(R.id.button_retry_connection);
         retryButton.setOnClickListener(this);
         return view;
     }
@@ -58,7 +58,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                     AnnouncementsActivity.network.setVisibility(View.GONE);
                     AnnouncementsActivity.mViewPager.setVisibility(View.VISIBLE);
                     AnnouncementsActivity.tabLayout.setVisibility(View.VISIBLE);
-                    AnnouncementsActivity.ktuFragment.onResume();
+                    AnnouncementsActivity.ktuAnnouncementsFragment.onResume();
                 } else if (getActivity() instanceof AttendanceActivity) {
                     fragment = new AttendanceFragment();
                     fragmentTransaction.replace(R.id.fragment_attendance, fragment);

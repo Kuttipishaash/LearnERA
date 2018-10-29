@@ -14,12 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
-import com.learnera.app.AnnouncementsActivity;
 import com.learnera.app.R;
-import com.learnera.app.Utils;
-import com.learnera.app.data.AnnouncementKTUChild;
-import com.learnera.app.data.AnnouncementKTUParent;
-import com.learnera.app.data.AnnouncementsAdapter;
+import com.learnera.app.activities.AnnouncementsActivity;
+import com.learnera.app.adapters.AnnouncementsAdapter;
+import com.learnera.app.models.AnnouncementKTUChild;
+import com.learnera.app.models.AnnouncementKTUParent;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -46,6 +46,16 @@ public class AnnouncementsKTUFragment extends Fragment {
     }
 
     @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        this.isVisibleToUser = isVisibleToUser;
+        if (this.isVisibleToUser && !isLoaded) {
+            setupPage();
+            isLoaded = true;
+        }
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ktuURL = "https://ktu.edu.in/eu/core/announcements.htm";
@@ -62,7 +72,7 @@ public class AnnouncementsKTUFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_announcements_ktu);
+        mRecyclerView = view.findViewById(R.id.recycler_view_announcements_ktu);
         setupPage();
         setHasOptionsMenu(true);
         return view;
@@ -147,15 +157,31 @@ public class AnnouncementsKTUFragment extends Fragment {
 
             for (Element table : tables) {
                 Elements rows = table.getElementsByTag("tr");
-                for (Element row : rows) {
+                for (int i = 0; i < 30; i++) {
+                    Element row = rows.get(i);
                     Elements cells = row.getElementsByTag("td");
                     newAnnouncements = new AnnouncementKTUParent();
                     newAnnouncementKTUChild = new AnnouncementKTUChild();
                     count = 0;
                     for (Element cell : cells) {
                         if (count == 0) {
-                            Elements element = cell.getElementsByTag("b");
-                            date = element.text().substring(0, 10);
+                            Elements element = cell.getAllElements();
+                            Element dateElement = element.get(2);
+                            String timeStampString = dateElement.text();
+                            if (timeStampString.length() == 28) {
+                                String monthString = timeStampString.substring(4, 7);
+                                String dateString = timeStampString.substring(8, 10);
+                                String yearString = timeStampString.substring(24, 28);
+                                date = dateString + "-"
+                                        + monthString + "-"
+                                        + yearString;
+                            } else {
+                                Element monthElement = element.get(1);
+                                Element yearElement = element.get(3);
+                                date = timeStampString + "-"
+                                        + monthElement.text() + "-"
+                                        + yearElement.text();
+                            }
 
                         } else {
                             Elements elementdesc = cell.getElementsByTag("li");

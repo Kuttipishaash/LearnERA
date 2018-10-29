@@ -7,80 +7,58 @@
     android:clickable="true"
     android:gravity="center"
     android:orientation="horizontal"
-    android:paddingBottom="13dp"
-    android:paddingTop="13dp">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="1.5"
-        android:gravity="center"
+        android:layout_weight="6"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/subject_letter_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="XX"
-            android:textAlignment="center"
-            android:textColor="@color/md_grey_800"
-            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/subject_code_text_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="XX123"
-            android:textAlignment="center"
             android:textColor="@color/md_red_800"
             android:textSize="13sp" />
 
+        <TextView
+            android:id="@+id/subject_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subject Name Here"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max Marks : "
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/max_marks_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="888"
+                android:textSize="14sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="6"
-        android:orientation="horizontal"
-        android:padding="4dp">
+        android:layout_weight="2"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="5"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/subject_name_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Subject Name Here"
-                android:textSize="17sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Max Marks : "
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/max_marks_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="888"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-        </LinearLayout>
 
         <TextView
             android:id="@+id/obtained_marks_text_view"

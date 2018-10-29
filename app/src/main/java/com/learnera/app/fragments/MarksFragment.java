@@ -22,11 +22,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.learnera.app.R;
-import com.learnera.app.Utils;
-import com.learnera.app.data.Constants;
-import com.learnera.app.data.Marks;
-import com.learnera.app.data.MarksAdapter;
-import com.learnera.app.data.User;
+import com.learnera.app.adapters.MarksAdapter;
+import com.learnera.app.models.Constants;
+import com.learnera.app.models.Marks;
+import com.learnera.app.models.User;
+import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -36,6 +36,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,22 +48,21 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     //protected FloatingActionButton fab;
 
-    Spinner spinner1;
-    Spinner spinner2;
-    ArrayList<String> semListCode;
-    ArrayList<String> subjectNames;
-    ArrayList<String> subjectCodes;
-    ArrayList<String> subjectLetters;
-    ArrayList<String> subjectMarks;
-    ArrayList<String> subjectMarksOutOf;
-    ArrayList<String> examValues;
-    ArrayList<String> examList;
-    ArrayList<Marks> marksList = new ArrayList<>();
-    Document doc;
-    Elements list;
-    Connection.Response res;
-    String finalFetchURL;
-    ProgressDialog mProgressDialog;
+    private Spinner semesterSpinner;
+    private Spinner testCategorySpinner;
+    private ArrayList<String> semListCode;
+    private ArrayList<String> subjectNames;
+    private ArrayList<String> subjectCodes;
+    private ArrayList<String> subjectMarks;
+    private ArrayList<String> subjectMarksOutOf;
+    private ArrayList<String> examValues;
+    private ArrayList<String> examList;
+    private ArrayList<Marks> marksList = new ArrayList<>();
+    private Document doc;
+    private Elements list;
+    private Connection.Response res;
+    private String finalFetchURL;
+    private ProgressDialog mProgressDialog;
     private RecyclerView mRecyclerView;
     private MarksAdapter marksAdapter;
     private View view;
@@ -77,7 +77,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         super.onCreate(savedInstanceState);
 
         user = new User();
-        user = user.getLoginInfo(getActivity());
+        user = User.getLoginInfo(getActivity());
 
         initProgressDialog();
 
@@ -101,11 +101,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_marks, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view_marks);
+        mRecyclerView = view.findViewById(R.id.recycler_view_marks);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
-        spinner1 = (Spinner) view.findViewById(R.id.spinner_marks_semesters);
-        spinner2 = (Spinner) view.findViewById(R.id.spinner_marks_category);
+        semesterSpinner = view.findViewById(R.id.spinner_marks_semesters);
+        testCategorySpinner = view.findViewById(R.id.spinner_marks_category);
         //setupFAB();
         initToolbar();
 
@@ -113,32 +113,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     }
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Attendance");
+        //TODO: Handled null pointer exception
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
+        Objects.requireNonNull(((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle("Marks");
+
     }
 
-    /*
-        public void setupFAB(){
-            fab  = (FloatingActionButton) view.findViewById(R.id.marks_fab);
-            fab.setSize(FloatingActionButton.SIZE_NORMAL);
-            final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
-            MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
-            myAnim.setInterpolator(interpolator);
 
-            fab.startAnimation(myAnim);
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Fragment fragment = new MarkCalculateFragment();
-                    FragmentActivity fragmentActivity = getActivity();
-                    FragmentManager fragmentManager = fragmentActivity.getSupportFragmentManager();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.marks_fragment, fragment);
-                    fragmentTransaction.commit();
-                }
-            });
-        }
-    */
     //SPINNER SELECTION HANDLING
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position,
@@ -146,7 +127,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         switch (parent.getId()) {
             case R.id.spinner_marks_semesters:
                 //execute asynctask for 2nd spinner
-                JSoupSpinnerCategoryTask JSoupSpinnerCategoryTask = new JSoupSpinnerCategoryTask(semListCode.get(spinner1.getSelectedItemPosition()));
+                JSoupSpinnerCategoryTask JSoupSpinnerCategoryTask = new JSoupSpinnerCategoryTask(semListCode.get(semesterSpinner.getSelectedItemPosition()));
                 JSoupSpinnerCategoryTask.execute();
 
                 //check for internet connectivity
@@ -155,7 +136,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 break;
             case R.id.spinner_marks_category:
                 //execute spinner for fetching marks_custom data
-                finalFetchURL = Constants.markURL + "?code=" + semListCode.get(spinner1.getSelectedItemPosition()) + "&E_ID=" + examValues.get(spinner2.getSelectedItemPosition());
+                finalFetchURL = Constants.markURL + "?code=" + semListCode.get(semesterSpinner.getSelectedItemPosition()) + "&E_ID=" + examValues.get(testCategorySpinner.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
 
@@ -179,9 +160,9 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 android.R.layout.simple_spinner_item,
                 semList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(adapter1);
-        spinner1.setSelection(countSemesters - 1);
-        spinner1.setOnItemSelectedListener(this);
+        semesterSpinner.setAdapter(adapter1);
+        semesterSpinner.setSelection(countSemesters - 1);
+        semesterSpinner.setOnItemSelectedListener(this);
     }
 
     private void dynamicExamList() {
@@ -191,15 +172,15 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 android.R.layout.simple_spinner_item,
                 examList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter1);
-        spinner2.setOnItemSelectedListener(MarksFragment.this);
+        testCategorySpinner.setAdapter(adapter1);
+        testCategorySpinner.setOnItemSelectedListener(MarksFragment.this);
 
-        if (spinner2.getCount() == 0) {
-            spinner2.setEnabled(false);
+        if (testCategorySpinner.getCount() == 0) {
+            testCategorySpinner.setEnabled(false);
             Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();
             mRecyclerView.setAdapter(null);
         } else {
-            spinner2.setEnabled(true);
+            testCategorySpinner.setEnabled(true);
         }
     }
 
@@ -382,7 +363,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             int rownum = 0, colnum;
             tables = doc.select("table[width = 100%][align=Left][cellpadding=1]");
             subjectCodes = new ArrayList<>();
-            subjectLetters = new ArrayList<>();
             subjectMarksOutOf = new ArrayList<>();
             subjectMarks = new ArrayList<>();
             subjectNames = new ArrayList<>();
@@ -401,7 +381,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                         switch (rownum) {
                             case 1:
                                 subjectHeader = cell.text().split(" ");
-                                subjectLetters.add(subjectHeader[0]);
                                 subjectCodes.add(subjectHeader[1]);
                                 subjectMarksOutOf.add(subjectHeader[2].substring(1));
                                 break;
@@ -443,7 +422,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             for (int i = 0; i < rownum - 1; i++) {
 
                 marks = new Marks();
-                marks.setmSubLetter(subjectLetters.get(i));
                 marks.setmSubCode(subjectCodes.get(i));
                 marks.setmSubName(subjectNames.get(i));
                 marks.setmOutOf(subjectMarksOutOf.get(i));
@@ -451,7 +429,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 marksList.add(marks);
             }
             createList();
-            subjectLetters.clear();
             subjectCodes.clear();
             subjectNames.clear();
             subjectMarksOutOf.clear();
