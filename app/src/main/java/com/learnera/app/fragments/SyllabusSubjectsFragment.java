@@ -130,8 +130,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d(TAG, "onDataChange: Hello");
-                Log.d(TAG, "onDataChange: Hi");
+                Log.d(TAG, "onDataChange is executing");
                 for (DataSnapshot branchSnapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot semesterSnapshot : branchSnapshot.getChildren()) {
                         for (DataSnapshot subjectDetailsSnapshot : semesterSnapshot.getChildren()) {
@@ -144,6 +143,8 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                     }
                 }
                 setRecyclerViewContents(mCurrentUser.getSem());
+                Log.d(TAG, "onDataChange has finished executing");
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

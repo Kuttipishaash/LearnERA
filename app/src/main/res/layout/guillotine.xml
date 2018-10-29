@@ -63,6 +63,23 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/guil_share_app"
+            style="@style/LinearLayout.GuillotineItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                style="@style/ImageView.GuillotineItem"
+                app:srcCompat="@drawable/ic_share_white" />
+
+            <TextView
+                style="@style/TextView.GuillotineItem"
+                android:text="@string/action_share_app" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/guil_about_us"
             style="@style/LinearLayout.GuillotineItem"
             android:layout_width="match_parent"

@@ -22,7 +22,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="XX123"
-            android:textStyle=""
             android:textColor="@color/md_red_800"
             android:textSize="13sp" />
 

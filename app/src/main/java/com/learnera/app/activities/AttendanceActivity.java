@@ -47,6 +47,7 @@ public class AttendanceActivity extends AppCompatActivity {
     }
 
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -60,6 +61,7 @@ public class AttendanceActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 
     public void doWhenNetworkPresent() {
         fragment = new AttendanceFragment();

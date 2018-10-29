@@ -1,6 +1,7 @@
 package com.learnera.app.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.customtabs.CustomTabsIntent;
@@ -9,8 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.models.SubjectDetail;
@@ -41,6 +42,7 @@ public class SyllabusSubjectAdapter extends RecyclerView.Adapter<SyllabusSubject
     @Override
     public void onBindViewHolder(@NonNull SyllabusSubjectViewHolder holder, int position) {
         SubjectDetail currentSubject = mSubjectDetailsList.get(position);
+        holder.syllabusSubjectCodeTextView.setText(currentSubject.getSubjectCode().toUpperCase());
         holder.syllabusSubjectsTextView.setText(currentSubject.getSubjectName());
     }
 
@@ -51,29 +53,42 @@ public class SyllabusSubjectAdapter extends RecyclerView.Adapter<SyllabusSubject
 
     class SyllabusSubjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         View itemView;
+        LinearLayout syllabusSubjectLinearLayout;
         TextView syllabusSubjectsTextView;
+        TextView syllabusSubjectCodeTextView;
         ImageView syllabusSubjectsShareImageView;
 
         SyllabusSubjectViewHolder(View itemView) {
             super(itemView);
             this.itemView = itemView;
+            syllabusSubjectLinearLayout = itemView.findViewById(R.id.syllabus_subject_linear_layout);
             syllabusSubjectsTextView = itemView.findViewById(R.id.syllabusSubjectsTextView);
+            syllabusSubjectCodeTextView = itemView.findViewById(R.id.syllabusSubjectCodeTextView);
             syllabusSubjectsShareImageView = itemView.findViewById(R.id.syllabusSubjectsShareImageView);
-            syllabusSubjectsTextView.setOnClickListener(this);
+            syllabusSubjectLinearLayout.setOnClickListener(this);
             syllabusSubjectsShareImageView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.syllabusSubjectsTextView) {
+            if (v.getId() == R.id.syllabus_subject_linear_layout) {
                 int itemPosition = getAdapterPosition();
                 SubjectDetail clickedSubjectDetails = mSubjectDetailsList.get(itemPosition);
                 launchChromeCustomTab(clickedSubjectDetails.getSubjectDownloadURL(), itemView.getContext());
             } else if (v.getId() == R.id.syllabusSubjectsShareImageView) {
                 int itemPosition = getAdapterPosition();
                 SubjectDetail clickedSubjectDetails = mSubjectDetailsList.get(itemPosition);
-                //TODO: Implement the sharing code here
-                Toast.makeText(itemView.getContext(), "Share clicked", Toast.LENGTH_SHORT).show();
+
+                // Sharing syllabus link
+                StringBuilder shareText = new StringBuilder("View the syllabus of ");
+                shareText.append(clickedSubjectDetails.getSubjectName());
+                shareText.append(" from the link below :\n\n");
+                shareText.append(clickedSubjectDetails.getSubjectDownloadURL());
+                shareText.append("\n\nShared using LearnERA");
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText.toString());
+                itemView.getContext().startActivity(sharingIntent);
             }
         }
 

@@ -49,6 +49,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -60,6 +61,7 @@ import java.util.regex.Pattern;
 
 public class AttendanceFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
+    private static final String TAG = "ATTENDANCE_ACTIVITY";
     final protected String sub = "Total Class";
     public ArrayList<AttendanceTableRow> tableRows;
     protected int pos;
@@ -113,8 +115,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         user = User.getLoginInfo(getActivity());
-
-
     }
 
 
@@ -177,7 +177,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Attendance");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_activity_attendance));
     }
 
     private void initComponent() {
@@ -219,13 +219,39 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     }
 
+    public void cancelAsyncTasks() {
+        if (jSoupAttendanceTask != null) {
+            jSoupAttendanceTask.cancel(true);
+            try {
+                jSoupAttendanceTask.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            jSoupAttendanceTask = null;
+        } else if (jSoupSpinnerTask != null) {
+            jSoupSpinnerTask.cancel(true);
+            try {
+                jSoupSpinnerTask.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            jSoupSpinnerTask = null;
+        }
+    }
+
+
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(view.getContext(), R.style.ProgressDialogCustom);
-        mProgressDialog.setMessage("Loading data from RSMS...");
+        mProgressDialog.setMessage(getString(R.string.msg_loading_rsms_data));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(false);
@@ -544,10 +570,20 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private void populateList(boolean shouldEnableDuty) {
         mRecyclerView.startAnimation(fadeOutAnimation);
-        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList, user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
+        mRecyclerAdapter = new AttendanceAdapter(mSubjectList, mPercentageList, mSubjectCodeList, mTotalList, mMissedList,
+                user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerView.startAnimation(fadeInAnimation);
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        cancelAsyncTasks();
+        super.onDestroyView();
+        {
+
+        }
     }
 
     //For populating spinner
@@ -616,7 +652,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 extractSemesterList();
 
             } catch (IOException e) {
-                Log.e("ACTIVITY_ATTENDANCE", "Error initialising spinner");
+                Log.e(TAG, "Error initialising spinner");
             }
             return null;
         }
@@ -672,7 +708,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         .get();
 
             } catch (IOException e) {
-                Log.e("ATTENDANCE_ACTIVITY", "Error retrieving data");
+                Log.e(TAG, "Error retrieving data");
             }
 
             return null;
