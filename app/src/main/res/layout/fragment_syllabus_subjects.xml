@@ -13,7 +13,7 @@
         android:padding="16dp">
 
         <Spinner
-            android:id="@+id/xspin_semester_frg_syl"
+            android:id="@+id/spin_semester_frg_syl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
