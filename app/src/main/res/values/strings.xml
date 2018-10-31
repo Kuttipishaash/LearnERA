@@ -28,6 +28,7 @@
     <string name="action_logout">Log Out</string>
     <string name="action_about">About</string>
     <string name="action_share_app">Share App</string>
+    <string name="action_contribute">Contribute to Us</string>
     <string name="action_contact_us">Contact Us</string>
     <string name="status_not_logged_in">Not logged into RSMS</string>
     <string name="subtitle_logged_in_user">Logged in as : </string>

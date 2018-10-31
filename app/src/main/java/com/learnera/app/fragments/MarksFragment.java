@@ -6,7 +6,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -16,6 +18,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.MarksAdapter;
+import com.learnera.app.anim.MyBounceInterpolator;
 import com.learnera.app.models.Constants;
 import com.learnera.app.models.Marks;
 import com.learnera.app.models.User;
@@ -45,6 +50,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     public static int countSemesters;
     protected ArrayList<String> semList;
+    protected FloatingActionButton fab;
 
     //protected FloatingActionButton fab;
 
@@ -67,6 +73,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private MarksAdapter marksAdapter;
     private View view;
     private User user;
+    boolean isFabHide = false;
 
     public MarksFragment() {
         // Required empty public constructor
@@ -109,6 +116,20 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         //setupFAB();
         initToolbar();
 
+        //For attendance details
+        fab = view.findViewById(R.id.marks_fab);
+        final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
+        MyBounceInterpolator interpolator = new MyBounceInterpolator(0.2, 20);
+        myAnim.setInterpolator(interpolator);
+
+        fab.startAnimation(myAnim);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                TODO: Implement Total Marks Feature
+//            }
+//        });
+        initComponent();
         return view;
     }
     private void initToolbar() {
@@ -116,6 +137,27 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Marks");
 
+    }
+    private void initComponent() {
+        NestedScrollView nested_content = view.findViewById(R.id.nested_scroll_view_marks);
+        nested_content.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY < oldScrollY) { // up
+                    animateFab(false);
+                }
+                if (scrollY > oldScrollY) { // down
+                    animateFab(true);
+                }
+            }
+        });
+    }
+    private void animateFab(final boolean hide) {
+        FloatingActionButton fab_add = view.findViewById(R.id.marks_fab);
+        if (isFabHide && hide || !isFabHide && !hide) return;
+        isFabHide = hide;
+        int moveY = hide ? (2 * fab_add.getHeight()) : 0;
+        fab_add.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
     }
 
 

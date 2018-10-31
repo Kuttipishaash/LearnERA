@@ -206,6 +206,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         gabout_us.setOnClickListener(this);
         LinearLayout gshare_app = findViewById(R.id.guil_share_app);
         gshare_app.setOnClickListener(this);
+        LinearLayout gcontribute = findViewById(R.id.guil_contribute);
+        gshare_app.setOnClickListener(this);
         LinearLayout gcont_us = findViewById(R.id.guil_contact_us);
         gcont_us.setOnClickListener(this);
         setUserStatus();
@@ -364,6 +366,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.guil_share_app:
                 shareApp();
+                break;
+            case R.id.guil_contribute:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Kuttipishaash/LearnERA"));
+                WelcomeActivity.this.startActivity(browserIntent);
                 break;
             case R.id.guil_about_us:
                 aboutUsOpen = true;

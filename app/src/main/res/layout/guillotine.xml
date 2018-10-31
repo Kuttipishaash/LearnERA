@@ -23,7 +23,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:tint="@color/md_white_1000"
-                app:srcCompat="@drawable/ic_menu_black_24dp" />
+                app:srcCompat="@drawable/ic_menu_modern" />
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
@@ -77,6 +77,23 @@
             <TextView
                 style="@style/TextView.GuillotineItem"
                 android:text="@string/action_share_app" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/guil_contribute"
+            style="@style/LinearLayout.GuillotineItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                style="@style/ImageView.GuillotineItem"
+                app:srcCompat="@drawable/ic_build" />
+
+            <TextView
+                style="@style/TextView.GuillotineItem.Selected"
+                android:text="@string/action_contribute" />
         </LinearLayout>
 
         <LinearLayout

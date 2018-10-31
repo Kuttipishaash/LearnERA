@@ -29,9 +29,9 @@
             <ImageView
                 android:id="@+id/content_hamburger"
                 style="@style/ImageView.Hamburger"
-                android:rotation="90"
+                android:rotation="270"
                 android:tint="@color/md_white_1000"
-                app:srcCompat="@drawable/ic_menu_black_24dp" />
+                app:srcCompat="@drawable/ic_menu_modern" />
 
             <TextView
                 android:id="@+id/app_name"
