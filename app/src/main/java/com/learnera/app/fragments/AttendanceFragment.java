@@ -541,7 +541,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     //Attendance details table
     public void showTable() {
-        dialog = new Dialog(getActivity());
+        dialog = new Dialog(getActivity(), android.R.style.Theme);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_attendance_details);
 

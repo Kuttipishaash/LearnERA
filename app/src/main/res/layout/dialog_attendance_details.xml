@@ -1,51 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/attendance_dialog_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Detailed Attendence"
+        android:textAlignment="center"
+        android:textColor="@color/md_black_1000"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/list_view_attendance_table"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/attendance_dialog_header" />
+
+    <TextView
+        android:id="@+id/no_data_attendance_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/attendance_dialog_header"
+        android:gravity="center_horizontal"
+        android:paddingTop="40dp"
+        android:text="You have not taken any leaves yet or your leaves are not entered."
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/attendance_dialog_dismiss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/attendance_dialog_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="Detailed Attendence"
-            android:textAlignment="center"
-            android:textColor="@color/md_black_1000"
-            android:textSize="20dp" />
-
-        <ListView
-            android:id="@+id/list_view_attendance_table"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_below="@id/attendance_dialog_header" />
-
-        <TextView
-            android:id="@+id/no_data_attendance_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@+id/attendance_dialog_header"
-            android:gravity="center_horizontal"
-            android:paddingTop="40dp"
-            android:text="You have not taken any leaves yet or your leaves are not entered."
-            android:textSize="16dp" />
-
-        <TextView
-            android:id="@+id/attendance_dialog_dismiss"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/list_view_attendance_table"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="12dp"
-            android:padding="8dp"
-            android:text="DISMISS"
-            android:textColor="@color/md_red_900" />
-    </RelativeLayout>
-</ScrollView>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="8dp"
+        android:text="X" />
+</RelativeLayout>
