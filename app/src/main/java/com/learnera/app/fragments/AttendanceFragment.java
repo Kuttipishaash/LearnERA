@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -38,6 +40,7 @@ import com.learnera.app.models.AttendanceTableCells;
 import com.learnera.app.models.AttendanceTableRow;
 import com.learnera.app.models.Constants;
 import com.learnera.app.models.User;
+import com.learnera.app.utils.AKDialogFragment;
 import com.learnera.app.utils.Utils;
 
 import org.jsoup.Connection;
@@ -80,6 +83,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     JSoupSpinnerTask jSoupSpinnerTask;
     Dialog dialog;
 
+    //offline
+    private SharedPreferences sharedPreferences;
+
     //anim
     Animation fadeInAnimation;
     Animation fadeOutAnimation;
@@ -117,9 +123,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         user = User.getLoginInfo(getActivity());
     }
 
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -146,12 +149,17 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //initiate patterns for matching string
         initPatterns();
 
-        jSoupSpinnerTask = new JSoupSpinnerTask();
-        jSoupSpinnerTask.execute();
+        if(Utils.isNetworkAvailable(getActivity())) {
+            jSoupSpinnerTask = new JSoupSpinnerTask();
+            jSoupSpinnerTask.execute();
 
-        //check for internet connectivity
-        Handler handler = new Handler();
-        Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
+            //check for internet connectivity
+            Handler handler = new Handler();
+            Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
+        } else {
+            //TODO
+        }
+
 
         //For attendance details
         fab = view.findViewById(R.id.attendance_fab);
@@ -163,7 +171,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showTable();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                AKDialogFragment newFragment = new AKDialogFragment();
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
+//                showTable();
             }
         });
 
@@ -242,8 +255,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             jSoupSpinnerTask = null;
         }
     }
-
-
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
