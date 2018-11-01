@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <android.support.v7.widget.Toolbar
             style="@style/Toolbar"
             app:contentInsetStart="0dp">

@@ -207,7 +207,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         LinearLayout gshare_app = findViewById(R.id.guil_share_app);
         gshare_app.setOnClickListener(this);
         LinearLayout gcontribute = findViewById(R.id.guil_contribute);
-        gshare_app.setOnClickListener(this);
+        gcontribute.setOnClickListener(this);
         LinearLayout gcont_us = findViewById(R.id.guil_contact_us);
         gcont_us.setOnClickListener(this);
         setUserStatus();
