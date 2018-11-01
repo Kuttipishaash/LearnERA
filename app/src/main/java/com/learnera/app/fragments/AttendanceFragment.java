@@ -2,6 +2,7 @@ package com.learnera.app.fragments;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -39,6 +40,7 @@ import com.learnera.app.anim.MyBounceInterpolator;
 import com.learnera.app.models.AttendanceTableCells;
 import com.learnera.app.models.AttendanceTableRow;
 import com.learnera.app.models.Constants;
+import com.learnera.app.models.SharedViewModel;
 import com.learnera.app.models.User;
 import com.learnera.app.utils.AKDialogFragment;
 import com.learnera.app.utils.Utils;
@@ -74,6 +76,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected Pattern codePattern, singlePattern, threePattern;
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
+
     //For attendance Table
     protected FloatingActionButton fab;
     protected AttendanceTableAdapter tableAdapter;
@@ -82,6 +85,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
     Dialog dialog;
+    private SharedViewModel sharedViewModel;
 
     //offline
     private SharedPreferences sharedPreferences;
@@ -160,7 +164,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             //TODO
         }
 
-
         //For attendance details
         fab = view.findViewById(R.id.attendance_fab);
         final Animation myAnim = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
@@ -171,12 +174,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
+                sharedViewModel = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+                sharedViewModel.set(tableAdapter);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 AKDialogFragment newFragment = new AKDialogFragment();
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction.add(android.R.id.content, newFragment).addToBackStack(null).commit();
-//                showTable();
             }
         });
 
@@ -424,7 +429,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         });
     }
 
-
     private void extractSemesterList() {
         mSemesters = new ArrayList<>();
         Elements elements = doc.select("form");
@@ -549,35 +553,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         }
 
     }
-
-    //Attendance details table
-    public void showTable() {
-        dialog = new Dialog(getActivity(), android.R.style.Theme);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_attendance_details);
-
-        tableList = dialog.findViewById(R.id.list_view_attendance_table);
-        noDataAttendanceTableTextView = dialog.findViewById(R.id.no_data_attendance_text_view);
-        TextView dialogButton = dialog.findViewById(R.id.attendance_dialog_dismiss);
-        dialogButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-        tableAdapter = new AttendanceTableAdapter(getActivity(), tableRows);
-        if (tableAdapter.isEmpty()) {
-            noDataAttendanceTableTextView.setVisibility(View.VISIBLE);
-            tableList.setVisibility(View.GONE);
-        } else {
-            noDataAttendanceTableTextView.setVisibility(View.GONE);
-            tableList.setVisibility(View.VISIBLE);
-            tableList.setAdapter(tableAdapter);
-        }
-
-        dialog.show();
-    }
-
 
     private void populateList(boolean shouldEnableDuty) {
         mRecyclerView.startAnimation(fadeOutAnimation);
