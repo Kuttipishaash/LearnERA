@@ -52,8 +52,8 @@ public class AnnouncementsRSETFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private AnnouncementsRSETAdapter announcementAdapter;
     private User user;
-    private boolean isLoaded = false;
-    private boolean isVisibleToUser = false;
+    //    private boolean isLoaded = false;
+//    private boolean isVisibleToUser = false;
     private AlertDialog.Builder mBrowserDialog;
 
     public AnnouncementsRSETFragment() {
@@ -73,11 +73,11 @@ public class AnnouncementsRSETFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements__rset, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_view_announcements_rset);
-
-        if (isVisibleToUser && (!isLoaded)) {
-            setupPage();
-            isLoaded = true;
-        }
+        setupPage();
+//        if (isVisibleToUser && (!isLoaded)) {
+//            setupPage();
+//            isLoaded = true;
+//        }
 
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), mRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
             @Override

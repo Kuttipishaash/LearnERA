@@ -25,10 +25,10 @@ import java.util.List;
  * Created by Shankar on 06-08-2017.
  */
 
-public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<AnnouncementsAdapter.MyParentViewHolder, AnnouncementsAdapter.MyChildViewHolder> {
+public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<AnnouncementsKTUAdapter.MyParentViewHolder, AnnouncementsKTUAdapter.MyChildViewHolder> {
     private LayoutInflater mInflater;
 
-    public AnnouncementsAdapter(Context context, List<ParentListItem> parentItemList) {
+    public AnnouncementsKTUAdapter(Context context, List<ParentListItem> parentItemList) {
         super(parentItemList);
         mInflater = LayoutInflater.from(context);
     }
@@ -60,7 +60,7 @@ public class AnnouncementsAdapter extends ExpandableRecyclerAdapter<Announcement
     public void onBindChildViewHolder(MyChildViewHolder childViewHolder, int position, Object childListItem) {
         AnnouncementKTUChild subcategoryChildListItem = (AnnouncementKTUChild) childListItem;
         if (subcategoryChildListItem.getmAnnouncementDescription().equals("")) {
-            childViewHolder.listDescription.setVisibility(View.GONE);
+            childViewHolder.listDescription.setText("No details to show!");
 
         } else {
             childViewHolder.listDescription.setText(subcategoryChildListItem.getmAnnouncementDescription());

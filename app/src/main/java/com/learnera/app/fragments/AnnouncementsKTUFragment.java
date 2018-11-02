@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import com.learnera.app.R;
 import com.learnera.app.activities.AnnouncementsActivity;
-import com.learnera.app.adapters.AnnouncementsAdapter;
+import com.learnera.app.adapters.AnnouncementsKTUAdapter;
 import com.learnera.app.models.AnnouncementKTUChild;
 import com.learnera.app.models.AnnouncementKTUParent;
 import com.learnera.app.utils.Utils;
@@ -73,7 +73,7 @@ public class AnnouncementsKTUFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_view_announcements_ktu);
-        setupPage();
+//        setupPage();
         setHasOptionsMenu(true);
         return view;
     }
@@ -207,7 +207,7 @@ public class AnnouncementsKTUFragment extends Fragment {
                         count++;
                     }
                 }
-                mRecyclerView.setAdapter(new AnnouncementsAdapter(getContext(), parentListItems));
+                mRecyclerView.setAdapter(new AnnouncementsKTUAdapter(getContext(), parentListItems));
             }
         }
 
