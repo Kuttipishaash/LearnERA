@@ -68,7 +68,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private static final String TAG = "ATTENDANCE_ACTIVITY";
     final protected String sub = "Total Class";
-    public ArrayList<AttendanceTableRow> tableRows;
+
     protected int pos;
     protected String code;
     protected Document doc;
@@ -79,13 +79,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     //For attendance Table
     protected FloatingActionButton fab;
-    protected AttendanceTableAdapter tableAdapter;
-    protected ListView tableList;
-    protected TextView noDataAttendanceTableTextView;
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
-    Dialog dialog;
     private SharedViewModel sharedViewModel;
+    public ArrayList<AttendanceTableRow> tableRows;
+    protected AttendanceTableAdapter tableAdapter;
 
     //offline
     private SharedPreferences sharedPreferences;

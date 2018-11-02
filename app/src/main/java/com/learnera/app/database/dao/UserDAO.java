@@ -12,7 +12,6 @@ import com.learnera.app.models.User;
 
 import java.util.List;
 
-
 @Dao
 public interface UserDAO {
 

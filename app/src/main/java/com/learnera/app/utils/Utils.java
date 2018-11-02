@@ -1,5 +1,6 @@
 package com.learnera.app.utils;
 
+import android.arch.persistence.room.TypeConverter;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -11,6 +12,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.learnera.app.R;
 import com.learnera.app.activities.AnnouncementsActivity;
 import com.learnera.app.activities.AttendanceActivity;
@@ -21,6 +24,11 @@ import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.fragments.AboutFragment;
 import com.learnera.app.fragments.LoginFragment;
 import com.learnera.app.fragments.NetworkNotAvailableFragment;
+import com.learnera.app.models.AttendanceTableRow;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by praji on 7/4/2017.
@@ -102,5 +110,49 @@ public class Utils {
         else if (fragmentActivity instanceof MarksActivity)
             fragmentTransaction.replace(R.id.marks_fragment, fragment);
         fragmentTransaction.commit();
+    }
+
+    @TypeConverter
+    public String fromStringList(List<String> stringList) {
+        if (stringList == null) {
+            return (null);
+        }
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<String>>() {}.getType();
+        String json = gson.toJson(stringList, type);
+        return json;
+    }
+
+    @TypeConverter
+    public List<String> toStringList(String incomingString) {
+        if (incomingString == null) {
+            return (null);
+        }
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<String>>() {}.getType();
+        List<String> stringList = gson.fromJson(incomingString, type);
+        return stringList;
+    }
+
+    @TypeConverter
+    public String fromTableList(ArrayList<AttendanceTableRow> tableRows) {
+        if (tableRows == null) {
+            return (null);
+        }
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {}.getType();
+        String json = gson.toJson(tableRows, type);
+        return json;
+    }
+
+    @TypeConverter
+    public ArrayList<AttendanceTableRow> toTableList(String tableRowsString) {
+        if (tableRowsString == null) {
+            return (null);
+        }
+        Gson gson = new Gson();
+        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {}.getType();
+        ArrayList<AttendanceTableRow> tableRowsList = gson.fromJson(tableRowsString, type);
+        return tableRowsList;
     }
 }
