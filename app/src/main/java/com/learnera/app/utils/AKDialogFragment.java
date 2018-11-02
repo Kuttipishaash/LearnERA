@@ -42,7 +42,7 @@ public class AKDialogFragment extends DialogFragment {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_close);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white);
         }
         setHasOptionsMenu(true);
 

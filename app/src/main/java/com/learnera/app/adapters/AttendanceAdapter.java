@@ -68,9 +68,9 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 
 //            Float percent=Float.valueOf(mPercentageList.get(position));
 
-            if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) <= 75.0) {
+            if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) < 75.0) {
                 holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
-            } else if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) <= 80.0) {
+            } else if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) < 80.0) {
                 holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
             } else {
                 holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
@@ -83,9 +83,9 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 
             holder.mPercentageField.setText(percentInclDuty + "%");
 
-            if (Float.valueOf(percentInclDuty) <= 75.0) {
+            if (Float.valueOf(percentInclDuty) < 75.0) {
                 holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
-            } else if (Float.valueOf(percentInclDuty) <= 80.0) {
+            } else if (Float.valueOf(percentInclDuty) < 80.0) {
                 holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
             } else {
                 holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
