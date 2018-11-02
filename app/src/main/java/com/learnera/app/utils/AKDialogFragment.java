@@ -33,7 +33,7 @@ public class AKDialogFragment extends DialogFragment {
 
         View rootView = inflater.inflate(R.layout.dialog_ak, container, false);
 
-        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        Toolbar toolbar = rootView.findViewById(R.id.toolbar);
         toolbar.setTitle("Detailed Attendance");
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -42,7 +42,7 @@ public class AKDialogFragment extends DialogFragment {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
-            actionBar.setHomeAsUpIndicator(android.R.drawable.ic_menu_close_clear_cancel);
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_close);
         }
         setHasOptionsMenu(true);
 
