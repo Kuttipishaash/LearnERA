@@ -1,6 +1,5 @@
 package com.learnera.app.fragments;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -23,15 +22,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.AttendanceAdapter;
@@ -381,7 +377,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 attendancePercentSelector.check(R.id.attendance_cutoff_75);
                 break;
             case 80:
-                attendancePercentSelector.check(R.id.attendance_cutoff_80);
+                attendancePercentSelector.check(R.id.attendance_cutoff_60);
                 break;
         }
 
@@ -399,8 +395,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                             populateList(true);
                         }
                         break;
-                    case R.id.attendance_cutoff_80:
-                        user.setAttendenceCutoff(getActivity(), 80);
+                    case R.id.attendance_cutoff_60:
+                        user.setAttendenceCutoff(getActivity(), 60);
                         if (dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
                             populateList(false);
                         } else {

@@ -41,7 +41,6 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,16 +53,20 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     //protected FloatingActionButton fab;
 
+    //Spinner related objects
     private Spinner semesterSpinner;
     private Spinner testCategorySpinner;
     private ArrayList<String> semListCode;
+    private ArrayList<String> examValues;
+    private ArrayList<String> examList;
+
+    //Subject mark details related objects
     private ArrayList<String> subjectNames;
     private ArrayList<String> subjectCodes;
     private ArrayList<String> subjectMarks;
     private ArrayList<String> subjectMarksOutOf;
-    private ArrayList<String> examValues;
-    private ArrayList<String> examList;
-    private ArrayList<Marks> marksList = new ArrayList<>();
+    private ArrayList<Marks> marksList;
+
     private Document doc;
     private Elements list;
     private Connection.Response res;
@@ -399,7 +402,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         @Override
         protected void onPostExecute(Void result) {
-            Marks marks;
+            Marks marks = new Marks();
             String subjectHeader[] = new String[3];
             int rownum = 0, colnum;
             tables = doc.select("table[width = 100%][align=Left][cellpadding=1]");
@@ -408,6 +411,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             subjectMarks = new ArrayList<>();
             subjectNames = new ArrayList<>();
             marksList = new ArrayList<>();
+
             for (Element table : tables) {
                 Elements rows = table.select("tr");
                 for (Element row : rows) {
@@ -422,14 +426,18 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                         switch (rownum) {
                             case 1:
                                 subjectHeader = cell.text().split(" ");
+
                                 subjectCodes.add(subjectHeader[1]);
                                 subjectMarksOutOf.add(subjectHeader[2].substring(1));
+
                                 break;
                             case 2:
 
                                 if (cell.text().equals("\u00a0")) {
+                                    marks.setmSubMarks("NA");
                                     subjectMarks.add("NA");
                                 } else {
+                                    marks.setmSubMarks(cell.text());
                                     subjectMarks.add(cell.text());
                                 }
                                 break;
@@ -461,7 +469,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 }
             }
             for (int i = 0; i < rownum - 1; i++) {
-
                 marks = new Marks();
                 marks.setmSubCode(subjectCodes.get(i));
                 marks.setmSubName(subjectNames.get(i));
