@@ -170,9 +170,17 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         initPatterns();
 
         attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).attendanceDAO();
+        int offlineAttendanceSize = attendanceDAO.getAttendance().size();
         coordinatorLayout = view.findViewById(R.id.layout_attendance_root);
 
-        if(Utils.isNetworkAvailable(getActivity())) {
+        if(!Utils.isNetworkAvailable(getActivity()) && offlineAttendanceSize > 0) {
+            showOfflineData();
+            spinner.setVisibility(View.GONE);
+            sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
+            String date = sharedPreferences.getString("date", "");
+            snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data. Last updated on " + date, Snackbar.LENGTH_LONG);
+            snackbar.show();
+        } else {
             spinner.setVisibility(View.VISIBLE);
             jSoupSpinnerTask = new JSoupSpinnerTask();
             jSoupSpinnerTask.execute();
@@ -180,13 +188,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             //check for internet connectivity
             Handler handler = new Handler();
             Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
-        } else {
-            showOfflineData();
-            spinner.setVisibility(View.GONE);
-            sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
-            String date = sharedPreferences.getString("date", "");
-            snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data. Last updated on " + date, Snackbar.LENGTH_LONG);
-            snackbar.show();
         }
 
         //TODO : HANDLE FIRST START, CLEAR DB ON LOGOUT

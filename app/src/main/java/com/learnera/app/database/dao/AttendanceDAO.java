@@ -6,6 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
+import android.provider.ContactsContract;
 
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.models.AttendanceDetails;
@@ -27,8 +28,11 @@ public interface AttendanceDAO {
     @Query(DatabaseConstants.AttendanceTable.SELECT_ATTENDANCE)
     List<AttendanceDetails> getAttendance();
 
-    @Query(DatabaseConstants.AttendanceTable.DELETE_ALL)
+    @Query(DatabaseConstants.AttendanceTable.DELETE_EXTRA)
     void deleteAll();
+
+    @Query(DatabaseConstants.AttendanceTable.CLEAR_TABLE)
+    void clearTable();
 
 //    @Query(DatabaseConstants.AttendanceTable.DELETE_TOP)
 //    void deleteTop();

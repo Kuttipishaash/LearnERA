@@ -55,6 +55,7 @@ public class DatabaseConstants {
         public final static String TAG = "Database.AttendanceTable";
         //Queries
         public final static String SELECT_ATTENDANCE = "SELECT * FROM " + TABLE_NAME;
-        public final static String DELETE_ALL = "DELETE FROM " + TABLE_NAME + " WHERE ID > 0";
+        public final static String DELETE_EXTRA = "DELETE FROM " + TABLE_NAME + " WHERE ID > 0";
+        public final static String CLEAR_TABLE = "DELETE FROM " + TABLE_NAME;
     }
 }

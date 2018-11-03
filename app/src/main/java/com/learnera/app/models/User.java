@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.learnera.app.R;
 import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.database.DatabaseConstants;
+import com.learnera.app.database.LearnEraRoomDatabase;
+import com.learnera.app.database.dao.AttendanceDAO;
 
 /**
  * Created by praji on 7/2/2017.
@@ -48,6 +50,7 @@ public class User {
     }
 
     public static void logout(final Activity activity) {
+        final AttendanceDAO attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(activity).attendanceDAO();
         if (isLoggedIn(activity)) {
             //shows confirmation dialog for logout operation
             AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.AlertDialogCustom));
@@ -56,7 +59,8 @@ public class User {
                     .setPositiveButton(activity.getString(R.string.btn_yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //if user confirms logout erases user data and shows logout success message
+                            //if user confirms logout erases user data and shows logout success message. also erase offline data
+                            attendanceDAO.clearTable();
                             eraseUserInfo(activity.getBaseContext());
                             Toast.makeText(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT).show();
                             activity.startActivity(new Intent(activity, WelcomeActivity.class));
