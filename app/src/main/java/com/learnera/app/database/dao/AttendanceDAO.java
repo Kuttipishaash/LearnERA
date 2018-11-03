@@ -27,6 +27,9 @@ public interface AttendanceDAO {
     @Query(DatabaseConstants.AttendanceTable.SELECT_ATTENDANCE)
     List<AttendanceDetails> getAttendance();
 
+    @Query(DatabaseConstants.AttendanceTable.DELETE_ALL)
+    void deleteAll();
+
 //    @Query(DatabaseConstants.AttendanceTable.DELETE_TOP)
 //    void deleteTop();
 }

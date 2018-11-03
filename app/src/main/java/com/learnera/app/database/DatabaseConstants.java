@@ -4,7 +4,7 @@ package com.learnera.app.database;
 public class DatabaseConstants {
 
     // Database Version
-    public final static int DATABASE_VERSION = 3;
+    public final static int DATABASE_VERSION = 4;
 
     // Database Name
     public final static String DATABASE_NAME = "learnera_database";
@@ -55,6 +55,6 @@ public class DatabaseConstants {
         public final static String TAG = "Database.AttendanceTable";
         //Queries
         public final static String SELECT_ATTENDANCE = "SELECT * FROM " + TABLE_NAME;
-        public final static String DELETE_TOP = "DELETE FROM " + TABLE_NAME + " LIMIT 1";
+        public final static String DELETE_ALL = "DELETE FROM " + TABLE_NAME + " WHERE ID > 0";
     }
 }

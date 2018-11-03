@@ -204,7 +204,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         return view;
     }
 
-    public void showOfflineData() {
+    public void
+
+
+
+
+    showOfflineData() {
         attendance = attendanceDAO.getAttendance();
         if(attendance.size() != 0) {
             int pos = attendance.size() - 1;
@@ -719,9 +724,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             details.setSubjectList(mSubjectList);
             details.setTotalList(mTotalList);
             details.setTableRows(tableRows);
-
+            List<AttendanceDetails> list = attendanceDAO.getAttendance();
             if (attendanceDAO.getAttendance().size() > 0) {
-//                attendanceDAO.deleteTop();
+                attendanceDAO.deleteAll();
                 attendanceDAO.insertDetails(details);
             } else {
                 attendanceDAO.insertDetails(details);
@@ -730,6 +735,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mProgressDialog.dismiss();
 
             dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
+            populateList(false);
         }
 
         @Override

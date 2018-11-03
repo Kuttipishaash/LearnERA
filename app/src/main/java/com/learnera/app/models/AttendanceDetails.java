@@ -12,15 +12,7 @@ import java.util.List;
 
 @Entity(tableName = DatabaseConstants.AttendanceTable.TABLE_NAME)
 public class AttendanceDetails {
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     private int id;
 
     @ColumnInfo(name = DatabaseConstants.AttendanceTable.SUBJECT_LIST)
@@ -51,7 +43,17 @@ public class AttendanceDetails {
     @TypeConverters(Utils.class)
     private ArrayList<AttendanceTableRow> tableRows;
 
-    public AttendanceDetails() {}
+    public AttendanceDetails() {
+        id = 0;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public List<String> getSubjectList() {
         return subjectList;
