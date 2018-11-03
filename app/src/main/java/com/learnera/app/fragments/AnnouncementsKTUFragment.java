@@ -73,7 +73,6 @@ public class AnnouncementsKTUFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_announcements_ktu, container, false);
         mRecyclerView = view.findViewById(R.id.recycler_view_announcements_ktu);
-//        setupPage();
         setHasOptionsMenu(true);
         return view;
     }
