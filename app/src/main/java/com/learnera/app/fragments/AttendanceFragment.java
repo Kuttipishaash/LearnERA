@@ -9,7 +9,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -57,6 +59,8 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
@@ -93,15 +97,20 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private AttendanceDAO attendanceDAO;
     private List<AttendanceDetails> attendance;
     private AttendanceDetails details;
+    private CoordinatorLayout coordinatorLayout;
+    private Snackbar snackbar;
+    SharedPreferences sharedPreferences;
 
     //anim
     Animation fadeInAnimation;
     Animation fadeOutAnimation;
+
     //To remove
     private ProgressDialog mProgressDialog;
     private int count;
     private View view;
     private User user;
+
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
@@ -110,14 +119,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private List<String> mSubjectCodeList;
     private List<String> mMissedList;
     private List<String> mTotalList;
-
     private List<String> mDutyAttendenceList;   //For duty attendence count for each subject
 
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
+
     //For setting cutoff percentage
     private RadioGroup attendancePercentSelector;
+
     //For enabling/disabling on duty
     private RadioGroup dutyEnablerSelector;
     boolean isFabHide = false;
@@ -160,6 +170,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         initPatterns();
 
         attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).attendanceDAO();
+        coordinatorLayout = view.findViewById(R.id.layout_attendance_root);
 
         if(Utils.isNetworkAvailable(getActivity())) {
             spinner.setVisibility(View.VISIBLE);
@@ -172,7 +183,12 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         } else {
             showOfflineData();
             spinner.setVisibility(View.GONE);
+            sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
+            String date = sharedPreferences.getString("date", "");
+            snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data. Last updated on " + date, Snackbar.LENGTH_LONG);
+            snackbar.show();
         }
+
         //TODO : HANDLE FIRST START, CLEAR DB ON LOGOUT
 
         //For attendance details
@@ -204,13 +220,11 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         return view;
     }
 
-    public void
-
-
-
-
-    showOfflineData() {
+    public void showOfflineData() {
+        //get values from db
         attendance = attendanceDAO.getAttendance();
+
+        //assign data from room into lists
         if(attendance.size() != 0) {
             int pos = attendance.size() - 1;
 
@@ -222,8 +236,77 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mTotalList = attendance.get(pos).getTotalList();
             tableRows = attendance.get(pos).getTableRows();
 
+            //get current date and month
+            int monthNumber = Calendar.getInstance().get(Calendar.MONTH);
+            int date = Calendar.getInstance().get(Calendar.DATE);
+
+            // save timestamp in preference file
+            sharedPreferences = getContext().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.clear();
+            editor.putString("date", date + getDateSuffix(date) + " " + calculateMonth(monthNumber));
+            editor.apply();
+
             dutyEnablerSelector.check(R.id.attendance_duty_disable);
         }
+    }
+
+    private String getDateSuffix(final int n) {
+        if (n >= 11 && n <= 13) {
+            return "th";
+        }
+        switch (n % 10) {
+            case 1:  return "st";
+            case 2:  return "nd";
+            case 3:  return "rd";
+            default: return "th";
+        }
+    }
+
+    private String calculateMonth(int monthNumber) {
+        String month;
+        switch (monthNumber) {
+            case 0:
+                month = "January";
+                break;
+            case 1:
+                month = "February";
+                break;
+            case 2:
+                month = "March";
+                break;
+            case 3:
+                month = "April";
+                break;
+            case 4:
+                month = "May";
+                break;
+            case 5:
+                month = "June";
+                break;
+            case 6:
+                month = "July";
+                break;
+            case 7:
+                month = "August";
+                break;
+            case 8:
+                month = "September";
+                break;
+            case 9:
+                month = "October";
+                break;
+            case 10:
+                month = "November";
+                break;
+            case 11:
+                month = "December";
+                break;
+            default:
+                month = "";
+                break;
+        }
+        return month;
     }
 
     private void initToolbar() {

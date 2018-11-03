@@ -17,6 +17,9 @@ public class Constants {
     //SharedPreferences file to store login details
     public static final String PREFERENCE_FILE="user_preferences";
 
+    //Shared preference file to store date information about offline entry in Attendance
+    public static final String DATE_UPDATE_ATTENDANCE = "date_update_attendance";
+
     public class Firebase {
         public static final String REMOTE_CONFIG_SYLLABUS_VERSION = "syllabus_version";
     }
