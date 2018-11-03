@@ -1,5 +1,6 @@
 package com.learnera.app.fragments;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -22,17 +23,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.AttendanceAdapter;
 import com.learnera.app.adapters.AttendanceTableAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
+import com.learnera.app.database.LearnEraRoomDatabase;
+import com.learnera.app.database.dao.AttendanceDAO;
+import com.learnera.app.models.AttendanceDetails;
 import com.learnera.app.models.AttendanceTableCells;
 import com.learnera.app.models.AttendanceTableRow;
 import com.learnera.app.models.Constants;
@@ -82,7 +90,9 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected AttendanceTableAdapter tableAdapter;
 
     //offline
-    private SharedPreferences sharedPreferences;
+    private AttendanceDAO attendanceDAO;
+    private List<AttendanceDetails> attendance;
+    private AttendanceDetails details;
 
     //anim
     Animation fadeInAnimation;
@@ -133,6 +143,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
         fadeOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadeout);
 
+        dutyEnablerSelector = view.findViewById(R.id.attendance_duty_selector);
+
         mRecyclerView = view.findViewById(R.id.recycler_view_attendance);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
@@ -147,7 +159,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //initiate patterns for matching string
         initPatterns();
 
+        attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).attendanceDAO();
+
         if(Utils.isNetworkAvailable(getActivity())) {
+            spinner.setVisibility(View.VISIBLE);
             jSoupSpinnerTask = new JSoupSpinnerTask();
             jSoupSpinnerTask.execute();
 
@@ -155,8 +170,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             Handler handler = new Handler();
             Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
         } else {
-            //TODO
+            showOfflineData();
+            spinner.setVisibility(View.GONE);
         }
+        //TODO : HANDLE FIRST START, CLEAR DB ON LOGOUT
 
         //For attendance details
         fab = view.findViewById(R.id.attendance_fab);
@@ -186,6 +203,24 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
         return view;
     }
+
+    public void showOfflineData() {
+        attendance = attendanceDAO.getAttendance();
+        if(attendance.size() != 0) {
+            int pos = attendance.size() - 1;
+
+            mMissedList = attendance.get(pos).getMissedList();
+            mSubjectCodeList = attendance.get(pos).getSubjectCodeList();
+            mDutyAttendenceList = attendance.get(pos).getDutyAttendanceList();
+            mSubjectList = attendance.get(pos).getSubjectList();
+            mPercentageList = attendance.get(pos).getPercentageList();
+            mTotalList = attendance.get(pos).getTotalList();
+            tableRows = attendance.get(pos).getTableRows();
+
+            dutyEnablerSelector.check(R.id.attendance_duty_disable);
+        }
+    }
+
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -368,7 +403,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         attendancePercentSelector = view.findViewById(R.id.attendance_cutoff_selector);
 
         //set default value as disabled
-        dutyEnablerSelector = view.findViewById(R.id.attendance_duty_selector);
         dutyEnablerSelector.check(R.id.attendance_duty_disable);
 
         //set value of cutoff from sharedpreferences which was loaded into attendanceCutOff
@@ -396,7 +430,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         }
                         break;
                     case R.id.attendance_cutoff_60:
-                        user.setAttendenceCutoff(getActivity(), 60);
+                        user.setAttendenceCutoff(getActivity(), 80);
                         if (dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
                             populateList(false);
                         } else {
@@ -554,7 +588,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 user.getattendanceCutoff(getActivity()), mDutyAttendenceList, shouldEnableDuty);
         mRecyclerView.setAdapter(mRecyclerAdapter);
         mRecyclerView.startAnimation(fadeInAnimation);
-
     }
 
     @Override
@@ -673,9 +706,29 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             super.onPostExecute(aVoid);
 
             extractAttendanceData();
+
             mRecyclerView.setAdapter(mRecyclerAdapter);
-            mProgressDialog.dismiss();
+
             attendanceDetails();
+
+            details = new AttendanceDetails();
+            details.setDutyAttendanceList(mDutyAttendenceList);
+            details.setMissedList(mMissedList);
+            details.setPercentageList(mPercentageList);
+            details.setSubjectCodeList(mSubjectCodeList);
+            details.setSubjectList(mSubjectList);
+            details.setTotalList(mTotalList);
+            details.setTableRows(tableRows);
+
+            if (attendanceDAO.getAttendance().size() > 0) {
+//                attendanceDAO.deleteTop();
+                attendanceDAO.insertDetails(details);
+            } else {
+                attendanceDAO.insertDetails(details);
+            }
+
+            mProgressDialog.dismiss();
+
             dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
         }
 

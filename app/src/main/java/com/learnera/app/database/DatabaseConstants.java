@@ -4,7 +4,7 @@ package com.learnera.app.database;
 public class DatabaseConstants {
 
     // Database Version
-    public final static int DATABASE_VERSION = 2;
+    public final static int DATABASE_VERSION = 3;
 
     // Database Name
     public final static String DATABASE_NAME = "learnera_database";
@@ -39,5 +39,22 @@ public class DatabaseConstants {
         public final static String TAG = "Database.Users";
         // Select Queries
         public final static String SELECT_ALL_USERS = "SELECT * FROM " + TABLE_NAME;
+    }
+
+    public class AttendanceTable {
+        //Offline attendance table name
+        public final static String TABLE_NAME = "attendance";
+        //Column names
+        public final static String SUBJECT_LIST = "subject_list";
+        public final static String PERCENTAGE_LIST = "percentage_list";
+        public final static String SUBJECT_CODE_LIST = "subject_code_list";
+        public final static String MISSED_LIST = "missed_list";
+        public final static String TOTAL_LIST = "total_list";
+        public final static String DUTY_LIST = "duty_list";
+        public final static String TABLE_ROWS_LIST = "table_rows_list";
+        public final static String TAG = "Database.AttendanceTable";
+        //Queries
+        public final static String SELECT_ATTENDANCE = "SELECT * FROM " + TABLE_NAME;
+        public final static String DELETE_TOP = "DELETE FROM " + TABLE_NAME + " LIMIT 1";
     }
 }

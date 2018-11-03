@@ -5,12 +5,14 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import com.learnera.app.database.dao.AttendanceDAO;
 import com.learnera.app.database.dao.SubjectDetailDAO;
 import com.learnera.app.database.dao.UserDAO;
+import com.learnera.app.models.AttendanceDetails;
 import com.learnera.app.models.SubjectDetail;
 import com.learnera.app.models.User;
 
-@Database(entities = {User.class, SubjectDetail.class}, version = DatabaseConstants.DATABASE_VERSION)
+@Database(entities = {User.class, SubjectDetail.class, AttendanceDetails.class}, version = DatabaseConstants.DATABASE_VERSION)
 public abstract class LearnEraRoomDatabase extends RoomDatabase {
     private static LearnEraRoomDatabase DATABASE_INSTANCE;
 
@@ -34,4 +36,6 @@ public abstract class LearnEraRoomDatabase extends RoomDatabase {
     public abstract SubjectDetailDAO subjectDetailDAO();
 
     public abstract UserDAO usersDAO();
+
+    public abstract AttendanceDAO attendanceDAO();
 }

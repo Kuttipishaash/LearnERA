@@ -28,15 +28,12 @@ public class AttendanceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance);
 
-        if (Utils.isNetworkAvailable(this)) {
-            if (User.isLoggedIn(this)) {
-                doWhenNetworkPresent();
-            } else {
-                Utils.doWhenNotLoggedIn(this);
-            }
+        if (User.isLoggedIn(this)) {
+            doWhenNetworkPresent();
         } else {
-            Utils.doWhenNoNetwork(this);
+            Utils.doWhenNotLoggedIn(this);
         }
+
     }
 
     @Override
@@ -45,7 +42,6 @@ public class AttendanceActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu_options, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 
 
     @Override
