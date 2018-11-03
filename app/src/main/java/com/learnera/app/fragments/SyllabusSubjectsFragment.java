@@ -4,8 +4,11 @@ import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,6 +111,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         mParentView = inflater.inflate(R.layout.fragment_syllabus_subjects, container, false);
         subjectDetailDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).subjectDetailDAO();
         initViews();
+        initToolbar();
         // Getting current user info
         mCurrentUser = User.getLoginInfo(getActivity());
         setRecyclerViewContents(mCurrentUser.getSem());
@@ -121,11 +125,17 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         mSubjectsRecyclerView = mParentView.findViewById(R.id.subjects_rec_view_frg_syl);
         mSemesterSelectSpinner = mParentView.findViewById(R.id.spin_semester_frg_syl);
     }
+    private void initToolbar() {
+        Toolbar toolbar = mParentView.findViewById(R.id.toolbar_syllabus);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Marks");
+
+    }
 
     private void updateSubjects() {
         subjectDetailDAO.deleteAll();
 
-        // Fetching data from FirebaseRealtime Database and storing it to the local RoomDatabase
+        // Fetching data from Firebase Realtime Database and storing it to the local RoomDatabase
         final DatabaseReference databaseReference = mFirebaseDatabase.getReference(getString(R.string.firebase_syllabus_fetch_path));
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

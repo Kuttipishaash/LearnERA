@@ -1,46 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:selectableItemBackground">
+    android:background="?android:selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/syllabus_subject_linear_layout"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/syllabusSubjectCodeTextView"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@+id/syllabus_subject_linear_layout"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Subject Code"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textColor="@color/md_red_800"
-            android:textSize="13sp" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/syllabusSubjectsTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Subject"
-            android:textAlignment="viewStart"
-            android:textAllCaps="true"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/syllabusSubjectCodeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="Subject Code"
+                android:textAlignment="viewStart"
+                android:textAllCaps="true"
+                android:textColor="@color/md_red_800"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/syllabusSubjectsTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subject"
+                android:textAlignment="viewStart"
+                android:textAllCaps="true"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/syllabusSubjectsShareImageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:contentDescription="@string/btn_share"
+            app:srcCompat="@drawable/ic_share_black" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/syllabusSubjectsShareImageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center"
-        android:layout_weight="0.1"
-        android:contentDescription="@string/btn_share"
-        app:srcCompat="@drawable/ic_share_black" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/md_grey_200" />
 </LinearLayout>

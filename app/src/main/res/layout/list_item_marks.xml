@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:text="XX123"
             android:textColor="@color/md_red_800"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/subject_name_text_view"

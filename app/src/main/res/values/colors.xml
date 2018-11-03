@@ -300,7 +300,7 @@
 
 
     <!--attendence table-->
-    <color name="leave">#C62828</color>
+    <color name="leave">@color/md_red_700</color>
     <color name="approved_leave">#006600</color>
     <color name="duty_leave">#FF9900</color>
     <color name="duty_attendence">#CCCC00</color>

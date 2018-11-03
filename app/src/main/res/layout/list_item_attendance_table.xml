@@ -2,16 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+    android:paddingBottom="5dp">
 
     <TextView
         android:id="@+id/absentDate"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:padding="5dp"
+        android:layout_height="35dp"
         android:text="DATE"
-        android:textAlignment="center"
+        android:gravity="center"
+        android:textStyle="bold"
         android:textSize="20sp" />
 
     <LinearLayout
