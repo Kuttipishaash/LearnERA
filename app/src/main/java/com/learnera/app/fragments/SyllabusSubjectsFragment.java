@@ -128,7 +128,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private void initToolbar() {
         Toolbar toolbar = mParentView.findViewById(R.id.toolbar_syllabus);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Marks");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Syllabus");
 
     }
 
