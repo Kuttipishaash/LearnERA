@@ -86,7 +86,6 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
 
         // Getting current user info
         mCurrentUser = User.getLoginInfo(getActivity());
-        mProgressDialog.show();
         setRecyclerViewContents(mCurrentUser.getSem());
         setSemesterSpinnerContents();
         checkSyllabusUpdates();
