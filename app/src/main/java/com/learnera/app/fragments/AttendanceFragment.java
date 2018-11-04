@@ -1,6 +1,5 @@
 package com.learnera.app.fragments;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
@@ -25,16 +24,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.AttendanceAdapter;
@@ -60,7 +55,6 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
@@ -247,6 +241,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             editor.apply();
 
             dutyEnablerSelector.check(R.id.attendance_duty_disable);
+            populateList(false);
         }
     }
 
@@ -813,7 +808,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             mProgressDialog.dismiss();
 
             dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
-            populateList(false);
         }
 
         @Override
