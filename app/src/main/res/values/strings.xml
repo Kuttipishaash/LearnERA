@@ -89,6 +89,7 @@
     <string name="msg_err_no_branch">No branch selected</string>
     <string name="msg_err_empty_password">Password cannot be empty</string>
     <string name="msg_err_select_branch">Please select a branch</string>
+    <string name="msg_loading_syllabus">Loading syllabus data&#8230;</string>
 
 
     <!-- Toast Strings -->

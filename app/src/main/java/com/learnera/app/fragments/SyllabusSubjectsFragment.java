@@ -1,6 +1,7 @@
 package com.learnera.app.fragments;
 
 import android.app.Fragment;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -50,7 +51,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private User mCurrentUser = new User();
 
     // Views
-    private View mParentView;
+    private View view;
     private RecyclerView mSubjectsRecyclerView;
     private Spinner mSemesterSelectSpinner;
 
@@ -62,6 +63,8 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private long localSyllabusVersion;
     private long fetchedSyllabusVersion;
 
+    private ProgressDialog mProgressDialog;
+
     public SyllabusSubjectsFragment() {
         // Required empty public constructor
     }
@@ -69,6 +72,25 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_syllabus_subjects, container, false);
+        subjectDetailDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).subjectDetailDAO();
+
+        initViews();
+        initProgressDialog();
+        initToolbar();
+
+        // Getting current user info
+        mCurrentUser = User.getLoginInfo(getActivity());
+        mProgressDialog.show();
+        setRecyclerViewContents(mCurrentUser.getSem());
+        setSemesterSpinnerContents();
+        checkSyllabusUpdates();
+        return view;
     }
 
     private void checkSyllabusUpdates() {
@@ -105,31 +127,24 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         });
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        mParentView = inflater.inflate(R.layout.fragment_syllabus_subjects, container, false);
-        subjectDetailDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).subjectDetailDAO();
-        initViews();
-        initToolbar();
-        // Getting current user info
-        mCurrentUser = User.getLoginInfo(getActivity());
-        setRecyclerViewContents(mCurrentUser.getSem());
-        setSemesterSpinnerContents();
-        checkSyllabusUpdates();
-        return mParentView;
-    }
-
     //Initializing views
     private void initViews() {
-        mSubjectsRecyclerView = mParentView.findViewById(R.id.subjects_rec_view_frg_syl);
-        mSemesterSelectSpinner = mParentView.findViewById(R.id.spin_semester_frg_syl);
+        mSubjectsRecyclerView = view.findViewById(R.id.subjects_rec_view_frg_syl);
+        mSemesterSelectSpinner = view.findViewById(R.id.spin_semester_frg_syl);
     }
+
+    private void initProgressDialog() {
+        mProgressDialog = new ProgressDialog(view.getContext(), R.style.ProgressDialogCustom);
+        mProgressDialog.setMessage(getString(R.string.msg_loading_syllabus));
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setCancelable(true);
+    }
+
     private void initToolbar() {
-        Toolbar toolbar = mParentView.findViewById(R.id.toolbar_syllabus);
+        Toolbar toolbar = view.findViewById(R.id.toolbar_syllabus);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Syllabus");
-
     }
 
     private void updateSubjects() {
@@ -141,6 +156,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d(TAG, "onDataChange is executing");
+                mProgressDialog.show();
                 for (DataSnapshot branchSnapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot semesterSnapshot : branchSnapshot.getChildren()) {
                         for (DataSnapshot subjectDetailsSnapshot : semesterSnapshot.getChildren()) {
@@ -153,6 +169,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                     }
                 }
                 setRecyclerViewContents(mCurrentUser.getSem());
+                mProgressDialog.hide();
                 Log.d(TAG, "onDataChange has finished executing");
 
             }
@@ -172,7 +189,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
             semList.add(getResources().getStringArray(R.array.array_semesters)[i]);
         }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                mParentView.getContext(),
+                view.getContext(),
                 android.R.layout.simple_spinner_item,
                 semList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
