@@ -497,7 +497,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             case 75:
                 attendancePercentSelector.check(R.id.attendance_cutoff_75);
                 break;
-            case 80:
+            case 60:
                 attendancePercentSelector.check(R.id.attendance_cutoff_60);
                 break;
         }
@@ -517,7 +517,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                         }
                         break;
                     case R.id.attendance_cutoff_60:
-                        user.setAttendenceCutoff(getActivity(), 80);
+                        user.setAttendenceCutoff(getActivity(), 60);
                         if (dutyEnablerSelector.getCheckedRadioButtonId() == R.id.attendance_duty_disable) {
                             populateList(false);
                         } else {
