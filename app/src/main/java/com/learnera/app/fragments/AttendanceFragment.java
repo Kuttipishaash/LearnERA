@@ -693,10 +693,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onCancelled() {
             super.onCancelled();
 
-//            if (mProgressDialog != null) {
-//                mProgressDialog.hide();
-//                Utils.doWhenNoNetwork(getActivity());
-//            }
         }
 
         @Override
