@@ -178,7 +178,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             spinner.setVisibility(View.GONE);
             sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
             String date = sharedPreferences.getString("date", "");
-            snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data. Last updated on " + date, Snackbar.LENGTH_LONG);
+            snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data last updated on " + date, Snackbar.LENGTH_LONG);
             snackbar.show();
         } else {
             spinner.setVisibility(View.VISIBLE);
@@ -189,8 +189,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             Handler handler = new Handler();
             Utils.testInternetConnectivity(jSoupSpinnerTask, handler);
         }
-
-        //TODO : HANDLE FIRST START, CLEAR DB ON LOGOUT
 
         //For attendance details
         fab = view.findViewById(R.id.attendance_fab);
@@ -695,10 +693,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected void onCancelled() {
             super.onCancelled();
 
-            if (mProgressDialog != null) {
-                mProgressDialog.hide();
-                Utils.doWhenNoNetwork(getActivity());
-            }
+//            if (mProgressDialog != null) {
+//                mProgressDialog.hide();
+//                Utils.doWhenNoNetwork(getActivity());
+//            }
         }
 
         @Override
