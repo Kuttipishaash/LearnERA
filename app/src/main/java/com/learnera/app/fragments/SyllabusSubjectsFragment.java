@@ -1,12 +1,13 @@
 package com.learnera.app.fragments;
 
-import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -32,13 +33,16 @@ import com.learnera.app.R;
 import com.learnera.app.adapters.SyllabusSubjectAdapter;
 import com.learnera.app.database.LearnEraRoomDatabase;
 import com.learnera.app.database.dao.SubjectDetailDAO;
+import com.learnera.app.models.Constants;
 import com.learnera.app.models.SubjectDetail;
 import com.learnera.app.models.User;
+import com.learnera.app.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.learnera.app.models.Constants.Firebase.REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION;
 import static com.learnera.app.models.Constants.Firebase.REMOTE_CONFIG_SYLLABUS_VERSION;
 
 
@@ -54,6 +58,8 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private View view;
     private RecyclerView mSubjectsRecyclerView;
     private Spinner mSemesterSelectSpinner;
+    //Shared Preferences
+    SharedPreferences sharedPreferences;
 
     // Firebase
     private FirebaseRemoteConfig mRemoteConfig = FirebaseRemoteConfig.getInstance();
@@ -62,7 +68,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
 
     private long localSyllabusVersion;
     private long fetchedSyllabusVersion;
-
+    SharedPreferences.Editor editor;
     private ProgressDialog mProgressDialog;
 
     public SyllabusSubjectsFragment() {
@@ -87,6 +93,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         // Getting current user info
         mCurrentUser = User.getLoginInfo(getActivity());
         mProgressDialog.show();
+        sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         setRecyclerViewContents(mCurrentUser.getSem());
         setSemesterSpinnerContents();
         checkSyllabusUpdates();
@@ -95,36 +102,48 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
 
     private void checkSyllabusUpdates() {
         Log.i(TAG, "Current remote config value : " + mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION));
-
         // Firebase RemoteConfig setup
         mRemoteConfig.setConfigSettings(new FirebaseRemoteConfigSettings.Builder()
                 .setDeveloperModeEnabled(BuildConfig.DEBUG)
                 .build());
         HashMap<String, Object> defaults = new HashMap<>();
-        defaults.put(REMOTE_CONFIG_SYLLABUS_VERSION, 0);
+        defaults.put(REMOTE_CONFIG_SYLLABUS_VERSION, REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION);
         mRemoteConfig.setDefaults(defaults);
 
-        localSyllabusVersion = mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION);
-        fetchedSyllabusVersion = localSyllabusVersion;
-        final Task<Void> fetch = mRemoteConfig.fetch(5);
-        fetch.addOnCompleteListener(this.getActivity(), new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    //TODO: Remove debug messages
-                    mRemoteConfig.activateFetched();
-                    fetchedSyllabusVersion = mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION);
-                    if (fetchedSyllabusVersion > localSyllabusVersion) {
-                        updateSubjects();
-                    }
-                    Log.i(TAG, "RemoteConfig fetch successful");
-                    Log.i(TAG, "New value : " + mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION));
-                } else {
-                    Log.e(TAG, "RemoteConfig fetch failed");
 
-                }
+        localSyllabusVersion = mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION);
+        if (localSyllabusVersion == REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION) {
+            if (Utils.isNetworkAvailable(getActivity())) {
+                fetchedSyllabusVersion = localSyllabusVersion;
+                final Task<Void> fetch = mRemoteConfig.fetch(5);
+                fetch.addOnCompleteListener(this.getActivity(), new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            //TODO: Remove debug messages
+                            mRemoteConfig.activateFetched();
+                            fetchedSyllabusVersion = mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION);
+                            if (fetchedSyllabusVersion > localSyllabusVersion) {
+                                editor = sharedPreferences.edit();
+                                editor.putBoolean(getActivity().getString(R.string.pref_syllabus_outdated), true);
+                                editor.apply();
+                                updateSubjects();
+                            }
+                            Log.i(TAG, "RemoteConfig fetch successful");
+                            Log.i(TAG, "New value : " + mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION));
+                        } else {
+                            Log.e(TAG, "RemoteConfig fetch failed");
+                        }
+                    }
+                });
+            } else {
+                mProgressDialog.hide();
+                Utils.doWhenNoNetwork(getActivity());
             }
-        });
+        } else if (sharedPreferences.getBoolean(getActivity().getString(R.string.pref_syllabus_outdated), true) && Utils.isNetworkAvailable(getActivity())) {
+            updateSubjects();
+        }
+
     }
 
     //Initializing views
@@ -148,8 +167,6 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     }
 
     private void updateSubjects() {
-        subjectDetailDAO.deleteAll();
-
         // Fetching data from Firebase Realtime Database and storing it to the local RoomDatabase
         final DatabaseReference databaseReference = mFirebaseDatabase.getReference(getString(R.string.firebase_syllabus_fetch_path));
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -157,6 +174,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.d(TAG, "onDataChange is executing");
                 mProgressDialog.show();
+                subjectDetailDAO.deleteAll();
                 for (DataSnapshot branchSnapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot semesterSnapshot : branchSnapshot.getChildren()) {
                         for (DataSnapshot subjectDetailsSnapshot : semesterSnapshot.getChildren()) {
@@ -169,6 +187,9 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                     }
                 }
                 setRecyclerViewContents(mCurrentUser.getSem());
+                editor = sharedPreferences.edit();
+                editor.putBoolean(getActivity().getString(R.string.pref_syllabus_outdated), false);
+                editor.apply();
                 mProgressDialog.hide();
                 Log.d(TAG, "onDataChange has finished executing");
 
