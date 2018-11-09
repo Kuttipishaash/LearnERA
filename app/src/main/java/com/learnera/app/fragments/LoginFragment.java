@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -33,13 +32,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.activities.WelcomeActivity;
-import com.learnera.app.adapters.NothingSelectedSpinnerAdapter;
 import com.learnera.app.database.LearnEraRoomDatabase;
 import com.learnera.app.database.dao.UserDAO;
 import com.learnera.app.models.Constants;
@@ -53,9 +50,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -75,7 +70,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     // Views
     private View parentView;
-    private Spinner departmentSpinner;
     private CheckBox rememberMeCheckbox;
     private AutoCompleteTextView userNameAutoCompTextView;
     private EditText passwordEditText;
@@ -117,10 +111,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         userDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).usersDAO();
 
         initViews();
-        setSpinnerHeight();
+//        setSpinnerHeight();
         setupDropDownUsersList();
         initProgressDialog();
-        setupDepartmentSpinnerContents();
         setFonts();
 
         loginButton.setOnClickListener(this);
@@ -144,20 +137,20 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     // function to decrease spinner height due to issues in low res screens
     //TODO: Make the decrease only for low res screens
-    private void setSpinnerHeight() {
-        try {
-            Field popup = Spinner.class.getDeclaredField("mPopup");
-            popup.setAccessible(true);
-
-            // Get private mPopup member variable and try cast to ListPopupWindow
-            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(departmentSpinner);
-
-            // Set popupWindow height to 300px
-            popupWindow.setHeight(300);
-        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void setSpinnerHeight() {
+//        try {
+//            Field popup = Spinner.class.getDeclaredField("mPopup");
+//            popup.setAccessible(true);
+//
+//            // Get private mPopup member variable and try cast to ListPopupWindow
+//            android.widget.ListPopupWindow popupWindow = (android.widget.ListPopupWindow) popup.get(departmentSpinner);
+//
+//            // Set popupWindow height to 300px
+//            popupWindow.setHeight(300);
+//        } catch (NoClassDefFoundError | ClassCastException | NoSuchFieldException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
 
     //Login History Implementation//
@@ -168,7 +161,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             for (int i = 0; i < rememberedUsers.size(); i++) {
                 listToDisplay.add(rememberedUsers.get(i).getUserName());
             }
-            userNameAutoCompTextView.setThreshold(1);
+            userNameAutoCompTextView.setThreshold(0);
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Objects.requireNonNull(getActivity()), android.R.layout.simple_list_item_1, listToDisplay);
             userNameAutoCompTextView.setAdapter(arrayAdapter);
             userNameAutoCompTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -176,9 +169,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                     int position = listToDisplay.indexOf(adapterView.getItemAtPosition(i));
+                    userNameAutoCompTextView.setText(rememberedUsers.get(position).getUserName());
                     passwordEditText.setText(Integer.toString(rememberedUsers.get(position).getPassword()));
-                    int indexOfSpinner = brancheslist.indexOf(rememberedUsers.get(position).getDept());
-                    departmentSpinner.setSelection(indexOfSpinner);
 
                 }
             });
@@ -215,38 +207,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         mPassInput = parentView.findViewById(R.id.text_input_password_field);
         inputMethodManager = (InputMethodManager) Objects.requireNonNull(getActivity())
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
-        departmentSpinner = parentView.findViewById(R.id.department_spinner);
         rememberMeCheckbox = parentView.findViewById(R.id.checkbox_remember_me);
         rsmsTitleTextView = parentView.findViewById(R.id.text_title_rsms);
         loginTitleTextView = parentView.findViewById(R.id.text_title_login);
         creatorsTextView = parentView.findViewById(R.id.text_creators);
     }
 
-
-    private void setupDepartmentSpinnerContents() {
-        brancheslist = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.branches_code_array)));
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(Objects.requireNonNull(getActivity()),
-                R.array.branches_name_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        departmentSpinner.setAdapter(new NothingSelectedSpinnerAdapter(
-                adapter,
-                R.layout.contact_spinner_row_nothing_selected,
-                getActivity()
-        ));
-
-        //item selection handling
-        departmentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                user.setDept(brancheslist.get(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-    }
 
     private void initProgressDialog() {
         mProgressDialog = new ProgressDialog(parentView.getContext(), R.style.ProgressDialogCustom);
@@ -257,6 +223,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private void login() {
+
         //write username and password to sharedpreference file
         SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity())
                 .getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
@@ -285,8 +252,34 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             if (indexCheck != -1)       //Checks if user is in the remembered users list
                 userDAO.deleteUser(user);   //if the user is remembered user his current values are updated
         }
-
         startActivity(new Intent(getActivity(), WelcomeActivity.class));
+    }
+
+    private boolean setDepartment(String uIDInput) {
+        char semCode = uIDInput.charAt(4);
+        switch (semCode) {
+            case '1':
+                user.setDept("ec");
+                break;
+            case '2':
+                user.setDept("ae");
+                break;
+            case '3':
+                user.setDept("cs");
+                break;
+            case '4':
+                user.setDept("it");
+                break;
+            case '5':
+                user.setDept("ee");
+                break;
+            case '6':
+                user.setDept("me");
+                break;
+            default:
+                return false;
+        }
+        return true;
     }
 
     @Override
@@ -296,22 +289,21 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             String password = passwordEditText.getText().toString();
             if (TextUtils.isEmpty(userName)) {
                 //set error on username field
-                mUserInput.setError(getString(R.string.msg_err_incorrect_uid));
+                mUserInput.setError(getString(R.string.msg_err_empty_uid));
 
                 //request focus for username field
                 mUserInput.requestFocus();
 
                 //show keyboard on emtpy username entered
                 inputMethodManager.showSoftInput(userNameAutoCompTextView, InputMethodManager.SHOW_IMPLICIT);
+            } else if (!setDepartment(userNameAutoCompTextView.getText().toString())) {
+                mUserInput.setError(getActivity().getString(R.string.msg_err_incorrect_uid));
+                mUserInput.requestFocus();
+                inputMethodManager.showSoftInput(userNameAutoCompTextView, InputMethodManager.SHOW_IMPLICIT);
             } else if (TextUtils.isEmpty(password)) {
                 mPassInput.setError(getString(R.string.msg_err_empty_password));
                 mPassInput.requestFocus();
                 inputMethodManager.showSoftInput(passwordEditText, InputMethodManager.SHOW_IMPLICIT);
-            } else if (departmentSpinner.getSelectedItemPosition() == 0) {
-                TextView errorText = (TextView) departmentSpinner.getSelectedView();
-                errorText.setError(getString(R.string.msg_err_no_branch));
-                errorText.setTextColor(Color.RED);//just to highlight that this is an error
-                errorText.setText(getString(R.string.msg_err_select_branch));//changes the selected item text to this
             } else {
                 if (Utils.isNetworkAvailable(getActivity())) {
 

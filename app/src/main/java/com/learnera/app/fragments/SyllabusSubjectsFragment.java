@@ -51,7 +51,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     // Constants
     private static final String TAG = "SyllabusSubjectsFrag";
     private static final long REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC = 43200L;   // New remote config values will be fetched every 12 hours.
-    private static final long REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC_DEV = 43200L;   // New remote config values will be fetched every 12 hours.
+    private static final long REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC_DEV = 5;   // New remote config values will be fetched every 12 hours.
 
     private User mCurrentUser = new User();
 
@@ -114,6 +114,7 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
 
         localSyllabusVersion = mRemoteConfig.getLong(REMOTE_CONFIG_SYLLABUS_VERSION);
         fetchedSyllabusVersion = localSyllabusVersion;
+        //TODO: CHANGE THE TIMEOUT BEFORE PRODUCTION
         final Task<Void> fetch = mRemoteConfig.fetch(REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC_DEV);
         fetch.addOnCompleteListener(this.getActivity(), new OnCompleteListener<Void>() {
             @Override

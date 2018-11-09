@@ -86,7 +86,8 @@
     <!-- Messages -->
     <string name="msg_checking_login">Checking login information&#8230;</string>
     <string name="msg_loading_rsms_data">Loading data from RSMS&#8230;</string>
-    <string name="msg_err_incorrect_uid">Username cannot be empty</string>
+    <string name="msg_err_empty_uid">Username cannot be empty</string>
+    <string name="msg_err_incorrect_uid">Username is invalid</string>
     <string name="msg_err_no_branch">No branch selected</string>
     <string name="msg_err_empty_password">Password cannot be empty</string>
     <string name="msg_err_select_branch">Please select a branch</string>

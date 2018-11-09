@@ -108,13 +108,6 @@
                         android:textSize="15sp" />
                 </android.support.design.widget.TextInputLayout>
 
-                <Spinner
-                    android:id="@+id/department_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp" />
-
                 <CheckBox
                     android:id="@+id/checkbox_remember_me"
                     android:layout_width="wrap_content"
