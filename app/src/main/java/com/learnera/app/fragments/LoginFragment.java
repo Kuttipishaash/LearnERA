@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
@@ -163,13 +164,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private void setupDropDownUsersList() {
         rememberedUsers = userDAO.getUsers();
         listToDisplay = new ArrayList<String>();
-        String tempUsersName;
-        int tempIndexOfSpaceInUserName;
         if (rememberedUsers.size() != 0) {
             for (int i = 0; i < rememberedUsers.size(); i++) {
-                tempUsersName = rememberedUsers.get(i).getUser();
-                tempIndexOfSpaceInUserName = tempUsersName.indexOf(" ");
-                tempUsersName = tempUsersName.substring(0, tempIndexOfSpaceInUserName);
                 listToDisplay.add(rememberedUsers.get(i).getUserName());
             }
             userNameAutoCompTextView.setThreshold(1);
@@ -319,12 +315,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             } else {
                 if (Utils.isNetworkAvailable(getActivity())) {
 
-//                    JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
-//                    jSoupLoginTask.execute();
-//
-//                    Handler handler = new Handler();
-//                    Utils.testInternetConnectivity(jSoupLoginTask, handler);
-                    loginWithoutCredentials();
+                    JSoupLoginTask jSoupLoginTask = new JSoupLoginTask();
+                    jSoupLoginTask.execute();
+
+                    Handler handler = new Handler();
+                    Utils.testInternetConnectivity(jSoupLoginTask, handler);
                     user.setUserName(userName);
                     user.setPassword(Integer.parseInt(password));
                 } else {
@@ -333,45 +328,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             }
         }
 
-    }
-
-    //TODO: REMOVE
-    private void loginWithoutCredentials() {
-        user.setUser("u1504045");
-        user.setPassword(15253);
-        user.setUserName("Prabhasnhankar Kannapan");
-        user.setSem(7);
-        user.setDept("it");
-        //write username and password to sharedpreference file
-        SharedPreferences sharedPreferences = Objects.requireNonNull(getActivity())
-                .getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(getString(R.string.pref_user),
-                user.getUser());
-        editor.putInt(getString(R.string.pref_sem),
-                user.getSem());
-        editor.putString(getString(R.string.pref_department),
-                user.getDept());
-        editor.putString(getString(R.string.pref_username),
-                user.getUserName());
-        editor.putInt(getString(R.string.pref_password),
-                user.getPassword());
-        editor.putInt(getString(R.string.pref_attendance_cutoff),
-                75);
-        editor.apply();
-        if (rememberMeCheckbox.isChecked()) {
-            int indexCheck = listToDisplay.indexOf(user.getUserName());
-            if (indexCheck != -1)       //Checks if user is in the remembered users list
-                userDAO.updateUser(user);   //if the user is remembered user his current values are updated
-            else
-                userDAO.insertUser(user);  //if it is a new user then his
-        } else {
-            int indexCheck = listToDisplay.indexOf(user.getUserName());
-            if (indexCheck != -1)       //Checks if user is in the remembered users list
-                userDAO.deleteUser(user);   //if the user is remembered user his current values are updated
-        }
-
-        startActivity(new Intent(getActivity(), WelcomeActivity.class));
     }
 
     private class JSoupLoginTask extends AsyncTask<Void, Void, Void> {

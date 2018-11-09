@@ -133,7 +133,6 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                     Log.e(TAG, "RemoteConfig fetch failed");
                     if (fetchedSyllabusVersion > REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION) {
                         if (sharedPreferences.getBoolean(getActivity().getString(R.string.pref_syllabus_outdated), true)) {
-                            //TODO: Offline content not fully fetched
                             Log.e(TAG, "Syllabus not fully fetched to offline db");
                             if (Utils.isNetworkAvailable(getActivity())) {
                                 //If syllabus is not fully fetched then fetch it to offline db if there is network connection
