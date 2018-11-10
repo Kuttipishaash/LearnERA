@@ -28,6 +28,8 @@ import android.widget.Toast;
 import com.learnera.app.R;
 import com.learnera.app.adapters.MarksAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
+import com.learnera.app.database.LearnEraRoomDatabase;
+import com.learnera.app.database.dao.MarksDAO;
 import com.learnera.app.models.Constants;
 import com.learnera.app.models.Marks;
 import com.learnera.app.models.User;
@@ -66,6 +68,9 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private ArrayList<String> subjectMarks;
     private ArrayList<String> subjectMarksOutOf;
     private ArrayList<Marks> marksList;
+
+    // for offline
+    private MarksDAO marksDAO;
 
     private Document doc;
     private Elements list;
@@ -135,6 +140,9 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         initComponent();
         return view;
     }
+
+    private void showOfflineData() {}
+
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -162,7 +170,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         int moveY = hide ? (2 * fab_add.getHeight()) : 0;
         fab_add.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
     }
-
 
     //SPINNER SELECTION HANDLING
     @Override

@@ -12,7 +12,7 @@ import com.learnera.app.models.AttendanceDetails;
 import com.learnera.app.models.SubjectDetail;
 import com.learnera.app.models.User;
 
-@Database(entities = {User.class, SubjectDetail.class, AttendanceDetails.class}, version = DatabaseConstants.DATABASE_VERSION)
+@Database(entities = {User.class, SubjectDetail.class, AttendanceDetails.class,}, version = DatabaseConstants.DATABASE_VERSION)
 public abstract class LearnEraRoomDatabase extends RoomDatabase {
     private static LearnEraRoomDatabase DATABASE_INSTANCE;
 

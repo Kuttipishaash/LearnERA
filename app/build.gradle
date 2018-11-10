@@ -52,7 +52,7 @@ dependencies {
     // Third party UI libraries
     implementation 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
     implementation 'com.github.Yalantis:GuillotineMenu-Android:1.2'
-    implementation 'com.heinrichreimersoftware:material-intro:1.5.8'
+    implementation 'com.heinrichreimersoftware:material-intro:1.6.2'
 
     // Third party data libraries
     implementation 'com.jakewharton:butterknife:8.8.1'

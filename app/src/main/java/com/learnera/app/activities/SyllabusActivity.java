@@ -1,5 +1,7 @@
 package com.learnera.app.activities;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -33,7 +35,7 @@ public class SyllabusActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_options, menu);
+        menuInflater.inflate(R.menu.menu_syllabus, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -41,11 +43,13 @@ public class SyllabusActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case (R.id.action_about):
-                Utils.showAbout(this);
-                return true;
-            case (R.id.action_logout):
-                User.logout(this);
+            case (R.id.action_report):
+                Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
+                sendIntent.setData(Uri.parse("mailto:"));
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_mail_title));
+                sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.feedback_mail_address)});
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+                startActivity(sendIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

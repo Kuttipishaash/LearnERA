@@ -5,20 +5,23 @@ package com.learnera.app.models;
  */
 
 public class Marks {
+    private String mSubCode;
     private String mOutOf;
     private String mSubName;
-    private String mSubCode;
     private String mSubMarks;
 
-    public Marks(String mOutOf, String mSubName, String mSubCode, String mSubMarks) {
-        this.mOutOf = mOutOf;
-        this.mSubName = mSubName;
+    public Marks() {
+    }
+
+    public String getmSubCode() {
+        return mSubCode;
+    }
+
+    public void setmSubCode(String mSubCode) {
         this.mSubCode = mSubCode;
-        this.mSubMarks = mSubMarks;
     }
 
     public String getmOutOf() {
-
         return mOutOf;
     }
 
@@ -30,21 +33,9 @@ public class Marks {
         return mSubName;
     }
 
-    public Marks() {
-    }
-
     public void setmSubName(String mSubName) {
         this.mSubName = mSubName;
     }
-
-    public String getmSubCode() {
-        return mSubCode;
-    }
-
-    public void setmSubCode(String mSubCode) {
-        this.mSubCode = mSubCode;
-    }
-
 
     public String getmSubMarks() {
         return mSubMarks;
