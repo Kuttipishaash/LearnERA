@@ -16,6 +16,7 @@ import com.learnera.app.activities.AnnouncementsActivity;
 import com.learnera.app.activities.AttendanceActivity;
 import com.learnera.app.activities.LoginActivity;
 import com.learnera.app.activities.MarksActivity;
+import com.learnera.app.activities.SyllabusActivity;
 import com.learnera.app.utils.Utils;
 
 /**
@@ -62,8 +63,10 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 } else if (getActivity() instanceof AttendanceActivity) {
                     fragment = new AttendanceFragment();
                     fragmentTransaction.replace(R.id.fragment_attendance, fragment);
-                }
-                else if(getActivity() instanceof LoginActivity) {
+                } else if (getActivity() instanceof SyllabusActivity) {
+                    fragment = new SyllabusSubjectsFragment();
+                    fragmentTransaction.replace(R.id.fragment_syllabus, fragment);
+                } else if(getActivity() instanceof LoginActivity) {
                     fragment = new LoginFragment();
                     fragmentTransaction.replace(R.id.fragment_login, fragment);
                 }

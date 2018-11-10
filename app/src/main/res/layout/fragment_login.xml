@@ -49,17 +49,20 @@
             android:id="@+id/card_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            app:cardCornerRadius="8dp"
             app:cardElevation="7dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="30dp"
+                android:paddingBottom="33dp"
                 android:paddingLeft="@dimen/activity_horizontal_margin"
                 android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="30dp">
+                android:paddingTop="35dp">
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/text_input_username_field"
@@ -108,18 +111,12 @@
                         android:textSize="15sp" />
                 </android.support.design.widget.TextInputLayout>
 
-                <Spinner
-                    android:id="@+id/department_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_marginTop="20dp" />
-
                 <CheckBox
                     android:id="@+id/checkbox_remember_me"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:layout_marginLeft="5dp"
                     android:checked="true"
                     android:text="Remember Me" />
 
@@ -129,7 +126,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_weight="9"
                     android:background="@drawable/rounded_button"
                     android:paddingHorizontal="50dp"

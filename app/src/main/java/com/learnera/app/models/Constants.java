@@ -22,6 +22,7 @@ public class Constants {
 
     public class Firebase {
         public static final String REMOTE_CONFIG_SYLLABUS_VERSION = "syllabus_version";
+        public static final int REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION = 0;
     }
 
 

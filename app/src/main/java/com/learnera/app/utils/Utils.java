@@ -93,6 +93,8 @@ public class Utils {
             fragmentTransaction.replace(R.id.fragment_attendance, fragment);
         } else if (fragmentActivity instanceof LoginActivity) {
             fragmentTransaction.replace(R.id.fragment_login, fragment);
+        } else if (fragmentActivity instanceof SyllabusActivity) {
+            fragmentTransaction.replace(R.id.fragment_syllabus, fragment);
         } else if (fragmentActivity instanceof AnnouncementsActivity) {
             AnnouncementsActivity.network.setVisibility(View.VISIBLE);
             AnnouncementsActivity.mViewPager.setVisibility(View.GONE);

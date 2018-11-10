@@ -1,8 +1,8 @@
 package com.learnera.app.activities;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -25,7 +25,7 @@ public class SyllabusActivity extends AppCompatActivity {
         setContentView(R.layout.activity_syllabus);
         setTitle(getString(R.string.title_activity_syllabus));
         fragment = new SyllabusSubjectsFragment();
-        fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_syllabus, fragment);
         fragmentTransaction.commit();
     }
