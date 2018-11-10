@@ -93,6 +93,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onBackPressed() {
+
         if (!aboutUsOpen) {
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
@@ -100,6 +101,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 return;
             }
             this.doubleBackToExitPressedOnce = true;
+            gmenu.close();
             Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
             new Handler().postDelayed(new Runnable() {
 
@@ -186,15 +188,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
                 .build();
-
-        /*
-        public void onBackPressed () {
-            if (!isOpened) {
-                super.onBackPressed();
-            }
-            gmenu.close();
-        }
-        */
 
         welcomeRoot.addView(guillotineMenu);
         mGuilLoginStatus = findViewById(R.id.guil_logged_user);
