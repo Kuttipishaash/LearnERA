@@ -299,11 +299,16 @@
     <color name="md_blue_grey_900">#263238</color>
 
 
-    <!--attendence table-->
+    <!-- Attendance table -->
     <color name="leave">@color/md_red_700</color>
     <color name="approved_leave">#006600</color>
     <color name="duty_leave">#FF9900</color>
     <color name="duty_attendence">#CCCC00</color>
     <color name="present">#EAEAEA</color>
+
+    <!-- Attendance and Marks Color codes -->
+    <color name="danger_red">#C62828</color>
+    <color name="warning_orange">#F9A825</color>
+    <color name="success_green">#006600</color>
 
 </resources>

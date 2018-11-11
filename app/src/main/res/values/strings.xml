@@ -132,6 +132,9 @@
     <string name="feedback_mail_title">Feedback for LearnERA</string>
     <string name="feedback_mail_address">learneraproject@gmail.com</string>
 
+    <!-- Syllabus error reporting -->
+    <string name="report_mail_title">Syllabus error report</string>
+    <string name="report_mail_subject">Branch:\nSubject Code:\nSubject Name:\nLink to correct syllabus:</string>
 
     <!-- Firebase Strings -->
     <string name="firebase_syllabus_fetch_path">branches</string>
