@@ -52,7 +52,7 @@ public class Utils {
                 if (asyncTask.getStatus() == AsyncTask.Status.RUNNING)
                     asyncTask.cancel(true);
             }
-        }, 10000);
+        }, 15000);
     }
 
     // TODO: 8/10/2017 About us for announcements

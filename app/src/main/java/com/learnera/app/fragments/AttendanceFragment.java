@@ -672,6 +672,25 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mRecyclerView.startAnimation(fadeInAnimation);
     }
 
+    private void saveAttendanceDetails() {
+        details = new AttendanceDetails();
+        details.setDutyAttendanceList(mDutyAttendenceList);
+        details.setMissedList(mMissedList);
+        details.setPercentageList(mPercentageList);
+        details.setSubjectCodeList(mSubjectCodeList);
+        details.setSubjectList(mSubjectList);
+        details.setTotalList(mTotalList);
+        details.setTableRows(tableRows);
+
+        if (attendanceDAO.getAttendance().size() > 0) {
+            attendanceDAO.deleteAll();
+            attendanceDAO.insertDetails(details);
+        } else {
+            attendanceDAO.insertDetails(details);
+        }
+
+    }
+
     @Override
     public void onDestroyView() {
         cancelAsyncTasks();
@@ -789,21 +808,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             attendanceDetails();
 
-            details = new AttendanceDetails();
-            details.setDutyAttendanceList(mDutyAttendenceList);
-            details.setMissedList(mMissedList);
-            details.setPercentageList(mPercentageList);
-            details.setSubjectCodeList(mSubjectCodeList);
-            details.setSubjectList(mSubjectList);
-            details.setTotalList(mTotalList);
-            details.setTableRows(tableRows);
-            List<AttendanceDetails> list = attendanceDAO.getAttendance();
-            if (attendanceDAO.getAttendance().size() > 0) {
-                attendanceDAO.deleteAll();
-                attendanceDAO.insertDetails(details);
-            } else {
-                attendanceDAO.insertDetails(details);
-            }
+            saveAttendanceDetails();
 
             mProgressDialog.dismiss();
 
