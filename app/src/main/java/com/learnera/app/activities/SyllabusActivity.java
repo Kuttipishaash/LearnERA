@@ -46,9 +46,9 @@ public class SyllabusActivity extends AppCompatActivity {
             case (R.id.action_report):
                 Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                 sendIntent.setData(Uri.parse("mailto:"));
-                sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_mail_title));
+                sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.report_mail_title));
                 sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{getString(R.string.feedback_mail_address)});
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.report_mail_subject));
                 startActivity(sendIntent);
                 return true;
             default:
