@@ -1,5 +1,6 @@
 package com.learnera.app.adapters;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,6 +26,8 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
     private List<String> mDutyAttendanceList;
     static boolean isDutyEnabled;
 
+    private Context context;
+
     //The cutoff percentage of attendance
     private int cutoffPercentage;
 
@@ -42,6 +45,7 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_attendance, parent, false);
+        context = parent.getContext();
         return new ViewHolder(v);
     }
 
@@ -69,11 +73,11 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
 //            Float percent=Float.valueOf(mPercentageList.get(position));
 
             if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) < this.cutoffPercentage) {
-                holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.danger_red));
             } else if (Float.valueOf(mPercentageList.get(position).substring(0, mPercentageList.get(position).indexOf("%"))) < 80.0) {
-                holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.warning_orange));
             } else {
-                holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.success_green));
             }
 
         } else {
@@ -84,11 +88,11 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.Vi
             holder.mPercentageField.setText(percentInclDuty + "%");
 
             if (Float.valueOf(percentInclDuty) < this.cutoffPercentage) {
-                holder.mPercentageField.setTextColor(Color.parseColor("#C62828"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.danger_red));
             } else if (Float.valueOf(percentInclDuty) < 80.0) {
-                holder.mPercentageField.setTextColor(Color.parseColor("#F9A825"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.warning_orange));
             } else {
-                holder.mPercentageField.setTextColor(Color.parseColor("#006600"));
+                holder.mPercentageField.setTextColor(context.getResources().getColor(R.color.success_green));
             }
 
 
