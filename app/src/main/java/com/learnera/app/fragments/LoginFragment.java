@@ -348,13 +348,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             user.setSem(0);
 
             Element ls = list.first();
-            user.setSem(ls.select("option").size());
-
-            user.setUser(userName);
 
             mProgressDialog.dismiss();
 
-            if (isLoginInfoCorrect()) {
+            if (isLoginInfoCorrect() && ls != null) {
+                user.setSem(ls.select("option").size());
+                user.setUser(userName);
                 login();
             }
         }
