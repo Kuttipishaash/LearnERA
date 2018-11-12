@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_attendance_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:id="@+id/layout_attendance_root" >
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -44,22 +44,37 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="16dp"
-                android:paddingRight="16dp"
                 android:paddingTop="16dp"
+                android:paddingRight="16dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0">
 
+                <TextView
+                    android:id="@+id/attd_offline_warning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:text="OFFLINE MODE"
+                    android:textColor="@color/md_red_800"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
                 <Spinner
                     android:id="@+id/spinner_attendance"
+                    style="@style/Base.Widget.AppCompat.DropDownItem.Spinner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:paddingVertical="10dp" />
 
                 <LinearLayout
                     android:id="@+id/linear_layout_attendence_radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingStart="8dp">
@@ -70,10 +85,11 @@
                         android:layout_weight="1.70"
                         android:text="Cut-off Percentage : "
                         android:textColor="@color/md_black_1000"
-                        android:textSize="16sp" />
+                        android:textSize="15sp" />
 
                     <RadioGroup
                         android:id="@+id/attendance_cutoff_selector"
+                        style="@style/Base.Widget.AppCompat.CompoundButton.RadioButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.70"
@@ -101,8 +117,8 @@
                     android:id="@+id/linear_layout_attendance_duty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingStart="8dp">
@@ -113,11 +129,12 @@
                         android:layout_weight="1.70"
                         android:text="Include Duty : "
                         android:textColor="@color/md_black_1000"
-                        android:textSize="16sp" />
+                        android:textSize="15sp" />
 
 
                     <RadioGroup
                         android:id="@+id/attendance_duty_selector"
+                        style="@style/Base.Widget.AppCompat.CompoundButton.RadioButton"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.70"

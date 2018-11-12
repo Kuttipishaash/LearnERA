@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -42,10 +43,12 @@
 
             <Spinner
                 android:id="@+id/spin_semester_frg_syl"
+                style="@style/Base.Widget.AppCompat.DropDownItem.Spinner"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:gravity="center"
-                android:layout_margin="8dp" />
+                android:layout_margin="8dp"
+                android:clickable="true"
+                android:gravity="center" />
 
             <View
                 android:id="@+id/marks_header_divider"
@@ -59,25 +62,14 @@
                 android:id="@+id/subjects_rec_view_frg_syl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
                 android:nestedScrollingEnabled="false"
                 android:scrollbars="vertical"
                 android:visibility="visible"
-                android:clickable="true"
-                android:focusable="true"
                 app:layout_anchor="@+id/attendance_options_header"
                 app:layout_anchorGravity="bottom|center"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
-
-    <!-- Append id's of the Views in this fragment with _frg_syl--><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:tools="http://schemas.android.com/tools"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:orientation="vertical"--><!--tools:context="com.learnera.app.fragments.SyllabusSubjectsFragment">-->
-
-    <!--<LinearLayout--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:orientation="vertical"--><!--android:padding="16dp">-->
-
-    <!--<Spinner--><!--android:id="@+id/spin_semester_frg_syl"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content" />--><!--</LinearLayout>-->
-
-
-    <!--<View--><!--android:layout_width="match_parent"--><!--android:layout_height="2dp"--><!--android:background="@drawable/border" />-->
-
-    <!--<android.support.v7.widget.RecyclerView--><!--android:id="@+id/subjects_rec_view_frg_syl"--><!--android:layout_width="match_parent"--><!--android:layout_height="wrap_content"--><!--android:scrollbars="none"/>--><!--</LinearLayout>-->

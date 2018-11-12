@@ -14,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -30,6 +31,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.learnera.app.R;
 import com.learnera.app.adapters.AttendanceAdapter;
@@ -78,6 +80,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected Pattern codePattern, singlePattern, threePattern;
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
+    protected TextView offline_warn;
 
     //For attendance Table
     protected FloatingActionButton fab;
@@ -142,6 +145,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
         spinner = view.findViewById(R.id.spinner_attendance);
+        offline_warn = view.findViewById(R.id.attd_offline_warning);
         spinner.setOnItemSelectedListener(this);
 
         fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
@@ -167,12 +171,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         int offlineAttendanceSize = attendanceDAO.getAttendance().size();
         coordinatorLayout = view.findViewById(R.id.layout_attendance_root);
 
-        if(!Utils.isNetworkAvailable(getActivity()) && offlineAttendanceSize > 0) {
+        if (!Utils.isNetworkAvailable(getActivity()) && offlineAttendanceSize > 0) {
+            offline_warn.setVisibility(View.VISIBLE);
             showOfflineData();
             spinner.setVisibility(View.GONE);
             sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
             String date = sharedPreferences.getString("date", "");
             snackbar = Snackbar.make(coordinatorLayout, "You are viewing offline data last updated on " + date, Snackbar.LENGTH_LONG);
+            View sbView = snackbar.getView();
+            sbView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.md_red_800));
             snackbar.show();
         } else {
             spinner.setVisibility(View.VISIBLE);
@@ -218,7 +225,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         attendance = attendanceDAO.getAttendance();
 
         //assign data from room into lists
-        if(attendance.size() != 0) {
+        if (attendance.size() != 0) {
             int pos = attendance.size() - 1;
 
             mMissedList = attendance.get(pos).getMissedList();
@@ -250,10 +257,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             return "th";
         }
         switch (n % 10) {
-            case 1:  return "st";
-            case 2:  return "nd";
-            case 3:  return "rd";
-            default: return "th";
+            case 1:
+                return "st";
+            case 2:
+                return "nd";
+            case 3:
+                return "rd";
+            default:
+                return "th";
         }
     }
 
@@ -305,7 +316,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_activity_attendance));
     }
 
@@ -830,7 +841,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
             return null;
         }
     }
-
 
 
 }

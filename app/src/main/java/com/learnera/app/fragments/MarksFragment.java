@@ -28,7 +28,6 @@ import android.widget.Toast;
 import com.learnera.app.R;
 import com.learnera.app.adapters.MarksAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
-import com.learnera.app.database.LearnEraRoomDatabase;
 import com.learnera.app.database.dao.MarksDAO;
 import com.learnera.app.models.Constants;
 import com.learnera.app.models.Marks;
@@ -54,24 +53,21 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     protected FloatingActionButton fab;
 
     //protected FloatingActionButton fab;
-
+    boolean isFabHide = false;
     //Spinner related objects
     private Spinner semesterSpinner;
     private Spinner testCategorySpinner;
     private ArrayList<String> semListCode;
     private ArrayList<String> examValues;
     private ArrayList<String> examList;
-
     //Subject mark details related objects
     private ArrayList<String> subjectNames;
     private ArrayList<String> subjectCodes;
     private ArrayList<String> subjectMarks;
     private ArrayList<String> subjectMarksOutOf;
     private ArrayList<Marks> marksList;
-
     // for offline
     private MarksDAO marksDAO;
-
     private Document doc;
     private Elements list;
     private Connection.Response res;
@@ -81,7 +77,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private MarksAdapter marksAdapter;
     private View view;
     private User user;
-    boolean isFabHide = false;
 
     public MarksFragment() {
         // Required empty public constructor
@@ -141,7 +136,8 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         return view;
     }
 
-    private void showOfflineData() {}
+    private void showOfflineData() {
+    }
 
     private void initToolbar() {
         Toolbar toolbar = view.findViewById(R.id.toolbar);
@@ -149,6 +145,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Marks");
 
     }
+
     private void initComponent() {
         NestedScrollView nested_content = view.findViewById(R.id.nested_scroll_view_marks);
         nested_content.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
@@ -163,6 +160,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
             }
         });
     }
+
     private void animateFab(final boolean hide) {
         FloatingActionButton fab_add = view.findViewById(R.id.marks_fab);
         if (isFabHide && hide || !isFabHide && !hide) return;
@@ -247,7 +245,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     }
 
     private void initProgressDialog() {
-        mProgressDialog = new ProgressDialog(getActivity(),R.style.ProgressDialogCustom);
+        mProgressDialog = new ProgressDialog(getActivity(), R.style.ProgressDialogCustom);
         mProgressDialog.setMessage("Loading Data...");
         mProgressDialog.setCancelable(false);
     }

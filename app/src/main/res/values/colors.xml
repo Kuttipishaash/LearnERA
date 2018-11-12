@@ -304,7 +304,7 @@
     <color name="approved_leave">#006600</color>
     <color name="duty_leave">#FF9900</color>
     <color name="duty_attendence">#CCCC00</color>
-    <color name="present">#EAEAEA</color>
+    <color name="present">@color/md_red_300</color>
 
     <!-- Attendance and Marks Color codes -->
     <color name="danger_red">#C62828</color>

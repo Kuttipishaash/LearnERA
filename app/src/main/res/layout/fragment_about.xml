@@ -25,19 +25,19 @@
                 android:id="@+id/text_app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/pasajero"
                 android:padding="5dp"
                 android:text="LEARNERA"
                 android:textAlignment="center"
                 android:textColor="@color/mi_text_color_primary_dark"
-                android:textSize="30sp" />
+                android:textSize="40sp" />
 
             <ImageView
                 android:id="@+id/about_logo"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
                 android:layout_gravity="center_horizontal"
                 android:tint="@color/md_white_1000"
                 app:srcCompat="@drawable/ic_le" />
@@ -51,7 +51,7 @@
                 android:padding="2dp"
                 android:text="@string/app_version"
                 android:textColor="@color/mi_text_color_primary_dark"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -132,22 +132,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Naina Fathima Sayed"
+                    android:text="Anil S Nair"
                     android:textColor="@color/mi_text_color_primary_dark" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Sangeetha S R"
-                    android:textColor="@color/mi_text_color_primary_dark" />
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:text="Sangeetha S R"-->
+                <!--android:textColor="@color/mi_text_color_primary_dark" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Razni Azees"
-                    android:textColor="@color/mi_text_color_primary_dark" />
+                <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:text="Razni Azees"-->
+                <!--android:textColor="@color/mi_text_color_primary_dark" />-->
             </LinearLayout>
 
             <Button
@@ -156,8 +156,8 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
                 android:background="@drawable/rounded_button_white"
                 android:clickable="true"
                 android:text="Contact Us"
@@ -165,15 +165,17 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="0.5dp"
                 android:background="@color/mi_text_color_primary_dark" />
 
             <TextView
                 android:id="@+id/about_text_disclaimer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
                 android:padding="17dp"
-                android:text="This app is intended only for students studying at Rajagiri. LearnERA is not responsible for any discrepancies in the data"
+                android:text="This app is intended for students studying at Rajagiri only. LearnERA is not responsible for any discrepancies in the data."
                 android:textAlignment="center"
                 android:textColor="@color/mi_text_color_primary_dark"
                 android:textStyle="italic" />
