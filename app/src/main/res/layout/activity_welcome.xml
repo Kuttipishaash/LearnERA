@@ -46,19 +46,6 @@
         </android.support.v7.widget.Toolbar>
 
 
-        <!--<TextView-->
-        <!--android:id="@+id/app_name"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:background="@color/md_red_900"-->
-        <!--android:gravity="center"-->
-        <!--android:paddingTop="33dp"-->
-        <!--android:text="LEARNERA"-->
-        <!--android:textAlignment="center"-->
-        <!--android:textColor="@color/md_white_1000"-->
-        <!--android:textSize="53sp" />-->
-
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"

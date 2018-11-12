@@ -211,7 +211,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         //Set font
         Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
         Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
-        mLoginStatus.setTypeface(loginName);
+//        mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
     }
 
