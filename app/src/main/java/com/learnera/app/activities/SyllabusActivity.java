@@ -12,7 +12,6 @@ import android.view.MenuItem;
 
 import com.learnera.app.R;
 import com.learnera.app.fragments.SyllabusSubjectsFragment;
-import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 
 
@@ -51,8 +50,12 @@ public class SyllabusActivity extends AppCompatActivity {
                 sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.report_mail_subject));
                 startActivity(sendIntent);
                 return true;
+            case (R.id.action_about):
+                Utils.showAbout(this);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
