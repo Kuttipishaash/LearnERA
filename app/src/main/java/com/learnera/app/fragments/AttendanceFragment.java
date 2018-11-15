@@ -3,6 +3,8 @@ package com.learnera.app.fragments;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -34,6 +36,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.learnera.app.R;
+import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.adapters.AttendanceAdapter;
 import com.learnera.app.adapters.AttendanceTableAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
@@ -159,6 +162,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
         initProgressDialog();
+
 
         //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
         mSemesterList = new ArrayList<>();
@@ -393,7 +397,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(false);
+//        mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//            @Override
+//            public void onCancel(DialogInterface dialog) {
+//                startActivity(new Intent(getActivity(), WelcomeActivity.class));
+//                getActivity().finish();
+//            }
+//        });
     }
+
 
     private void initLists() {
         mSubjectList = new ArrayList<>();

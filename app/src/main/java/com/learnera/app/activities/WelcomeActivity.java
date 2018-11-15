@@ -70,7 +70,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     //TODO: implement bindview
     //@BindView(R.id.content_hamburger)
     private View contentHamburger;
-    private boolean isOpened = true;
+    private boolean isOpened = false;
 
     private String user;
 
@@ -101,8 +101,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 return;
             }
             this.doubleBackToExitPressedOnce = true;
-            gmenu.close();
+            if (isOpened) {
+            }
             Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
             new Handler().postDelayed(new Runnable() {
 
                 @Override
@@ -113,6 +115,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             super.onBackPressed();
             finishAffinity();
+
         }
     }
 
@@ -188,7 +191,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
                 .build();
-
+        isOpened=!isOpened;
         welcomeRoot.addView(guillotineMenu);
         mGuilLoginStatus = findViewById(R.id.guil_logged_user);
         RelativeLayout groot = findViewById(R.id.guil_root);
@@ -332,7 +335,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
+
             case R.id.drawable_seating_plan:
                 launchSeatingPlan();
                 break;
@@ -352,23 +357,33 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
                 break;
             case R.id.guil_root:
+                isOpened = !isOpened;
                 gmenu.close();
                 break;
             case R.id.guil_contact_us:
+                isOpened = !isOpened;
+                gmenu.close();
                 launchContactUs();
                 break;
             case R.id.guil_share_app:
+                isOpened = !isOpened;
+                gmenu.close();
                 shareApp();
                 break;
             case R.id.guil_contribute:
+                isOpened = !isOpened;
+                gmenu.close();
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Kuttipishaash/LearnERA"));
                 WelcomeActivity.this.startActivity(browserIntent);
                 break;
             case R.id.guil_about_us:
+                isOpened = !isOpened;
+                gmenu.close();
                 aboutUsOpen = true;
                 Utils.showAbout(this);
                 break;
             case R.id.guil_logout:
+                isOpened = !isOpened;
                 gmenu.close();
                 User.logout(WelcomeActivity.this);
                 break;
@@ -386,7 +401,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void launchContactUs() {
-        gmenu.close();
         Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
         sendIntent.setData(Uri.parse("mailto:"));
         sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_mail_title));

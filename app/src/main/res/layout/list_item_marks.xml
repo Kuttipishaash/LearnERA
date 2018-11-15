@@ -70,7 +70,7 @@
             android:gravity="center_vertical"
             android:text="888"
             android:textAlignment="center"
-            android:textColor="@color/md_grey_600"
+            android:textColor="@color/md_grey_300"
             android:textSize="32sp"
             android:textStyle="bold" />
 

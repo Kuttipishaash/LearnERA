@@ -50,7 +50,7 @@
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_margin">2dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">3dp</item>
         <item name="android:background">#eee</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">12sp</item>
@@ -78,7 +78,7 @@
 
     <style name="home_icon_image_view">
         <item name="android:layout_gravity">center</item>
-        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_margin">9dp</item>
         <item name="android:textSize">18sp</item>
         <item name="android:layout_height">90dp</item>
         <item name="android:tint">@color/md_red_800</item>
@@ -171,6 +171,7 @@
         <item name="actionBarWidgetTheme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
         <item name="android:actionMenuTextColor">@color/md_white_1000</item>
         <item name="android:background">@color/md_red_800</item>
+        <item name="android:padding">3dp</item>
         <item name="android:fontFamily">@font/abel_regular</item>
         <item name="colorAccent">@color/md_white_1000</item>
         <item name="android:tint">@color/md_white_1000</item>
