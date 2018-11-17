@@ -1,4 +1,4 @@
-package com.learnera.app;
+package com.learnera.app.utils;
 
 import android.app.Service;
 import android.content.Intent;

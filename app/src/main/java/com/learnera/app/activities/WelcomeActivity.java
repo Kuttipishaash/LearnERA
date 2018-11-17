@@ -30,6 +30,7 @@ import com.learnera.app.models.Constants;
 import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
+import com.yalantis.guillotine.interfaces.GuillotineListener;
 
 import java.util.Objects;
 
@@ -70,7 +71,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     //TODO: implement bindview
     //@BindView(R.id.content_hamburger)
     private View contentHamburger;
-    private boolean isOpened = false;
+    private boolean isGmenuOpened = false;
 
     private String user;
 
@@ -100,18 +101,21 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 finishAffinity();
                 return;
             }
-            this.doubleBackToExitPressedOnce = true;
-            if (isOpened) {
+            if (isGmenuOpened) {
+                gmenu.close();
+            } else {
+                this.doubleBackToExitPressedOnce = true;
+
+                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        doubleBackToExitPressedOnce = false;
+                    }
+                }, 2000);
             }
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
         } else {
             super.onBackPressed();
             finishAffinity();
@@ -190,8 +194,19 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 .setStartDelay(RIPPLE_DURATION)
                 .setActionBarViewForAnimation(toolbar)
                 .setClosedOnStart(true)
+                .setGuillotineListener(new GuillotineListener() {
+                    @Override
+                    public void onGuillotineOpened() {
+                        isGmenuOpened = true;
+
+                    }
+
+                    @Override
+                    public void onGuillotineClosed() {
+                        isGmenuOpened = false;
+                    }
+                })
                 .build();
-        isOpened=!isOpened;
         welcomeRoot.addView(guillotineMenu);
         mGuilLoginStatus = findViewById(R.id.guil_logged_user);
         RelativeLayout groot = findViewById(R.id.guil_root);
@@ -206,6 +221,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         gcontribute.setOnClickListener(this);
         LinearLayout gcont_us = findViewById(R.id.guil_contact_us);
         gcont_us.setOnClickListener(this);
+
+
         setUserStatus();
     }
 
@@ -357,33 +374,27 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));
                 break;
             case R.id.guil_root:
-                isOpened = !isOpened;
                 gmenu.close();
                 break;
             case R.id.guil_contact_us:
-                isOpened = !isOpened;
                 gmenu.close();
                 launchContactUs();
                 break;
             case R.id.guil_share_app:
-                isOpened = !isOpened;
                 gmenu.close();
                 shareApp();
                 break;
             case R.id.guil_contribute:
-                isOpened = !isOpened;
                 gmenu.close();
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Kuttipishaash/LearnERA"));
                 WelcomeActivity.this.startActivity(browserIntent);
                 break;
             case R.id.guil_about_us:
-                isOpened = !isOpened;
                 gmenu.close();
                 aboutUsOpen = true;
                 Utils.showAbout(this);
                 break;
             case R.id.guil_logout:
-                isOpened = !isOpened;
                 gmenu.close();
                 User.logout(WelcomeActivity.this);
                 break;

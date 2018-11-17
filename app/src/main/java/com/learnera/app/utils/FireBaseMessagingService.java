@@ -1,4 +1,4 @@
-package com.learnera.app;
+package com.learnera.app.utils;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -14,6 +14,7 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.learnera.app.R;
 
 import java.util.Map;
 

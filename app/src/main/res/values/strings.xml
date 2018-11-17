@@ -73,7 +73,7 @@
     <!-- Menu items -->
     <string name="menu_logout">Log Out</string>
     <string name="menu_about">About</string>
-    <string name="menu_report">Report an error</string>
+    <string name="menu_report">Report error</string>
 
     <!-- Dialog Text -->
     <string name="dialog_warn_seating_description">If you receive a message that the \'PDF cannot be opened\', then it implies that the seating plan has not been uploaded. This is caused by the improper implementation used by RSMS to display the file</string>

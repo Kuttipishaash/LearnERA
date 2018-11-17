@@ -56,12 +56,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.SubjectPDFViewActivity" />
 
-        <service android:name=".FireBaseInstanceIDService">
+        <service android:name=".utils.FireBaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".FireBaseMessagingService">
+        <service android:name=".utils.FireBaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
