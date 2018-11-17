@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.MenuPopupWindow;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -207,10 +206,11 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
                     for (DataSnapshot semesterSnapshot : branchSnapshot.getChildren()) {
                         for (DataSnapshot subjectDetailsSnapshot : semesterSnapshot.getChildren()) {
                             SubjectDetail subject = subjectDetailsSnapshot.getValue(SubjectDetail.class);
-                            assert subject != null;
-                            subject.setBranch(branchSnapshot.getKey());
-                            subject.setSemester(Integer.parseInt(semesterSnapshot.getKey()));
-                            subjectDetailDAO.insertSubject(subject);
+                            if (subject != null) {
+                                subject.setBranch(branchSnapshot.getKey());
+                                subject.setSemester(Integer.parseInt(semesterSnapshot.getKey()));
+                                subjectDetailDAO.insertSubject(subject);
+                            }
                         }
                     }
                 }

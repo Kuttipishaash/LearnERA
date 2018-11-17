@@ -16,6 +16,8 @@ public class Constants {
 
     //SharedPreferences file to store login details
     public static final String PREFERENCE_FILE="user_preferences";
+    public static final String TEMP_USERNAME = "temp_username";
+    public static final String TEMP_PASSWORD = "temp_password";
 
     //Shared preference file to store date information about offline entry in Attendance
     public static final String DATE_UPDATE_ATTENDANCE = "date_update_attendance";
@@ -24,7 +26,6 @@ public class Constants {
         public static final String REMOTE_CONFIG_SYLLABUS_VERSION = "syllabus_version";
         public static final int REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION = 0;
     }
-
 
 
 

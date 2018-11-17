@@ -111,6 +111,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         userDAO = LearnEraRoomDatabase.getDatabaseInstance(getActivity()).usersDAO();
 
         initViews();
+
+        String tempUsername;
+        String tempPassword;
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        tempPassword = sharedPreferences.getString(Constants.TEMP_PASSWORD, "NA");
+        tempUsername = sharedPreferences.getString(Constants.TEMP_USERNAME, "NA");
+        if (!tempUsername.equals("NA")) {
+            userNameAutoCompTextView.setText(tempUsername);
+            passwordEditText.setText(tempPassword);
+        }
 //        setSpinnerHeight();
         setupDropDownUsersList();
         initProgressDialog();
@@ -240,6 +250,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 user.getPassword());
         editor.putInt(getString(R.string.pref_attendance_cutoff),
                 75);
+
+        editor.remove(Constants.TEMP_PASSWORD);
+        editor.remove(Constants.TEMP_USERNAME);
+
         editor.apply();
         if (rememberMeCheckbox.isChecked()) {
             int indexCheck = listToDisplay.indexOf(user.getUserName());
@@ -315,6 +329,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     user.setUserName(userName);
                     user.setPassword(Integer.parseInt(password));
                 } else {
+                    SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(Constants.TEMP_USERNAME, userName);
+                    editor.putString(Constants.TEMP_PASSWORD, password);
+                    editor.apply();
                     Utils.doWhenNoNetwork(getActivity());
                 }
             }

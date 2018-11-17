@@ -3,8 +3,6 @@ package com.learnera.app.fragments;
 import android.app.ProgressDialog;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -36,7 +34,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.learnera.app.R;
-import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.adapters.AttendanceAdapter;
 import com.learnera.app.adapters.AttendanceTableAdapter;
 import com.learnera.app.anim.MyBounceInterpolator;
@@ -83,7 +80,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected Pattern codePattern, singlePattern, threePattern;
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
-    protected TextView offline_warn;
+    protected TextView offlineWarningView;
 
     //For attendance Table
     protected FloatingActionButton fab;
@@ -148,7 +145,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         view = inflater.inflate(R.layout.fragment_attendance, container, false);
 
         spinner = view.findViewById(R.id.spinner_attendance);
-        offline_warn = view.findViewById(R.id.attd_offline_warning);
+        offlineWarningView = view.findViewById(R.id.attd_offline_warning);
         spinner.setOnItemSelectedListener(this);
 
         fadeInAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
@@ -176,7 +173,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         coordinatorLayout = view.findViewById(R.id.layout_attendance_root);
 
         if (!Utils.isNetworkAvailable(getActivity()) && offlineAttendanceSize > 0) {
-            offline_warn.setVisibility(View.VISIBLE);
+            offlineWarningView.setVisibility(View.VISIBLE);
             showOfflineData();
             spinner.setVisibility(View.GONE);
             sharedPreferences = getActivity().getSharedPreferences(Constants.DATE_UPDATE_ATTENDANCE, Context.MODE_PRIVATE);
