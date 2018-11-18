@@ -18,7 +18,11 @@
             android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".activities.AttendanceActivity"
@@ -70,13 +74,9 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/md_red_800" />
 
-        <activity android:name=".IntroSplash"
+        <activity
+            android:name=".activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
         </activity>
     </application>
 

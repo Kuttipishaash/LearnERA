@@ -145,20 +145,22 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         }
         if (preferences == null)
             preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        else {
-            if (preferences.getInt(getString(R.string.pref_update_version), 0) != versionCode) {
+
+        if (preferences.getLong(getString(R.string.pref_update_version), 0) != versionCode) {
                 try {
                     //TODO: Preferences updates for this version here
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.clear();
                     editor.putLong(getString(R.string.pref_update_version), versionCode);
                     editor.apply();
+                    startActivity(new Intent(WelcomeActivity.this, SplashActivity.class));
+                    finish();
                 } catch (Throwable t) {
                     // update failed, or cancelled
                     t.printStackTrace();
                 }
             }
-        }
+
     }
 
 

@@ -1,33 +1,35 @@
-package com.learnera.app;
+package com.learnera.app.activities;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.learnera.app.activities.WelcomeActivity;
+import com.learnera.app.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class IntroSplash extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     private TextView mAppName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro_splash);
+        setContentView(R.layout.activity_splash);
         mAppName = findViewById(R.id.splash_app_name);
         setFonts();
+        Toast.makeText(this, "This is splash", Toast.LENGTH_SHORT).show();
 
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(IntroSplash.this, WelcomeActivity.class));
+                startActivity(new Intent(SplashActivity.this, WelcomeActivity.class));
             }
-        }, 10000);
+        }, 5000);
     }
 
     public void setFonts() {
