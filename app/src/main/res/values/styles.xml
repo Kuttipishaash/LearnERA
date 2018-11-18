@@ -100,6 +100,9 @@
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
         <item name="android:paddingTop">@dimen/guillotine_x_small_margin</item>
         <item name="android:paddingBottom">@dimen/guillotine_x_small_margin</item>
     </style>
@@ -118,6 +121,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingLeft">@dimen/guillotine_small_margin</item>
         <item name="android:textSize">@dimen/guillotine_item_text_size</item>
+
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:textColor">@android:color/white</item>
     </style>

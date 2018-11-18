@@ -41,8 +41,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/guillotine_medium_margin"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:clickable="false"
+                    android:focusable="false">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"
@@ -60,9 +60,7 @@
                     android:id="@+id/guil_contact_us"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"
@@ -77,9 +75,7 @@
                     android:id="@+id/guil_share_app"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"
@@ -94,9 +90,7 @@
                     android:id="@+id/guil_contribute"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"
@@ -111,9 +105,7 @@
                     android:id="@+id/guil_about_us"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"
@@ -132,9 +124,7 @@
                     android:id="@+id/guil_logout"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/ImageView.GuillotineItem"

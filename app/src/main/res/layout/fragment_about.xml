@@ -84,6 +84,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="Prabhashankar Kannappan"
                     android:textColor="@color/mi_text_color_primary_dark" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -109,6 +110,23 @@
                     android:layout_gravity="center_horizontal"
                     android:text="Mebin Johnson"
                     android:textColor="@color/mi_text_color_primary_dark" />
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:padding="5dp">-->
+
+                    <!--<ImageView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:paddingHorizontal="10dp"-->
+                        <!--android:tint="@color/md_white_1000"-->
+                        <!--app:srcCompat="@drawable/ic_instagram" />-->
+
+
+                <!--</LinearLayout>-->
             </LinearLayout>
 
 
@@ -165,7 +183,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
+                android:layout_height="0.2dp"
                 android:background="@color/mi_text_color_primary_dark" />
 
             <TextView
