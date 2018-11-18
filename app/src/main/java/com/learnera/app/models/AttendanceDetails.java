@@ -1,15 +1,15 @@
 package com.learnera.app.models;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-import android.arch.persistence.room.TypeConverters;
-
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 @Entity(tableName = DatabaseConstants.AttendanceTable.TABLE_NAME)
 public class AttendanceDetails {

@@ -1,15 +1,10 @@
 package com.learnera.app.utils;
 
-import android.arch.persistence.room.TypeConverter;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.google.gson.Gson;
@@ -29,6 +24,12 @@ import com.learnera.app.models.AttendanceTableRow;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.room.TypeConverter;
 
 /**
  * Created by praji on 7/4/2017.

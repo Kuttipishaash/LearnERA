@@ -138,6 +138,7 @@
 
     <!-- Firebase Strings -->
     <string name="firebase_syllabus_fetch_path">branches</string>
+    <string name="disclaimer_text">This app is intended for students studying at Rajagiri only. LearnERA is not responsible for any discrepancies in the data.</string>
 
 
 </resources>

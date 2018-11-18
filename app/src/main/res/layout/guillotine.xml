@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             style="@style/Toolbar"
             app:contentInsetStart="0dp">
 
@@ -23,9 +23,9 @@
                 android:focusable="true"
                 android:tint="@color/md_white_1000"
                 app:srcCompat="@drawable/ic_menu_modern" />
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-        <android.support.v4.widget.NestedScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="fill_parent">
 
@@ -135,7 +135,7 @@
                         android:text="@string/action_logout" />
                 </LinearLayout>
             </LinearLayout>
-        </android.support.v4.widget.NestedScrollView>
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 

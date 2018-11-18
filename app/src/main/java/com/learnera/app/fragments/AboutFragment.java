@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +17,10 @@ import com.learnera.app.activities.AnnouncementsActivity;
 import com.learnera.app.activities.AttendanceActivity;
 import com.learnera.app.activities.MarksActivity;
 import com.learnera.app.activities.WelcomeActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 /**
  * Created by praji on 8/8/2017.

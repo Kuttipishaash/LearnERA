@@ -10,10 +10,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.customtabs.CustomTabsIntent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +30,10 @@ import com.yalantis.guillotine.interfaces.GuillotineListener;
 
 import java.util.Objects;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.browser.customtabs.CustomTabsIntent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -121,14 +121,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean previouslyStarted = preferences.getBoolean(getString(R.string.pref_previously_started), false);
 
-        if (!previouslyStarted) {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean(getString(R.string.pref_previously_started), true);
-            editor.apply();
-            startActivity(new Intent(WelcomeActivity.this, IntroScreensActivity.class));
-        } else if (!User.isLoggedIn(this)) {
+        if (!User.isLoggedIn(this)) {
 
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
             finish();
@@ -138,9 +132,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     void runUpdatesIfNecessary() {
-        int versionCode = 0;
+        long versionCode = 0;
         try {
-            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).getLongVersionCode();
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -150,11 +144,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             if (preferences.getInt(getString(R.string.pref_update_version), 0) != versionCode) {
                 try {
                     //TODO: Preferences updates for this version here
-                    boolean firstStart = preferences.getBoolean(getString(R.string.pref_previously_started), false);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.clear();
-                    editor.putInt(getString(R.string.pref_update_version), versionCode);
-                    editor.putBoolean(getString(R.string.pref_previously_started), firstStart);
+                    editor.putLong(getString(R.string.pref_update_version), versionCode);
                     editor.apply();
                 } catch (Throwable t) {
                     // update failed, or cancelled

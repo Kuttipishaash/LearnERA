@@ -1,8 +1,5 @@
 package com.learnera.app.database;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
 import com.learnera.app.database.dao.AttendanceDAO;
@@ -11,6 +8,10 @@ import com.learnera.app.database.dao.UserDAO;
 import com.learnera.app.models.AttendanceDetails;
 import com.learnera.app.models.SubjectDetail;
 import com.learnera.app.models.User;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 @Database(entities = {User.class, SubjectDetail.class, AttendanceDetails.class,}, version = DatabaseConstants.DATABASE_VERSION)
 public abstract class LearnEraRoomDatabase extends RoomDatabase {

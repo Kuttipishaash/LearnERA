@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="mi_text_color_primary_light">#202020</color>
+    <color name="mi_text_color_primary_dark">#101010</color>
+
     <!-- google's material design colours from
-    http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
+        http://www.google.com/design/spec/style/color.html#color-ui-color-palette -->
 
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>

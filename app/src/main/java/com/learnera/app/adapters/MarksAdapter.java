@@ -1,7 +1,6 @@
 package com.learnera.app.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import com.learnera.app.R;
 import com.learnera.app.models.Marks;
 
 import java.util.List;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by Shankar on 24-06-2017.

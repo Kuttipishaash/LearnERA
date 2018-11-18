@@ -1,10 +1,6 @@
 package com.learnera.app.activities;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,6 +9,11 @@ import com.learnera.app.R;
 import com.learnera.app.fragments.MarksFragment;
 import com.learnera.app.models.User;
 import com.learnera.app.utils.Utils;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * Created by Prejith on 8/8/2016.

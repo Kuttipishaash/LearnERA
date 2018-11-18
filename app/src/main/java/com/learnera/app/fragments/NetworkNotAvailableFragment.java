@@ -1,8 +1,6 @@
 package com.learnera.app.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +16,10 @@ import com.learnera.app.activities.LoginActivity;
 import com.learnera.app.activities.MarksActivity;
 import com.learnera.app.activities.SyllabusActivity;
 import com.learnera.app.utils.Utils;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,7 +53,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
         if (view.getId() == R.id.button_retry_connection) {
             if (Utils.isNetworkAvailable(getActivity())) {
                 Fragment fragment;
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                 if (getActivity() instanceof MarksActivity) {
                     fragment = new MarksFragment();
                     fragmentTransaction.replace(R.id.marks_fragment, fragment);

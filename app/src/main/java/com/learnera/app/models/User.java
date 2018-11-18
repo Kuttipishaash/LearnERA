@@ -1,16 +1,10 @@
 package com.learnera.app.models;
 
 import android.app.Activity;
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
 import android.view.ContextThemeWrapper;
 import android.widget.Toast;
 
@@ -19,6 +13,13 @@ import com.learnera.app.activities.WelcomeActivity;
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.database.LearnEraRoomDatabase;
 import com.learnera.app.database.dao.AttendanceDAO;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 /**
  * Created by praji on 7/2/2017.

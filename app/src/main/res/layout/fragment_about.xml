@@ -10,7 +10,7 @@
     android:orientation="vertical">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/about_scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -179,6 +179,7 @@
                 android:background="@drawable/rounded_button_white"
                 android:clickable="true"
                 android:text="Contact Us"
+                android:focusable="true"
                 android:textColor="@color/mi_text_color_primary_light" />
 
             <View
@@ -193,7 +194,7 @@
                 android:layout_gravity="bottom"
                 android:gravity="bottom"
                 android:padding="17dp"
-                android:text="This app is intended for students studying at Rajagiri only. LearnERA is not responsible for any discrepancies in the data."
+                android:text="@string/disclaimer_text"
                 android:textAlignment="center"
                 android:textColor="@color/mi_text_color_primary_dark"
                 android:textStyle="italic" />
@@ -201,6 +202,6 @@
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
