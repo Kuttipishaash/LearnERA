@@ -81,7 +81,7 @@ public class AboutFragment extends Fragment {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Announcements");
         } else if (getActivity() instanceof WelcomeActivity) {
-            startActivity(new Intent(getActivity(),WelcomeActivity.class));
+            startActivity(new Intent(getActivity(), WelcomeActivity.class));
         } else {
             /*
             FragmentManager fragmentManager = getFragmentManager();

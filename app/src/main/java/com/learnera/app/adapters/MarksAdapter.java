@@ -1,9 +1,7 @@
 package com.learnera.app.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +16,7 @@ import java.util.List;
  * Created by Shankar on 24-06-2017.
  */
 
-public class MarksAdapter extends RecyclerView.Adapter<MarksAdapter.ViewHolder>{
+public class MarksAdapter extends RecyclerView.Adapter<MarksAdapter.ViewHolder> {
     private List<Marks> marksList;
 
     private Context context;
@@ -48,7 +46,7 @@ public class MarksAdapter extends RecyclerView.Adapter<MarksAdapter.ViewHolder>{
 
             if (parsedMarks < (0.45 * parsedMaxMarks)) {
                 holder.subjectMarksTextView.setTextColor(context.getResources().getColor(R.color.danger_red));
-            } else if ( parsedMarks < (0.75 * parsedMaxMarks)) {
+            } else if (parsedMarks < (0.75 * parsedMaxMarks)) {
                 holder.subjectMarksTextView.setTextColor(context.getResources().getColor(R.color.warning_orange));
             } else {
                 holder.subjectMarksTextView.setTextColor(context.getResources().getColor(R.color.success_green));

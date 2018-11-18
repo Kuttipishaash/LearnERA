@@ -55,24 +55,20 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
     private static final String TAG = "SyllabusSubjectsFrag";
     private static final long REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC = 43200L;   // New remote config values will be fetched every 12 hours.
     private static final long REMOTE_CONFIG_CACHE_EXPIRATION_IN_SEC_DEV = 5;   // New remote config values will be fetched every 12 hours.
-
+    //Shared Preferences
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     private User mCurrentUser = new User();
-
     // Views
     private View view;
     private RecyclerView mSubjectsRecyclerView;
     private Spinner mSemesterSelectSpinner;
-    //Shared Preferences
-    SharedPreferences sharedPreferences;
-
     // Firebase
     private FirebaseRemoteConfig mRemoteConfig = FirebaseRemoteConfig.getInstance();
     private FirebaseDatabase mFirebaseDatabase = FirebaseDatabase.getInstance();
     private SubjectDetailDAO subjectDetailDAO;
-
     private long localSyllabusVersion;
     private long fetchedSyllabusVersion;
-    SharedPreferences.Editor editor;
     private ProgressDialog mProgressDialog;
     private int currentSem;
 
@@ -178,11 +174,12 @@ public class SyllabusSubjectsFragment extends Fragment implements AdapterView.On
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
         mProgressDialog.setCancelable(true);
-        mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener(){
+        mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
-            public void onCancel(DialogInterface dialog){
+            public void onCancel(DialogInterface dialog) {
                 startActivity(new Intent(getActivity(), WelcomeActivity.class));
-            }});
+            }
+        });
     }
 
     private void initToolbar() {

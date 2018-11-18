@@ -1,7 +1,6 @@
 package com.learnera.app.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,14 +17,13 @@ import java.util.List;
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.ViewHolder> {
 
+    static boolean isDutyEnabled;
     private List<String> mSubjectList;
     private List<String> mPercentageList;
     private List<String> mSubjectCodeList;
     private List<String> mMissedList;
     private List<String> mTotalList;
     private List<String> mDutyAttendanceList;
-    static boolean isDutyEnabled;
-
     private Context context;
 
     //The cutoff percentage of attendance

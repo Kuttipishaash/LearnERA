@@ -52,18 +52,18 @@ public class AKDialogFragment extends DialogFragment {
         SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
         model.getTable().observe(this, new Observer<AttendanceTableAdapter>() {
-            @Override
-            public void onChanged(@Nullable AttendanceTableAdapter adapter) {
-                if (adapter.isEmpty()) {
-                    noDataAttendanceTableTextView.setVisibility(View.VISIBLE);
-                    tableList.setVisibility(View.GONE);
-                } else {
-                    noDataAttendanceTableTextView.setVisibility(View.GONE);
-                    tableList.setVisibility(View.VISIBLE);
-                    tableList.setAdapter(adapter);
+                    @Override
+                    public void onChanged(@Nullable AttendanceTableAdapter adapter) {
+                        if (adapter.isEmpty()) {
+                            noDataAttendanceTableTextView.setVisibility(View.VISIBLE);
+                            tableList.setVisibility(View.GONE);
+                        } else {
+                            noDataAttendanceTableTextView.setVisibility(View.GONE);
+                            tableList.setVisibility(View.VISIBLE);
+                            tableList.setAdapter(adapter);
+                        }
+                    }
                 }
-            }
-        }
         );
 
 

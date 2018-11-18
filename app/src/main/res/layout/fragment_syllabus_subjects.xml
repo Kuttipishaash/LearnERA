@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clickable="true"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -62,12 +61,9 @@
                 android:id="@+id/subjects_rec_view_frg_syl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
                 android:nestedScrollingEnabled="false"
                 android:scrollbars="vertical"
                 android:visibility="visible"
-                app:layout_anchor="@+id/attendance_options_header"
                 app:layout_anchorGravity="bottom|center"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
         </LinearLayout>

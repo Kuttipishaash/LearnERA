@@ -10,7 +10,7 @@
         <item>Civil Engineering</item>
     </string-array>
 
-<!-- Empty entry in branches array to account for placeholder text in spinner  -->
+    <!-- Empty entry in branches array to account for placeholder text in spinner  -->
     <string-array name="branches_code_array">
         <item></item>
         <item>it</item>

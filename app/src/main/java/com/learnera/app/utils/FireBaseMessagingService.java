@@ -2,13 +2,10 @@ package com.learnera.app.utils;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -18,9 +15,10 @@ import com.learnera.app.R;
 
 import java.util.Map;
 
-public class FireBaseMessagingService extends FirebaseMessagingService{
+public class FireBaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     private static int count = 0;
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         //Displaying data in log
@@ -32,6 +30,7 @@ public class FireBaseMessagingService extends FirebaseMessagingService{
         sendNotification(remoteMessage.getNotification().getTitle(),
                 remoteMessage.getNotification().getBody(), remoteMessage.getData());
     }
+
     //This method is only generating push notification
     private void sendNotification(String messageTitle, String messageBody, Map<String, String> row) {
         PendingIntent contentIntent = null;

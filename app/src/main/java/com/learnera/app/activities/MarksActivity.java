@@ -27,10 +27,9 @@ public class MarksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marks);
         if (Utils.isNetworkAvailable(this)) {
-            if(User.isLoggedIn(this)) {
+            if (User.isLoggedIn(this)) {
                 doWhenNetworkPresent();
-            }
-            else {
+            } else {
                 Utils.doWhenNotLoggedIn(this);
                 Utils.doWhenNotLoggedIn(this);
             }

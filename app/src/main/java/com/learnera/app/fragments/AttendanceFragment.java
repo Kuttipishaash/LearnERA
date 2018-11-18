@@ -72,7 +72,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
     private static final String TAG = "ATTENDANCE_ACTIVITY";
     final protected String sub = "Total Class";
-
+    public ArrayList<AttendanceTableRow> tableRows;
     protected int pos;
     protected String code;
     protected Document doc;
@@ -81,33 +81,28 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
     protected TextView offlineWarningView;
-
     //For attendance Table
     protected FloatingActionButton fab;
+    protected AttendanceTableAdapter tableAdapter;
     JSoupAttendanceTask jSoupAttendanceTask;
     JSoupSpinnerTask jSoupSpinnerTask;
+    SharedPreferences sharedPreferences;
+    //anim
+    Animation fadeInAnimation;
+    Animation fadeOutAnimation;
+    boolean isFabHide = false;
     private SharedViewModel sharedViewModel;
-    public ArrayList<AttendanceTableRow> tableRows;
-    protected AttendanceTableAdapter tableAdapter;
-
     //offline
     private AttendanceDAO attendanceDAO;
     private List<AttendanceDetails> attendance;
     private AttendanceDetails details;
     private CoordinatorLayout coordinatorLayout;
     private Snackbar snackbar;
-    SharedPreferences sharedPreferences;
-
-    //anim
-    Animation fadeInAnimation;
-    Animation fadeOutAnimation;
-
     //To remove
     private ProgressDialog mProgressDialog;
     private int count;
     private View view;
     private User user;
-
     //For Recycler
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mRecyclerAdapter;
@@ -117,17 +112,13 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private List<String> mMissedList;
     private List<String> mTotalList;
     private List<String> mDutyAttendenceList;   //For duty attendence count for each subject
-
     //For Spinner
     private ArrayList<String> mSemesters;
     private ArrayList<String> mSemesterList;
-
     //For setting cutoff percentage
     private RadioGroup attendancePercentSelector;
-
     //For enabling/disabling on duty
     private RadioGroup dutyEnablerSelector;
-    boolean isFabHide = false;
 
     public AttendanceFragment() {
     }

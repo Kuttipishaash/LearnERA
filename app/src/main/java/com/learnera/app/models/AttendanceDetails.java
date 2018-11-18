@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
+
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.utils.Utils;
 

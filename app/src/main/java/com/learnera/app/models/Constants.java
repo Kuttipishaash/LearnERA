@@ -15,7 +15,7 @@ public class Constants {
     public final static String seatPlanURL = "https://www.rajagiritech.ac.in/stud/ktu/Student/Seating/";
 
     //SharedPreferences file to store login details
-    public static final String PREFERENCE_FILE="user_preferences";
+    public static final String PREFERENCE_FILE = "user_preferences";
     public static final String TEMP_USERNAME = "temp_username";
     public static final String TEMP_PASSWORD = "temp_password";
 
@@ -26,7 +26,6 @@ public class Constants {
         public static final String REMOTE_CONFIG_SYLLABUS_VERSION = "syllabus_version";
         public static final int REMOTE_CONFIG_DEFAULT_SYLLABUS_VERSION = 0;
     }
-
 
 
 }

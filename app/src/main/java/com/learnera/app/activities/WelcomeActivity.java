@@ -39,6 +39,7 @@ import butterknife.ButterKnife;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final long RIPPLE_DURATION = 250;
     private LinearLayout mAnnouncement;
     private LinearLayout mAttendance;
     private LinearLayout mLogout;
@@ -48,19 +49,12 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private GuillotineAnimation gmenu;
     private TextView mLoginStatus;
     private TextView mGuilLoginStatus;
-
     private boolean aboutUsOpen = false;
-
     private boolean doubleBackToExitPressedOnce = false;
-
     private TextView mAppName;
     private AlertDialog.Builder mSeatingDialogAlert;
-
     private SharedPreferences sharedPreferences;
     private SharedPreferences preferences;
-
-    private static final long RIPPLE_DURATION = 250;
-
     @BindView(R.id.toolbar)
     private Toolbar toolbar;
 

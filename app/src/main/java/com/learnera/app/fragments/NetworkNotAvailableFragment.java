@@ -66,7 +66,7 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 } else if (getActivity() instanceof SyllabusActivity) {
                     fragment = new SyllabusSubjectsFragment();
                     fragmentTransaction.replace(R.id.fragment_syllabus, fragment);
-                } else if(getActivity() instanceof LoginActivity) {
+                } else if (getActivity() instanceof LoginActivity) {
                     fragment = new LoginFragment();
                     fragmentTransaction.replace(R.id.fragment_login, fragment);
                 }

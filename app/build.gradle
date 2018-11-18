@@ -73,8 +73,8 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
 
-    // PDF Viewer
-    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+//    // PDF Viewer
+//    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
     //GSON
     implementation 'com.google.code.gson:gson:2.6.2'

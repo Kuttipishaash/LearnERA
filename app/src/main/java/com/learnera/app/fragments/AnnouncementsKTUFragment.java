@@ -61,13 +61,14 @@ public class AnnouncementsKTUFragment extends Fragment {
         ktuURL = "https://ktu.edu.in/eu/core/announcements.htm";
         //respondToInternetStatus();
     }
-/*
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_attendance, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-*/
+
+    /*
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+            inflater.inflate(R.menu.menu_attendance, menu);
+            super.onCreateOptionsMenu(menu, inflater);
+        }
+    */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

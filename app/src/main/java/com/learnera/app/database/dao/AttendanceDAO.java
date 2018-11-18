@@ -6,7 +6,6 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
-import android.provider.ContactsContract;
 
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.models.AttendanceDetails;

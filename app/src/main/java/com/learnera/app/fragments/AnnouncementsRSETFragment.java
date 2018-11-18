@@ -172,7 +172,7 @@ public class AnnouncementsRSETFragment extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            mLoading = new ProgressDialog(getActivity(),R.style.ProgressDialogCustom);
+            mLoading = new ProgressDialog(getActivity(), R.style.ProgressDialogCustom);
             mLoading.setMessage("Loading  RSET Data...");
             mLoading.setCancelable(false);
             mLoading.show();

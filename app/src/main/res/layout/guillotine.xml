@@ -25,113 +25,127 @@
                 app:srcCompat="@drawable/ic_menu_modern" />
         </android.support.v7.widget.Toolbar>
 
-        <LinearLayout
-            android:id="@+id/profile_group"
-            style="@style/LinearLayout.GuillotineItem"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/guillotine_medium_margin"
-            android:clickable="true"
-            android:focusable="true">
+            android:layout_height="fill_parent">
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_person_black" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/guil_logged_user"
-                style="@style/TextView.GuillotineItem"
-                android:text="@string/guil_logged_in_user_dummy" />
-        </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/guil_contact_us"
-            style="@style/LinearLayout.GuillotineItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true">
+                <LinearLayout
+                    android:id="@+id/profile_group"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/guillotine_medium_margin"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_send_black_24dp" />
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_person_black" />
 
-            <TextView
-                style="@style/TextView.GuillotineItem"
-                android:text="@string/action_contact_us" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/guil_logged_user"
+                        style="@style/TextView.GuillotineItem"
+                        android:text="@string/guil_logged_in_user_dummy"
+                        android:textAllCaps="true"
+                        android:textSize="19sp" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/guil_share_app"
-            style="@style/LinearLayout.GuillotineItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true">
+                <LinearLayout
+                    android:id="@+id/guil_contact_us"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_share_white" />
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_send_black_24dp" />
 
-            <TextView
-                style="@style/TextView.GuillotineItem"
-                android:text="@string/action_share_app" />
-        </LinearLayout>
+                    <TextView
+                        style="@style/TextView.GuillotineItem"
+                        android:text="@string/action_contact_us" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/guil_contribute"
-            style="@style/LinearLayout.GuillotineItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true">
+                <LinearLayout
+                    android:id="@+id/guil_share_app"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_build" />
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_share_white" />
 
-            <TextView
-                style="@style/TextView.GuillotineItem.Selected"
-                android:text="@string/action_contribute" />
-        </LinearLayout>
+                    <TextView
+                        style="@style/TextView.GuillotineItem"
+                        android:text="@string/action_share_app" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/guil_about_us"
-            style="@style/LinearLayout.GuillotineItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true">
+                <LinearLayout
+                    android:id="@+id/guil_contribute"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_build" />
 
-            <TextView
-                style="@style/TextView.GuillotineItem.Selected"
-                android:text="@string/action_about" />
-        </LinearLayout>
+                    <TextView
+                        style="@style/TextView.GuillotineItem.Selected"
+                        android:text="@string/action_contribute" />
+                </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/guillotine_divider_height" />
+                <LinearLayout
+                    android:id="@+id/guil_about_us"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
 
-        <LinearLayout
-            android:id="@+id/guil_logout"
-            style="@style/LinearLayout.GuillotineItem"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true">
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_info_outline_black_24dp" />
 
-            <ImageView
-                style="@style/ImageView.GuillotineItem"
-                app:srcCompat="@drawable/ic_exit_to_app_black_24dp" />
+                    <TextView
+                        style="@style/TextView.GuillotineItem.Selected"
+                        android:text="@string/action_about" />
+                </LinearLayout>
 
-            <TextView
-                style="@style/TextView.GuillotineItem"
-                android:text="@string/action_logout" />
-        </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/guillotine_divider_height" />
+
+                <LinearLayout
+                    android:id="@+id/guil_logout"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_exit_to_app_black_24dp" />
+
+                    <TextView
+                        style="@style/TextView.GuillotineItem"
+                        android:text="@string/action_logout" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 

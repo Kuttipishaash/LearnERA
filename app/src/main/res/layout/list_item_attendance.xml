@@ -5,10 +5,10 @@
     android:background="?android:selectableItemBackground"
     android:clickable="true"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
     android:paddingLeft="16dp"
+    android:paddingTop="10dp"
     android:paddingRight="16dp"
-    android:paddingTop="10dp">
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,8 +46,8 @@
                 android:id="@+id/list_attendance_attended_classes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="2dp"
                 android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:text="Classes Missed" />
 
 
@@ -55,8 +55,8 @@
                 android:id="@+id/list_attendance_duty_attendence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="2dp"
                 android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:text="Duty attendence included " />
 
 
@@ -64,8 +64,8 @@
                 android:id="@+id/list_attendance_class_cut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingBottom="2dp"
                 android:paddingTop="2dp"
+                android:paddingBottom="2dp"
                 android:text="Bunking text field" />
 
         </LinearLayout>

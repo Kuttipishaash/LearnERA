@@ -120,7 +120,8 @@ public class Utils {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<List<String>>() {}.getType();
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
         String json = gson.toJson(stringList, type);
         return json;
     }
@@ -131,7 +132,8 @@ public class Utils {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<List<String>>() {}.getType();
+        Type type = new TypeToken<List<String>>() {
+        }.getType();
         List<String> stringList = gson.fromJson(incomingString, type);
         return stringList;
     }
@@ -142,7 +144,8 @@ public class Utils {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {}.getType();
+        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {
+        }.getType();
         String json = gson.toJson(tableRows, type);
         return json;
     }
@@ -153,7 +156,8 @@ public class Utils {
             return (null);
         }
         Gson gson = new Gson();
-        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {}.getType();
+        Type type = new TypeToken<ArrayList<AttendanceTableRow>>() {
+        }.getType();
         ArrayList<AttendanceTableRow> tableRowsList = gson.fromJson(tableRowsString, type);
         return tableRowsList;
     }

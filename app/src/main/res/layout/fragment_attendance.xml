@@ -64,10 +64,11 @@
 
                 <Spinner
                     android:id="@+id/spinner_attendance"
-                    style="@style/Base.Widget.AppCompat.DropDownItem.Spinner"
+                    style="@style/AppTheme.Spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:padding="0dp"
                     android:paddingVertical="10dp" />
 
                 <LinearLayout

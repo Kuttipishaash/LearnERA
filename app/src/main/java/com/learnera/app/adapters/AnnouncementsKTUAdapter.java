@@ -75,6 +75,7 @@ public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<Announcem
         public ImageView expansionArrow;
         public LinearLayout layoutexpand;
         public ImageView divider;
+
         public MyParentViewHolder(View itemView) {
             super(itemView);
             listHeader = itemView.findViewById(R.id.announcement_title);
@@ -120,7 +121,7 @@ public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<Announcem
                     }
                 }
             });
-    }
+        }
 
         @Override
         public boolean shouldItemViewClickToggleExpansion() {
@@ -140,6 +141,6 @@ public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<Announcem
             listDescription = itemView.findViewById(R.id.announcement_description);
             listDate = itemView.findViewById(R.id.announcement_date);
         }
-}
+    }
 }
 
