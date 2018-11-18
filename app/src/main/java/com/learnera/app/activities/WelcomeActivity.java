@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -134,7 +135,11 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     void runUpdatesIfNecessary() {
         long versionCode = 0;
         try {
-            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).getLongVersionCode();
+            if (Build.VERSION.SDK_INT >= 28) {
+                versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).getLongVersionCode();
+            } else {
+                versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+            }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
