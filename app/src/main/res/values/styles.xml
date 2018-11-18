@@ -31,8 +31,13 @@
         <item name="colorAccent">@color/md_amber_500</item>
     </style>
 
-    <style name="AppTheme.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
-        <item name="android:padding">0dp</item>
+    <!--<style name="AppTheme.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">-->
+        <!--<item name="android:padding">0dp</item>-->
+    <!--</style>-->
+
+    <style name="AppTheme.Spinner" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

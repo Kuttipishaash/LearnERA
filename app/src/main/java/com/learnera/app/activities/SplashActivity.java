@@ -22,14 +22,13 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mAppName = findViewById(R.id.splash_app_name);
         setFonts();
-        Toast.makeText(this, "This is splash", Toast.LENGTH_SHORT).show();
 
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
                 startActivity(new Intent(SplashActivity.this, WelcomeActivity.class));
             }
-        }, 5000);
+        }, 4500);
     }
 
     public void setFonts() {

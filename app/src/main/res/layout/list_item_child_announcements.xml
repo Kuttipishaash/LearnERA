@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:text="xx-xx-xxxx"
+            android:padding="3dp"
             android:textColor="@color/md_red_900" />
 
     </LinearLayout>
