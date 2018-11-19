@@ -43,6 +43,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -227,7 +228,9 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         if (testCategorySpinner.getCount() == 0) {
             testCategorySpinner.setEnabled(false);
-            Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "No data to display!", Toast.LENGTH_SHORT).show();
+            Toasty.info(getActivity(), "No data to display!", Toast.LENGTH_SHORT, true).show();
+
             mRecyclerView.setAdapter(null);
         } else {
             testCategorySpinner.setEnabled(true);

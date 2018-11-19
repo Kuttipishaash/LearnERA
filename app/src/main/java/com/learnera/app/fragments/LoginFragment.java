@@ -54,6 +54,7 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import es.dmoral.toasty.Toasty;
 
 /**
  * Created by Prejith on 7/4/2017.
@@ -135,12 +136,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private void setFonts() {
         //Setting app title with custom font
         SpannableString s = new SpannableString(getString(R.string.app_name_all_caps));
-        s.setSpan(new TypefaceSpan(getActivity(), "Pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s.setSpan(new TypefaceSpan(getActivity(), "pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         getActivity().setTitle(s);
 
         //set fonts to rsmslogin
-        Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-Bold.ttf");
-        Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
+        Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/sourcesanspro_bold.ttf");
+        Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/sourcesanspro_extralight.ttf");
         rsmsTitleTextView.setTypeface(boldSans);
         loginTitleTextView.setTypeface(exLightSans);
         creatorsTextView.setTypeface(boldSans);
@@ -205,7 +206,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         if (res.url().toString().equals(Constants.homeURL))
             return true;
         else {
-            Toast.makeText(parentView.getContext(), getString(R.string.toast_login_incorrect_cred), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(parentView.getContext(), getString(R.string.toast_login_incorrect_cred), Toast.LENGTH_SHORT).show();
+            Toasty.error(parentView.getContext(), getString(R.string.toast_login_incorrect_cred), Toast.LENGTH_SHORT, true).show();
             return false;
         }
     }

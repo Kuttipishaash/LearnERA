@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 
@@ -33,7 +32,7 @@ public class SplashActivity extends AppCompatActivity {
 
     public void setFonts() {
         //Set font
-        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
+        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/pasajero.otf");
         mAppName.setTypeface(appName);
     }
 }

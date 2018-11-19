@@ -12,21 +12,22 @@
         android:id="@+id/splash_app_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center"
-        android:text="LearnEra"
         android:layout_above="@id/splash_version"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:text="LearnEra"
         android:textAllCaps="true"
         android:textColor="@color/md_white_1000"
-        android:textSize="40sp" />
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="match_parent"
         android:id="@+id/splash_version"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_centerVertical="true"
         android:gravity="center_horizontal"
-        android:layout_centerInParent="true"
         android:text="Version: 3.0"
         android:textColor="@color/md_white_1000"
         android:textSize="20sp" />
@@ -45,6 +46,6 @@
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="25dp"
-        android:alpha="0.2"
+        android:alpha="0.3"
         app:srcCompat="@drawable/ic_le" />
 </RelativeLayout>

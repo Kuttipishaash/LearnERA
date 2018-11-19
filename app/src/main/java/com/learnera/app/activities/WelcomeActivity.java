@@ -37,6 +37,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -101,7 +102,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 this.doubleBackToExitPressedOnce = true;
 
-                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+                Toasty.info(this, "Please click BACK again to exit", Toast.LENGTH_SHORT, true).show();
 
                 new Handler().postDelayed(new Runnable() {
 
@@ -113,7 +115,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             }
         } else {
             super.onBackPressed();
-            finishAffinity();
+//            finishAffinity();
 
         }
     }
@@ -222,8 +224,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     public void setFonts() {
         //Set font
-        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
-        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
+        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/pasajero.otf");
+        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/sourcesanspro_extralight.ttf");
 //        mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
     }

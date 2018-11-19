@@ -20,6 +20,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import es.dmoral.toasty.Toasty;
 
 /**
  * Created by praji on 7/2/2017.
@@ -63,7 +64,8 @@ public class User {
                             //if user confirms logout erases user data and shows logout success message. also erase offline data
                             attendanceDAO.clearTable();
                             eraseUserInfo(activity.getBaseContext());
-                            Toast.makeText(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT).show();
+                            Toasty.success(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT, true).show();
                             activity.startActivity(new Intent(activity, WelcomeActivity.class));
                         }
                     })
@@ -71,7 +73,8 @@ public class User {
                     .show();
         } else {
             //if not logged in alerts user about it
-            Toast.makeText(activity, activity.getString(R.string.toast_not_logged_in), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(activity, activity.getString(R.string.toast_not_logged_in), Toast.LENGTH_SHORT).show();
+            Toasty.error(activity, activity.getString(R.string.toast_not_logged_in), Toast.LENGTH_SHORT, true).show();
         }
     }
 

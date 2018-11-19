@@ -15,6 +15,10 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
+            android:name=".activities.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -24,6 +28,10 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.LoginActivity"
+            android:label="RSMS Login"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AttendanceActivity"
             android:label="Attendance"
@@ -35,12 +43,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <!-- Set exported to true to accress the provider with external apps -->
 
-        <activity
-            android:name=".activities.LoginActivity"
-            android:label="RSMS Login"
-            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.AnnouncementsActivity"
             android:label="@string/title_activity_announcements"
@@ -73,11 +76,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/md_red_800" />
-
-        <activity
-            android:name=".activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
     </application>
 
 </manifest>

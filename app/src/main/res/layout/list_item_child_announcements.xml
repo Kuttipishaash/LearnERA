@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Long text Long textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong textLong text"
-            android:textSize="14sp" />
+            android:textSize="12.5sp" />
 
         <TextView
             android:id="@+id/announcement_date"

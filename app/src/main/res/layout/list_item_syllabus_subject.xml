@@ -17,7 +17,7 @@
             android:id="@+id/syllabus_subject_linear_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="7"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:selectableItemBackground"
@@ -50,10 +50,10 @@
 
         <ImageView
             android:id="@+id/syllabusSubjectsShareImageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.1"
+            android:layout_weight="1"
             android:clickable="true"
             android:contentDescription="@string/btn_share"
             android:focusable="true"
