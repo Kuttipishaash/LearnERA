@@ -6,6 +6,8 @@
 
 <a href='https://play.google.com/store/apps/details?id=com.learnera.app'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="50px"/></a>
 
+#### RSMS @ your fingertips!
+
 This application is a WIP and is supposed to act as a platform for interaction between college faculty and students and among students themselves when completed. 
 
 ### This application uses the following libraries:
