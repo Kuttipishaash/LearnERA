@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/md_red_900</item>
         <item name="colorButtonNormal">@color/md_red_900</item>
         <item name="android:navigationBarColor">@color/md_red_900</item>
-        <item name="android:fontFamily">@font/abel_regular</item>
-        <item name="fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@fonts/yanon</item>
+        <item name="fontFamily">@font/yanon</item>
     </style>
 
     <style name="WelcomeTheme" parent="AppTheme">
@@ -26,13 +26,18 @@
     <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/md_light_blue_600</item>
-        <item name="colorPrimaryDark">@color/md_blue_800</item>
-        <item name="colorAccent">@color/md_amber_500</item>
+        <item name="colorPrimary">@color/md_red_800</item>
+        <item name="colorPrimaryDark">@color/md_red_900</item>
+        <item name="colorAccent">@color/md_red_900</item>
     </style>
 
-    <style name="AppTheme.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">
-        <item name="android:padding">0dp</item>
+    <!--<style name="AppTheme.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">-->
+        <!--<item name="android:padding">0dp</item>-->
+    <!--</style>-->
+
+    <style name="AppTheme.Spinner" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -168,7 +173,7 @@
         <item name="actionBarWidgetTheme">@style/Base.ThemeOverlay.AppCompat.Dark</item>
         <item name="android:actionMenuTextColor">@color/md_white_1000</item>
         <item name="android:background">@color/md_red_800</item>
-        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/yanon</item>
         <item name="colorAccent">@color/md_white_1000</item>
         <item name="android:tint">@color/md_white_1000</item>
         <item name="android:buttonTint">@color/md_white_1000</item>
@@ -184,11 +189,23 @@
         <item name="android:actionMenuTextColor">@color/md_white_1000</item>
         <item name="android:background">@color/md_red_800</item>
         <item name="android:padding">3dp</item>
-        <item name="android:fontFamily">@font/abel_regular</item>
+        <item name="android:fontFamily">@font/yanon</item>
         <item name="colorAccent">@color/md_white_1000</item>
         <item name="android:tint">@color/md_white_1000</item>
         <item name="android:buttonTint">@color/md_white_1000</item>
         <item name="android:titleTextColor">@color/md_white_1000</item>
+    </style>
+
+    <style name="FullscreenTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
     </style>
 
 </resources>

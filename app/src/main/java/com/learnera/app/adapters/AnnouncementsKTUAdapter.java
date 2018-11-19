@@ -1,6 +1,7 @@
 package com.learnera.app.adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +28,11 @@ import java.util.List;
 
 public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<AnnouncementsKTUAdapter.MyParentViewHolder, AnnouncementsKTUAdapter.MyChildViewHolder> {
     private LayoutInflater mInflater;
+    private Context context;
 
     public AnnouncementsKTUAdapter(Context context, List<ParentListItem> parentItemList) {
         super(parentItemList);
+        this.context = context;
         mInflater = LayoutInflater.from(context);
     }
 
@@ -42,7 +45,7 @@ public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<Announcem
     @Override
     public MyChildViewHolder onCreateChildViewHolder(ViewGroup viewGroup) {
         View view = mInflater.inflate(R.layout.list_item_child_announcements, viewGroup, false);
-        return new MyChildViewHolder(view);
+        return new MyChildViewHolder(view, context);
     }
 
     @Override
@@ -135,12 +138,20 @@ public class AnnouncementsKTUAdapter extends ExpandableRecyclerAdapter<Announcem
         public TextView listDescription;
         public TextView listDate;
 
-        public MyChildViewHolder(View itemView) {
+        public MyChildViewHolder(View itemView, Context context) {
             super(itemView);
-
             listDescription = itemView.findViewById(R.id.announcement_description);
             listDate = itemView.findViewById(R.id.announcement_date);
+            setFonts(context);
+        }
+
+        public void setFonts(Context context) {
+            //Set font;
+            Typeface appName = Typeface.createFromAsset(context.getAssets(), "fonts/playfair.ttf");
+            listDescription.setTypeface(appName);
         }
     }
+
+
 }
 

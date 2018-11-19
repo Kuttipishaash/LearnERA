@@ -84,7 +84,7 @@ public class AnnouncementsRSETFragment extends Fragment {
             @Override
             public void onItemClick(final View view, int position) {
                 mBrowserDialog = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AlertDialogCustom));
-                mBrowserDialog.setMessage("Want to view the detailed announcement?");
+                mBrowserDialog.setMessage("View detailed announcement?");
                 mBrowserDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

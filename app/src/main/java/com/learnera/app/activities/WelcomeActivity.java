@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -36,6 +37,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import es.dmoral.toasty.Toasty;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -100,7 +102,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             } else {
                 this.doubleBackToExitPressedOnce = true;
 
-                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+                Toasty.info(this, "Please click BACK again to exit", Toast.LENGTH_SHORT, true).show();
 
                 new Handler().postDelayed(new Runnable() {
 
@@ -112,7 +115,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             }
         } else {
             super.onBackPressed();
-            finishAffinity();
+//            finishAffinity();
 
         }
     }
@@ -134,26 +137,32 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     void runUpdatesIfNecessary() {
         long versionCode = 0;
         try {
-            versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).getLongVersionCode();
+            if (Build.VERSION.SDK_INT >= 28) {
+                versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).getLongVersionCode();
+            } else {
+                versionCode = getPackageManager().getPackageInfo(getPackageName(), 0).versionCode;
+            }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         if (preferences == null)
             preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        else {
-            if (preferences.getInt(getString(R.string.pref_update_version), 0) != versionCode) {
+
+        if (preferences.getLong(getString(R.string.pref_update_version), 0) != versionCode) {
                 try {
                     //TODO: Preferences updates for this version here
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.clear();
                     editor.putLong(getString(R.string.pref_update_version), versionCode);
                     editor.apply();
+                    startActivity(new Intent(WelcomeActivity.this, SplashActivity.class));
+                    finish();
                 } catch (Throwable t) {
                     // update failed, or cancelled
                     t.printStackTrace();
                 }
             }
-        }
+
     }
 
 
@@ -215,8 +224,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     public void setFonts() {
         //Set font
-        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/Pasajero.otf");
-        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/SourceSansPro-ExtraLight.ttf");
+        Typeface appName = Typeface.createFromAsset(getAssets(), "fonts/pasajero.otf");
+        Typeface loginName = Typeface.createFromAsset(getAssets(), "fonts/sourcesanspro_extralight.ttf");
 //        mLoginStatus.setTypeface(loginName);
         mAppName.setTypeface(appName);
     }

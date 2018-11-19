@@ -20,6 +20,7 @@ import com.learnera.app.utils.Utils;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,7 +75,8 @@ public class NetworkNotAvailableFragment extends Fragment implements View.OnClic
                 }
                 fragmentTransaction.commit();
             } else {
-                Toast.makeText(getActivity(), "NO INTERNET CONNECTION FOUND", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "NO INTERNET CONNECTION FOUND", Toast.LENGTH_SHORT).show();
+                Toasty.warning(getActivity(), "NO INTERNET CONNECTION FOUND", Toast.LENGTH_SHORT, true).show();
             }
         }
     }

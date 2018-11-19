@@ -50,7 +50,7 @@ public class AboutFragment extends Fragment {
 
 
         mAppName = view.findViewById(R.id.text_app_name);
-        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Pasajero.otf");
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/pasajero.otf");
         mAppName.setTypeface(typeface);
         //To open gmail for sending feedback to the developer
         mContact.setOnClickListener(new View.OnClickListener() {
@@ -82,16 +82,8 @@ public class AboutFragment extends Fragment {
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
             getActivity().setTitle("Announcements");
         } else if (getActivity() instanceof WelcomeActivity) {
-            startActivity(new Intent(getActivity(), WelcomeActivity.class));
+//            startActivity(new Intent(getActivity(), WelcomeActivity.class));
         } else {
-            /*
-            FragmentManager fragmentManager = getFragmentManager();
-            if(fragmentManager.getBackStackEntryCount() == 1) {
-                getActivity().setTitle("Syllabus");
-            }
-            else if(fragmentManager.getBackStackEntryCount() == 2) {
-                getActivity().setTitle("kopp");
-            }*/
             ((AppCompatActivity) getActivity()).getSupportActionBar().show();
 
         }

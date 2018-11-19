@@ -13,16 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:paddingBottom="8dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/announcement_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:textSize="17sp"
+            android:layout_weight="7"
+            android:textSize="18sp"
             android:textStyle="normal" />
 
         <ImageView
@@ -30,10 +30,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:tint="@color/md_grey_600"
+            android:tint="@color/md_red_800"
             app:srcCompat="@drawable/ic_keyboard_arrow_down_black" />
     </LinearLayout>
 

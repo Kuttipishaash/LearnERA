@@ -74,7 +74,7 @@ public class Utils {
             fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_announcements));
             fragmentTransaction.add(R.id.announcement_network, fragment);
         } else if (fragmentActivity instanceof WelcomeActivity) {
-            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.addToBackStack("welcome");
             fragmentTransaction.add(R.id.welcome_root, fragment);
         } else if (fragmentActivity instanceof SyllabusActivity) {
             fragmentTransaction.addToBackStack(fragmentActivity.getString(R.string.label_fragment_syllabus));

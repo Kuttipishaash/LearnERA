@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
 
@@ -27,11 +25,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="@font/pasajero"
                 android:padding="5dp"
                 android:text="LEARNERA"
                 android:textAlignment="center"
-                android:textColor="@color/mi_text_color_primary_dark"
+                android:textColor="@color/mi_text_color_primary_light"
                 android:textSize="40sp" />
 
             <ImageView
@@ -42,6 +39,7 @@
                 android:tint="@color/md_white_1000"
                 app:srcCompat="@drawable/ic_le" />
 
+
             <TextView
                 android:id="@+id/text_about_version"
                 android:layout_width="wrap_content"
@@ -50,7 +48,7 @@
                 android:layout_marginTop="10dp"
                 android:padding="2dp"
                 android:text="@string/app_version"
-                android:textColor="@color/mi_text_color_primary_dark"
+                android:textColor="@color/mi_text_color_primary_light"
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
@@ -67,7 +65,7 @@
                     android:layout_marginTop="13dp"
                     android:padding="5dp"
                     android:text="Developers:"
-                    android:textColor="@color/mi_text_color_primary_dark"
+                    android:textColor="@color/mi_text_color_primary_light"
                     android:textStyle="bold" />
 
                 <TextView
@@ -75,7 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Prejith Premkumar"
-                    android:textColor="@color/mi_text_color_primary_dark" />
+                    android:textColor="@color/mi_text_color_primary_light" />
 
                 <TextView
                     android:id="@+id/about_text_developer2"
@@ -83,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Prabhashankar Kannappan"
-                    android:textColor="@color/mi_text_color_primary_dark" />
+                    android:textColor="@color/mi_text_color_primary_light" />
 
             </LinearLayout>
 
@@ -101,7 +99,7 @@
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
                     android:text="Frontend Developer:"
-                    android:textColor="@color/mi_text_color_primary_dark"
+                    android:textColor="@color/mi_text_color_primary_light"
                     android:textStyle="bold" />
 
                 <TextView
@@ -109,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Mebin Johnson"
-                    android:textColor="@color/mi_text_color_primary_dark" />
+                    android:textColor="@color/mi_text_color_primary_light" />
 
                 <!--<LinearLayout-->
                     <!--android:layout_width="wrap_content"-->
@@ -143,7 +141,7 @@
                     android:layout_marginTop="14dp"
                     android:padding="5dp"
                     android:text="Data Entry:"
-                    android:textColor="@color/mi_text_color_primary_dark"
+                    android:textColor="@color/mi_text_color_primary_light"
                     android:textStyle="bold" />
 
                 <TextView
@@ -151,21 +149,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="Anil S Nair"
-                    android:textColor="@color/mi_text_color_primary_dark" />
-
-                <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:text="Sangeetha S R"-->
-                <!--android:textColor="@color/mi_text_color_primary_dark" />-->
-
-                <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:text="Razni Azees"-->
-                <!--android:textColor="@color/mi_text_color_primary_dark" />-->
+                    android:textColor="@color/mi_text_color_primary_light" />
             </LinearLayout>
 
             <Button
@@ -180,12 +164,12 @@
                 android:clickable="true"
                 android:text="Contact Us"
                 android:focusable="true"
-                android:textColor="@color/mi_text_color_primary_light" />
+                android:textColor="@color/mi_text_color_primary_dark" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.2dp"
-                android:background="@color/mi_text_color_primary_dark" />
+                android:background="@color/mi_text_color_primary_light" />
 
             <TextView
                 android:id="@+id/about_text_disclaimer"
@@ -196,7 +180,7 @@
                 android:padding="17dp"
                 android:text="@string/disclaimer_text"
                 android:textAlignment="center"
-                android:textColor="@color/mi_text_color_primary_dark"
+                android:textColor="@color/mi_text_color_primary_light"
                 android:textStyle="italic" />
 
         </LinearLayout>
