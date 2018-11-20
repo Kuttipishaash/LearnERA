@@ -293,6 +293,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             case '6':
                 user.setDept("me");
                 break;
+            case '7':
+                user.setDept("ce");
+                break;
             default:
                 return false;
         }

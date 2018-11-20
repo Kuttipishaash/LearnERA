@@ -3,13 +3,19 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
     }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId 'com.learnera.app'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 3
+        versionCode 6
         versionName '3.0'
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
