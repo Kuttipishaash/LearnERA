@@ -187,7 +187,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 break;
             case R.id.spinner_marks_category:
                 //execute spinner for fetching marks_custom data
-                finalFetchURL = Constants.markURL + "?code=" + semListCode.get(semesterSpinner.getSelectedItemPosition()) + "&E_ID=" + examValues.get(testCategorySpinner.getSelectedItemPosition());
+//                finalFetchURL = Constants.markURL + "?code=" + semListCode.get(semesterSpinner.getSelectedItemPosition()) + "&E_ID=" + examValues.get(testCategorySpinner.getSelectedItemPosition());
                 MarkAsyncTask marksAsyncTask = new MarkAsyncTask();
                 marksAsyncTask.execute();
 
@@ -205,6 +205,12 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         for (int i = 0; i < countSemesters; i++) {
             semList.add(getResources().getStringArray(R.array.array_semesters)[i]);
         }
+        int currentSem = user.getSem();
+        if (countSemesters < currentSem) {
+            String currentSemCode = "2018S" + currentSem + user.getDept().toUpperCase();
+            semListCode.add(currentSemCode);
+            semList.add(getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
+        }
         //SPINNER 1
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(
                 view.getContext(),
@@ -212,12 +218,16 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 semList);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         semesterSpinner.setAdapter(adapter1);
-        semesterSpinner.setSelection(countSemesters - 1);
+        if (countSemesters < currentSem)
+            semesterSpinner.setSelection(countSemesters);
+        else
+            semesterSpinner.setSelection(countSemesters - 1);
         semesterSpinner.setOnItemSelectedListener(this);
     }
 
     private void dynamicExamList() {
         //SPINNER 2
+
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(
                 view.getContext(),
                 android.R.layout.simple_spinner_item,
@@ -339,7 +349,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
                 doc = Jsoup.connect(Constants.markURL)
                         .cookies(res.cookies())
                         .data("code", codes)
-                        .get();
+                        .post();
                 list = doc.select("select[name=E_ID]");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -400,9 +410,11 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
         @Override
         protected Void doInBackground(Void... params) {
             try {
-                doc = Jsoup.connect(finalFetchURL)
+                doc = Jsoup.connect(Constants.markURL)
                         .cookies(res.cookies())
-                        .get();
+                        .data("code", semListCode.get(semesterSpinner.getSelectedItemPosition()))
+                        .data("E_ID", examValues.get(testCategorySpinner.getSelectedItemPosition()))
+                        .post();
             } catch (IOException e) {
                 e.printStackTrace();
             }
