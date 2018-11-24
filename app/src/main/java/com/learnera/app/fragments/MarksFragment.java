@@ -2,9 +2,11 @@ package com.learnera.app.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,7 @@ import es.dmoral.toasty.Toasty;
 public class MarksFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     public static int countSemesters;
+    public static final String TAG = "MarksFragment";
     protected ArrayList<String> semList;
     protected FloatingActionButton fab;
 
@@ -87,7 +90,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
 
+
+    @Override
+    public void onAttach(Context context) {
+
+        super.onAttach(context);
         user = new User();
         user = User.getLoginInfo(getActivity());
 
@@ -103,10 +112,6 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -203,13 +208,17 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private void dynamicSemList() {
         semList = new ArrayList<>();
         for (int i = 0; i < countSemesters; i++) {
-            semList.add(getResources().getStringArray(R.array.array_semesters)[i]);
+            Context context = getContext();
+            if (context == null) {
+                Log.e(TAG, "dynamicSemList: Context is null");
+            }
+            semList.add(getContext().getResources().getStringArray(R.array.array_semesters)[i]);
         }
         int currentSem = user.getSem();
         if (countSemesters < currentSem) {
             String currentSemCode = "2018S" + currentSem + user.getDept().toUpperCase();
             semListCode.add(currentSemCode);
-            semList.add(getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
+            semList.add(getContext().getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
         }
         //SPINNER 1
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(

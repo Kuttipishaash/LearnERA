@@ -363,6 +363,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
             if (mProgressDialog.isShowing()) {
                 mProgressDialog.hide();
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                String userName = userNameAutoCompTextView.getText().toString();
+                String password = passwordEditText.getText().toString();
+                editor.putString(Constants.TEMP_USERNAME, userName);
+                editor.putString(Constants.TEMP_PASSWORD, password);
+                editor.apply();
                 Utils.doWhenNoNetwork(Objects.requireNonNull(getActivity()));
             }
         }

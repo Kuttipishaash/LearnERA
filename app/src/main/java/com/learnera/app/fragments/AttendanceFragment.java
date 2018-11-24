@@ -561,7 +561,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         //Decrement count by 1 as extra empty input is being taken on scraping. This fixes the index 'count'
         count--;
         for (int i = 0; i <= count; i++) {
-            mSemesters.add(getResources().getStringArray(R.array.array_semesters)[i]);
+            mSemesters.add(getActivity().getResources().getStringArray(R.array.array_semesters)[i]);
         }
     }
 

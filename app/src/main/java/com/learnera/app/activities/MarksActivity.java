@@ -60,12 +60,6 @@ public class MarksActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
     public void doWhenNetworkPresent() {
         fragment = new MarksFragment();
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
