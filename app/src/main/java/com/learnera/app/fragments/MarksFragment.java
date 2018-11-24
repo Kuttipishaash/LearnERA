@@ -80,6 +80,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private ProgressDialog mProgressDialog;
     private RecyclerView mRecyclerView;
     private MarksAdapter marksAdapter;
+    private Context mContext;
     private View view;
     private User user;
 
@@ -97,6 +98,7 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     public void onAttach(Context context) {
 
         super.onAttach(context);
+        this.mContext = context;
         user = new User();
         user = User.getLoginInfo(getActivity());
 
@@ -109,9 +111,14 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
 
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupSemesterTask, handler);
-
     }
 
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        this.mContext = null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -208,17 +215,17 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private void dynamicSemList() {
         semList = new ArrayList<>();
         for (int i = 0; i < countSemesters; i++) {
-            Context context = getContext();
-            if (context == null) {
+
+            if (mContext == null) {
                 Log.e(TAG, "dynamicSemList: Context is null");
             }
-            semList.add(getContext().getResources().getStringArray(R.array.array_semesters)[i]);
+            semList.add(mContext.getResources().getStringArray(R.array.array_semesters)[i]);
         }
         int currentSem = user.getSem();
         if (countSemesters < currentSem) {
             String currentSemCode = "2018S" + currentSem + user.getDept().toUpperCase();
             semListCode.add(currentSemCode);
-            semList.add(getContext().getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
+            semList.add(mContext.getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
         }
         //SPINNER 1
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(
