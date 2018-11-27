@@ -8,8 +8,9 @@ import android.content.SharedPreferences;
 import android.view.ContextThemeWrapper;
 import android.widget.Toast;
 
+import com.learnera.app.BuildConfig;
 import com.learnera.app.R;
-import com.learnera.app.activities.WelcomeActivity;
+import com.learnera.app.activities.LoginActivity;
 import com.learnera.app.database.DatabaseConstants;
 import com.learnera.app.database.LearnEraRoomDatabase;
 import com.learnera.app.database.dao.AttendanceDAO;
@@ -48,11 +49,15 @@ public class User {
         SharedPreferences sharedPreferences = context.getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
+        editor.putLong(context.getString(R.string.pref_update_version), BuildConfig.VERSION_CODE);
         editor.apply();
     }
 
+    public static void clearOfflineData(Activity activity) {
+        AttendanceDAO attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(activity).attendanceDAO();
+        attendanceDAO.clearTable();
+    }
     public static void logout(final Activity activity) {
-        final AttendanceDAO attendanceDAO = LearnEraRoomDatabase.getDatabaseInstance(activity).attendanceDAO();
         if (isLoggedIn(activity)) {
             //shows confirmation dialog for logout operation
             AlertDialog.Builder alert = new AlertDialog.Builder(new ContextThemeWrapper(activity, R.style.AlertDialogCustom));
@@ -61,12 +66,12 @@ public class User {
                     .setPositiveButton(activity.getString(R.string.btn_yes), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //if user confirms logout erases user data and shows logout success message. also erase offline data
-                            attendanceDAO.clearTable();
+                            //if user confirms logout erases user data and shows logout success message. also erase offline data.
+                            clearOfflineData(activity);
                             eraseUserInfo(activity.getBaseContext());
 //                            Toast.makeText(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT).show();
                             Toasty.success(activity, activity.getString(R.string.toast_logout_success), Toast.LENGTH_SHORT, true).show();
-                            activity.startActivity(new Intent(activity, WelcomeActivity.class));
+                            activity.startActivity(new Intent(activity, LoginActivity.class));
                         }
                     })
                     .setNegativeButton(activity.getString(R.string.btn_no), null)

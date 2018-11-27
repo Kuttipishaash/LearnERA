@@ -31,7 +31,8 @@
         <activity
             android:name=".activities.LoginActivity"
             android:label="RSMS Login"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.AttendanceActivity"
             android:label="Attendance"

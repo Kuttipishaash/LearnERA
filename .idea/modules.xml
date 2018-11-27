@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/LearnERA.iml" filepath="$PROJECT_DIR$/LearnERA.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/prod-learnera.iml" filepath="$PROJECT_DIR$/prod-learnera.iml" />
     </modules>
   </component>
 </project>

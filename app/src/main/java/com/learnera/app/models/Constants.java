@@ -18,6 +18,9 @@ public class Constants {
     public static final String PREFERENCE_FILE = "user_preferences";
     public static final String TEMP_USERNAME = "temp_username";
     public static final String TEMP_PASSWORD = "temp_password";
+    public static final String TEMP_DIVISION = "temp_division";
+    public static final String DIVISION_CODE = "temp_branch_code";
+    public static final String MARKS_FETCH_STATUS = "marks_fetch_status";
 
     //Shared preference file to store date information about offline entry in Attendance
     public static final String DATE_UPDATE_ATTENDANCE = "date_update_attendance";

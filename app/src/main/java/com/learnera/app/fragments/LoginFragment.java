@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.MetricAffectingSpan;
@@ -28,6 +27,8 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,12 +72,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private User user;
 
     // Views
+    private RadioGroup divisionRadioGroup;
+    private RadioButton notApplicableRadBtn;
+    private RadioButton alphaRadBtn;
+    private RadioButton betaRadBtn;
+    private RadioButton gammaRadBtn;
     private View parentView;
     private CheckBox rememberMeCheckbox;
     private AutoCompleteTextView userNameAutoCompTextView;
     private EditText passwordEditText;
     private TextView rsmsTitleTextView;
-    private TextView loginTitleTextView;
+    //    private TextView loginTitleTextView;
     private TextView creatorsTextView;
     private TextInputLayout mUserInput;
     private TextInputLayout mPassInput;
@@ -116,12 +122,30 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         String tempUsername;
         String tempPassword;
+        int tempRadioButtonId;
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         tempPassword = sharedPreferences.getString(Constants.TEMP_PASSWORD, "NA");
         tempUsername = sharedPreferences.getString(Constants.TEMP_USERNAME, "NA");
+        tempRadioButtonId = sharedPreferences.getInt(Constants.TEMP_DIVISION, R.id.class_na_rad_btn);
         if (!tempUsername.equals("NA")) {
             userNameAutoCompTextView.setText(tempUsername);
             passwordEditText.setText(tempPassword);
+            switch (tempRadioButtonId) {
+                case R.id.class_na_rad_btn:
+                    notApplicableRadBtn.setChecked(true);
+                    break;
+                case R.id.class_alpha_rad_btn:
+                    alphaRadBtn.setChecked(true);
+                    break;
+                case R.id.class_beta_rad_btn:
+                    betaRadBtn.setChecked(true);
+                    break;
+                case R.id.class_gamma_rad_btn:
+                    gammaRadBtn.setChecked(true);
+                    break;
+                default:
+                    notApplicableRadBtn.setChecked(true);
+            }
         }
 //        setSpinnerHeight();
         setupDropDownUsersList();
@@ -135,15 +159,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void setFonts() {
         //Setting app title with custom font
-        SpannableString s = new SpannableString(getString(R.string.app_name_all_caps));
-        s.setSpan(new TypefaceSpan(getActivity(), "pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        getActivity().setTitle(s);
+//        SpannableString s = new SpannableString(getString(R.string.app_name_all_caps));
+//        s.setSpan(new TypefaceSpan(getActivity(), "pasajero.otf"), 0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//        getActivity().setTitle(s);
 
         //set fonts to rsmslogin
+        Typeface pasajero = Typeface.createFromAsset(getActivity().getAssets(), "fonts/pasajero.otf");
         Typeface boldSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/sourcesanspro_bold.ttf");
-        Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/sourcesanspro_extralight.ttf");
-        rsmsTitleTextView.setTypeface(boldSans);
-        loginTitleTextView.setTypeface(exLightSans);
+//        Typeface exLightSans = Typeface.createFromAsset(getActivity().getAssets(), "fonts/sourcesanspro_extralight.ttf");
+        rsmsTitleTextView.setTypeface(pasajero);
+//        loginTitleTextView.setTypeface(boldSans);
         creatorsTextView.setTypeface(boldSans);
     }
 
@@ -222,8 +247,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
         rememberMeCheckbox = parentView.findViewById(R.id.checkbox_remember_me);
         rsmsTitleTextView = parentView.findViewById(R.id.text_title_rsms);
-        loginTitleTextView = parentView.findViewById(R.id.text_title_login);
+//        loginTitleTextView = parentView.findViewById(R.id.text_title_login);
         creatorsTextView = parentView.findViewById(R.id.text_creators);
+        divisionRadioGroup = parentView.findViewById(R.id.class_rad_grp);
+        notApplicableRadBtn = parentView.findViewById(R.id.class_na_rad_btn);
+        alphaRadBtn = parentView.findViewById(R.id.class_alpha_rad_btn);
+        betaRadBtn = parentView.findViewById(R.id.class_beta_rad_btn);
+        gammaRadBtn = parentView.findViewById(R.id.class_gamma_rad_btn);
+        notApplicableRadBtn.setChecked(true);
     }
 
 
@@ -253,7 +284,24 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 user.getPassword());
         editor.putInt(getString(R.string.pref_attendance_cutoff),
                 75);
-
+        String divisionCode;
+        switch (divisionRadioGroup.getCheckedRadioButtonId()) {
+            case R.id.class_na_rad_btn:
+                divisionCode = "";
+                break;
+            case R.id.class_alpha_rad_btn:
+                divisionCode = "-A";
+                break;
+            case R.id.class_beta_rad_btn:
+                divisionCode = "-B";
+                break;
+            case R.id.class_gamma_rad_btn:
+                divisionCode = "-C";
+                break;
+            default:
+                divisionCode = "";
+        }
+        editor.putString(Constants.DIVISION_CODE, divisionCode);
         editor.remove(Constants.TEMP_PASSWORD);
         editor.remove(Constants.TEMP_USERNAME);
 
@@ -339,6 +387,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(Constants.TEMP_USERNAME, userName);
                     editor.putString(Constants.TEMP_PASSWORD, password);
+                    editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
                     editor.apply();
                     Utils.doWhenNoNetwork(getActivity());
                 }
@@ -369,6 +418,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 String password = passwordEditText.getText().toString();
                 editor.putString(Constants.TEMP_USERNAME, userName);
                 editor.putString(Constants.TEMP_PASSWORD, password);
+                editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
                 editor.apply();
                 Utils.doWhenNoNetwork(Objects.requireNonNull(getActivity()));
             }
@@ -402,11 +452,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         .execute();
                 Document doc = Jsoup.connect(Constants.homeURL)
                         .cookies(res.cookies())
-                        .get();
+                        .post();
                 userName = doc.select("strong").text();
                 Document doc2 = Jsoup.connect(Constants.attendanceURL)
                         .cookies(res.cookies())
-                        .get();
+                        .post();
                 list = doc2.select("select[name=code]");
             } catch (IOException e) {
                 Log.e("LOGIN_ACTIVITY", "Error checking login info");

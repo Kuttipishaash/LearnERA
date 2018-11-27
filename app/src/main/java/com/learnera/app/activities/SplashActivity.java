@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.learnera.app.R;
+import com.learnera.app.models.User;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,10 +22,12 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         mAppName = findViewById(R.id.splash_app_name);
         setFonts();
-
+        User.eraseUserInfo(SplashActivity.this);
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
+                User.eraseUserInfo(SplashActivity.this);
+                User.clearOfflineData(SplashActivity.this);
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
         }, 4500);

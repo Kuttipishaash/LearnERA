@@ -10,7 +10,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,7 +55,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private TextView mAppName;
     private AlertDialog.Builder mSeatingDialogAlert;
     private SharedPreferences sharedPreferences;
-    private SharedPreferences preferences;
     @BindView(R.id.toolbar)
     private Toolbar toolbar;
 
@@ -123,8 +121,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private void checkLogin() {
         sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
 
-        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-
         if (!User.isLoggedIn(this)) {
 
             startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
@@ -145,13 +141,12 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        if (preferences == null)
-            preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-
-        if (preferences.getLong(getString(R.string.pref_update_version), 0) != versionCode) {
+        if (sharedPreferences == null)
+            sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+        if (sharedPreferences.getLong(getString(R.string.pref_update_version), 0) != versionCode) {
                 try {
                     //TODO: Preferences updates for this version here
-                    SharedPreferences.Editor editor = preferences.edit();
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.clear();
                     editor.putLong(getString(R.string.pref_update_version), versionCode);
                     editor.apply();
@@ -416,10 +411,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void launchSeatingPlan() {
-        boolean alertFlag = preferences.getBoolean(getString(R.string.pref_seating_dialog_enabled), true);
+        boolean alertFlag = sharedPreferences.getBoolean(getString(R.string.pref_seating_dialog_enabled), true);
 
         if (alertFlag) {
-            SharedPreferences.Editor editor = preferences.edit();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putBoolean(getString(R.string.pref_seating_dialog_enabled), false);
             editor.apply();
             mSeatingDialogAlert.show();

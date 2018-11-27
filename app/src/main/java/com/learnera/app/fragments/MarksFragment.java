@@ -3,10 +3,10 @@ package com.learnera.app.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -215,15 +215,13 @@ public class MarksFragment extends Fragment implements AdapterView.OnItemSelecte
     private void dynamicSemList() {
         semList = new ArrayList<>();
         for (int i = 0; i < countSemesters; i++) {
-
-            if (mContext == null) {
-                Log.e(TAG, "dynamicSemList: Context is null");
-            }
             semList.add(mContext.getResources().getStringArray(R.array.array_semesters)[i]);
         }
         int currentSem = user.getSem();
         if (countSemesters < currentSem) {
-            String currentSemCode = "2018S" + currentSem + user.getDept().toUpperCase();
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
+            String division = sharedPreferences.getString(Constants.DIVISION_CODE, "");
+            String currentSemCode = "2018S" + currentSem + user.getDept().toUpperCase() + division;
             semListCode.add(currentSemCode);
             semList.add(mContext.getResources().getStringArray(R.array.array_semesters)[currentSem - 1]);
         }
