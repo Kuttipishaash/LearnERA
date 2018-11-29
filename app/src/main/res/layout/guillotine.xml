@@ -4,7 +4,7 @@
     android:id="@+id/guil_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/md_red_900"
+    android:background="@color/md_red_800"
     android:orientation="vertical">
 
     <LinearLayout

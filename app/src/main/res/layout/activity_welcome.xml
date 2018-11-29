@@ -23,7 +23,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Toolbar"
-            android:background="@color/md_red_900"
+            android:background="@color/md_red_800"
             app:contentInsetStart="0dp">
 
             <ImageView
@@ -42,7 +42,7 @@
                 android:text="LEARNERA"
                 android:textAlignment="center"
                 android:textColor="@color/md_white_1000"
-                android:textSize="38sp" />
+                android:textSize="35sp" />
         </androidx.appcompat.widget.Toolbar>
 
 
@@ -61,15 +61,15 @@
                 <TextView
                     android:id="@+id/login_status"
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
+                    android:layout_height="45dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/md_red_900"
+                    android:background="@color/md_red_800"
                     android:gravity="center"
                     android:paddingBottom="5dp"
                     android:text="NOT LOGGED IN"
                     android:textAlignment="center"
                     android:textColor="@color/md_white_1000"
-                    android:textSize="16sp" />
+                    android:textSize="15sp" />
 
                 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 
