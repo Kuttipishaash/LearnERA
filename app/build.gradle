@@ -15,8 +15,8 @@ android {
         applicationId 'com.learnera.app'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 7
-        versionName '3.0'
+        versionCode 8
+        versionName '3.1'
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
             annotationProcessorOptions {
@@ -49,7 +49,7 @@ dependencies {
     implementation files('libs/jsoup-1.10.3.jar')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.browser:browser:1.0.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.browser:browser:1.0.0'

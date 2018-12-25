@@ -587,13 +587,19 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 Integer.parseInt(subCode);  //trying to convert it to a number
             } catch (NumberFormatException e) {    //if it couldn't be converted to a number it is a subject to be removed so remove it from all other lists
                 testResult = false;
-                mSubjectList.remove(i);
-                mPercentageList.remove(i);
-                mMissedList.remove(i);
-                mTotalList.remove(i);
-                mSubjectCodeList.remove(i);
-                loopvar--;
-                i--;
+                try{
+                    mSubjectList.remove(i);
+                    mPercentageList.remove(i);
+                    mMissedList.remove(i);
+                    mTotalList.remove(i);
+                    mSubjectCodeList.remove(i);
+                    loopvar--;
+                    i--;
+                }
+                catch (IndexOutOfBoundsException indexException){
+                    indexException.printStackTrace();
+                    return;
+                }
             }
             if (testResult)  //if it is an acceptable subjects i.e, it is not V,SEP,LIB etc, a 0 entry is made for the subject in the mDutyAttendanceList
                 mDutyAttendenceList.add(Integer.toString(0));
