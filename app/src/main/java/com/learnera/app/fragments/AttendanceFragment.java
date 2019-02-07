@@ -76,8 +76,10 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     public ArrayList<AttendanceTableRow> tableRows;
     protected int pos;
     protected String code;
-    protected Document doc;
+    protected Document studentsCorenerDoc;
+    protected Document parentsCornerDoc;
     protected Connection.Response res;
+    protected Connection.Response resParentsCorner;
     protected Pattern codePattern, singlePattern, threePattern;
     protected ArrayAdapter<String> mSpinnerAdapter;
     protected Spinner spinner;
@@ -120,6 +122,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     private RadioGroup attendancePercentSelector;
     //For enabling/disabling on duty
     private RadioGroup dutyEnablerSelector;
+    private JSoupDutyLeaveTask jSoupDutyLeaveTask;
 
     public AttendanceFragment() {
     }
@@ -151,6 +154,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
         initProgressDialog();
+
+        mSemesters = new ArrayList<>();
 
 
         //Semester list not included as semesters shouldn't be initalised in both the calls of initLists
@@ -346,9 +351,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         jSoupAttendanceTask = new JSoupAttendanceTask();
         jSoupAttendanceTask.execute();
 
+
+
         //check for internet connectivity
         Handler handler = new Handler();
         Utils.testInternetConnectivity(jSoupAttendanceTask, handler);
+        Handler handlerDutyAttendance = new Handler();
+        Utils.testInternetConnectivity(jSoupAttendanceTask, handler);
+
 
     }
 
@@ -420,7 +430,7 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void extractAttendanceData() {
-        Elements tables = doc.select("table [width=96%]");
+        Elements tables = studentsCorenerDoc.select("table [width=96%]");
         for (Element table : tables) {
             Elements rows = table.select("tr");
             for (Element row : rows) {
@@ -552,8 +562,8 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
     }
 
     private void extractSemesterList() {
-        mSemesters = new ArrayList<>();
-        Elements elements = doc.select("form");
+        mSemesters.clear();
+        Elements elements = studentsCorenerDoc.select("form");
         for (Element element : elements.select("option")) {
             mSemesterList.add(element.text());
             count++;
@@ -630,15 +640,18 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         }
         //DEBUG SECTION 1 ENDS
 
-        Elements tables = doc.select("table [width=96%]");
+    }
+
+    private void getAbsentTable() {
+        Elements tables = parentsCornerDoc.select("table [width=96%]");
         int count = 0;
         int rowNumber;
         int colNumber;
         for (Element table : tables) {
-            if (count == 0) {
-                count++;
-                continue;
-            }
+//            if (count == 0) {
+//                count++;
+//                continue;
+//            }
             rowNumber = 0;
             Elements rows = table.select("tr");
             for (Element row : rows) {
@@ -679,7 +692,6 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
                 tableRows.add(AttendanceTableRow);
             }
         }
-
     }
 
     private void populateList(boolean shouldEnableDuty) {
@@ -766,14 +778,14 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         protected Void doInBackground(Void... params) {
 
             try {
-                res = Jsoup.connect(Constants.loginURL)
-                        .data("user", user.getUserName())
-                        .data("pass", String.valueOf(user.getPassword()))
+                res = Jsoup.connect(Constants.loginURLStudentsCorner)
+                        .data("Userid", user.getUserName())
+                        .data("Password", String.valueOf(user.getPassword()))
                         .followRedirects(true)
                         .method(Connection.Method.POST)
                         .execute();
 
-                doc = Jsoup.connect(Constants.attendanceURL)
+                studentsCorenerDoc = Jsoup.connect(Constants.attendanceURL)
                         .cookies(res.cookies())
                         .get();
 
@@ -781,6 +793,66 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
 
             } catch (IOException e) {
                 Log.e(TAG, "Error initialising spinner");
+            }
+            return null;
+        }
+    }
+
+
+    private class JSoupDutyLeaveTask extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            setDefaultCountValue();
+            if (Utils.isNetworkAvailable(getActivity())) {
+                mProgressDialog.show();
+            } else {
+                Utils.doWhenNoNetwork(getActivity());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            extractAttendanceData();
+
+            mRecyclerView.setAdapter(mRecyclerAdapter);
+
+            attendanceDetails();
+            getAbsentTable();
+
+            saveAttendanceDetails();
+
+            mProgressDialog.dismiss();
+
+            dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                resParentsCorner = Jsoup.connect(Constants.loginURL)
+                        .data("user", user.getUserName())
+                        .data("pass", String.valueOf(user.getPassword()))
+                        .followRedirects(true)
+                        .method(Connection.Method.POST)
+                        .execute();
+
+                parentsCornerDoc = Jsoup.connect(Constants.attendanceURLParentsCorner + "?code=" + code)
+                        .cookies(res.cookies())
+                        .get();
+
+            } catch (IOException e) {
+                Log.e(TAG, "Error fetching duty attendance data");
             }
             return null;
         }
@@ -819,25 +891,15 @@ public class AttendanceFragment extends Fragment implements AdapterView.OnItemSe
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-
-            extractAttendanceData();
-
-            mRecyclerView.setAdapter(mRecyclerAdapter);
-
-            attendanceDetails();
-
-            saveAttendanceDetails();
-
-            mProgressDialog.dismiss();
-
-            dutyEnablerSelector.check(R.id.attendance_duty_disable);    //to check DISABLE radio button when semester is changed in spinner
+            jSoupDutyLeaveTask = new JSoupDutyLeaveTask();
+            jSoupDutyLeaveTask.execute();
         }
 
         @Override
         protected Void doInBackground(Void... params) {
             try {
 
-                doc = Jsoup.connect(Constants.attendanceURL + "?code=" + code)
+                studentsCorenerDoc = Jsoup.connect(Constants.attendanceURL + "?code=" + code)
                         .cookies(res.cookies())
                         .get();
 
