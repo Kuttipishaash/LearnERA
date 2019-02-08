@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AnnouncementsRSETFragment extends Fragment {
 
     public static String announcementRSETURL;
+    private static final String TAG = "AnnouncementsRSET";
     Document doc;
     Elements list;
     Connection.Response res;
@@ -193,6 +195,7 @@ public class AnnouncementsRSETFragment extends Fragment {
                         .cookies(res.cookies())
                         .get();
                 list = doc.select("table[bordercolor=#CCCCCC]");
+                Log.i(TAG, "doInBackground: " + list.text());
 
             } catch (IOException e) {
                 e.printStackTrace();

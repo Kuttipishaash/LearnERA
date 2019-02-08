@@ -27,8 +27,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -454,7 +452,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         .cookies(res.cookies())
                         .post();
                 userName = doc.select("strong").text();
-                Document doc2 = Jsoup.connect(Constants.attendanceURL)
+                Document doc2 = Jsoup.connect(Constants.attendanceURLParentsCorner)
                         .cookies(res.cookies())
                         .post();
                 list = doc2.select("select[name=code]");
