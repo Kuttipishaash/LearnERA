@@ -30,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
                 User.clearOfflineData(SplashActivity.this);
                 startActivity(new Intent(SplashActivity.this, LoginActivity.class));
             }
-        }, 4500);
+        }, 3750);
     }
 
     public void setFonts() {

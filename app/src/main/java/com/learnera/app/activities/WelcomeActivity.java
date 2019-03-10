@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
@@ -19,7 +20,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.learnera.app.R;
 import com.learnera.app.models.Constants;
@@ -36,7 +36,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.browser.customtabs.CustomTabsIntent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import es.dmoral.toasty.Toasty;
+import de.mateware.snacky.Snacky;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -101,7 +101,18 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 this.doubleBackToExitPressedOnce = true;
 
 //                Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-                Toasty.info(this, "Please click BACK again to exit", Toast.LENGTH_SHORT, true).show();
+//                Toasty.info(this, "Please click BACK again to exit", Toast.LENGTH_SHORT, true).show();
+                Snacky.builder()
+                        .setBackgroundColor(Color.parseColor("#D32F2F"))
+                        .setTextColor(Color.parseColor("#FFFFFF"))
+                        .setText("Touch again to EXIT!")
+                        .centerText()
+                        .setIcon(R.drawable.ic_info_outline_black_24dp)
+                        .setActivity(WelcomeActivity.this)
+                        .setDuration(Snacky.LENGTH_SHORT)
+                        .build()
+                        .show();
+
 
                 new Handler().postDelayed(new Runnable() {
 
@@ -144,19 +155,19 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         if (sharedPreferences == null)
             sharedPreferences = getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         if (sharedPreferences.getLong(getString(R.string.pref_update_version), 0) != versionCode) {
-                try {
-                    //TODO: Preferences updates for this version here
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.clear();
-                    editor.putLong(getString(R.string.pref_update_version), versionCode);
-                    editor.apply();
-                    startActivity(new Intent(WelcomeActivity.this, SplashActivity.class));
-                    finish();
-                } catch (Throwable t) {
-                    // update failed, or cancelled
-                    t.printStackTrace();
-                }
+            try {
+                //TODO: Preferences updates for this version here
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.putLong(getString(R.string.pref_update_version), versionCode);
+                editor.apply();
+                startActivity(new Intent(WelcomeActivity.this, SplashActivity.class));
+                finish();
+            } catch (Throwable t) {
+                // update failed, or cancelled
+                t.printStackTrace();
             }
+        }
 
     }
 

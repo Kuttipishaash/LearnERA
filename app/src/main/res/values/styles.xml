@@ -32,7 +32,7 @@
     </style>
 
     <!--<style name="AppTheme.Spinner" parent="Base.Widget.AppCompat.DropDownItem.Spinner">-->
-        <!--<item name="android:padding">0dp</item>-->
+    <!--<item name="android:padding">0dp</item>-->
     <!--</style>-->
 
     <style name="AppTheme.Spinner" parent="Widget.AppCompat.Spinner.DropDown">
@@ -74,6 +74,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:minHeight">100dp</item>
+        <item name="android:maxHeight">220dp</item>
         <item name="android:adjustViewBounds">true</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
@@ -140,7 +141,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:minHeight">?attr/actionBarSize</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:background">@color/md_red_900</item>
+        <item name="android:background">@color/md_red_800</item>
     </style>
 
     <style name="ImageView" />
