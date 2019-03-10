@@ -220,6 +220,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         gshare_app.setOnClickListener(this);
         LinearLayout gcontribute = findViewById(R.id.guil_contribute);
         gcontribute.setOnClickListener(this);
+        LinearLayout gprivacy_policy = findViewById(R.id.guil_privacy_policy);
+        gprivacy_policy.setOnClickListener(this);
         LinearLayout gcont_us = findViewById(R.id.guil_contact_us);
         gcont_us.setOnClickListener(this);
 
@@ -355,7 +357,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
         switch (v.getId()) {
-
             case R.id.drawable_seating_plan:
                 launchSeatingPlan();
                 break;
@@ -394,6 +395,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 gmenu.close();
                 aboutUsOpen = true;
                 Utils.showAbout(this);
+                break;
+            case R.id.guil_privacy_policy:
+                gmenu.close();
+                startActivity(new Intent(WelcomeActivity.this, PrivacyPolicyActivity.class));
                 break;
             case R.id.guil_logout:
                 gmenu.close();

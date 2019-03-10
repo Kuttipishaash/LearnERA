@@ -15,16 +15,21 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
+            android:name=".activities.PrivacyPolicyActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.WelcomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
@@ -43,8 +48,6 @@
             android:label="Marks"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
         <activity
             android:name=".activities.AnnouncementsActivity"
             android:label="@string/title_activity_announcements"

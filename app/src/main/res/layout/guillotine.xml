@@ -102,6 +102,21 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/guil_privacy_policy"
+                    style="@style/LinearLayout.GuillotineItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/ImageView.GuillotineItem"
+                        app:srcCompat="@drawable/ic_privacy_policy" />
+
+                    <TextView
+                        style="@style/TextView.GuillotineItem.Selected"
+                        android:text="@string/action_privacy_policy" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/guil_about_us"
                     style="@style/LinearLayout.GuillotineItem"
                     android:layout_width="match_parent"

@@ -29,6 +29,7 @@
     <string name="action_about">About</string>
     <string name="action_share_app">Share App</string>
     <string name="action_contribute">Contribute to Us</string>
+    <string name="action_privacy_policy">Privacy Policy</string>
     <string name="action_contact_us">Contact Us</string>
     <string name="status_not_logged_in">Not logged into RSMS</string>
     <string name="subtitle_logged_in_user">Logged in as : </string>
@@ -140,9 +141,14 @@
     <string name="firebase_syllabus_fetch_path">branches</string>
     <string name="disclaimer_text">This app is intended for students studying at Rajagiri only. LearnERA is not responsible for any discrepancies in the data.</string>
 
-    <string name="title_activity_intro_splash">IntroSplash</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="privacy_policy">This app is indented for personal use by students of Rajagiri School of Engineering and Technology, Kakkanad.
+    LearnERA is not storing any of the user credentials provided by user in our servers. Your data is stored only on your mobile devices.
+        Data is fetched from the college website.
+        LearnERA is not responsible for any discrepancies in the data.
+        Syllabus data in the app is fetched from the servers of LearnERA.
+        Discrepancies in syllabus data will be fixed by our developers on notifying using the report feature in syllabus screen.
+    </string>
 
 
 </resources>
