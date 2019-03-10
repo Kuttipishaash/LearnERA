@@ -27,8 +27,6 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,11 +70,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private User user;
 
     // Views
-    private RadioGroup divisionRadioGroup;
-    private RadioButton notApplicableRadBtn;
-    private RadioButton alphaRadBtn;
-    private RadioButton betaRadBtn;
-    private RadioButton gammaRadBtn;
+//    private RadioGroup divisionRadioGroup;
+//    private RadioButton notApplicableRadBtn;
+//    private RadioButton alphaRadBtn;
+//    private RadioButton betaRadBtn;
+//    private RadioButton gammaRadBtn;
     private View parentView;
     private CheckBox rememberMeCheckbox;
     private AutoCompleteTextView userNameAutoCompTextView;
@@ -126,26 +124,26 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(Constants.PREFERENCE_FILE, Context.MODE_PRIVATE);
         tempPassword = sharedPreferences.getString(Constants.TEMP_PASSWORD, "NA");
         tempUsername = sharedPreferences.getString(Constants.TEMP_USERNAME, "NA");
-        tempRadioButtonId = sharedPreferences.getInt(Constants.TEMP_DIVISION, R.id.class_na_rad_btn);
+//        tempRadioButtonId = sharedPreferences.getInt(Constants.TEMP_DIVISION, R.id.class_na_rad_btn);
         if (!tempUsername.equals("NA")) {
             userNameAutoCompTextView.setText(tempUsername);
             passwordEditText.setText(tempPassword);
-            switch (tempRadioButtonId) {
-                case R.id.class_na_rad_btn:
-                    notApplicableRadBtn.setChecked(true);
-                    break;
-                case R.id.class_alpha_rad_btn:
-                    alphaRadBtn.setChecked(true);
-                    break;
-                case R.id.class_beta_rad_btn:
-                    betaRadBtn.setChecked(true);
-                    break;
-                case R.id.class_gamma_rad_btn:
-                    gammaRadBtn.setChecked(true);
-                    break;
-                default:
-                    notApplicableRadBtn.setChecked(true);
-            }
+//            switch (tempRadioButtonId) {
+//                case R.id.class_na_rad_btn:
+//                    notApplicableRadBtn.setChecked(true);
+//                    break;
+//                case R.id.class_alpha_rad_btn:
+//                    alphaRadBtn.setChecked(true);
+//                    break;
+//                case R.id.class_beta_rad_btn:
+//                    betaRadBtn.setChecked(true);
+//                    break;
+//                case R.id.class_gamma_rad_btn:
+//                    gammaRadBtn.setChecked(true);
+//                    break;
+//                default:
+//                    notApplicableRadBtn.setChecked(true);
+//            }
         }
 //        setSpinnerHeight();
         setupDropDownUsersList();
@@ -249,12 +247,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         rsmsTitleTextView = parentView.findViewById(R.id.text_title_rsms);
 //        loginTitleTextView = parentView.findViewById(R.id.text_title_login);
         creatorsTextView = parentView.findViewById(R.id.text_creators);
-        divisionRadioGroup = parentView.findViewById(R.id.class_rad_grp);
-        notApplicableRadBtn = parentView.findViewById(R.id.class_na_rad_btn);
-        alphaRadBtn = parentView.findViewById(R.id.class_alpha_rad_btn);
-        betaRadBtn = parentView.findViewById(R.id.class_beta_rad_btn);
-        gammaRadBtn = parentView.findViewById(R.id.class_gamma_rad_btn);
-        notApplicableRadBtn.setChecked(true);
+//        divisionRadioGroup = parentView.findViewById(R.id.class_rad_grp);
+//        notApplicableRadBtn = parentView.findViewById(R.id.class_na_rad_btn);
+//        alphaRadBtn = parentView.findViewById(R.id.class_alpha_rad_btn);
+//        betaRadBtn = parentView.findViewById(R.id.class_beta_rad_btn);
+//        gammaRadBtn = parentView.findViewById(R.id.class_gamma_rad_btn);
+//        notApplicableRadBtn.setChecked(true);
     }
 
 
@@ -284,24 +282,24 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 user.getPassword());
         editor.putInt(getString(R.string.pref_attendance_cutoff),
                 75);
-        String divisionCode;
-        switch (divisionRadioGroup.getCheckedRadioButtonId()) {
-            case R.id.class_na_rad_btn:
-                divisionCode = "";
-                break;
-            case R.id.class_alpha_rad_btn:
-                divisionCode = "-A";
-                break;
-            case R.id.class_beta_rad_btn:
-                divisionCode = "-B";
-                break;
-            case R.id.class_gamma_rad_btn:
-                divisionCode = "-C";
-                break;
-            default:
-                divisionCode = "";
-        }
-        editor.putString(Constants.DIVISION_CODE, divisionCode);
+//        String divisionCode;
+//        switch (divisionRadioGroup.getCheckedRadioButtonId()) {
+//            case R.id.class_na_rad_btn:
+//                divisionCode = "";
+//                break;
+//            case R.id.class_alpha_rad_btn:
+//                divisionCode = "-A";
+//                break;
+//            case R.id.class_beta_rad_btn:
+//                divisionCode = "-B";
+//                break;
+//            case R.id.class_gamma_rad_btn:
+//                divisionCode = "-C";
+//                break;
+//            default:
+//                divisionCode = "";
+//        }
+//        editor.putString(Constants.DIVISION_CODE, divisionCode);
         editor.remove(Constants.TEMP_PASSWORD);
         editor.remove(Constants.TEMP_USERNAME);
 
@@ -387,7 +385,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(Constants.TEMP_USERNAME, userName);
                     editor.putString(Constants.TEMP_PASSWORD, password);
-                    editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
+//                    editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
                     editor.apply();
                     Utils.doWhenNoNetwork(getActivity());
                 }
@@ -418,7 +416,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 String password = passwordEditText.getText().toString();
                 editor.putString(Constants.TEMP_USERNAME, userName);
                 editor.putString(Constants.TEMP_PASSWORD, password);
-                editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
+//                editor.putInt(Constants.TEMP_DIVISION, divisionRadioGroup.getCheckedRadioButtonId());
                 editor.apply();
                 Utils.doWhenNoNetwork(Objects.requireNonNull(getActivity()));
             }
@@ -454,7 +452,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         .cookies(res.cookies())
                         .post();
                 userName = doc.select("strong").text();
-                Document doc2 = Jsoup.connect(Constants.attendanceURL)
+                Document doc2 = Jsoup.connect(Constants.attendanceURLParentsCorner)
                         .cookies(res.cookies())
                         .post();
                 list = doc2.select("select[name=code]");

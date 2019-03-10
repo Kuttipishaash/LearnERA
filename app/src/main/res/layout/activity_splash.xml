@@ -28,7 +28,7 @@
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
         android:gravity="center_horizontal"
-        android:text="Version: 3.0"
+        android:text="@string/app_version"
         android:textColor="@color/md_white_1000"
         android:textSize="20sp" />
 

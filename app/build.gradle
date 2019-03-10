@@ -15,8 +15,8 @@ android {
         applicationId 'com.learnera.app'
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 7
-        versionName '3.0'
+        versionCode 9
+        versionName '3.2'
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
             annotationProcessorOptions {
@@ -49,11 +49,11 @@ dependencies {
     implementation files('libs/jsoup-1.10.3.jar')
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.browser:browser:1.0.0'
-    implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha03'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.browser:browser:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
 
     // Third party UI libraries
     implementation 'com.bignerdranch.android:expandablerecyclerview:2.1.1'
@@ -70,13 +70,13 @@ dependencies {
     // Firebase components
     implementation 'com.google.firebase:firebase-storage:16.0.5'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
-    implementation 'com.google.firebase:firebase-config:16.1.0'
-    implementation 'com.google.firebase:firebase-database:16.0.5'
+    implementation 'com.google.firebase:firebase-config:16.1.3'
+    implementation 'com.google.firebase:firebase-database:16.0.6'
 
     // Room components
-    implementation 'androidx.room:room-runtime:2.1.0-alpha02'
-    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha02'
-    androidTestImplementation 'androidx.room:room-testing:2.1.0-alpha02'
+    implementation 'androidx.room:room-runtime:2.1.0-alpha04'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha04'
+    androidTestImplementation 'androidx.room:room-testing:2.1.0-alpha04'
 
     // Lifecycle components
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
