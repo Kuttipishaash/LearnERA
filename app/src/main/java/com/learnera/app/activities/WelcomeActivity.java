@@ -37,6 +37,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.mateware.snacky.Snacky;
+import es.dmoral.toasty.Toasty;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -369,7 +370,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 User.logout(WelcomeActivity.this);
                 break;
             case R.id.drawable_attendance:
-                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
+                Toasty.error(this, "Attendance feature is not currently available").show();
+//                startActivity(new Intent(WelcomeActivity.this, AttendanceActivity.class));
                 break;
             case R.id.drawable_announcement:
                 startActivity(new Intent(WelcomeActivity.this, AnnouncementsActivity.class));

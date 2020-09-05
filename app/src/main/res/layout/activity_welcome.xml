@@ -130,10 +130,12 @@
 
                                 <ImageView
                                     style="@style/home_icon_image_view"
+                                    android:tint="@color/md_grey_400"
                                     app:srcCompat="@drawable/ic_attendance" />
 
                                 <TextView
                                     style="@style/home_icon_text_view"
+                                    android:textColor="@color/md_grey_400"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:text="@string/title_activity_attendance" />
